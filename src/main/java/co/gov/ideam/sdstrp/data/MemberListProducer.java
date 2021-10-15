@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.kitchensinkjsp.data;
+package co.gov.ideam.sdstrp.data;
 
 import java.util.List;
 import javax.annotation.PostConstruct;

@@ -44,6 +44,7 @@ public class EmpresasDao {
 	private List<Tuple> listaEmpresasAu;
 	private List<Empresa> listaEmpresasAuJson;
 	private List<Empresa> listaEmpresasIdeJson;
+	private List<Empresa> empresaUp;
 
 	private Empresa newEmp;
 	
@@ -131,6 +132,44 @@ public class EmpresasDao {
 		
 
 	}
+	
+	public List<Empresa> empresaAutoridadIdJson(int idEmp) {
+		
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		
+		try {
+			
+			CriteriaQuery<Empresa> conRes = cb.createQuery(Empresa.class);
+			Root<Empresa> RootEmp = conRes.from(Empresa.class);
+			conRes.where(cb.equal(RootEmp.get("emp_id"), idEmp));
+			conRes.select(RootEmp);
+			empresaUp = em.createQuery(conRes).getResultList();
+			
+			for (Empresa emp : empresaUp) {
+				log.info(emp.getEmpDept().getDept_nombre());
+				log.info(emp.getEmp_id()+"");
+				emp.getEmpCii().getCii_nombre();
+				emp.getEmp_mun().getMunic_nombre();
+				
+				for (Sede sed : emp.getEmpresaSed()) {
+					log.info(sed.getSed_nombre());
+					sed.getDepartamento().getDept_nombre();
+					sed.getSedMunic().getMunic_nombre();
+					
+				}
+			}
+
+		} catch (Exception e) {
+		
+			log.info("Fallo lista de Declaraciones: " + e.getMessage());
+			empresaUp = null;
+			
+			
+		} 
+			
+			return empresaUp;
+
+	}
 
 
 
@@ -186,6 +225,7 @@ public class EmpresasDao {
 	
 		try {
 
+			
 			log.info("Registering " + newEmp);
 			em.persist(newEmp);
 			EmpEventSrc.fire(newEmp);

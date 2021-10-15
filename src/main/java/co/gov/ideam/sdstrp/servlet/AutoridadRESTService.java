@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.kitchensinkjsp.rest;
+package co.gov.ideam.sdstrp.servlet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,7 +44,6 @@ import co.gov.ideam.sdstrp.model.Empresa;
 import co.gov.ideam.sdstrp.model.Residuos;
 import co.gov.ideam.sdstrp.model.Sede;
 import co.gov.ideam.sdstrp.model.Usuario;
-import co.gov.ideam.sdstrp.servlet.control;
 
 /**
  * Servlet implementation class AutoridadRESTService
@@ -92,6 +91,8 @@ public class AutoridadRESTService extends HttpServlet {
     private UsuaAdapter usuAdp;
     
     private List<Empresa> emp;
+
+	List<Empresa> empre = new ArrayList<Empresa>();
     
     
 	
@@ -323,6 +324,7 @@ public class AutoridadRESTService extends HttpServlet {
 			// TODO: handle exception
 		}
 	}
+	
 
 	private void autEmpresaUpt(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) throws Exception {
 		// TODO Auto-generated method stub
@@ -356,9 +358,10 @@ public class AutoridadRESTService extends HttpServlet {
 		empUp.setEmp_rep_nombre(nombre_represen);
 		
 		emp = new ArrayList<Empresa>();
-		emp.set(0, empUp);
+		emp.add(empUp);
 		empDao.updEmp(empUp); 
-		JsonArray lJsonEmp = empAdp.formatEmpres(emp);
+		List<Empresa> empresa = empDao.empresaAutoridadIdJson(empUp.getEmp_id());
+		JsonArray lJsonEmp = empAdp.formatEmpres(empresa);
 		JsonObject rest = new JsonObject();
 		final Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").registerTypeAdapter(Empresa.class, new BooleanTypeAdapter()).create();
 		rest.addProperty("success", true);

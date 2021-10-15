@@ -26,9 +26,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.jboss.as.quickstarts.kitchensinkjsp.data.MemberListProducer;
-
 import co.gov.ideam.sdstrp.controller.MemberRegistration;
+import co.gov.ideam.sdstrp.data.MemberListProducer;
 import co.gov.ideam.sdstrp.model.Member;
 
 /**
