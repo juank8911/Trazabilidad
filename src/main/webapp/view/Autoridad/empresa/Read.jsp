@@ -284,7 +284,7 @@
         <label for="departamento">Departamento:</label>
     </div>
    <div class="k-edit-field">
-        <input id="departamento" name="departamento" data-bind=" value: departamento.dept_nombre " required />
+        <input id="departamento" name="departamento" data-bind=" value: departamento.id_dept " required />
         <span class="k-invalid-msg" data-for="departamento"></span>
     </div>
 
@@ -292,7 +292,7 @@
         <label for="municipio">Municipio:</label>
     </div>
     <div class="k-edit-field">
-        <input id="municipio" name="municipio" data-bind=" value: municipio.munic_nombre " required />
+        <input id="municipio" name="municipio" data-bind=" value: municipio.id_munic " required />
        <span class="k-invalid-msg" data-for="municipio"></span> </div>
  </script>
 		

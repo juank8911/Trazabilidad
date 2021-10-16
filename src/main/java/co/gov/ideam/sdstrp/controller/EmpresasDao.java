@@ -44,12 +44,16 @@ public class EmpresasDao {
 	private List<Tuple> listaEmpresasAu;
 	private List<Empresa> listaEmpresasAuJson;
 	private List<Empresa> listaEmpresasIdeJson;
+<<<<<<< HEAD
 	private List<Empresa> empresaUp;
+=======
+	private Empresa empIdAJson;
+>>>>>>> iss53
 
 	private Empresa newEmp;
 	
 	@Inject
-	EntityManager em;
+	private EntityManager em;
 	
 
 	@Produces
@@ -86,10 +90,9 @@ public class EmpresasDao {
 
 			log.info("Fallo lista de Declaraciones: " + e.getMessage());
 			listaEmpresasIdeJson = null;
-			
-			
-		} 
-
+					
+		}
+		em.close();
 	}
 	
 	public List<Empresa> empresasAutoridadJson(int idAu) {
@@ -124,13 +127,41 @@ public class EmpresasDao {
 			listaEmpresasIdeJson = null;
 			
 			
-		} finally {
+		}
 			
 			return listaEmpresasAuJson;
 		}
+	
+	
+	
+	public Empresa empresaAutiDJson(int idEm) 
+	{
+		log.info("Dentro de Empresa");
+		CriteriaBuilder cb = em.getCriteriaBuilder();
 		
-		
+		try {
+	
+			CriteriaQuery<Empresa> conRes = cb.createQuery(Empresa.class);
+			Root<Empresa> RootEmp = conRes.from(Empresa.class);
+			conRes.where(cb.equal(RootEmp.get("emp_id"), idEm));
+			conRes.select(RootEmp);
+			empIdAJson = em.createQuery(conRes).getSingleResult();
+			
+				empIdAJson.getEmpDept().getDept_nombre();
+				empIdAJson.getEmp_id();
+				empIdAJson.getEmpCii().getCii_nombre();
+				empIdAJson.getEmp_mun().getMunic_nombre();
+				
+				for (Sede sed : empIdAJson.getEmpresaSed()) {
+					log.info(sed.getSed_nombre());
+					sed.getDepartamento().getDept_nombre();
+					sed.getSedMunic().getMunic_nombre();
+					
+				
+			}
+			
 
+<<<<<<< HEAD
 	}
 	
 	public List<Empresa> empresaAutoridadIdJson(int idEmp) {
@@ -170,6 +201,18 @@ public class EmpresasDao {
 			return empresaUp;
 
 	}
+=======
+		} catch (Exception e) {
+		
+			log.info("Fallo lista de Empresas Por autoridad: " + e.getMessage());
+			listaEmpresasIdeJson = null;
+			
+			
+		}
+			
+			return empIdAJson;
+		}
+>>>>>>> iss53
 
 
 

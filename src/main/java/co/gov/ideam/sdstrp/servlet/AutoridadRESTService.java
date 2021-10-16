@@ -356,12 +356,25 @@ public class AutoridadRESTService extends HttpServlet {
 		empUp.setEmp_cc_represen(cc_represen);
 		empUp.setEmp_rep_email(email_represen);
 		empUp.setEmp_rep_nombre(nombre_represen);
+<<<<<<< HEAD:src/main/java/co/gov/ideam/sdstrp/servlet/AutoridadRESTService.java
 		
 		emp = new ArrayList<Empresa>();
 		emp.add(empUp);
 		empDao.updEmp(empUp); 
 		List<Empresa> empresa = empDao.empresaAutoridadIdJson(empUp.getEmp_id());
 		JsonArray lJsonEmp = empAdp.formatEmpres(empresa);
+=======
+		List<Empresa> lEmp = new ArrayList<Empresa>();
+		Empresa en = new Empresa();
+		lEmp.add(en);
+		log.info(lEmp.size()+"");
+		empDao.updEmp(empUp); 
+		log.info(empUp.getEmp_id()+"");
+		Empresa en1 = empDao.empresaAutiDJson(idEm);
+		lEmp.set(0, en1);
+		log.info(lEmp.get(0).toString());
+		JsonArray lJsonEmp = empAdp.formatEmpres(lEmp);
+>>>>>>> iss53:src/main/java/org/jboss/as/quickstarts/kitchensinkjsp/rest/AutoridadRESTService.java
 		JsonObject rest = new JsonObject();
 		final Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").registerTypeAdapter(Empresa.class, new BooleanTypeAdapter()).create();
 		rest.addProperty("success", true);
