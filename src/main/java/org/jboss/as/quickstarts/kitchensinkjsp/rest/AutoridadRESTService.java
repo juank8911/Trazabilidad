@@ -354,11 +354,16 @@ public class AutoridadRESTService extends HttpServlet {
 		empUp.setEmp_cc_represen(cc_represen);
 		empUp.setEmp_rep_email(email_represen);
 		empUp.setEmp_rep_nombre(nombre_represen);
-		
-		emp = new ArrayList<Empresa>();
-		emp.set(0, empUp);
+		List<Empresa> lEmp = new ArrayList<Empresa>();
+		Empresa en = new Empresa();
+		lEmp.add(en);
+		log.info(lEmp.size()+"");
 		empDao.updEmp(empUp); 
-		JsonArray lJsonEmp = empAdp.formatEmpres(emp);
+		log.info(empUp.getEmp_id()+"");
+		Empresa en1 = empDao.empresaAutiDJson(idEm);
+		lEmp.set(0, en1);
+		log.info(lEmp.get(0).toString());
+		JsonArray lJsonEmp = empAdp.formatEmpres(lEmp);
 		JsonObject rest = new JsonObject();
 		final Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").registerTypeAdapter(Empresa.class, new BooleanTypeAdapter()).create();
 		rest.addProperty("success", true);

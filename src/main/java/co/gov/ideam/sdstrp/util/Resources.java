@@ -36,6 +36,7 @@ import javax.persistence.PersistenceContext;
  * </pre>
  */
 public class Resources {
+	
     @Produces
     @PersistenceContext
     private EntityManager em;
