@@ -24,7 +24,7 @@
         <version>7.1.0.GA</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>trazabilidad</artifactId>
+    <artifactId>trazabilidad1</artifactId>
     <packaging>war</packaging>
     <name>${qs.name.prefix} trazabilidad</name>
     <description>A kitchensink project with a JSP front end</description>
