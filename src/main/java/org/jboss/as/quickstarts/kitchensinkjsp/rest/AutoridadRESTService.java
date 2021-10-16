@@ -306,12 +306,15 @@ public class AutoridadRESTService extends HttpServlet {
 			sed.setSed_telefono_nro(new BigInteger(request.getParameter("sed_telefono_n")));
 			sed.setSed_telefono_ext(Integer.parseInt(request.getParameter("sed_telefono_ext")));
 			JsonObject rest = new JsonObject();
-			final Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").registerTypeAdapter(Empresa.class, new BooleanTypeAdapter()).create();
+			final Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").registerTypeAdapter(Sede.class, new BooleanTypeAdapter()).create();
 		if(sedDao.sedeUpd(sed))
 		{
-			
-			rest.addProperty("success", true);
-			response.getWriter().write( gson.toJson(rest));
+			List<Sede> lEmp = new ArrayList<Sede>();
+			lEmp.add(new Sede());
+			lEmp.set(0, sed);
+		    response.setContentType("application/json");
+		    JsonArray lJsonSed = sedAdp.formatSedes(lEmp);		
+			response.getWriter().write( gson.toJson(lJsonSed));
 		}
 		else
 		{
