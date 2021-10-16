@@ -276,7 +276,7 @@
         <label for="ciiupr">CIIU4:</label>
     </div>
    <div class="k-edit-field">
-        <input id="ciiupr" name="ciiupr" data-bind=" value: ciiupr.ciipr_nombre " required />
+        <input id="ciiupr" name="ciiupr" data-bind=" value: ciiupr.ciipr_id " required />
         <span class="k-invalid-msg" data-for="ciiupr"></span>
     </div>
 
