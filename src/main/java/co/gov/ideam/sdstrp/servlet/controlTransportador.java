@@ -436,8 +436,6 @@ public class controlTransportador extends HttpServlet {
                     StringBuilder db = new StringBuilder("");
                     	
                         for ( Declaracion dec: lsDecTrasnn) {
-                        	System.out.println(dec);
-                        	log.info("{'id': "+dec.getDec_id()+" , "+"'name' : '"+dec.getDec_gen_fecha_gen()+"', 'price' :'"+dec.getDec_ges_aprobada()+"'}");
                         	db.append(dec.getDec_id()+" ? "+dec.getDec_gen_fecha_gen()+"?"+dec.getDec_ges_aprobada()+"|");
         					}
                        
@@ -815,6 +813,7 @@ public class controlTransportador extends HttpServlet {
                 		declaDao.updateDecla_DeclaRes(dcla,decRes);
                 		s++;
                 	}
+                	
     			}
     			else {
     				s+=cDeclas;
@@ -826,6 +825,7 @@ public class controlTransportador extends HttpServlet {
 
 		int coTransP = (int)request.getSession().getAttribute("idSede"); // llamar la variable de session
 		declaDao.getListaDeclaracionTranpor(coTransP);
+    	vehDAO.listarVehiculosTrans(coTransP);
         dis = request.getRequestDispatcher(ruta);
         dis.forward(request, response);
     }
