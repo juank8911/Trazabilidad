@@ -45,7 +45,7 @@
                            </div>
                            </div-->
                            
-          <kendo:grid  name="Residuos" groupable="true" columnMenu="true" width="99%">
+          <kendo:grid  name="Residuos" groupable="true" pageable="true" columnMenu="true" width="99%">
     		<kendo:grid-toolbar>
         				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
         			</kendo:grid-toolbar> 

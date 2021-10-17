@@ -32,7 +32,7 @@
                 </div>
                 <br>
 		<div class="row">
-			<kendo:grid name="historicoDecla" columnMenu="true" width="95%" >
+			<kendo:grid name="historicoDecla" pageable="true" columnMenu="true" width="95%" >
 			        <kendo:grid-toolbar>
         				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
         			</kendo:grid-toolbar> 
