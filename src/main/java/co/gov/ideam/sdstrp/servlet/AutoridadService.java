@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.kitchensinkjsp.rest;
+package co.gov.ideam.sdstrp.servlet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,14 +6,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Enumeration;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.jms.Session;
 import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,20 +43,19 @@ import co.gov.ideam.sdstrp.model.Empresa;
 import co.gov.ideam.sdstrp.model.Residuos;
 import co.gov.ideam.sdstrp.model.Sede;
 import co.gov.ideam.sdstrp.model.Usuario;
-import co.gov.ideam.sdstrp.servlet.control;
 
 /**
- * Servlet implementation class AutoridadRESTService
+ * Servlet implementation class AutoridadService
  */
 @WebServlet( "/autoridadServlet" )
-public class AutoridadRESTService extends HttpServlet {
+public class AutoridadService extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AutoridadRESTService() {
+    public AutoridadService() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -91,7 +89,6 @@ public class AutoridadRESTService extends HttpServlet {
     @Inject
     private UsuaAdapter usuAdp;
     
-    private List<Empresa> emp;
     
     
 	
@@ -292,6 +289,8 @@ public class AutoridadRESTService extends HttpServlet {
 		
 		
 	}
+	
+
 
 	private void autSedesUpd(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) {
 		// TODO Auto-generated method stub
@@ -311,7 +310,8 @@ public class AutoridadRESTService extends HttpServlet {
 		{
 			List<Sede> lEmp = new ArrayList<Sede>();
 			lEmp.add(new Sede());
-			lEmp.set(0, sed);
+			Sede sedeId = sedDao.autSedeIdJson(sed.getSed_id());
+			lEmp.set(0, sedeId);
 		    response.setContentType("application/json");
 		    JsonArray lJsonSed = sedAdp.formatSedes(lEmp);		
 			response.getWriter().write( gson.toJson(lJsonSed));

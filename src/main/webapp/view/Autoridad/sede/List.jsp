@@ -118,7 +118,7 @@
 
     			}
     			</script>
-    			</kendo:grid-edit name="Sede"  pageable="true"  editable="true" navigatable="true" groupable="true" columnMenu="true" width="95%">
+    			</kendo:grid-edit>
     		</kendo:grid-editable>
 				<kendo:grid-toolbar>
         				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
