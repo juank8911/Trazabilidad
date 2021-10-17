@@ -18,6 +18,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 
 @Entity
 @XmlRootElement
@@ -325,46 +328,57 @@ public class Sede implements Serializable
 	
 	
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "RutasSedTr")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "RutasSedTr")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<RutaSedeTran> RutasSedTr;
 	
-	@OneToMany(cascade = {CascadeType.MERGE} ,fetch = FetchType.LAZY, mappedBy = "sedeUsu")
+	@OneToMany(cascade = {CascadeType.MERGE} ,fetch = FetchType.EAGER, mappedBy = "sedeUsu")
 	 private List<Usuario> sedeUsu;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sedGene")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "sedGene")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Programacion> sedGene;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jsedprog")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "jsedprog")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Programacion> jsedprog;
 	
-	@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,
+	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,
 	        orphanRemoval = true, mappedBy = "decSedGes")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Declaracion> decSedGes;
 	
-	@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,
+	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,
 	        orphanRemoval = true, mappedBy = "decSedTran")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Declaracion> decSedTran;
 	
-	@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,
+	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,
 	        orphanRemoval = true, mappedBy = "decSedGen")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Declaracion> decSedGen;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jsedprog")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "jsedprog")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Programacion> listproSede;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sedeRes")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "sedeRes")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Residuos> sedes_res;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sedeTrans")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "sedeTrans")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Residuos> sedeTrans;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sedeGest")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "sedeGest")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Residuos> sedeGest;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "vehiSede")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "vehiSede")
+	@Fetch(value =FetchMode.SUBSELECT)
 	 private List<Vehiculo> sedes_Vehi;
 	
-	  @ManyToOne(fetch=FetchType.LAZY)
+	  @ManyToOne(fetch=FetchType.LAZY)	  
 	   @JoinColumn(name = "SED_DEPARTAMENTO", referencedColumnName = "ID_DEPT", insertable=false, updatable=false)
 	   private Departamento departamento;
 	  
@@ -376,13 +390,13 @@ public class Sede implements Serializable
 	   @JoinColumn(name = "SED_MUNICIPIO", referencedColumnName = "ID_MUNIC", insertable=false, updatable=false)
 	   private Municipio sedMunic;
 	  
-//	  @ManyToOne(fetch=FetchType.LAZY)
+//	  @ManyToOne(fetch=FetchType.EAGER)
 //	   @JoinColumn(name = "pro_transportador", referencedColumnName = "sed_id", insertable=false, updatable=false)
 //	   private Sede sedTranspT;
 
 //		
 //		
-//		@OneToMany(fetch = FetchType.LAZY, mappedBy = "sedGest")
+//		@OneToMany(fetch = FetchType.EAGER, mappedBy = "sedGest")
 //		 private List<Programacion> listSedeGest;
 		
 	

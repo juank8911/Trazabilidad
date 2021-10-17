@@ -302,7 +302,7 @@ public class AutoridadService extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			int id = Integer.parseInt(request.getParameter("sed_id"));
-			Sede sed = em.find(Sede.class, id);
+			Sede sed = sedDao.autSedeIdJson(id);
 			sed.setSed_nombre(request.getParameter("sed_nombre"));
 			sed.setSed_empresa(Integer.valueOf(request.getParameter("empresa[emp_id]")));
 			sed.setSed_departamento(Integer.parseInt(request.getParameter("departamento[id_dept]")));

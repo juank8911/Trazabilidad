@@ -48,7 +48,7 @@ public class VehiculoDAO {
     
     private List<Tuple> listaVehiculoUsu;
     
-    private List<Vehiculo> listaVehiculoTrans;
+    static List<Vehiculo> listaVehiculoTrans;
     
     
     
