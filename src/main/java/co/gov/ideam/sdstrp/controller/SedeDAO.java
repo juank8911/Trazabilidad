@@ -117,16 +117,32 @@ public class SedeDAO {
 	    
 		public Sede autSedeIdJson(int idSed)
 		{
-			Session session = HibernateUtil.getHibernateSession();
-//			Session session = em.unwrap(Session.class);
-//			SessionFactory sF = em.getEntityManagerFactory().unwrap(SessionFactory.class);
-			CriteriaBuilder cb = session.getCriteriaBuilder();
-			CriteriaQuery<Sede> sesSed =cb.createQuery(Sede.class);
-			Root<Sede> rooSe = sesSed.from(Sede.class);
-			sesSed.where(cb.equal(rooSe.get("sed_id"), idSed));
-			sesSed.select(rooSe);
-			sedeUp = session.createQuery(sesSed).getSingleResult();
-			session.close();
+			
+			try {
+////				Session session = HibernateUtil.getHibernateSession();
+//				Session session = em.unwrap(Session.class);
+////				SessionFactory sF = em.getEntityManagerFactory().unwrap(SessionFactory.class);
+//				CriteriaBuilder cb = session.getCriteriaBuilder();
+//				CriteriaQuery<Sede> sesSed =cb.createQuery(Sede.class);
+//				Root<Sede> rooSe = sesSed.from(Sede.class);
+//				sesSed.where(cb.equal(rooSe.get("sed_id"), idSed));
+//				sesSed.select(rooSe);
+//				sedeUp = session.createQuery(sesSed).getSingleResult();
+//				session.close();
+				
+				CriteriaBuilder cb = em.getCriteriaBuilder();
+				CriteriaQuery<Sede> conBd = cb.createQuery(Sede.class);
+				Root<Sede> rootSed = conBd.from(Sede.class);
+				conBd.where(cb.equal(rootSed.get("sed_id"), idSed));				
+				sedeUp = em.createQuery(conBd).getSingleResult();
+					log.info(sedeUp.getEmpresaSed().getEmp_direccion());
+					log.info(sedeUp.getSedMunic().getMunic_nombre());
+					log.info(sedeUp.getDepartamento().getDept_nombre());
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				log.info("Fallo lista de Sede por id: " + e.getMessage());
+			}
 			return sedeUp;
 		}
 	    
@@ -270,7 +286,7 @@ public class SedeDAO {
 			return sedesCon;
 		}
 
-		public void darSedeId(int idS) {
+		public Sede darSedeId(int idS) {
 			// TODO Auto-generated method stub
 			CriteriaBuilder cb = em.getCriteriaBuilder();
 			CriteriaQuery<Sede> conBd = cb.createQuery(Sede.class);
@@ -279,7 +295,7 @@ public class SedeDAO {
 			conBd.where(cb.equal(rootSed.get("sed_id"), idS));
 			idSede = em.createQuery(conBd).getSingleResult();
 			idSede.getEmpresaSed().getEmpCii().getCii_nombre();
-			
+			return idSede;
 		}
 
 
