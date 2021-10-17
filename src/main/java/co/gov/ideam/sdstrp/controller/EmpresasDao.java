@@ -44,11 +44,8 @@ public class EmpresasDao {
 	private List<Tuple> listaEmpresasAu;
 	private List<Empresa> listaEmpresasAuJson;
 	private List<Empresa> listaEmpresasIdeJson;
-<<<<<<< HEAD
 	private List<Empresa> empresaUp;
-=======
 	private Empresa empIdAJson;
->>>>>>> iss53
 
 	private Empresa newEmp;
 	
@@ -160,8 +157,12 @@ public class EmpresasDao {
 				
 			}
 			
-
-<<<<<<< HEAD
+		}catch (Exception e) {
+			// TODO: handle exception
+			log.info("Fallo lista de Sede: " + e.getMessage());
+		}
+		return empIdAJson;
+		
 	}
 	
 	public List<Empresa> empresaAutoridadIdJson(int idEmp) {
@@ -201,18 +202,7 @@ public class EmpresasDao {
 			return empresaUp;
 
 	}
-=======
-		} catch (Exception e) {
-		
-			log.info("Fallo lista de Empresas Por autoridad: " + e.getMessage());
-			listaEmpresasIdeJson = null;
-			
-			
-		}
-			
-			return empIdAJson;
-		}
->>>>>>> iss53
+
 
 
 
