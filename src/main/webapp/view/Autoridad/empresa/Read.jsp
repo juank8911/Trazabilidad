@@ -111,7 +111,7 @@
 		            }).data("kendoDropDownList");
         			}
     			</script>
-    			</kendo:grid-edit>
+    	</kendo:grid-edit>
     		</kendo:grid-editable>
     		        <kendo:grid-toolbar>
             			<kendo:grid-toolbarItem name="create"/>

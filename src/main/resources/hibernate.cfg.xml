@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+<!--   Database Connection Settings  -->
+  <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+<!--   <property name="hibernate.connection.datasource">java:jboss/datasources/GESTION_TRAZABILIDAD</property> -->
+  <property name="show_sql">true</property>
+<!--   SQL Dialect -->
+  <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+   <property name="current_session_context_class">thread</property>
+   
+<!--    Mapping With Model Class Containing Annotations --> 
+  <mapping class="co.gov.ideam.sdstrp.entitys.DeclaracionResiduo"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Departamento"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Empresa"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.EstadoMateria"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.GestionUbicacion"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Municipio"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Perfil"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Programacion"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Rutas"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.RutaSedeTran"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Sede"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.ServicioGestor"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.TipoDocumento"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.TipoEmbalaje"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.TipoEmpaque"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.TipoGestion"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.TipoManejo"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.TipoPeligrosidad "/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.TipoResiduos"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.TipoVehiculo"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Ubicacion"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Usuario_Perfil"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Usuario"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Declaracion"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Vehiculo"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Ciiu4"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Autoridad"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Autorizaciones"/>
+  <mapping class="co.gov.ideam.sdstrp.entitys.Residuos"/>
+ </session-factory>
+</hibernate-configuration>

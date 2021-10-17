@@ -13,6 +13,9 @@ import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.hibernate.Session;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -23,13 +26,13 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
-
+import org.hibernate.SessionFactory;
 
 import co.gov.ideam.sdstrp.model.Empresa;
 import co.gov.ideam.sdstrp.model.Municipio;
 import co.gov.ideam.sdstrp.model.Sede;
-import co.gov.ideam.sdstrp.model.Usuario;
 import co.gov.ideam.sdstrp.model.Usuario_Perfil;
+import co.gov.ideam.sdstrp.util.HibernateUtil;
 
 @Stateful
 @Model
@@ -49,6 +52,7 @@ public class SedeDAO {
 	    private List<Sede> listaSedesAuJs;
 	    private List<Sede> listaSedesIdeJs;
 	    private Sede idSede;
+	    private Sede sedeUp;
 
 		private Sede newSed;
 		
@@ -109,6 +113,21 @@ public class SedeDAO {
 				log.info(""+tuple.get(5));
 			}
 			
+		}
+	    
+		public Sede autSedeIdJson(int idSed)
+		{
+			Session session = HibernateUtil.getHibernateSession();
+//			Session session = em.unwrap(Session.class);
+//			SessionFactory sF = em.getEntityManagerFactory().unwrap(SessionFactory.class);
+			CriteriaBuilder cb = session.getCriteriaBuilder();
+			CriteriaQuery<Sede> sesSed =cb.createQuery(Sede.class);
+			Root<Sede> rooSe = sesSed.from(Sede.class);
+			sesSed.where(cb.equal(rooSe.get("sed_id"), idSed));
+			sesSed.select(rooSe);
+			sedeUp = session.createQuery(sesSed).getSingleResult();
+			session.close();
+			return sedeUp;
 		}
 	    
 	    public List<Sede> sedesAutoJs(int idAut) {
