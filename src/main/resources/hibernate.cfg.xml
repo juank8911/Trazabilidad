@@ -3,7 +3,10 @@
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> arreglo
 <hibernate-configuration>
  <session-factory>
 <!--   Database Connection Settings  -->

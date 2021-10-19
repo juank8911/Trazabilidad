@@ -5,12 +5,10 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.ejb.SessionBean;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Tuple;
