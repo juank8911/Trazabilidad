@@ -239,8 +239,66 @@
         <input id="municipio" name="municipio" data-bind=" value: municipio.munic_nombre " required />
        <span class="k-invalid-msg" data-for="municipio"></span> </div>
 
+    <div class="demo-section">
+        <div class="settings-head"></div>
+        <ul>
+            <li>Notifications <input type="checkbox" id="notifications-switch" aria-label="Notifications Switch" checked="checked" /></li>
+            <li>Send notifications <input id="mail-switch" aria-label="Mail Switch" /></li>
+            <li>Always visible <input id="visible-switch" aria-label="Visible Switch" /></li>
+            <li>Display real name <input id="name-switch" aria-label="Name Switch" /></li>
+        </ul>
+    </div>
+
  </script>
- 
+ <style type="text/css">
+        .demo-section ul {
+            margin: 0;
+            padding: 0;
+        }
+
+            .demo-section ul li {
+                list-style-type: none;
+                margin: 0;
+                padding: 10px 10px 10px 20px;
+                min-height: 28px;
+                line-height: 28px;
+                vertical-align: middle;
+                border-top: 1px solid rgba(128,128,128,.5);
+            }
+
+        .demo-section {
+            min-width: 220px;
+            margin-top: 50px;
+            padding: 0;
+        }
+
+            .demo-section ul li .k-switch {
+                float: right;
+            }
+
+        .settings-head {
+            height: 66px;
+            background: url('../content/web/switch/settings-title.png') no-repeat 20px 50% #2db245;
+        }
+    </style>
+ <script>
+    $(function () {
+        $("#notifications-switch").kendoSwitch();
+
+        $("#mail-switch").kendoSwitch({
+            messages: {
+                checked: "YES",
+                unchecked: "NO"
+            }
+        });
+
+        $("#visible-switch").kendoSwitch({
+            checked: true
+        });
+
+        $("#name-switch").kendoSwitch();
+    });
+</script>
 		
 		</div>
 		<!--/div-->
