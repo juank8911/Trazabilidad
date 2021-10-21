@@ -92,45 +92,84 @@
         			
         								<div class="container">
 					
-							<kendo:grid name="Residuos" pageable="true">
+							<kendo:grid name="Residuos" pageable="true" editable="true" navigatable="true" groupable="true" columnMenu="true" width="95%">
+										<kendo:grid-editable mode="popup"></kendo:grid-editable>
 									<kendo:dataSource pageSize="4">
 											<kendo:dataSource-transport>
-													<kendo:dataSource-transport-read url="/trazabilidad/residuosServlet?action=residuosAll">
-													</kendo:dataSource-transport-read>
+													<kendo:dataSource-transport-read url="/trazabilidad/residuosServlet?action=residuosAll" />
+													<kendo:dataSource-transport-update url="/trazabilidad/controlGenerador?action=updateResiduo"/> 
 											</kendo:dataSource-transport>
-											<kendo:dataSource-schema >
-											</kendo:dataSource-schema>
+											    		<kendo:dataSource-schema>
+    			<kendo:dataSource-schema-model id="res_id">
+    			<kendo:dataSource-schema-model-fields >
+    					<kendo:dataSource-schema-model-field name="res_nombre" type="string">
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>
+                        <kendo:dataSource-schema-model-field name="t_residuo">
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>                         
+                        <kendo:dataSource-schema-model-field name="gestion_ubi">
+                        </kendo:dataSource-schema-model-field>
+                        <kendo:dataSource-schema-model-field name="tipo_gestion">
+                        </kendo:dataSource-schema-model-field>
+                         <kendo:dataSource-schema-model-field name="t_manejo">
+                        </kendo:dataSource-schema-model-field>
+<%--                         <kendo:dataSource-schema-model-field name="ciiupr" > --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field>                         --%>
+<%--                         <kendo:dataSource-schema-model-field name="emp_direccion" type="string"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="emp_telefono" type="number"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="emp_ext" type="number"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="emp_cc_represen" type="number"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="emp_rep_email" type="string"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="emp_rep_nombre" type="string"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="conGen" type="number" editable="false"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="conTrn" type="number" editable="false"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="conGes" type="number" editable="false"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+<%--                         <kendo:dataSource-schema-model-field name="conSed" type="number" editable="false"> --%>
+<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+<%--                         </kendo:dataSource-schema-model-field> --%>
+    			</kendo:dataSource-schema-model-fields>
+    			</kendo:dataSource-schema-model>
+    		</kendo:dataSource-schema>
 									</kendo:dataSource>
     		<kendo:grid-columns>
     				<kendo:grid-column title="Descripcion" field="res_nombre" />
-    				<kendo:grid-column title="Corriente Residuo" field="tre_nombre" />
-					<kendo:grid-column title="Ubicacion Gestion" field="nombre_gestion_ubi" />
-					<kendo:grid-column title="Tipo Gestion" field="nombre_gestion" />
-					<kendo:grid-column title="Sub tipo Gestion" field="nombre_gestion" />
+    				<kendo:grid-column title="Corriente Residuo" field="t_residuo"  template="#: t_residuo.tre_Id # : #: t_residuo.tre_nombre #"/>
+					<kendo:grid-column title="Ubicacion Gestion" field="gestion_ubi" template="#: gestion_ubi.ges_uNombre #" />
+					<kendo:grid-column title="Tipo Gestion" field="tipo_gestion" template="#: tipo_gestion.gest_nombre #" />
+					<kendo:grid-column title="Tipo manejo" field="t_manejo" template="#: t_manejo.tma_nombre #" />
+					<kendo:grid-column title="Estado Materia" field="estado_materia" template="#: estado_materia.est_nombre #" />
+					<kendo:grid-column title="Tipo Empaque" field="tipo_empaque" template="#: tipo_empaque.tem_nombre #" hidden="true" />
+					<kendo:grid-column title="Tipo Empaque" field="tipo_embalaje" template="#: tipo_embalaje.temb_nombre #" hidden="true" />
+					<kendo:grid-column title="Peligrosidad" field="tPeligro" template="#: tPeligro.pel_nombre #" hidden="true" />
+					<kendo:grid-column title="Transportador" field="sede_transporte" template="#: sede_transporte.tra_nombre #" hidden="true" />
+					<kendo:grid-column title="generador" field="sede_gen" template="#: sede_gen.gen_nombre #" hidden="true" />
+					<kendo:grid-column title="Gestor" field="sede_ges" template="#: sede_ges.ges_nombre #" hidden="true" />
+					
+					
+					
 					<kendo:grid-column title="Opciones">
 					<kendo:grid-column-command>
-            				<kendo:grid-column-commandItem name="editar" text="editar" >
-            							<kendo:grid-column-commandItem-click>
-            									<script type="text/javascript">
-            											function editar(e)
-            											{
-            												e.preventDefault();
-            												var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-            												$.ajax({
-															        url: "/trazabilidad/controlGenerador?action=residuoActuaGeneraCarg",
-															        //send current record ID to the server
-															        data: { id: dataItem.res_id },
-															        success: function (data) {
-															            //update the current dataItem with the received data from the server
-															            //example data: {"OrderID":4,"OrderDate":"\/Date(1343941200000)\/","OrderDescription":"NewDescription","EmployeeId":4}
-															            window.alert("Carga de ruta y envio");
-															        	window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera";
-															        }
-															    })
-                										}
-            									</script>
-            							</kendo:grid-column-commandItem-click>
-            				</kendo:grid-column-commandItem>            					
+            				<kendo:grid-column-commandItem name="edit" />          					
             		</kendo:grid-column-command>
             		</kendo:grid-column>
     	</kendo:grid-columns>
@@ -140,31 +179,8 @@
 					<br/>
 					<br/>
 
-                
-<!--                 <script> -->
-<!--                                 $(document).ready(function() { -->
-                                    
-<!--                                     $("#grid").kendoGrid({ -->
-<!--                                         toolbar: ["excel"], -->
-<!--                                         excel: { -->
-<!--                                             fileName: "Salidas.xlsx", -->
-<!--                                             proxyURL: "https://demos.telerik.com/kendo-ui/service/export", -->
-<!--                                             filterable: true -->
-<!--                                         }, -->
-<!--                                         height: 450,     -->
-<!--                                         columnMenu: true, -->
-<!--                                         pageable: { -->
-<!--                                             pageSize: 5 -->
-<!--                                         }, -->
-<!--                                         sortable: true -->
-   
-<!--                                     }); -->
-<!--                                 }); -->
-<!--                             </script> -->
-
-                    <!-- main content area end -->
-                
-                <!-- footer area start-->
+ 
+ 
      <demo:footer/>
 <!--                 <footer> -->
 <!--                     <div class="footer-area"> -->

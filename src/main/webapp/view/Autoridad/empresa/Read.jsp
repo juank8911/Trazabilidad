@@ -190,7 +190,7 @@
     				<kendo:grid-column title="Transportadores" field="conTrn" ></kendo:grid-column>
     				<kendo:grid-column title="Gestors" field="conGes" ></kendo:grid-column>
     				<kendo:grid-column title="Establecimientos" field="conSed" editable="false"></kendo:grid-column>	
-						<kendo:grid-column title="&nbsp;" width="200px" >
+						<kendo:grid-column title="Opciones" width="200px" >
             				<kendo:grid-column-command>            				
             					<kendo:grid-column-commandItem name="edit" />
             				</kendo:grid-column-command>
@@ -295,6 +295,110 @@
         <input id="municipio" name="municipio" data-bind=" value: municipio.id_munic " required />
        <span class="k-invalid-msg" data-for="municipio"></span> </div>
  </script>
+
+<script type="text/x-kendo-template" id="popupTemplate">
+  <div class="k-edit-label" > 
+        <label for="res_nombre">Nombre:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="res_nombre" name="res_nombre" data-bind="value:res_nombre" required />
+        <span class="k-invalid-msg" data-for="#: res_nombre #" ></span>
+    </div>
+
+  <div class="k-edit-label" > 
+        <label for="t_residuo">Corriente Residuo:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="gestion_ubi" name="gestion_ubi" data-bind="value:gestion_ubi.ges_uId" required />
+        <span class="k-invalid-msg" data-for="#: t_residuo.tre_Id #" ></span>
+    </div>
+
+  <div class="k-edit-label" > 
+        <label for="emp_numero_documento">Tipo Gestion:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="tipo_gestion" name="tipo_gestion" data-bind="value:tipo_gestion.nombre_id" required />
+        <span class="k-invalid-msg" data-for="#: tipo_gestion #" ></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="t_manejo">Tipo manejo:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="t_manejo" name="t_manejo" data-bind=" value:t_manejo.tma_id " required />
+        <span class="k-invalid-msg" data-for="t_manejo"></span>
+    </div>
+
+  <div class="k-edit-label" > 
+        <label for="emp_telefono">Telefono:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="emp_telefono" name="emp_telefono" data-bind="value: emp_telefono" required />
+        <span class="k-invalid-msg" data-for="#: emp_telefono #" ></span>
+    </div>
+
+  <div class="k-edit-label" > 
+        <label for="emp_ext">Ext:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="emp_ext" name="emp_ext" data-bind="value: emp_ext" required />
+        <span class="k-invalid-msg" data-for="#: emp_ext #" ></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="emp_cc_represen">CC Representante:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="emp_cc_represen" name="emp_cc_represen" data-bind=" value: emp_cc_represen " required />
+        <span class="k-invalid-msg" data-for="emp_cc_represen"></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="emp_rep_email">Email Representante:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="emp_rep_email" name="emp_rep_email" data-bind=" value: emp_rep_email " required />
+        <span class="k-invalid-msg" data-for="emp_rep_email"></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="emp_rep_nombre">Nombre Representante:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="emp_rep_nombre" name="emp_rep_nombre" data-bind=" value: emp_rep_nombre " required />
+        <span class="k-invalid-msg" data-for="emp_rep_nombre"></span>
+    </div>
+
+
+    <div class="k-edit-label">
+        <label for="ciiupr">CIIU4:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="ciiupr" name="ciiupr" data-bind=" value: ciiupr.ciipr_id " required />
+        <span class="k-invalid-msg" data-for="ciiupr"></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="departamento">Departamento:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="departamento" name="departamento" data-bind=" value: departamento.id_dept " required />
+        <span class="k-invalid-msg" data-for="departamento"></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="municipio">Municipio:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="municipio" name="municipio" data-bind=" value: municipio.id_munic " required />
+       <span class="k-invalid-msg" data-for="municipio"></span> </div>
+ </script>
+
+
+
+
+
+
 		
 		</div>
 			

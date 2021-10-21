@@ -821,8 +821,8 @@ public class ControlGenerador extends HttpServlet {
 			resDAO.setTitulo("sdstrp - Residuo");
 			log.info("Sede es ="+request.getSession().getAttribute("idSede"));
 	        int rs =  (int) request.getSession().getAttribute("idSede"); // llamar la variable de session de Sede
-	        log.info("Servicio listar gestor: "+ rs);
-	        resDAO.listarResiduoGeneradorId(rs);
+//	        log.info("Servicio listar gestor: "+ rs);
+//	        resDAO.listarResiduoGeneradorId(rs);
 	        dis = request.getRequestDispatcher(ruta);
 	        dis.forward(request, response);
 			

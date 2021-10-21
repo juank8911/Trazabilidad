@@ -131,7 +131,7 @@ public class ResiduoDAO {
 	    @Named
 		public List<Residuos> getListaResiduos(int idSede) {
 			// TODO Auto-generated method stub
-			ListaSedesPr();
+//			ListaSedesPr();
 			listarResiduo(idSede);
 			return listaResiduos;
 		}
@@ -222,7 +222,12 @@ public class ResiduoDAO {
 					resi.gettGestion().getNombre_gestion();
 					resi.gettResiduo().getTre_nombre();
 					resi.getEstadoM().getEma_nombre();
-					
+					resi.getjTipoEmb().getTem_id();
+					resi.getjTipoEmp().getTep_nombre();
+					resi.gettPeligro().getTpe_nombre();
+					resi.getSedeTrans().getSed_direccion();
+					resi.getSedeRes().getSed_direccion();
+					resi.getSedeGest().getSed_direccion();
 				}
 				 		 
 			} catch (Exception e) {
