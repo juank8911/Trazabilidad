@@ -93,7 +93,40 @@
         								<div class="container">
 					
 							<kendo:grid name="Residuos" pageable="true" editable="true" navigatable="true" groupable="true" columnMenu="true" width="95%">
-										<kendo:grid-editable mode="popup"></kendo:grid-editable>
+										<kendo:grid-editable mode="popup" >
+										<kendo:grid-editable-template>
+										<script >
+										function() {
+
+					       					return $("#popupTemplate").html();
+					       					
+					                		// Code to handle the template event.
+					            			}
+										</script>
+										</kendo:grid-editable-template>
+										<kendo:grid-edit>
+										<script >
+										function(e){
+											var model = e.model;
+											var t_res = model.t_residuo;
+											var t_rescon =  t_res.tre_Id.concat(' : ',t_res.tre_nombre)
+											
+											var t_residuo = $("#t_residuo").kendoDropDownList({
+												optionLabel: t_rescon,
+								                dataTextField: "tre_nombre",
+								                dataValueField: "tre_Id",
+								                dataSource: {
+								                    type: "json",
+								                    serverFiltering: true,
+								                    transport: {
+								                        read: "/trazabilidad/combServlet?action=combTRes"
+								                    }
+								                }
+												}).data("kendoDropDownList");
+											}
+										</script>
+										</kendo:grid-edit>
+										</kendo:grid-editable>
 									<kendo:dataSource pageSize="4">
 											<kendo:dataSource-transport>
 													<kendo:dataSource-transport-read url="/trazabilidad/residuosServlet?action=residuosAll" />
@@ -114,27 +147,27 @@
                         </kendo:dataSource-schema-model-field>
                          <kendo:dataSource-schema-model-field name="t_manejo">
                         </kendo:dataSource-schema-model-field>
-<%--                         <kendo:dataSource-schema-model-field name="ciiupr" > --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field>                         --%>
-<%--                         <kendo:dataSource-schema-model-field name="emp_direccion" type="string"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-<%--                         <kendo:dataSource-schema-model-field name="emp_telefono" type="number"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-<%--                         <kendo:dataSource-schema-model-field name="emp_ext" type="number"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-<%--                         <kendo:dataSource-schema-model-field name="emp_cc_represen" type="number"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-<%--                         <kendo:dataSource-schema-model-field name="emp_rep_email" type="string"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-<%--                         <kendo:dataSource-schema-model-field name="emp_rep_nombre" type="string"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
+                        <kendo:dataSource-schema-model-field name="estado_materia" >
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>                        
+                        <kendo:dataSource-schema-model-field name="tipo_empaque">
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>
+                        <kendo:dataSource-schema-model-field name="tipo_embalaje">
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>
+                        <kendo:dataSource-schema-model-field name="tPeligro">
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>
+                        <kendo:dataSource-schema-model-field name="sede_transporte" >
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>
+                        <kendo:dataSource-schema-model-field name="sede_gen" >
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>
+                        <kendo:dataSource-schema-model-field name="sede_ges" >
+                        	<kendo:dataSource-schema-model-field-validation required="true" />
+                        </kendo:dataSource-schema-model-field>
 <%--                         <kendo:dataSource-schema-model-field name="conGen" type="number" editable="false"> --%>
 <%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
 <%--                         </kendo:dataSource-schema-model-field> --%>
@@ -153,7 +186,7 @@
 									</kendo:dataSource>
     		<kendo:grid-columns>
     				<kendo:grid-column title="Descripcion" field="res_nombre" />
-    				<kendo:grid-column title="Corriente Residuo" field="t_residuo"  template="#: t_residuo.tre_Id # : #: t_residuo.tre_nombre #"/>
+    				<kendo:grid-column title="Corriente Residuo" field="t_residuo"  template="#= t_residuo.tre_Id # : #= t_residuo.tre_nombre #"/>
 					<kendo:grid-column title="Ubicacion Gestion" field="gestion_ubi" template="#: gestion_ubi.ges_uNombre #" />
 					<kendo:grid-column title="Tipo Gestion" field="tipo_gestion" template="#: tipo_gestion.gest_nombre #" />
 					<kendo:grid-column title="Tipo manejo" field="t_manejo" template="#: t_manejo.tma_nombre #" />
@@ -180,6 +213,100 @@
 					<br/>
 
  
+<script type="text/x-kendo-template" id="popupTemplate">
+  <div class="k-edit-label" > 
+        <label for="res_nombre">Nombre:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="res_nombre" name="res_nombre" data-bind="value:res_nombre" required />
+        <span class="k-invalid-msg" data-for="#: res_nombre #" ></span>
+    </div>
+
+  <div class="k-edit-label" > 
+        <label for="t_residuo">Corriente Residuo:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="t_residuo" name="t_residuo" data-bind="value: t_residuo.tre_Id" required width="250px" />
+        <span class="k-invalid-msg" data-for="#: t_residuo.tre_Id #" ></span>
+    </div>
+ 	agrevar gestion ubicacion aqui
+
+  <div class="k-edit-label" > 
+        <label for="gestion_ubi">Ubicacion:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="gestion_ubi" name="tipo_gestion" data-bind="value:gestion_ubi.ges_uNombre" required />
+        <span class="k-invalid-msg" data-for="#: tipo_gestion #" ></span>
+    </div>
+
+  <div class="k-edit-label" > 
+        <label for="tipo_gestion">Tipo de Gestion:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="tipo_gestion" name="tipo_gestion" data-bind="value:tipo_gestion.gest_nombre" required />
+        <span class="k-invalid-msg" data-for="#: tipo_gestion #" ></span>
+    </div>
+
+
+
+    <div class="k-edit-label">
+        <label for="t_manejo">Tipo manejo:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="t_manejo" name="t_manejo" data-bind=" value:t_manejo.tma_nombre" required />
+        <span class="k-invalid-msg" data-for="t_manejo"></span>
+    </div>
+
+  <div class="k-edit-label" > 
+        <label for="estado_materia">Estado de la Materia</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="estado_materia" name="estado_materia" data-bind="value: estado_materia.est_nombre" required />
+        <span class="k-invalid-msg" data-for="#: estado_materia #" ></span>
+    </div>
+
+  <div class="k-edit-label" > 
+        <label for="emp_ext">Ext:</label>
+    </div>
+    <div class="k-edit-field">
+        <input id="tipo_empaque" name="Tipo de Empaque" data-bind="value: tipo_empaque.tem_nombre" required />
+        <span class="k-invalid-msg" data-for="#: tipo_empaque #" ></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="tipo_embalaje">Tipo de Embalaje:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="tipo_embalaje" name="tipo_embalaje" data-bind=" value: tipo_embalaje.temb_nombre " required />
+        <span class="k-invalid-msg" data-for="tipo_embalaje"></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="tPeligro">Peligrosidad:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="tPeligro" name="tPeligro" data-bind=" value: tPeligro.pel_nombre " required />
+        <span class="k-invalid-msg" data-for="tPeligro"></span>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="sede_transporte">Sede Transportador:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="sede_transporte" name="sede_transporte.tra_nombre" data-bind=" value: sede_transporte.tra_nombre " required />
+        <span class="k-invalid-msg" data-for="sede_transporte"></span>
+    </div>
+
+
+    <div class="k-edit-label">
+        <label for="sede_ges">Gestor:</label>
+    </div>
+   <div class="k-edit-field">
+        <input id="sede_ges" name="sede_ges" data-bind=" value: sede_ges.ges_nombre " required />
+        <span class="k-invalid-msg" data-for="sede_ges"></span>
+    </div>
+
+ </script>
  
      <demo:footer/>
 <!--                 <footer> -->

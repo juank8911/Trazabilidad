@@ -70,10 +70,9 @@ public class ResiduosAdapter implements com.google.gson.JsonSerializer<Boolean>
 			gen.addProperty("gen_id", res.getSedeRes().getSed_id());
 			jsOb.add("sede_gen", gen);
 			JsonObject ges = new JsonObject();
-			gen.addProperty("ges_nombre", res.getSedeGest().getSed_nombre());
-			gen.addProperty("ges_id", res.getSedeGest().getSed_id());
+			ges.addProperty("ges_nombre", res.getSedeGest().getSed_nombre());
+			ges.addProperty("ges_id", res.getSedeGest().getSed_id());
 			jsOb.add("sede_ges", ges);
-			jsOb.addProperty("res_gestor", res.getRes_gestor());
 			JsonObject tman = new JsonObject();
 			tman.addProperty("tma_nombre", res.gettManejo().getTma_nombre());
 			tman.addProperty("tma_id", res.gettManejo().getTma_id());
