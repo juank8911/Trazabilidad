@@ -109,6 +109,7 @@ public class ProgramacionDao {
 
             log.info("Registering " + newProg);
             em.persist(newProg);
+           
             ProgEventSrc.fire(newProg);
             initNewProg();
         } catch (Exception e) {

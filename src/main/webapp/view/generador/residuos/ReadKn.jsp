@@ -30,7 +30,7 @@
 <!--         <link rel="stylesheet" href="assets/css/coloresInst.css"> -->
 <!--         modernizr css -->
 <!--         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script> -->
-        
+
 <!--         Kendo -->
 <!--         <link rel="stylesheet" href="assets/css/kendo.default-V2.min.css"> -->
 <!--         jquery latest version -->
@@ -38,184 +38,162 @@
 <!--         <script src="assets/js/kendoV2.all.min.js"></script> -->
 <!--         <link rel="stylesheet" href="assets/css/kendoV2.common.min.css"> -->
 <!--         <link rel="stylesheet" href="assets/css/kendo.default.min.css"> -->
-        
+
 <!--     </head> -->
-<demo:header/>
-    <body>
-        
+<demo:header />
+<body>
 
 
-        <%@include file ="../sidebarNavbar.jsp" %>
-            <!-- main content area start -->
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
-					
+
+	<%@include file="../sidebarNavbar.jsp"%>
+	<!-- main content area start -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
 
 
-					</br>
-					</br>
-                <!-- page title area start -->
-                <div>
-                    <div class="row align-items-center">
-                        <div class="col-sm-7">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Listado de Residuo</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>  en el sistema de información</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                </div>
-                <!-- page title area end -->
-                <!-- main content area inicio -->
-                
-                    <div class="row">
-                        <div class="col-lg-6 col-ml-12">
-                                <!-- Server side start -->
-                                
-                                    
-                                        <div class="card-body">
-                                                <a type="button" class="btn btn-success mb-3 ti-plus pull-right" href="controlGenerador?action=residuoCreaGenera" class="text-white"> Crear Residuo</a>
-                                        </div>
 
-                        </div>
-                    </div>
-                    
-                    <p>
-            			<label style="color: green;width: 100%;text-align: left;">${infoMessage}</label> 
-        			</p>
-        			<p>
-             			<label style="color: red; width: 100%;text-align: left;">${errorMessage}</label>
-        			</p>
-        			
-        			
-        								<div class="container">
-					
-<<<<<<< HEAD
-							<kendo:grid name="Residuos" pageable="true" editable="true" navigatable="true" groupable="true" columnMenu="true" width="95%">
-										<kendo:grid-editable mode="popup" >
-										<kendo:grid-editable-template>
-										<script >
-										function() {
+	</br>
+	</br>
+	<!-- page title area start -->
+	<div>
+		<div class="row align-items-center">
+			<div class="col-sm-7">
+				<div class="breadcrumbs-area">
+					<h4 class="page-title pull-left">Listado de Residuo</h4>
+					<ul class="breadcrumbs pull-left">
+						<li><span> en el sistema de información</span></li>
+					</ul>
+				</div>
+			</div>
+			<!-- FIN DE MENU  -->
+		</div>
+	</div>
+	<!-- page title area end -->
+	<!-- main content area inicio -->
 
-					       					return $("#popupTemplate").html();
-					       					
-					                		// Code to handle the template event.
-					            			}
-										</script>
-										</kendo:grid-editable-template>
-										<kendo:grid-edit>
-										<script >
-										function(e){
-											var model = e.model;
-											var t_res = model.t_residuo;
-											var t_rescon =  t_res.tre_Id.concat(' : ',t_res.tre_nombre)
-											
-											var t_residuo = $("#t_residuo").kendoDropDownList({
-												optionLabel: t_rescon,
-								                dataTextField: "tre_nombre",
-								                dataValueField: "tre_Id",
-								                dataSource: {
-								                    type: "json",
-								                    serverFiltering: true,
-								                    transport: {
-								                        read: "/trazabilidad/combServlet?action=combTRes"
-								                    }
-								                }
-												}).data("kendoDropDownList");
-											}
-										</script>
-										</kendo:grid-edit>
-										</kendo:grid-editable>
-=======
-							<kendo:grid name="Residuos" groupable="true" pageable="true" columnMenu="true" width="99%">
-							    		<kendo:grid-toolbar>
-        				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
-        			</kendo:grid-toolbar> 
-        			<kendo:grid-excel fileName="Reporte Mensual.xlsx" filterable="true" proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
->>>>>>> snKend
-									<kendo:dataSource pageSize="4">
-											<kendo:dataSource-transport>
-													<kendo:dataSource-transport-read url="/trazabilidad/residuosServlet?action=residuosAll" />
-													<kendo:dataSource-transport-update url="/trazabilidad/controlGenerador?action=updateResiduo"/> 
-											</kendo:dataSource-transport>
-											    		<kendo:dataSource-schema>
-    			<kendo:dataSource-schema-model id="res_id">
-    			<kendo:dataSource-schema-model-fields >
-    					<kendo:dataSource-schema-model-field name="res_nombre" type="string">
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>
-                        <kendo:dataSource-schema-model-field name="t_residuo">
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>                         
-                        <kendo:dataSource-schema-model-field name="gestion_ubi">
-                        </kendo:dataSource-schema-model-field>
-                        <kendo:dataSource-schema-model-field name="tipo_gestion">
-                        </kendo:dataSource-schema-model-field>
-                         <kendo:dataSource-schema-model-field name="t_manejo">
-                        </kendo:dataSource-schema-model-field>
-                        <kendo:dataSource-schema-model-field name="estado_materia" >
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>                        
-                        <kendo:dataSource-schema-model-field name="tipo_empaque">
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>
-                        <kendo:dataSource-schema-model-field name="tipo_embalaje">
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>
-                        <kendo:dataSource-schema-model-field name="tPeligro">
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>
-                        <kendo:dataSource-schema-model-field name="sede_transporte" >
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>
-                        <kendo:dataSource-schema-model-field name="sede_gen" >
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>
-                        <kendo:dataSource-schema-model-field name="sede_ges" >
-                        	<kendo:dataSource-schema-model-field-validation required="true" />
-                        </kendo:dataSource-schema-model-field>
-<%--                         <kendo:dataSource-schema-model-field name="conGen" type="number" editable="false"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-<%--                         <kendo:dataSource-schema-model-field name="conTrn" type="number" editable="false"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-<%--                         <kendo:dataSource-schema-model-field name="conGes" type="number" editable="false"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-<%--                         <kendo:dataSource-schema-model-field name="conSed" type="number" editable="false"> --%>
-<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-<%--                         </kendo:dataSource-schema-model-field> --%>
-    			</kendo:dataSource-schema-model-fields>
-    			</kendo:dataSource-schema-model>
-    		</kendo:dataSource-schema>
-									</kendo:dataSource>
-    		<kendo:grid-columns>
-    				<kendo:grid-column title="Descripcion" field="res_nombre" />
-    				<kendo:grid-column title="Corriente Residuo" field="t_residuo"  template="#= t_residuo.tre_Id # : #= t_residuo.tre_nombre #"/>
-					<kendo:grid-column title="Ubicacion Gestion" field="gestion_ubi" template="#: gestion_ubi.ges_uNombre #" />
-					<kendo:grid-column title="Tipo Gestion" field="tipo_gestion" template="#: tipo_gestion.gest_nombre #" />
-					<kendo:grid-column title="Tipo manejo" field="t_manejo" template="#: t_manejo.tma_nombre #" />
-					<kendo:grid-column title="Estado Materia" field="estado_materia" template="#: estado_materia.est_nombre #" />
-					<kendo:grid-column title="Tipo Empaque" field="tipo_empaque" template="#: tipo_empaque.tem_nombre #" hidden="true" />
-					<kendo:grid-column title="Tipo Empaque" field="tipo_embalaje" template="#: tipo_embalaje.temb_nombre #" hidden="true" />
-					<kendo:grid-column title="Peligrosidad" field="tPeligro" template="#: tPeligro.pel_nombre #" hidden="true" />
-					<kendo:grid-column title="Transportador" field="sede_transporte" template="#: sede_transporte.tra_nombre #" hidden="true" />
-					<kendo:grid-column title="generador" field="sede_gen" template="#: sede_gen.gen_nombre #" hidden="true" />
-					<kendo:grid-column title="Gestor" field="sede_ges" template="#: sede_ges.ges_nombre #" hidden="true" />
-					
-					
-					
+	<div class="row">
+		<div class="col-lg-6 col-ml-12">
+			<!-- Server side start -->
+
+
+			<div class="card-body">
+				<a type="button" class="btn btn-success mb-3 ti-plus pull-right"
+					href="controlGenerador?action=residuoCreaGenera" class="text-white">
+					Crear Residuo</a>
+			</div>
+
+		</div>
+	</div>
+
+	<p>
+		<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
+	</p>
+	<p>
+		<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
+	</p>
+
+
+	<div class="container">
+
+
+			<kendo:grid name="Residuos" groupable="true" pageable="true"
+				columnMenu="true" width="99%">
+				<kendo:grid-toolbar>
+					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+				</kendo:grid-toolbar>
+				<kendo:grid-excel fileName="Reporte Mensual.xlsx" filterable="true"
+					proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
+				<kendo:dataSource pageSize="4">
+					<kendo:dataSource-transport>
+						<kendo:dataSource-transport-read
+							url="/trazabilidad/residuosServlet?action=residuosAll" />
+						<kendo:dataSource-transport-update
+							url="/trazabilidad/controlGenerador?action=updateResiduo" />
+					</kendo:dataSource-transport>
+					<kendo:dataSource-schema>
+						<kendo:dataSource-schema-model id="res_id">
+							<kendo:dataSource-schema-model-fields>
+								<kendo:dataSource-schema-model-field name="res_nombre"
+									type="string">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="t_residuo">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="gestion_ubi">
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="tipo_gestion">
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="t_manejo">
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="estado_materia">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="tipo_empaque">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="tipo_embalaje">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="tPeligro">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="sede_transporte">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="sede_gen">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<kendo:dataSource-schema-model-field name="sede_ges">
+									<kendo:dataSource-schema-model-field-validation required="true" />
+								</kendo:dataSource-schema-model-field>
+								<%--                         <kendo:dataSource-schema-model-field name="conGen" type="number" editable="false"> --%>
+								<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+								<%--                         </kendo:dataSource-schema-model-field> --%>
+								<%--                         <kendo:dataSource-schema-model-field name="conTrn" type="number" editable="false"> --%>
+								<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+								<%--                         </kendo:dataSource-schema-model-field> --%>
+								<%--                         <kendo:dataSource-schema-model-field name="conGes" type="number" editable="false"> --%>
+								<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+								<%--                         </kendo:dataSource-schema-model-field> --%>
+								<%--                         <kendo:dataSource-schema-model-field name="conSed" type="number" editable="false"> --%>
+								<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
+								<%--                         </kendo:dataSource-schema-model-field> --%>
+							</kendo:dataSource-schema-model-fields>
+						</kendo:dataSource-schema-model>
+					</kendo:dataSource-schema>
+				</kendo:dataSource>
+				<kendo:grid-columns>
+					<kendo:grid-column title="Descripcion" field="res_nombre" />
+					<kendo:grid-column title="Corriente Residuo" field="t_residuo"
+						template="#= t_residuo.tre_Id # : #= t_residuo.tre_nombre #" />
+					<kendo:grid-column title="Ubicacion Gestion" field="gestion_ubi"
+						template="#: gestion_ubi.ges_uNombre #" />
+					<kendo:grid-column title="Tipo Gestion" field="tipo_gestion"
+						template="#: tipo_gestion.gest_nombre #" />
+					<kendo:grid-column title="Tipo manejo" field="t_manejo"
+						template="#: t_manejo.tma_nombre #" />
+					<kendo:grid-column title="Estado Materia" field="estado_materia"
+						template="#: estado_materia.est_nombre #" />
+					<kendo:grid-column title="Tipo Empaque" field="tipo_empaque"
+						template="#: tipo_empaque.tem_nombre #" hidden="true" />
+					<kendo:grid-column title="Tipo Empaque" field="tipo_embalaje"
+						template="#: tipo_embalaje.temb_nombre #" hidden="true" />
+					<kendo:grid-column title="Peligrosidad" field="tPeligro"
+						template="#: tPeligro.pel_nombre #" hidden="true" />
+					<kendo:grid-column title="Transportador" field="sede_transporte"
+						template="#: sede_transporte.tra_nombre #" hidden="true" />
+					<kendo:grid-column title="generador" field="sede_gen"
+						template="#: sede_gen.gen_nombre #" hidden="true" />
+					<kendo:grid-column title="Gestor" field="sede_ges"
+						template="#: sede_ges.ges_nombre #" hidden="true" />
+
+
+
 					<kendo:grid-column title="Opciones">
-					<kendo:grid-column-command>
-<<<<<<< HEAD
-            				<kendo:grid-column-commandItem name="edit" />          					
-=======
-            				<kendo:grid-column-commandItem name="editar" text="editar" >
-            							<kendo:grid-column-commandItem-click>
-            									<script type="text/javascript">
+						<kendo:grid-column-command>
+							<kendo:grid-column-commandItem name="editar" text="editar">
+								<kendo:grid-column-commandItem-click>
+									<script type="text/javascript">
             											function editar(e)
             											{
             												e.preventDefault();
@@ -234,20 +212,20 @@
 // 															    })
                 										}
             									</script>
-            							</kendo:grid-column-commandItem-click>
-            				</kendo:grid-column-commandItem>            					
->>>>>>> snKend
-            		</kendo:grid-column-command>
-            		</kendo:grid-column>
-    	</kendo:grid-columns>
-							</kendo:grid>
-					</div>
-					
-					<br/>
-					<br/>
+								</kendo:grid-column-commandItem-click>
+							</kendo:grid-column-commandItem>
 
- 
-<script type="text/x-kendo-template" id="popupTemplate">
+						</kendo:grid-column-command>
+					</kendo:grid-column>
+				</kendo:grid-columns>
+			</kendo:grid>
+	</div>
+
+	<br />
+	<br />
+
+
+	<script type="text/x-kendo-template" id="popupTemplate">
   <div class="k-edit-label" > 
         <label for="res_nombre">Nombre:</label>
     </div>
@@ -341,43 +319,43 @@
     </div>
 
  </script>
- 
-     <demo:footer/>
-<!--                 <footer> -->
-<!--                     <div class="footer-area"> -->
-<!--                         <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p> -->
-<!--                     </div> -->
-<!--                 </footer> -->
-<!--                 footer area end -->
-            
-<!--             page container area end -->
 
-          
-<!--             bootstrap 4 js -->
-<!--             <script src="assets/js/popper.min.js"></script> -->
-<!--             <script src="assets/js/bootstrap.min.js"></script> -->
-<!--             <script src="assets/js/owl.carousel.min.js"></script> -->
-<!--             <script src="assets/js/metisMenu.min.js"></script> -->
-<!--             <script src="assets/js/jquery.slimscroll.min.js"></script> -->
-<!--             <script src="assets/js/jquery.slicknav.min.js"></script> -->
+	<demo:footer />
+	<!--                 <footer> -->
+	<!--                     <div class="footer-area"> -->
+	<!--                         <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p> -->
+	<!--                     </div> -->
+	<!--                 </footer> -->
+	<!--                 footer area end -->
 
-<!--             start chart js -->
-<!--             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script> -->
-<!--             start highcharts js -->
-<!--             <script src="https://code.highcharts.com/highcharts.js"></script> -->
-<!--             start zingchart js -->
-<!--             <script src="https://cdn.zingchart.com/zingchart.min.js"></script> -->
-<!--             <script> -->
-<!-- //                 zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/"; -->
-<!-- //                 ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"]; -->
-<!--             </script> -->
-<!--             all line chart activation -->
-<!--             <script src="assets/js/line-chart.js"></script> -->
-<!--             all pie chart -->
-<!--             <script src="assets/js/pie-chart.js"></script> -->
-<!--             others plugins -->
-<!--             <script src="assets/js/plugins.js"></script> -->
-<!--             <script src="assets/js/scripts.js"></script> -->
-    </body>
+	<!--             page container area end -->
+
+
+	<!--             bootstrap 4 js -->
+	<!--             <script src="assets/js/popper.min.js"></script> -->
+	<!--             <script src="assets/js/bootstrap.min.js"></script> -->
+	<!--             <script src="assets/js/owl.carousel.min.js"></script> -->
+	<!--             <script src="assets/js/metisMenu.min.js"></script> -->
+	<!--             <script src="assets/js/jquery.slimscroll.min.js"></script> -->
+	<!--             <script src="assets/js/jquery.slicknav.min.js"></script> -->
+
+	<!--             start chart js -->
+	<!--             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script> -->
+	<!--             start highcharts js -->
+	<!--             <script src="https://code.highcharts.com/highcharts.js"></script> -->
+	<!--             start zingchart js -->
+	<!--             <script src="https://cdn.zingchart.com/zingchart.min.js"></script> -->
+	<!--             <script> -->
+	<!-- //                 zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/"; -->
+	<!-- //                 ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"]; -->
+	<!--             </script> -->
+	<!--             all line chart activation -->
+	<!--             <script src="assets/js/line-chart.js"></script> -->
+	<!--             all pie chart -->
+	<!--             <script src="assets/js/pie-chart.js"></script> -->
+	<!--             others plugins -->
+	<!--             <script src="assets/js/plugins.js"></script> -->
+	<!--             <script src="assets/js/scripts.js"></script> -->
+</body>
 
 </html>

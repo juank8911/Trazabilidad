@@ -123,7 +123,7 @@ public class ControlGestor extends HttpServlet {
     			} else {
     				int idSedeT = (int) sesion.getAttribute("idSede");
     				String perfT = "gestor";
-    				dasDao.declaracionesDeTrn(idSedeT,"transportador");
+    				dasDao.declaracionesDeTrn(idSedeT,"gestor");
     				this.ordenarDash(sesion);	
     	               this.gestor(request, response, ruta);
     			}
