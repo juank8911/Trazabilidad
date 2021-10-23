@@ -798,12 +798,12 @@ public class controlTransportador extends HttpServlet {
     			{
                 	for (int j=0; j<cDeclas;j++)
                 	{	
-                		DeclaracionResiduo decRes = em.find(DeclaracionResiduo.class, Integer.valueOf(String.valueOf(idsDeclaRes[s])));
-                		decRes.setDer_trn_tipo_embalaje(String.valueOf(tipoEmbalaje[s]));
-                		decRes.setDer_trn_numero_embalajes(Integer.parseInt(cantEmb[s]));
-                		decRes.setDer_trn_tipo_empaque(tipEmpa[s]);
-                		decRes.setDer_trn_numero_empaques(Integer.parseInt(cantEmpq[s]));
-                		decRes.setDer_trn_peso_residuo2(Integer.parseInt(cantPeso[s]));
+                		DeclaracionResiduo decRes = em.find(DeclaracionResiduo.class, Integer.valueOf(String.valueOf(idsDeclaRes[s-1])));
+                		decRes.setDer_trn_tipo_embalaje(String.valueOf(tipoEmbalaje[s-1]));
+                		decRes.setDer_trn_numero_embalajes(Integer.parseInt(cantEmb[s-1]));
+                		decRes.setDer_trn_tipo_empaque(tipEmpa[s-1]);
+                		decRes.setDer_trn_numero_empaques(Integer.parseInt(cantEmpq[s-1]));
+                		decRes.setDer_trn_peso_residuo2(Integer.parseInt(cantPeso[s-1]));
                 		log.info(decRes.getDer_declaracion()+"");
                 		Declaracion dcla = em.find(Declaracion.class, Integer.valueOf(String.valueOf(decRes.getDer_declaracion())));
                 		dcla.setDec_trn_fecha_trn(fechRec);
