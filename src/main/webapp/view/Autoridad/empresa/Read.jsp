@@ -59,12 +59,6 @@
     			</kendo:grid-editable-template>
     			<kendo:grid-edit>
     			<script >
-				function editar(e)
-				{
-					e.preventDefault();
-					var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-				    window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera&id="+dataItem.res_id;
-				}
     			function(e){
     				console.log(e);
     				console.log(e.model);
