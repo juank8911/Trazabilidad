@@ -199,26 +199,26 @@
 											</div>
 										</div>
 
-<!-- 										<div class="form-group row col-md-12" name="traz" id="traz"> -->
-<!-- 											<div class="col-md-6"> -->
-<!-- 												<label for="txtTrans">Transportador: </label> <select -->
-<!-- 													name="chekTrans" id="chekTrans" class="form-control"> -->
-<!-- 													<option>--------SELECCIONE TRANSPORTADOR--------</option> -->
-<%-- 													<c:forEach items="${listaSedeProgTrans}" var="sed"> --%>
-<%-- 														<option value="${sed.sed_id}"> --%>
-<%-- 															${sed.empresaSed.emp_nombre_comercial} :: --%>
-<%-- 															${sed.sed_nombre} :: ${sed.sed_direccion}</option> --%>
-<%-- 													</c:forEach> --%>
+										<div class="form-group row col-md-12" name="traz" id="traz">
+											<div class="col-md-6">
+												<label for="txtTrans">Transportador: </label> <select
+													name="chekTrans" id="chekTrans" class="form-control">
+													<option>--------SELECCIONE TRANSPORTADOR--------</option>
+													<c:forEach items="${listaSedeProgTrans}" var="sed">
+														<option value="${sed.sed_id}">
+															${sed.empresaSed.emp_nombre_comercial} ::
+															${sed.sed_nombre} :: ${sed.sed_direccion}</option>
+													</c:forEach>
 
-<!-- 												</select> -->
-<!-- 											</div> -->
-<!-- 											<div class="col-md-6"> -->
-<!-- 												<label for="txtGes">Gestor</label> <select name="txtGes" -->
-<!-- 													id="txtGes" class="form-control"> -->
-<!-- 													<option>-------- SELECCIONE TRANSPORTADOR --------</option> -->
-<!-- 												</select> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
+												</select>
+											</div>
+											<div class="col-md-6">
+												<label for="txtGes">Gestor</label> <select name="txtGes"
+													id="txtGes" class="form-control">
+													<option>-------- SELECCIONE TRANSPORTADOR --------</option>
+												</select>
+											</div>
+										</div>
 										<div class="form-group row col-md-12">
 
 											<div class="form-group col-md-5">
@@ -328,7 +328,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                            <form method="post" action="controlGenerador?action=programaRGuardaGenera" class="needs-validation form-control">
+                            <form method="post" action="controlGenerador?action=programaCreaGenera" class="needs-validation form-control">
                                 <div class="form-row">
 
                                     <div class="form-group col-md-3">
@@ -360,14 +360,14 @@
                                     </div>
 
                                 </div>
-								</form>
+								
                             </div>
                             <div class="modal-footer">
                                                
                                                 <button type="submit" class="btn btn-success" type="submit">Crear Programacion</button>
                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                           </div>
-
+							</form>
                         </div>
                     </div>
                 </div>

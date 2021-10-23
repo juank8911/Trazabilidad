@@ -909,7 +909,7 @@ public Sede sedeTrans(int idEmp)
 
 	}
 
-	public List<Residuos> listaResiduosGenTran(int idGes, int idTrans) {
+	public List<Residuos> listaResiduosGenTran(int idGes, int idTrans, int idGen) {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		List<Residuos> resi = null;
 		try {
@@ -917,7 +917,7 @@ public Sede sedeTrans(int idEmp)
 			 Root<Residuos> RootRes = conRes.from(Residuos.class);
 			 Join<Residuos, Sede> joinSeTR = RootRes.join("sedeTrans",JoinType.INNER);
 			 Join<Residuos, Sede> joinSeGs = RootRes.join("sedeGest",JoinType.INNER);
-			 conRes.where(cb.and(cb.equal(RootRes.get("res_sede_transporte"), idTrans),cb.equal(RootRes.get("res_sede_gestor"), idGes)));
+			 conRes.where(cb.and(cb.equal(RootRes.get("res_sede_generador"), idGen),cb.equal(RootRes.get("res_sede_transporte"), idTrans),cb.equal(RootRes.get("res_sede_gestor"), idGes)));
 			 conRes.select(RootRes);
 			 resi = em.createQuery(conRes).getResultList();
 
