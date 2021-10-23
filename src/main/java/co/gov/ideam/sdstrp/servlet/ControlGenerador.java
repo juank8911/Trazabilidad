@@ -904,6 +904,8 @@ public class ControlGenerador extends HttpServlet {
 	        	residuo.setRes_sede_transporte(Integer.valueOf(request.getParameter("sedeTransp")));
 	        	System.out.println("Sede del gestor"+request.getParameter("sedeGestor"));
 	        	residuo.setRes_sede_gestor(Integer.valueOf(request.getParameter("sedeGestor")));
+	        	residuo.setRes_gestor(0);
+	        	residuo.setRes_transportador(o);
 	        	int rs =  (int) request.getSession().getAttribute("idSede");
 	        	residuo.setRes_sede_generador(rs);
 	            log("\n*****************Try Registration of Residuio = " + residuo);
