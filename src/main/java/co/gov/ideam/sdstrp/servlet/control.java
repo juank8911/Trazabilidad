@@ -713,7 +713,7 @@ public class control extends HttpServlet {
 				break;
 
 			case "5":
-				request.getRequestDispatcher("view/gestor/gestor.jsp").forward(request, response);
+				request.getRequestDispatcher("ControlGestor?action=gestor").forward(request, response);
 				break;
 			}
 			

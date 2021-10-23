@@ -226,6 +226,7 @@
 
 
 	<script type="text/x-kendo-template" id="popupTemplate">
+--
   <div class="k-edit-label" > 
         <label for="res_nombre">Nombre:</label>
     </div>
@@ -317,7 +318,7 @@
         <input id="sede_ges" name="sede_ges" data-bind=" value: sede_ges.ges_nombre " required />
         <span class="k-invalid-msg" data-for="sede_ges"></span>
     </div>
-
+----
  </script>
 
 	<demo:footer />

@@ -147,6 +147,7 @@
 													<td><input type="number" required name="txtCantEmpq[]"
 														id="txtCantEmpq" class="form-control sm-2"
 														value="${deca.der_gen_numero_empaques}" readonly></td>
+														
 													<td><input type="number" required name="txtCantPeso[]"
 														id="txtCantPeso" class="form-control sm-2"
 														value="${deca.der_gen_peso_residuo}" readonly></td>

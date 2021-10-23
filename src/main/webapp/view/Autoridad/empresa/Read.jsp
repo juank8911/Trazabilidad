@@ -205,6 +205,20 @@
     		</kendo:grid>
         			
  <script type="text/x-kendo-template" id="popupTemplate">
+
+    <div class="container-fluid">
+        <div class="row">
+				
+			<div id="details-container" class="col-sm-6" style="background-color:lavender;">
+                    <div><strong>A Message</strong> </div>*@
+                <div id="myMessage"></div>
+            </div>
+            <div id="details-container" class="col-sm-3" style="background-color:lavenderblush;">
+                <div> <strong>A Response Message</strong></div>
+                <div id="myMessageResponse"></div>
+            </div>
+
+
   <div class="k-edit-label" > 
         <label for="razonSocial">Razon Social:</label>
     </div>
@@ -300,6 +314,8 @@
     <div class="k-edit-field">
         <input id="municipio" name="municipio" data-bind=" value: municipio.id_munic " required />
        <span class="k-invalid-msg" data-for="municipio"></span> </div>
+</div>
+</div>
  </script>
 
 

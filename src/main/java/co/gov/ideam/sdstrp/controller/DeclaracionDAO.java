@@ -589,6 +589,7 @@ public class DeclaracionDAO {
 					log.info(declnRid.getDer_gen_nombre());
 					log.info(declnRid.getTipoEmbDec().getTem_nombre()+"");
 					log.info(declnRid.getTipoEmpDec().getTep_nombre()+"");
+					log.info(declnRid.getDer_gen_peso_residuo()+"");
 				}
 				
 			}
