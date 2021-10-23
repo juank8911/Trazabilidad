@@ -159,7 +159,7 @@ public class ConsultaComboDAO {
 	@Produces
     @Named
     public List<Empresa> getListaEmpresaGestor() {
-    	listaEmpresasGestor();
+    	listaEmpresasGestor1();
         return listaEmpresasGestor;
     }
     
@@ -354,28 +354,66 @@ public class ConsultaComboDAO {
 		// TODO Auto-generated method stub
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Empresa> conBd = cb.createQuery(Empresa.class);
-		Root<Sede> rootEmp = conBd.from(Sede.class);
-		Join<Sede,Empresa> joinSede = rootEmp.join("empresaSed",JoinType.INNER);
-		conBd.where(cb.equal(rootEmp.get("sed_generador"),"S"));
-		conBd.groupBy(joinSede.get("emp_id"),               
-				joinSede.get("emp_ciiu4"),          
-				joinSede.get("emp_id_ubica"),       
-				joinSede.get("emp_cc_represen"),     
-				joinSede.get("emp_ciiu4"),          
-				joinSede.get("emp_ext"),             
-				joinSede.get("emp_id_aut"),          
-				joinSede.get("emp_id_ubica"),        
-				joinSede.get("emp_nombre_comercial"),
-				joinSede.get("emp_numero_documento"),
-				joinSede.get("emp_razon_social"),    
-				joinSede.get("emp_rep_email"),       
-				joinSede.get("emp_rep_nombre"),      
-		        joinSede.get("emp_telefono"),        
-		        joinSede.get("emp_tip_docu"));
-		conBd.select(joinSede);
+		Root<Empresa> rootEmp = conBd.from(Empresa.class);
+		Join<Empresa,Sede> joinSede = rootEmp.join("empresaSed",JoinType.INNER);
+		conBd.where(cb.equal(joinSede.get("sed_generador"),"S"));
+		conBd.groupBy(rootEmp.get("emp_id"),              
+					  rootEmp.get("emp_ciiu4"),          
+					  rootEmp.get("emp_id_ubica"),       
+					  rootEmp.get("emp_cc_represen"),               
+					  rootEmp.get("emp_ext"),             
+					  rootEmp.get("emp_id_aut"),          
+					  rootEmp.get("emp_id_ubica"),        
+					  rootEmp.get("emp_nombre_comercial"),
+					  rootEmp.get("emp_numero_documento"),
+					  rootEmp.get("emp_razon_social"),    
+					  rootEmp.get("emp_rep_email"),       
+					  rootEmp.get("emp_rep_nombre"),      
+			          rootEmp.get("emp_telefono"),        
+			          rootEmp.get("emp_tip_docu"));
+		conBd.select(rootEmp);
 		listaEmpresasGestor = em.createQuery(conBd).getResultList();
 		
 	}
+    
+    private void listaEmpresasGestor1() {
+		// TODO Auto-generated method stub
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Empresa> conBd = cb.createQuery(Empresa.class);
+		Root<Empresa> rootEmp = conBd.from(Empresa.class);
+		
+		Subquery<Long> sbq = conBd.subquery(Long.class);
+		Root<Sede> rootsqDe = sbq.from(Sede.class);
+		sbq.where(cb.equal(rootsqDe.get("sed_generador"), "S"));
+		sbq.groupBy(rootsqDe.get("sed_empresa"));
+		sbq.select(rootsqDe.get("sed_empresa")); 
+		Expression<Long> rGen = sbq.getSelection();
+		
+		
+		
+		
+		
+//		Join<Empresa,Sede> joinSede = rootEmp.join("empresaSed",JoinType.INNER);
+//		conBd.where(cb.equal(joinSede.get("sed_generador"),"S"));
+//		conBd.groupBy(rootEmp.get("emp_id"),              
+//					  rootEmp.get("emp_ciiu4"),          
+//					  rootEmp.get("emp_id_ubica"),       
+//					  rootEmp.get("emp_cc_represen"),               
+//					  rootEmp.get("emp_ext"),             
+//					  rootEmp.get("emp_id_aut"),          
+//					  rootEmp.get("emp_id_ubica"),        
+//					  rootEmp.get("emp_nombre_comercial"),
+//					  rootEmp.get("emp_numero_documento"),
+//					  rootEmp.get("emp_razon_social"),    
+//					  rootEmp.get("emp_rep_email"),       
+//					  rootEmp.get("emp_rep_nombre"),      
+//			          rootEmp.get("emp_telefono"),        
+//			          rootEmp.get("emp_tip_docu"));
+		conBd.select(rootEmp).where(cb.in(rootEmp.get("emp_id")).value(rGen));
+		listaEmpresasGestor = em.createQuery(conBd).getResultList();
+		
+	}
+    
 	
 	public void EmpresasTransCombo()
 	{
@@ -393,7 +431,7 @@ public class ConsultaComboDAO {
 		}
 		} catch (Exception e) {
 			// TODO: handle exception
-			 	System.out.println("Fallo lista empresas trnasporte: " + e.getMessage());
+			 	System.out.println("Fallo lista empresas trnasporte: 22" + e.getMessage());
 	            e.fillInStackTrace();
 		}
 	}
@@ -404,31 +442,20 @@ public class ConsultaComboDAO {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Empresa> conBd = cb.createQuery(Empresa.class);
 		Root<Empresa> rootEmp = conBd.from(Empresa.class);
-		Join<Empresa,Sede> joinSede = rootEmp.join("empresaSed",JoinType.INNER);
-		conBd.where(cb.equal(joinSede.get("sed_transportador"),"S"));
-		conBd.groupBy(rootEmp.get("emp_id"),               
-				rootEmp.get("emp_ciiu4"),          
-				rootEmp.get("emp_id_ubica"),       
-				rootEmp.get("emp_cc_represen"),     
-				rootEmp.get("emp_ciiu4"),          
-				rootEmp.get("emp_ext"),             
-				rootEmp.get("emp_id_aut"),          
-				rootEmp.get("emp_id_ubica"),        
-				rootEmp.get("emp_nombre_comercial"),
-				rootEmp.get("emp_numero_documento"),
-				rootEmp.get("emp_razon_social"),    
-				rootEmp.get("emp_rep_email"),       
-				rootEmp.get("emp_rep_nombre"),      
-		        rootEmp.get("emp_telefono"),        
-		        rootEmp.get("emp_tip_docu"));         
-				conBd.select(rootEmp);
+		
+		Subquery<Long> sbq = conBd.subquery(Long.class);
+		Root<Sede> rootsqDe = sbq.from(Sede.class);
+		sbq.where(cb.equal(rootsqDe.get("sed_transportador"), "S"));
+		sbq.groupBy(rootsqDe.get("sed_empresa"));
+		sbq.select(rootsqDe.get("sed_empresa")); 
+		Expression<Long> rGen = sbq.getSelection();
+		
+		conBd.select(rootEmp).where(cb.in(rootEmp.get("emp_id")).value(rGen));
 		listaEmpTrans = em.createQuery(conBd).getResultList();
-		for (Empresa emp : listaEmpTrans) {
-			log.info(emp.toString());
-		}
+
 		} catch (Exception e) {
 			// TODO: handle exception
-			 	System.out.println("Fallo lista empresas trnasporte: " + e.getMessage());
+			 	System.out.println("Fallo lista empresas trnasporte: 11 " + e.getMessage());
 	            e.fillInStackTrace();
 		}
 	}

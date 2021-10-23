@@ -92,7 +92,11 @@
         			
         								<div class="container">
 					
-							<kendo:grid name="Residuos" pageable="true">
+							<kendo:grid name="Residuos" groupable="true" pageable="true" columnMenu="true" width="99%">
+							    		<kendo:grid-toolbar>
+        				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+        			</kendo:grid-toolbar> 
+        			<kendo:grid-excel fileName="Reporte Mensual.xlsx" filterable="true" proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
 									<kendo:dataSource pageSize="4">
 											<kendo:dataSource-transport>
 													<kendo:dataSource-transport-read url="/trazabilidad/residuosServlet?action=residuosAll">
@@ -116,17 +120,18 @@
             											{
             												e.preventDefault();
             												var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-            												$.ajax({
-															        url: "/trazabilidad/controlGenerador?action=residuoActuaGeneraCarg",
-															        //send current record ID to the server
-															        data: { id: dataItem.res_id },
-															        success: function (data) {
-															            //update the current dataItem with the received data from the server
-															            //example data: {"OrderID":4,"OrderDate":"\/Date(1343941200000)\/","OrderDescription":"NewDescription","EmployeeId":4}
-															            window.alert("Carga de ruta y envio");
-															        	window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera";
-															        }
-															    })
+            											    window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera&id="+dataItem.res_id;
+//             												$.ajax({
+// 															        url: "/trazabilidad/controlGenerador?action=residuoActuaGeneraCarg",
+// 															        //send current record ID to the server
+// 															        data: { id: dataItem.res_id },
+// 															        success: function (data) {
+// 															            //update the current dataItem with the received data from the server
+// 															            //example data: {"OrderID":4,"OrderDate":"\/Date(1343941200000)\/","OrderDescription":"NewDescription","EmployeeId":4}
+// 															            window.alert("Carga de ruta y envio");
+// 															        	window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera";
+// 															        }
+// 															    })
                 										}
             									</script>
             							</kendo:grid-column-commandItem-click>
