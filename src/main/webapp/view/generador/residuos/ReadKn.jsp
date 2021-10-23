@@ -92,6 +92,7 @@
         			
         								<div class="container">
 					
+<<<<<<< HEAD
 							<kendo:grid name="Residuos" pageable="true" editable="true" navigatable="true" groupable="true" columnMenu="true" width="95%">
 										<kendo:grid-editable mode="popup" >
 										<kendo:grid-editable-template>
@@ -127,6 +128,13 @@
 										</script>
 										</kendo:grid-edit>
 										</kendo:grid-editable>
+=======
+							<kendo:grid name="Residuos" groupable="true" pageable="true" columnMenu="true" width="99%">
+							    		<kendo:grid-toolbar>
+        				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+        			</kendo:grid-toolbar> 
+        			<kendo:grid-excel fileName="Reporte Mensual.xlsx" filterable="true" proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
+>>>>>>> snKend
 									<kendo:dataSource pageSize="4">
 											<kendo:dataSource-transport>
 													<kendo:dataSource-transport-read url="/trazabilidad/residuosServlet?action=residuosAll" />
@@ -202,7 +210,33 @@
 					
 					<kendo:grid-column title="Opciones">
 					<kendo:grid-column-command>
+<<<<<<< HEAD
             				<kendo:grid-column-commandItem name="edit" />          					
+=======
+            				<kendo:grid-column-commandItem name="editar" text="editar" >
+            							<kendo:grid-column-commandItem-click>
+            									<script type="text/javascript">
+            											function editar(e)
+            											{
+            												e.preventDefault();
+            												var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+            											    window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera&id="+dataItem.res_id;
+//             												$.ajax({
+// 															        url: "/trazabilidad/controlGenerador?action=residuoActuaGeneraCarg",
+// 															        //send current record ID to the server
+// 															        data: { id: dataItem.res_id },
+// 															        success: function (data) {
+// 															            //update the current dataItem with the received data from the server
+// 															            //example data: {"OrderID":4,"OrderDate":"\/Date(1343941200000)\/","OrderDescription":"NewDescription","EmployeeId":4}
+// 															            window.alert("Carga de ruta y envio");
+// 															        	window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera";
+// 															        }
+// 															    })
+                										}
+            									</script>
+            							</kendo:grid-column-commandItem-click>
+            				</kendo:grid-column-commandItem>            					
+>>>>>>> snKend
             		</kendo:grid-column-command>
             		</kendo:grid-column>
     	</kendo:grid-columns>

@@ -114,10 +114,8 @@
 												<div class="form-row">
 
 
-							<label class="form-group col-md-2" for="tipoGestion">Tipo
-								Gestion: </label> 
-								<select class="form-control form-group col-md-4"
-								id="tipGestion" name="tipGestion">
+							<label class="form-group col-md-2" for="tipoGestion">Tipo Gestion: </label> 
+								<select class="form-control form-group col-md-4" id="tipGestion" name="tipGestion">
 								<option value="${acResiduo.tGestion.id_tip_gestion}">${acResiduo.tGestion.nombre_gestion}</option>
 								<c:forEach var="dato" items="${listaTipoGestion}">
 									<option value="${dato.id_tip_gestion}">${dato.nombre_gestion}</option>
@@ -205,10 +203,8 @@
 
 						</div>
 
-						<input class="btn btn-success mb-3" type="submit" name="action" value="actualizar Residuo">						
-						<input class="btn btn-success mb-3" type="submit" name="action" value="residuoLeeGenera">
-						<td> <button class="btn btn-success mb-3" type="submit">Registrar</button></td>
-                                                        <td> <button class="btn btn-success mb-3" type="submit"><a href="controlGenerador?action=empresaListar" class="text-white">Cancelar</a></button></td> 
+						<td> <button class="btn btn-success mb-3" type="submit">actualizar</button></td>
+                       <td> <button class="btn btn-success mb-3" type="submit"><a href="controlGenerador?action=empresaListar" class="text-white">Cancelar</a></button></td> 
 
 					</form>
 

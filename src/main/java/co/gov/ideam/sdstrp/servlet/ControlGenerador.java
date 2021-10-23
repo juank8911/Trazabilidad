@@ -169,20 +169,20 @@ public class ControlGenerador extends HttpServlet {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);
 	    			} else {
-	    				int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("iSede")));
-	    				resDAO.listarResiduo(idSed);
+//	    				int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("iSede")));
+//	    				resDAO.listarResiduo(idSed);
 	                    this.dirigir(request, response, ruta);
 	    			}
 	                break;
 	            case "residuoActuaGenera":
 //	                request.setAttribute("idresiduo", request.getParameter("id"));
 	                ruta = "view/generador/residuos/Update.jsp";
-//	                resDAO.findResiduo(Integer.parseInt(String.valueOf(request.getParameter("id"))));
+	                resDAO.findResiduo(Integer.parseInt(String.valueOf(request.getParameter("id"))));
 	                if (sesion.getAttribute("perfil") == null) {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);
 	    			} else {
-	    				
+	    				Residuos res = resDAO.findResiduo(Integer.parseInt(String.valueOf(request.getParameter("id"))));
 	                    this.dirigir(request, response, ruta);
 	    			}
 	                break;
@@ -194,7 +194,7 @@ public class ControlGenerador extends HttpServlet {
 	                break;    
 	            case "updateResiduo":
 	                request.setAttribute("idresiduo", request.getParameter("id_res"));
-	                ruta = "view/generador/residuos/Read.jsp";
+	                ruta = "view/generador/residuos/ReadKn.jsp";
 	                if (sesion.getAttribute("perfil") == null) {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);
@@ -204,7 +204,7 @@ public class ControlGenerador extends HttpServlet {
 	    			}
 	                break;
 	            case "eliminarResiGenerador":
-	                ruta="view/generador/residuos/Read.jsp";
+	                ruta="view/generador/residuos/ReadKn.jsp";
 	                if (sesion.getAttribute("perfil") == null) {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);

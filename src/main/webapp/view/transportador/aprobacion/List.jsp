@@ -281,7 +281,10 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
-							<button type="button" id="envio" class="btn btn-success" onclick="enviar()">Enviar</button>
+							<button type="button" id="envio" class="btn btn-success text-nowrap" onclick="enviar()">
+							<span class="spinner-border spinner-border-sm mr-2"></span>
+							Enviar
+							</button>
 						</div>
 					</div>
 				</div>
