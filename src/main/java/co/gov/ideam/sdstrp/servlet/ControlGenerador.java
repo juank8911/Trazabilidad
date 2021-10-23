@@ -273,7 +273,8 @@ public class ControlGenerador extends HttpServlet {
 	            	log.info(String.valueOf(request.getParameter("idTre")));
 	            	int idGes = Integer.parseInt(String.valueOf(request.getParameter("idGes")));
 	            	int idTrans = Integer.parseInt(String.valueOf(request.getParameter("idTre")));
-	            	List<Residuos> residuos = combo.listaResiduosGenTran(idGes, idTrans);
+	            	int idGen = Integer.parseInt(String.valueOf(sesion.getAttribute("Idsede")));
+	            	List<Residuos> residuos = combo.listaResiduosGenTran(idGes, idTrans,idGen);
 	            	StringBuilder gs = new StringBuilder("");
 	            	for (Residuos resid : residuos) {
 	            		System.out.println(resid.toString());
