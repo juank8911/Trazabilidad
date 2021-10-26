@@ -94,7 +94,7 @@ public class Usuario_Perfil implements Serializable {
 	   @JoinColumn(name = "ID_PERFIL", referencedColumnName = "ID_PERFIL", insertable=false, updatable=false)
 	   private Perfil perUsu;
 	  
-	  @ManyToOne(cascade = {CascadeType.MERGE} , fetch=FetchType.LAZY)
+	  @ManyToOne(cascade = {CascadeType.ALL} , fetch=FetchType.LAZY)
 	   @JoinColumn(name = "ID_USR", referencedColumnName = "ID_USR", insertable=false, updatable=false)
 	   private Usuario usuaPer;
 	

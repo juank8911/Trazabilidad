@@ -6,11 +6,7 @@
 
 $(document).ready(function () {
     $('select[name=tipoVeh]').on('change', function () {
-        
-
-        
-        
-        $.ajax({
+          $.ajax({
             type: 'GET',
             url: 'controlTrans?action=residuoListaTransGenera',
             data: 'codigoveh=' + $('select[name=tipoVeh]').val(),

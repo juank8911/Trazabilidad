@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -485,7 +486,7 @@ public class controlTransportador extends HttpServlet {
     				ruta = "view/login.jsp";
     	               this.transp(request, response, ruta);
     			} else {
-    				this.declaTRNAprobar(request, response, ruta);
+    				this.declaTRNAprobar1(request, response, ruta);
     			}
                 
                 break;
@@ -756,6 +757,70 @@ public class controlTransportador extends HttpServlet {
         dis = request.getRequestDispatcher(ruta);
         dis.forward(request, response);
     }
+    
+    protected void declaTRNAprobar1(HttpServletRequest request, HttpServletResponse response, String ruta)
+            throws Exception
+            {
+     	String[] check = request.getParameterValues("prCheck[]");
+     	String[] de_decl = request.getParameterValues("declaracion[].delca");
+    	String[] tipoEmbalaje = request.getParameterValues("model[].tipEmpaque");
+//    	String[] idsDecla = request.getParameterValues("idDecla[]");
+    	String[] decla_res = request.getParameterValues("model[].idDecla");
+    	String[] idsDeclaRes = request.getParameterValues("model[].idDeclaRes");
+    	String[] cantEmb = request.getParameterValues("model[].txtCantEmb"); 
+    	String[] tipEmpa = request.getParameterValues("model[].tipEmbalaje");
+    	String[] cantEmpq = request.getParameterValues("model[].txtCantEmpq");
+    	String[] cantPeso = request.getParameterValues("model[].txtCantPeso");
+    	String vhei = request.getParameter("txtVhei");
+    	SimpleDateFormat parseador = new SimpleDateFormat("yyyy-MM-dd");
+    	SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+    	String fechaRes = request.getParameter("txtReco");
+    	String fechEntr = request.getParameter("txtEntr");
+    	Date fechRec = parseador.parse(fechaRes);
+    	Date fechEnt = parseador.parse(fechEntr);
+    	int con = 0;
+    	log.info(check.length+"");
+    	for (int i=0; i < check.length; i++)
+    	{
+    	log.info(check.length+"");
+		log.info(check[i]+"");
+		log.info(i+"");
+		Boolean ban  = Boolean.valueOf(check[i]) ;
+			if(ban == true) 
+			{
+			
+				con++;
+				log.info(decla_res.length+"");
+				for (int j=0; j < decla_res.length; j++) {
+					log.info(j +" == "+decla_res.length );
+					log.info(de_decl[i]+" == "+decla_res[j] );
+				
+					if(Integer.parseInt(de_decl[i])==Integer.parseInt(decla_res[j]))
+					{	DeclaracionResiduo dres = new DeclaracionResiduo();
+						dres = em.find(DeclaracionResiduo.class, Integer.parseInt(idsDeclaRes[j]));
+                		dres.setDer_trn_tipo_embalaje(String.valueOf(tipoEmbalaje[j]));
+                		dres.setDer_trn_numero_embalajes(Integer.parseInt(cantEmb[j]));
+                		dres.setDer_trn_tipo_empaque(tipEmpa[j]);
+                		dres.setDer_trn_numero_empaques(Integer.parseInt(cantEmpq[j]));
+                		dres.setDer_trn_peso_residuo2(Integer.parseInt(cantPeso[j]));
+                		Declaracion dcla = em.find(Declaracion.class, Integer.valueOf(String.valueOf(dres.getDer_declaracion())));
+                		dcla.setDec_trn_fecha_trn(fechRec);
+                		dcla.setDec_trn_fecha_ent(fechEnt);
+                		dcla.setDec_trn_aprobada("A");
+                		dcla.setDec_trn_vehiculo(vhei);
+                		declaDao.updateDecla_DeclaRes(dcla,dres);
+					}
+				}
+			
+			}
+    	}
+    	request.setAttribute("infoMessage", " Se aprobaron "+ con +" declaraciones correctamente");
+    	int coTransP = (int)request.getSession().getAttribute("idSede"); // llamar la variable de session
+		declaDao.getListaDeclaracionTranpor(coTransP);
+    	vehDAO.listarVehiculosTrans(coTransP);
+    	this.transp(request, response, ruta);
+     }
+       
     //Pantalla de Transportador Vehiculo
     protected void declaTRNAprobar(HttpServletRequest request, HttpServletResponse response, String ruta)
             throws Exception {
@@ -786,7 +851,7 @@ public class controlTransportador extends HttpServlet {
     	Date fechEnt = parseador.parse(fechEntr);
     	
     	log.info(tipoEmbalaje.length+" / "+idsDeclaRes.length);
-    		int s=0;
+    		int s=-1;
     	for (int i=0; i<check.length;i++)
     	{
     		long cDeclas = declaDao.countDeclaRes(Integer.valueOf(String.valueOf(idsDecla[i])));
@@ -863,6 +928,8 @@ public class controlTransportador extends HttpServlet {
             processRequest(request, response);
         } catch (Exception ex) {
             Logger.getLogger(controlTransportador.class.getName()).log(Level.SEVERE, null, ex);
+            String ruta="control?action=ingresar";
+           this.transp(request, response, ruta);
         }
     }
 

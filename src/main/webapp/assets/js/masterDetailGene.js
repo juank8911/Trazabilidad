@@ -24,7 +24,17 @@
  }
  
 
- 
+$(document).ready(function (){
+	
+	$("#envia").click(function(){
+	console.log("btn envia")
+		console.log(this);
+	var detr = $(this).closest("tr");
+	console.log(detr);
+	})
+	
+});
+
  function enviar(el)
  {
 		
@@ -63,7 +73,14 @@
 		namesValues = [].map.call(txtCantPesoin,function(dataImput){
 		txtCantPeso.push(dataImput.value);
 		});
-		txtCantPeso
+		
+		console.log("tamaño de los array")
+		console.log(idDeclaRes.length);
+		console.log(tipEmbalaje.length);
+		console.log(txtCantEmb.length);
+		console.log(tipEmpaque.length);
+		console.log(txtCantEmpq.length);
+		console.log(txtCantPeso.length);
 		
 				
 		 $.ajax({
@@ -85,6 +102,139 @@
 
         });
 		   
+ } 
+
+ function enviar1(el)
+ {				console.log(el);
+		var index = $(el).parent("tbody");
+		var index1 = $(el).parent().parent().index();
+		var detail = $(index).parent().parent().next(); 
+		console.log("indexs");
+		console.log(index);
+		console.log(detail);
+		console.log(index1);
+		console.log("prop");
+		
+		var table = $(el).parent("#trDres");
+		
+		var tipEmbalajeIn = $(this).find('#tipEmbalaje');
+		var tipEmbalajeIn = $(table).find('#tipEmbalaje');
+		var txtCantEmbIn = $(table).find('#txtCantEmb');	
+		var txtCantEmpqIn = $(table).find('#txtCantEmpq');
+		var tipEmpaqueIn = $(table).find('#tipEmpaque');
+		var txtCantPesoin = $(table).find('#txtCantPeso');
+		
+		var idDeclaRes = new Array() 
+		var tipEmbalaje = new Array();
+		var txtCantEmb = new Array(); 
+		var txtCantEmpq = new Array();
+		var tipEmpaque  = new Array();
+		var txtCantEmpq = new Array();
+		var txtCantPeso = new Array();
+		
+
+		var tableP = $(table).prop('outerHTML'); 
+		var indexp = $(index).prop('outerHTML');
+		console.log(tableP);
+		console.log("////////////////////INDEX//////////////////////////////////////");
+		console.log(indexp);
+		console.log("///////////////////LENGTH///////////////////////////////////////");
+		var cont = $('table').length;
+		console.log("los rows son "+ cont);
+		console.log("//////////////afuer del for///////////////////////////////////////");
+
+	
+				$("table #trDres").find("td").each(function() {
+//				for (var i = 0; i < cont; i++)
+//				{
+//					
+//				}
+			console.log("//////////////////////THIS DEL FOR////////////////////////////////////");
+			console.log(this);
+			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
+			
+			window.alert($(this).find('#txtCantEmb').value);
+			if($(this).find('#txtCantEmb').value!="")
+			{
+				namesValues = [].map.call($(this).find('#idDeclaRes'),function(dataImput){
+				console.log("encontrado id dela Res");
+				idDeclaRes.push(dataImput.value);
+					});
+					namesValues = [].map.call($(this).find('#tipEmbalaje'),function(dataImput){
+					console.log("encontrado tipo embalaje");
+					tipEmbalaje.push(dataImput.value);
+					});
+					namesValues = [].map.call($(this).find('#txtCantEmb'),function(dataImput){
+					txtCantEmb.push(dataImput.value);
+					
+					});
+					
+					namesValues = [].map.call($(this).find('#tipEmpaque'),function(dataImput){
+					tipEmpaque.push(dataImput.value);
+						});
+					namesValues = [].map.call($(this).find('#txtCantEmpq'),function(dataImput){
+					txtCantEmpq.push(dataImput.value);
+						});
+					namesValues = [].map.call($(this).find('#txtCantPeso'),function(dataImput){
+						txtCantPeso.push(dataImput.value);
+						});
+			}
+
+
+						
+					
+			
+        });		
+		console.log("tamaño de los array")
+		console.log(idDeclaRes.length);
+		console.log(tipEmbalaje.length);
+		console.log(txtCantEmb.length);
+		console.log(tipEmpaque.length);
+		console.log(txtCantEmpq.length);
+		console.log(txtCantPeso.length);
+		
+
+//		namesValues = [].map.call($(table).find('#idDeclaRes'),function(dataImput){
+//		idDeclaRes.push(dataImput.value);
+//		});
+
+//		namesValues = [].map.call(tipEmbalajeIn,function(dataImput){
+//		tipEmbalaje.push(dataImput.value);
+//		});
+
+//		namesValues = [].map.call(txtCantEmbIn,function(dataImput){
+//		txtCantEmb.push(dataImput.value);
+//		});
+//		namesValues = [].map.call(txtCantEmpqIn,function(dataImput){
+//		txtCantEmpq.push(dataImput.value);
+//		});
+//		namesValues = [].map.call(tipEmpaqueIn,function(dataImput){
+//		tipEmpaque.push(dataImput.value);
+//		});
+//		namesValues = [].map.call(txtCantPesoin,function(dataImput){
+//		txtCantPeso.push(dataImput.value);
+//		});
+//		txtCantPeso
+		
+				
+//		 $.ajax({
+//            type: 'POST',
+//            url: 'controlGenerador?action=CrearDeclaResiduo',
+//            data: {idDeclaRes,'tipEmbalaje[]':tipEmbalaje,'txtCantEmb[]':txtCantEmb ,'tipEmpaque[]': tipEmpaque,'txtCantEmpq[]':txtCantEmpq,'txtCantPeso[]':txtCantPeso},
+//            statusCode: {
+//                404: function () {
+//                    alert('pagina no encontrada');
+//                },
+//                500: function () {
+//                    alert('Error servidor');
+//                }
+//            },
+//            success: function (datos) {
+//            	$('.alert').show()
+//              location.reload('controlGenerador?action=generador');
+//            }
+//
+//        });		   
  }
  
  

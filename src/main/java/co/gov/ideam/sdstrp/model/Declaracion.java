@@ -357,7 +357,7 @@ public class Declaracion implements Serializable {
 	 private List<DeclaracionResiduo> declaracion_res;
 	
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	   @JoinColumn(name = "dec_generador", referencedColumnName = "sed_id", insertable=false, updatable=false)
 	   private Sede decSedGen;
 	

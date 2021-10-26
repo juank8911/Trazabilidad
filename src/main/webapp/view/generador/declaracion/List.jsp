@@ -158,7 +158,7 @@
 											</thead>
 											<tbody id="bodDecaRes">
 											<c:forEach items="${listdato.declaracion_res}" var="deca">
-													<tr>
+													<tr id="trDres">
 	
 														
 														<td>${deca.der_gen_nombre} 
@@ -198,7 +198,7 @@
 													<td colspan="5"></td>
 										 			<td >
 										 
-										 				<button type="button" class="btn btn-success" onclick="enviar(this)" >
+										 				<button type="button" class="btn btn-success"  onclick="enviar(this)" >
 <!-- 												data-toggle="modal" data-target="#exampleModal" -->
 												<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 														<span class="sr-only">Loading...</span>

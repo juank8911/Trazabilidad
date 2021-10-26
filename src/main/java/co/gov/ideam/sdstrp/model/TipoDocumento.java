@@ -56,7 +56,7 @@ public class TipoDocumento implements Serializable {
 	} 
 	
 
-	@OneToMany(cascade = {CascadeType.MERGE} ,fetch = FetchType.LAZY, mappedBy = "tDocumento")
+	@OneToMany(cascade = {CascadeType.ALL} ,fetch = FetchType.LAZY, mappedBy = "tDocumento")
 	 private List<Usuario> tDocumento;
 
 }

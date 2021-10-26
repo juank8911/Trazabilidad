@@ -112,14 +112,32 @@
 		}
 
  }
- 
- 
+
  function evalCheck()
  {
   
    var items = document.getElementsByName('brand[]');
                for (var i = 0; i < items.length; i++) {
 						if(items[i].checked==true)
+						{
+						bancheck = true;
+						}               
+
+               }
+               
+       return bancheck;
+ }
+ 
+ 
+ function evalCheck1()
+ {
+  
+   var che = document.getElementsByName('che[]');
+window.alert(che.length());
+
+               for (var i = 0; i < che.length; i++) {
+				var items = che[i].brand;
+						if(items.checked==true)
 						{
 						bancheck = true;
 						}               

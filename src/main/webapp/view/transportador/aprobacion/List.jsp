@@ -66,6 +66,13 @@
 
 
 		<div class="container">
+			<p>
+	<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
+		</p>
+		<p>
+	<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
+		</p>
+	
 			<table id="dTabla" name="dTabla" rules="rows"
 				class="table-condensed table-striped">
 				<thead>
@@ -88,12 +95,14 @@
 								<td></td>
 								<td>${listdato.dec_id}</td>
 								<td> <i class="ti-bar-chart-alt"></i> - ${listdato.decSedGen.empresaSed.emp_nombre_comercial}  :: ${listdato.decSedGes.sed_nombre} :: ${listdato.decSedGes.sed_direccion} :: ${listdato.decSedGes.departamento.dept_nombre} :: ${listdato.decSedGes.sedMunic.munic_nombre} <br> 
-									 <i class="ti-truck">        </i> - ${listdato.decSedGes.empresaSed.emp_nombre_comercial} :: ${listdato.decSedGen.sed_nombre} :: ${listdato.decSedGen.sed_direccion} :: ${listdato.decSedGen.departamento.dept_nombre} :: ${listdato.decSedGen.sedMunic.munic_nombre}  
+									 <i class="ti-truck">        </i> - ${listdato.decSedGes.empresaSed.emp_nombre_comercial} :: ${listdato.decSedGen.sed_nombre} :: ${listdato.decSedGen.sed_direccion} :: ${listdato.decSedGen.departamento.dept_nombre} :: ${listdato.decSedGen.sedMunic.munic_nombre}
+									 		<input type="hidden" name="declaracion[].delca" value="${listdato.dec_id}"/>	  
 							 </td>
 								<td><fmt:formatDate
 										value="${listdato.prog_dec.pro_fecha_inicial}"
 										timeStyle="none" dateStyle="long" /></td>
-								<td>${fn:length(listdato.declaracion_res)}</td>
+										<t>${fn:length(listdato.declaracion_res)}</td>
+								
 								<td id="btons">
 									<button type="button" class="btn btn-danger ti-trash" data-id="${listdato.dec_id}" data-fecha="${listdato.prog_dec.pro_fecha_inicial}" data-toggle="modal" data-target="#modalRhT">
 									</button>
@@ -118,39 +127,38 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach items="${listdato.declaracion_res}" var="deca">
+											<c:forEach items="${listdato.declaracion_res}" var="decaRes">
 												<tr>
 													
-													<td>${deca.der_gen_nombre}<input type="hidden"
-														value="${deca.der_id}" name="idDeclaRes[]" /> <input
-														type="hidden" value="${deca.der_declaracion}"
-														name="idDecla[]" />
+													<td>${decaRes.der_gen_nombre} <input type="hidden" value="${decaRes.der_declaracion}" name="model[].idDecla" />
+													<td>${decaRes.der_gen_nombre} <input type="hidden" value="${decaRes.der_declaracion}" name="model[].idDecla1" /> 
+														<input type="hidden" value="${decaRes.der_id}" name="model[].idDeclaRes" />
 													</td>
 													<td>
-													<select id="tipEmbalaje" name="tipEmbalaje[]"
+													<select id="tipEmbalaje" name="model[].tipEmbalaje"
 														class="form-select sm-2" required>
-															<option value="${deca.tipoEmbDec.tem_id}" selected>${deca.tipoEmbDec.tem_nombre}</option>
+															<option value="${decaRes.tipoEmbDec.tem_id}" selected>${decaRes.tipoEmbDec.tem_nombre}</option>
 															<c:forEach var="dato" items="${listaTipoEmbalaje}">
 																<option value="${dato.tem_id}">${dato.tem_nombre}</option>
 															</c:forEach>
 													</select></td>
-													<td><input type="number" name="txtCantEmb[]"
+													<td><input type="number" name="model[].txtCantEmb"
 														id="txtCantEmb" class="form-control"
-														value="${deca.der_gen_numero_embalajes}" readonly></td>
+														value="${decaRes.der_gen_numero_embalajes}" readonly></td>
 													<td><select id="tipEmpaque" class="form-select"
-														name="tipEmpaque[]" class="form-select sm-2">
-															<option value="${deca.tipoEmpDec.tep_id}" selected>${deca.tipoEmpDec.tep_nombre}</option>
+														name="model[].tipEmpaque" class="form-select sm-2">
+															<option value="${decaRes.tipoEmpDec.tep_id}" selected>${decaRes.tipoEmpDec.tep_nombre}</option>
 															<c:forEach var="dato1" items="${listaTipoEmpaque}">
 																<option value="${dato1.tep_id}">${dato1.tep_nombre}</option>
 															</c:forEach>
 													</select></td>
-													<td><input type="number" required name="txtCantEmpq[]"
+													<td><input type="number" required name="model[].txtCantEmpq"
 														id="txtCantEmpq" class="form-control sm-2"
-														value="${deca.der_gen_numero_empaques}" readonly></td>
+														value="${decaRes.der_gen_numero_empaques}" readonly></td>
 														
-													<td><input type="number" required name="txtCantPeso[]"
+													<td><input type="number" required name="model[].txtCantPeso"
 														id="txtCantPeso" class="form-control sm-2"
-														value="${deca.der_gen_peso_residuo}" readonly></td>
+														value="${decaRes.der_gen_peso_residuo}" readonly></td>
 													<td id="btons">
 														<button type="button" onclick="editar(this)"
 															class="btn btn-success ti-pencil-alt"></button>
@@ -170,7 +178,7 @@
 										<thead>
 											<tr>
 												<th>
-												<input type="hidden" name="arrCheks[]" id="pCheks"> 
+												<input type="hidden" name="declaracion[].arrCheks" id="pCheks"> 
 													<div class="form-group">
 														<label for="txtEntr" class="labels">Fecha de Recoleccion: </label> 
 														<input type="date" class="form-control"
@@ -283,7 +291,8 @@
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
 							<button type="button" id="envio" class="btn btn-success text-nowrap" onclick="enviar()">
-							<span class="spinner-border spinner-border-sm mr-2"></span>
+							<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+							<span class="sr-only">Loading...</span>
 							Enviar
 							</button>
 						</div>

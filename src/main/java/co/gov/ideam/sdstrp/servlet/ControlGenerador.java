@@ -273,8 +273,8 @@ public class ControlGenerador extends HttpServlet {
 	            	log.info(String.valueOf(request.getParameter("idTre")));
 	            	int idGes = Integer.parseInt(String.valueOf(request.getParameter("idGes")));
 	            	int idTrans = Integer.parseInt(String.valueOf(request.getParameter("idTre")));
-	            	int idGen = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
-	            	List<Residuos> residuos = combo.listaResiduosGenTran(idGes, idTrans,idGen);
+	            	int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
+	            	List<Residuos> residuos = combo.listaResiduosGenTran(idGes, idTrans,idSed);
 	            	StringBuilder gs = new StringBuilder("");
 	            	for (Residuos resid : residuos) {
 	            		System.out.println(resid.toString());
@@ -322,9 +322,9 @@ public class ControlGenerador extends HttpServlet {
 	                    this.dirigir(request, response, ruta);
 	    			} else {
 	    				
-		    	        int idSed = (int) request.getSession().getAttribute("idSede");
-		    	        System.out.println("generador "+ idSed);
-		    	        resDAO.listarResiduoGeneradorId(idSed);
+		    	        int idSe = (int) request.getSession().getAttribute("idSede");
+		    	        System.out.println("generador "+ idSe);
+		    	        resDAO.listarResiduoGeneradorId(idSe);
 		    	        int idGess = (int) request.getSession().getAttribute("idUsuario");
 		    	        combo.sedesTransProg(idGess);
 		                this.dirigir(request, response, ruta);
@@ -348,8 +348,8 @@ public class ControlGenerador extends HttpServlet {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);
 	    			} else {
-	    				int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
-	    				decDao.declaCercana(idSed);
+	    				int idSede = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
+	    				decDao.declaCercana(idSede);
 	                    this.dirigir(request, response, ruta);
 	    			}	                
 	                break;
@@ -359,10 +359,10 @@ public class ControlGenerador extends HttpServlet {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);
 	    			} else {
-	    				int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
+	    				int idS = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
 	    				String fIni = request.getParameter("txtFIni");
 	    				String fFin = request.getParameter("txtFFin");
-	    				decDao.declaEntre(fIni, fFin, idSed);
+	    				decDao.declaEntre(fIni, fFin, idS);
 	                    this.dirigir(request, response, ruta);
 	    			}	                
 	                break;
@@ -520,6 +520,7 @@ public class ControlGenerador extends HttpServlet {
 			// TODO Auto-generated method stub
 			SimpleDateFormat formato = new SimpleDateFormat("dd-mm-yy");
     		StringBuilder errorMessage = new StringBuilder();
+    		int idSed = (int) request.getSession().getAttribute("idSede");
     		Date fecha;
         	try {
         		
@@ -785,9 +786,7 @@ public class ControlGenerador extends HttpServlet {
     		        System.out.println("generador "+ idGen);
     		        int idSed = (int) request.getSession().getAttribute("idSede");
     		        System.out.println("generador "+ idSed);
-    		        resDAO.listarResiduoGeneradorId(idSed);
-    		        combo.sedesTransProg(idSed);
-    		        progDao.programacionResiduios(idSed);
+    		        
 				}
             	}
             		dates.removeAll(dates);
@@ -802,6 +801,9 @@ public class ControlGenerador extends HttpServlet {
                     log.info(""+t);
                 }
     		} finally {
+    			resDAO.listarResiduoGeneradorId(idSed);
+		        combo.sedesTransProg(idSed);
+		        progDao.programacionResiduios(idSed);
     			ruta = "controlGenerador?action=programaListaGenera";
     			log.info(errorMessage.toString());
                 request.setAttribute("errorMessage", errorMessage.toString());
@@ -941,11 +943,11 @@ public class ControlGenerador extends HttpServlet {
 	    //Pantalla de Lista de Programaciones
 	    protected void programaListaGenera(HttpServletRequest request, HttpServletResponse response, String ruta)
 	            throws ServletException, IOException{
-	        
-	    	String idG = String.valueOf(request.getSession().getAttribute("idUsuario"));
+	    	HttpSession sesion = request.getSession();
+	    	String idG = String.valueOf(sesion.getAttribute("idUsuario"));
 	        int idGen = Integer.parseInt(idG); // variable de usuario session
 	        System.out.println("generador "+ idGen);
-	        int idSed = (int) request.getSession().getAttribute("idSede");
+	       int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
 	        System.out.println("generador "+ idSed);
 	        resDAO.listarResiduoGeneradorId(idSed);
 	        combo.sedesTransProg(idSed);
