@@ -91,7 +91,7 @@ public class EmpresasDao {
 			listaEmpresasIdeJson = null;
 					
 		}
-		em.close();
+		
 	}
 	
 	public List<Empresa> empresasAutoridadJson(int idAu) {
