@@ -784,8 +784,8 @@ public class ControlGenerador extends HttpServlet {
     		    	String idGs = String.valueOf(request.getSession().getAttribute("idUsuario"));
     		        int idGen = Integer.parseInt(idGs); // variable de usuario session
     		        System.out.println("generador "+ idGen);
-    		        int idSed = (int) request.getSession().getAttribute("idSede");
-    		        System.out.println("generador "+ idSed);
+    		        int idSe= (int) request.getSession().getAttribute("idSede");
+    		        System.out.println("generador "+ idSe);
     		        
 				}
             	}
