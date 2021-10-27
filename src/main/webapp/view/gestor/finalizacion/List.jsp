@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>sdstrp - Listado de Aprobados</title>
+<title>sdstrp - Listado de Finalizacion</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/png"
 	href="assets/images/icon/favicon.ico">
@@ -103,7 +103,7 @@
 								<td><fmt:formatDate
 										value="${listdato.prog_dec.pro_fecha_inicial}"
 										timeStyle="none" dateStyle="long" /></td>
-								<td>${fn:length(listdato.declaracion_res)}</td>
+<%-- 								<td>${fn:length(listdato.declaracion_res)}</td> --%>
 								<td id="btons">
 									<button type="button" class="btn btn-danger ti-trash" data-
 										data-id="${listdato.dec_id}"
@@ -133,19 +133,18 @@
 
 												<tr>
 													
-													<td>${deca.der_gen_nombre}<input type="hidden"
-														value="${deca.der_id}" name="idDeclaRes[]" /> <input
-														type="hidden" value="${deca.der_declaracion}"
-														name="idDecla[]" />
+													<td>${deca.der_gen_nombre}
+													<input type="hidden" value="${deca.der_id}" name="model[].]idDeclaRes" /> 
+													<input type="hidden" value="${deca.der_declaracion}" name="model[].idDecla" />
 													</td>
-													<td><select id="tipEmbalaje" name="tipEmbalaje[]"
+													<td><select id="tipEmbalaje" name="model[].tipEmbalaje"
 														class="form-select sm-2" required>
 															<option value="${deca.tipoEmbDec.tem_id}" selected>${deca.tipoEmbDec.tem_nombre}</option>
 															<c:forEach var="dato" items="${listaTipoEmbalaje}">
 																<option value="${dato.tem_id}">${dato.tem_nombre}</option>
 															</c:forEach>
 													</select></td>
-													<td><input type="number" name="txtCantEmb[]"
+													<td><input type="number" name="model[].txtCantEmb"
 														id="txtCantEmb" class="form-control"
 														value="${deca.der_gen_numero_embalajes}" readonly></td>
 													<td><select id="tipEmpaque" class="form-select"
@@ -155,7 +154,7 @@
 																<option value="${dato1.tep_id}">${dato1.tep_nombre}</option>
 															</c:forEach>
 													</select></td>
-													<td><input type="number" required name="txtCantEmpq[]"
+													<td><input type="number" required name="model[].txtCantEmpq"
 														id="txtCantEmpq" class="form-control sm-2"
 														value="${deca.der_gen_numero_empaques}" readonly></td>
 													<td><input type="number" required name="txtCantPeso[]"
@@ -176,7 +175,7 @@
 													<td colspan="4">${deca.residuosDecl.tResiduo.tre_id}::
 														${deca.residuosDecl.tResiduo.tre_nombre}</td>
 													<td colspan="1"><select id="tipGestion"
-														class="form-select" name="tipGestion[]"
+														class="form-select" name="model[].tipGestion"
 														onchange="cargaTMan(this)">
 															<option
 																value="${deca.residuosDecl.tGestion.id_tip_gestion}"
@@ -186,7 +185,7 @@
 															</c:forEach>
 													</select></td>
 													<td colspan="3"><select id="tipMan"
-														class="form-select" name="tipMan[]">
+														class="form-select" name="model[].tipMan">
 															<option value="${deca.residuosDecl.tManejo.tma_id}"
 																selected>${deca.residuosDecl.tManejo.tma_nombre}</option>
 													</select></td>

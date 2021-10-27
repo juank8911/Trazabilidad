@@ -595,7 +595,7 @@ public class DeclaracionDAO {
 			}
 			
 		} catch (Exception e) {
-            log.info("Fallo lista de autorizaciones: " + e.getMessage());
+            log.info("Fallo lista de delcaraciones transportador: " + e.getMessage());
             e.fillInStackTrace();
 			// TODO: handle exception
 		}
@@ -609,43 +609,51 @@ public class DeclaracionDAO {
 
     	CriteriaBuilder cb = em.getCriteriaBuilder();
 		try {
-			CriteriaQuery<Declaracion> conDec = cb.createQuery(Declaracion.class);	
-			Root<Declaracion> rootDec = conDec.from(Declaracion.class);
-			conDec.where(cb.and(cb.equal(rootDec.get("dec_gestor"), idS),cb.equal(rootDec.get("dec_trn_aprobada"), "A"),cb.notEqual(rootDec.get("dec_ges_aprobada"), "A"),cb.notEqual(rootDec.get("dec_ges_aprobada"), "R")));
-			conDec.select(rootDec);
+			em.clear();
+			CriteriaQuery<Declaracion> conRes = cb.createQuery(Declaracion.class);	
+			Root<Declaracion> rootDeR = conRes.from(Declaracion.class);
+			conRes.where(cb.and(cb.equal(rootDeR.get("dec_gestor"), idS),cb.equal(rootDeR.get("dec_gen_aprobada"), "A"),cb.equal(rootDeR.get("dec_trn_aprobada"), "A"),cb.notEqual(rootDeR.get("dec_trn_aprobada"), "R")));
+			conRes.select(rootDeR);
 			log.info("-------------------------------Generando consulta");
-			listDeclaGest = em.createQuery(conDec).getResultList();
-			log.info(listDeclaGest.size()+"");
+			listDeclaGest = em.createQuery(conRes).getResultList();
 			
+		
 			
 			for (Declaracion tuple : listDeclaGest) {
 				log.info("////////////////////////////////////////////////////////");
-				log.info(tuple.getDecSedGen().getDepartamento()+"");
-				log.info(tuple.getDecSedGen().getSedMunic()+"");
-				log.info(tuple.getDecSedTran().getSed_nombre()+"");
+				log.info(tuple.getDecSedGes().getDepartamento()+"");
+				log.info(tuple.getDecSedGes().getSedMunic()+"");
+				log.info(tuple.getDecSedGes().getSed_nombre()+"");
 				log.info(tuple.getDecSedGen().getSed_nombre()+"");
-				String em = tuple.getDecSedTran().getEmpresaSed().getEmp_nombre_comercial();
+				String em = tuple.getDecSedGes().getEmpresaSed().getEmp_nombre_comercial();
 				em = tuple.getDecSedGen().getEmpresaSed().getEmp_nombre_comercial();
-				String dep = tuple.getDecSedTran().getDepartamento().getDept_nombre();
+				String dep = tuple.getDecSedGes().getDepartamento().getDept_nombre();
+				dep = tuple.getDecSedGes().getDepartamento().getDept_nombre();
 				dep = tuple.getDecSedGen().getDepartamento().getDept_nombre();
+				dep = tuple.getDecSedGes().getSedMunic().getMunic_nombre();
 				dep = tuple.getDecSedGen().getSedMunic().getMunic_nombre();
-				dep = tuple.getDecSedTran().getSedMunic().getMunic_nombre();
 				List<DeclaracionResiduo> decares = tuple.getDeclaracion_res();
 				for (DeclaracionResiduo declnRid : decares) {
 					log.info(declnRid.getDer_gen_nombre());
+					log.info(declnRid.getDer_id()+"");
 					log.info(declnRid.getTipoEmbDec().getTem_nombre()+"");
 					log.info(declnRid.getTipoEmpDec().getTep_nombre()+"");
-					log.info(declnRid.getResiduosDecl().gettResiduo().getTre_nombre()+"");
-					log.info(declnRid.getResiduosDecl().gettGestion().getNombre_gestion()+"");
-					log.info(declnRid.getResiduosDecl().gettManejo().getTma_nombre()+"");
-					log.info(declnRid.getResiduosDecl().getgUbicacion().getNombre_gestion_ubi()+"");
+					log.info(declnRid.getDer_trn_peso_residuo2()+"");
+					log.info("problema aqui id embalaje");
+					log.info(declnRid.getDer_trn_tipo_embalaje()+"");
+					log.info("problema aqui nombre embalaje");
+					log.info(declnRid.getTipoEmbDecTrn().getTem_nombre()+"");
+					log.info("problema aqui id empaque");
+					log.info(declnRid.getTipoEmpDecTrn().getTep_id()+"");
+					log.info("problema aqui nombre empaque");
+					log.info(declnRid.getTipoEmbDecTrn().getTem_nombre()+"");
 					
 				}
 				
 			}
 			
 		} catch (Exception e) {
-            System.out.println("Fallo lista de autorizaciones: " + e.getMessage());
+            System.out.println("Fallo lista de finalizacion Gestor: " + e.getMessage());
             e.fillInStackTrace();
 			// TODO: handle exception
 		}

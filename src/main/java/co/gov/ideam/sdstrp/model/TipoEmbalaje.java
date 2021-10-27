@@ -71,12 +71,40 @@ public class TipoEmbalaje implements Serializable {
 	}
 	
 	
+	
     
+	public List<DeclaracionResiduo> getTipoEmbDecTrn() {
+		return tipoEmbDecTrn;
+	}
+
+	public void setTipoEmbDecTrn(List<DeclaracionResiduo> tipoEmbDecTrn) {
+		this.tipoEmbDecTrn = tipoEmbDecTrn;
+	}
+
+	public List<DeclaracionResiduo> getTipoEmbDecGes() {
+		return tipoEmbDecGes;
+	}
+
+	public void setTipoEmbDecGes(List<DeclaracionResiduo> tipoEmbDecGes) {
+		this.tipoEmbDecGes = tipoEmbDecGes;
+	}
+
+
+
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jTipoEmb")
     private List<Residuos> jTipoEmb;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmbDec")
 	 private List<DeclaracionResiduo> tipoEmbDec;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmbDecTrn")
+	 private List<DeclaracionResiduo> tipoEmbDecTrn;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmbDecGes")
+	 private List<DeclaracionResiduo> tipoEmbDecGes;
+	
+	
 
 
    

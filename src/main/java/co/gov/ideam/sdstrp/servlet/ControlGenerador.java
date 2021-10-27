@@ -698,24 +698,11 @@ public class ControlGenerador extends HttpServlet {
                 	log.info(request.getParameter("localiza"));
                 	log.info(request.getParameter("btnInterna"));
                 	String p = request.getParameter("btnInterna");
-                	if(request.getParameter("localiza")!="btnResi")
-                	{
+                	
                 		ResUni = em.find(Residuos.class, Integer.parseInt(String.valueOf(items[0])));
                 		prog.setPro_transportador(ResUni.getRes_sede_transporte());
                 		prog.setPro_gestor(ResUni.getRes_sede_gestor());
-                		
-//                		prog.setPro_transportador(res);
-                	}
-                	else
-                	{
-                		idTrEm = Integer.valueOf(String.valueOf(request.getParameter("chekTrans")));
-                		prog.setPro_transportador(idTrEm);
-                		idGenEmp = Integer.valueOf(String.valueOf(request.getParameter("txtGes")));
-                    	prog.setPro_gestor(idGenEmp);
-                	}
-                			                  
-                	
-                	//Campo gestor
+
                                	
                     log.info("\n*****************Try Registration of programa=" + prog.getPro_fecha_final());
                     log.info(prog.toString());
@@ -728,22 +715,10 @@ public class ControlGenerador extends HttpServlet {
             			decDao.initNewDecla();
             		}
                 	
-                	if(request.getParameter("btnInterna")!=null)
-                	{
-                		decl.setDec_gestor(ResUni.getRes_sede_gestor());
-                		decl.setDec_transportador(ResUni.getRes_sede_transporte());
-                	}
-                	else
-                	{
-
                     		decl.setDec_transportador(ResUni.getRes_sede_transporte());
-                    		decl.setDec_gestor(ResUni.getRes_sede_gestor());
+                    		decl.setDec_gestor(ResUni.getRes_sede_gestor());		
+//                    		prog.setPro_transportador(res); 
                     		
-//                    		prog.setPro_transportador(res);
-
-                		
-
-                	}
                 	decl.setDec_gen_fecha_gen(fech);
                 	log.info("Fecha de gnenracion de la declaracion "+decl.getDec_gen_fecha_gen());
                 	decl.setDec_generador(idS);
@@ -751,7 +726,7 @@ public class ControlGenerador extends HttpServlet {
 //                	log.info(sedeTr.getSed_id()+"");
                 	
                 	decl.setDec_prog_id(prog.getPro_id());
-                	decl.setDec_generador(idS);
+//                	decl.setDec_generador(idS);
                 	decl.setDec_trn_aprobada("N");
                 	decl.setDec_ges_aprobada("N");
 //                	decl.setDec_generador(idS);
@@ -784,8 +759,7 @@ public class ControlGenerador extends HttpServlet {
     		    	String idGs = String.valueOf(request.getSession().getAttribute("idUsuario"));
     		        int idGen = Integer.parseInt(idGs); // variable de usuario session
     		        System.out.println("generador "+ idGen);
-    		        int idSe= (int) request.getSession().getAttribute("idSede");
-    		        System.out.println("generador "+ idSe);
+    		        System.out.println("generador "+ idSed);
     		        
 				}
             	}

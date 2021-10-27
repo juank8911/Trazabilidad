@@ -842,6 +842,7 @@ public class controlTransportador extends HttpServlet {
     	log.info(cantEmb.toString());
     	log.info(tipEmpa.toString());
     	log.info(cantEmpq.toString());
+    	log.info(tipoEmbalaje.toString());
     	log.info(cantPeso.toString());
     	// el que formatea
     	SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");

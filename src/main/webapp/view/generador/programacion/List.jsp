@@ -224,7 +224,7 @@
 											<div class="form-group col-md-5">
 												<label for="txtFactual" class="form-label">Fecha: </label> <input
 													type="date" name="txtFactual" class="form-control"
-													id="txtFactual" placeholder="">
+													id="txtFactual" plac eholder="">
 													<input type="hidden" name="localiza" value="btnResi">
 											</div>
 
@@ -241,7 +241,7 @@
 											</div>
 										</div>
 
-										<div class="form-row m-2">
+										<div class="form-row col-md-12">
 											<div class="form-grup">
 												<label for="txtFfinal" id="hastaFL" style="display: none">Hasta
 												</label> <input type="date" name="txtFfinal" class="form-control"
@@ -329,19 +329,19 @@
                             </div>
                             <div class="modal-body">
                             <form method="post" action="controlGenerador?action=programaRGuardaGenera" class="needs-validation form-control">
-                                <div class="form-row">
+                                <div class="form-row col-md-12">
 
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-5">
                                         <label>Fecha: </label>
                                     </div>
-                                    <div class="form-group col-md-8">
+                                    <div class="form-group col-md-4">
                                         <input class="form-control" type="date" id="txtFechaM" name="txtFechaM" />
                                         <input type="hidden" id="txtProg" name="txtProg" />
                                         <!--input type="text" id="txtTitle" name="txtTitle" /-->
                                     </div>
                                 </div>
                                 <div class="form-group row col-md-12" name="traz" id="traz"> -->
-											<div class="col-md-6">
+											<div class="col-md-5">
 												<label for="txtTrans">Transportador: </label> <select
 													name="chekTrans" id="chekTrans" class="form-control">
 													<option>--------SELECCIONE TRANSPORTADOR--------</option>
@@ -361,9 +361,7 @@
 											</div>
  										</div> 
 
-                               
-
-                                
+                                        
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <label for="validationCustom01">Residuo </label>

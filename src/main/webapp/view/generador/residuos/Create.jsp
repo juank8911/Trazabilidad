@@ -189,7 +189,7 @@ type="text/css" media="all" />
 										<option value="${dato.emp_id}">${dato.emp_nombre_comercial}</option>
 									</c:forEach>
 
-								</select> <label for="sedeTrans"
+								</select> <label for="sedeGestor"
 									class="col-form-label form-group col-md-2" id="lsedeGestor">
 									Sede: </label> <select class="form-control form-group col-md-4"
 									id="sedeGestor" name="sedeGestor">

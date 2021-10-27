@@ -117,380 +117,336 @@ public class DeclaracionResiduo implements Serializable {
 //	"DER_TRN_PESO_RESIDUO2" NUMBER(10,0), 
 	@Column(name="DER_GES_PESO_RESIDUO2")
 	private int der_ges_peso_residuo2;
-	/**
-	 * @return the der_id
-	 */
+
+	
 	public int getDer_id() {
 		return der_id;
 	}
-	/**
-	 * @param der_id the der_id to set
-	 */
+
 	public void setDer_id(int der_id) {
 		this.der_id = der_id;
 	}
-	/**
-	 * @return the der_declaracion
-	 */
+
 	public int getDer_declaracion() {
 		return der_declaracion;
 	}
-	/**
-	 * @param der_declaracion the der_declaracion to set
-	 */
+
 	public void setDer_declaracion(int der_declaracion) {
 		this.der_declaracion = der_declaracion;
 	}
-	/**
-	 * @return the der_gen_nombre
-	 */
-	public String getDer_gen_nombre() {
-		return der_gen_nombre;
-	}
-	/**
-	 * @param der_gen_nombre the der_gen_nombre to set
-	 */
-	public void setDer_gen_nombre(String der_gen_nombre) {
-		this.der_gen_nombre = der_gen_nombre;
-	}
-	
-	public int getDer_trn_numero_embalajes() {
-		return der_trn_numero_embalajes;
-	}
-	public void setDer_trn_numero_embalajes(int der_trn_numero_embalajes) {
-		this.der_trn_numero_embalajes = der_trn_numero_embalajes;
-	}
-	/**
-	 * @return the der_gen_tipo_residuo
-	 */
-	public String getDer_gen_tipo_residuo() {
-		return der_gen_tipo_residuo;
-	}
-	/**
-	 * @param der_gen_tipo_residuo the der_gen_tipo_residuo to set
-	 */
-	public void setDer_gen_tipo_residuo(String der_gen_tipo_residuo) {
-		this.der_gen_tipo_residuo = der_gen_tipo_residuo;
-	}
-	/**
-	 * @return the der_gen_estado_materia
-	 */
-	public String getDer_gen_estado_materia() {
-		return der_gen_estado_materia;
-	}
-	/**
-	 * @param der_gen_estado_materia the der_gen_estado_materia to set
-	 */
-	public void setDer_gen_estado_materia(String der_gen_estado_materia) {
-		this.der_gen_estado_materia = der_gen_estado_materia;
-	}
-	/**
-	 * @return the der_gen_tipo_empaque
-	 */
-	public String getDer_gen_tipo_empaque() {
-		return der_gen_tipo_empaque;
-	}
-	/**
-	 * @param der_gen_tipo_empaque the der_gen_tipo_empaque to set
-	 */
-	public void setDer_gen_tipo_empaque(String der_gen_tipo_empaque) {
-		this.der_gen_tipo_empaque = der_gen_tipo_empaque;
-	}
-	/**
-	 * @return the der_gen_numero_empaques
-	 */
-	public int getDer_gen_numero_empaques() {
-		return der_gen_numero_empaques;
-	}
-	/**
-	 * @param der_gen_numero_empaques the der_gen_numero_empaques to set
-	 */
-	public void setDer_gen_numero_empaques(int der_gen_numero_empaques) {
-		this.der_gen_numero_empaques = der_gen_numero_empaques;
-	}
-	/**
-	 * @return the der_gen_tipo_embalaje
-	 */
-	public String getDer_gen_tipo_embalaje() {
-		return der_gen_tipo_embalaje;
-	}
-	/**
-	 * @param der_gen_tipo_embalaje the der_gen_tipo_embalaje to set
-	 */
-	public void setDer_gen_tipo_embalaje(String der_gen_tipo_embalaje) {
-		this.der_gen_tipo_embalaje = der_gen_tipo_embalaje;
-	}
-	/**
-	 * @return the der_gen_numero_embalajes
-	 */
-	public int getDer_gen_numero_embalajes() {
-		return der_gen_numero_embalajes;
-	}
-	/**
-	 * @param der_gen_numero_embalajes the der_gen_numero_embalajes to set
-	 */
-	public void setDer_gen_numero_embalajes(int der_gen_numero_embalajes) {
-		this.der_gen_numero_embalajes = der_gen_numero_embalajes;
-	}
-	/**
-	 * @return the der_gen_tipo_peligrosidad
-	 */
-	public String getDer_gen_tipo_peligrosidad() {
-		return der_gen_tipo_peligrosidad;
-	}
-	/**
-	 * @param der_gen_tipo_peligrosidad the der_gen_tipo_peligrosidad to set
-	 */
-	public void setDer_gen_tipo_peligrosidad(String der_gen_tipo_peligrosidad) {
-		this.der_gen_tipo_peligrosidad = der_gen_tipo_peligrosidad;
-	}
-	/**
-	 * @return the der_gen_tipo_manejo
-	 */
-	public String getDer_gen_tipo_manejo() {
-		return der_gen_tipo_manejo;
-	}
-	/**
-	 * @param der_gen_tipo_manejo the der_gen_tipo_manejo to set
-	 */
-	public void setDer_gen_tipo_manejo(String der_gen_tipo_manejo) {
-		this.der_gen_tipo_manejo = der_gen_tipo_manejo;
-	}
-	/**
-	 * @return the der_gen_peso_residuo
-	 */
-	public int getDer_gen_peso_residuo() {
-		return der_gen_peso_residuo;
-	}
-	/**
-	 * @param der_gen_peso_residuo the der_gen_peso_residuo to set
-	 */
-	public void setDer_gen_peso_residuo(int der_gen_peso_residuo) {
-		this.der_gen_peso_residuo = der_gen_peso_residuo;
-	}
-	/**
-	 * @return the der_trn_tipo_empaque
-	 */
-	public String getDer_trn_tipo_empaque() {
-		return der_trn_tipo_empaque;
-	}
-	/**
-	 * @param der_trn_tipo_empaque the der_trn_tipo_empaque to set
-	 */
-	public void setDer_trn_tipo_empaque(String der_trn_tipo_empaque) {
-		this.der_trn_tipo_empaque = der_trn_tipo_empaque;
-	}
-	/**
-	 * @return the der_trn_numero_empaques
-	 */
-	public int getDer_trn_numero_empaques() {
-		return der_trn_numero_empaques;
-	}
-	/**
-	 * @param der_trn_numero_empaques the der_trn_numero_empaques to set
-	 */
-	public void setDer_trn_numero_empaques(int der_trn_numero_empaques) {
-		this.der_trn_numero_empaques = der_trn_numero_empaques;
-	}
-	/**
-	 * @return the der_trn_tipo_embalaje
-	 */
-	public String getDer_trn_tipo_embalaje() {
-		return der_trn_tipo_embalaje;
-	}
-	/**
-	 * @param der_trn_tipo_embalaje the der_trn_tipo_embalaje to set
-	 */
-	public void setDer_trn_tipo_embalaje(String der_trn_tipo_embalaje) {
-		this.der_trn_tipo_embalaje = der_trn_tipo_embalaje;
-	}
-	/**
-	 * @return the der_trn_tipo_embalaje2
-	 */
-	public String getDer_trn_tipo_embalaje2() {
-		return der_trn_tipo_embalaje2;
-	}
-	/**
-	 * @param der_trn_tipo_embalaje2 the der_trn_tipo_embalaje2 to set
-	 */
-	public void setDer_trn_tipo_embalaje2(String der_trn_tipo_embalaje2) {
-		this.der_trn_tipo_embalaje2 = der_trn_tipo_embalaje2;
-	}
-	/**
-	 * @return the der_trn_tipo_peligrosidad2
-	 */
-	public String getDer_trn_tipo_peligrosidad2() {
-		return der_trn_tipo_peligrosidad2;
-	}
-	/**
-	 * @param der_trn_tipo_peligrosidad2 the der_trn_tipo_peligrosidad2 to set
-	 */
-	public void setDer_trn_tipo_peligrosidad2(String der_trn_tipo_peligrosidad2) {
-		this.der_trn_tipo_peligrosidad2 = der_trn_tipo_peligrosidad2;
-	}
-	/**
-	 * @return the der_trn_peso_residuo2
-	 */
-	public int getDer_trn_peso_residuo2() {
-		return der_trn_peso_residuo2;
-	}
-	/**
-	 * @param der_trn_peso_residuo2 the der_trn_peso_residuo2 to set
-	 */
-	public void setDer_trn_peso_residuo2(int der_trn_peso_residuo2) {
-		this.der_trn_peso_residuo2 = der_trn_peso_residuo2;
-	}
-	/**
-	 * @return the der_ges_tipo_empaque2
-	 */
-	public String getDer_ges_tipo_empaque2() {
-		return der_ges_tipo_empaque2;
-	}
-	/**
-	 * @param der_ges_tipo_empaque2 the der_ges_tipo_empaque2 to set
-	 */
-	public void setDer_ges_tipo_empaque2(String der_ges_tipo_empaque2) {
-		this.der_ges_tipo_empaque2 = der_ges_tipo_empaque2;
-	}
-	/**
-	 * @return the der_ges_numero_empaques2
-	 */
-	public int getDer_ges_numero_empaques2() {
-		return der_ges_numero_empaques2;
-	}
-	/**
-	 * @param der_ges_numero_empaques2 the der_ges_numero_empaques2 to set
-	 */
-	public void setDer_ges_numero_empaques2(int der_ges_numero_empaques2) {
-		this.der_ges_numero_empaques2 = der_ges_numero_empaques2;
-	}
-	/**
-	 * @return the der_ges_tipo_embalaje2
-	 */
-	public String getDer_ges_tipo_embalaje2() {
-		return der_ges_tipo_embalaje2;
-	}
-	/**
-	 * @param der_ges_tipo_embalaje2 the der_ges_tipo_embalaje2 to set
-	 */
-	public void setDer_ges_tipo_embalaje2(String der_ges_tipo_embalaje2) {
-		this.der_ges_tipo_embalaje2 = der_ges_tipo_embalaje2;
-	}
-	/**
-	 * @return the der_ges_numero_embalajes2
-	 */
-	public int getDer_ges_numero_embalajes2() {
-		return der_ges_numero_embalajes2;
-	}
-	/**
-	 * @param der_ges_numero_embalajes2 the der_ges_numero_embalajes2 to set
-	 */
-	public void setDer_ges_numero_embalajes2(int der_ges_numero_embalajes2) {
-		this.der_ges_numero_embalajes2 = der_ges_numero_embalajes2;
-	}
-	/**
-	 * @return the der_ges_tipo_peligrosidad3
-	 */
-	public String getDer_ges_tipo_peligrosidad3() {
-		return der_ges_tipo_peligrosidad3;
-	}
-	/**
-	 * @param der_ges_tipo_peligrosidad3 the der_ges_tipo_peligrosidad3 to set
-	 */
-	public void setDer_ges_tipo_peligrosidad3(String der_ges_tipo_peligrosidad3) {
-		this.der_ges_tipo_peligrosidad3 = der_ges_tipo_peligrosidad3;
-	}
-	/**
-	 * @return the der_ges_tipo_manejo2
-	 */
-	public String getDer_ges_tipo_manejo2() {
-		return der_ges_tipo_manejo2;
-	}
-	/**
-	 * @param der_ges_tipo_manejo2 the der_ges_tipo_manejo2 to set
-	 */
-	public void setDer_ges_tipo_manejo2(String der_ges_tipo_manejo2) {
-		this.der_ges_tipo_manejo2 = der_ges_tipo_manejo2;
-	}
-	/**
-	 * @return the der_ges_peso_residuo2
-	 */
-	public int getDer_ges_peso_residuo2() {
-		return der_ges_peso_residuo2;
-	}
-	/**
-	 * @param der_ges_peso_residuo2 the der_ges_peso_residuo2 to set
-	 */
-	public void setDer_ges_peso_residuo2(int der_ges_peso_residuo2) {
-		this.der_ges_peso_residuo2 = der_ges_peso_residuo2;
-	}
-	
-	
-	
+
 	public int getDer_res_id() {
 		return der_res_id;
 	}
+
 	public void setDer_res_id(int der_res_id) {
 		this.der_res_id = der_res_id;
 	}
+
+	public String getDer_gen_nombre() {
+		return der_gen_nombre;
+	}
+
+	public void setDer_gen_nombre(String der_gen_nombre) {
+		this.der_gen_nombre = der_gen_nombre;
+	}
+
+	public String getDer_gen_tipo_residuo() {
+		return der_gen_tipo_residuo;
+	}
+
+	public void setDer_gen_tipo_residuo(String der_gen_tipo_residuo) {
+		this.der_gen_tipo_residuo = der_gen_tipo_residuo;
+	}
+
+	public String getDer_gen_estado_materia() {
+		return der_gen_estado_materia;
+	}
+
+	public void setDer_gen_estado_materia(String der_gen_estado_materia) {
+		this.der_gen_estado_materia = der_gen_estado_materia;
+	}
+
+	public String getDer_gen_tipo_empaque() {
+		return der_gen_tipo_empaque;
+	}
+
+	public void setDer_gen_tipo_empaque(String der_gen_tipo_empaque) {
+		this.der_gen_tipo_empaque = der_gen_tipo_empaque;
+	}
+
+	public int getDer_gen_numero_empaques() {
+		return der_gen_numero_empaques;
+	}
+
+	public void setDer_gen_numero_empaques(int der_gen_numero_empaques) {
+		this.der_gen_numero_empaques = der_gen_numero_empaques;
+	}
+
+	public String getDer_gen_tipo_embalaje() {
+		return der_gen_tipo_embalaje;
+	}
+
+	public void setDer_gen_tipo_embalaje(String der_gen_tipo_embalaje) {
+		this.der_gen_tipo_embalaje = der_gen_tipo_embalaje;
+	}
+
+	public int getDer_gen_numero_embalajes() {
+		return der_gen_numero_embalajes;
+	}
+
+	public void setDer_gen_numero_embalajes(int der_gen_numero_embalajes) {
+		this.der_gen_numero_embalajes = der_gen_numero_embalajes;
+	}
+
+	public String getDer_gen_tipo_peligrosidad() {
+		return der_gen_tipo_peligrosidad;
+	}
+
+	public void setDer_gen_tipo_peligrosidad(String der_gen_tipo_peligrosidad) {
+		this.der_gen_tipo_peligrosidad = der_gen_tipo_peligrosidad;
+	}
+
+	public String getDer_gen_tipo_manejo() {
+		return der_gen_tipo_manejo;
+	}
+
+	public void setDer_gen_tipo_manejo(String der_gen_tipo_manejo) {
+		this.der_gen_tipo_manejo = der_gen_tipo_manejo;
+	}
+
+	public int getDer_gen_peso_residuo() {
+		return der_gen_peso_residuo;
+	}
+
+	public void setDer_gen_peso_residuo(int der_gen_peso_residuo) {
+		this.der_gen_peso_residuo = der_gen_peso_residuo;
+	}
+
+	public String getDer_trn_tipo_empaque() {
+		return der_trn_tipo_empaque;
+	}
+
+	public void setDer_trn_tipo_empaque(String der_trn_tipo_empaque) {
+		this.der_trn_tipo_empaque = der_trn_tipo_empaque;
+	}
+
+	public int getDer_trn_numero_empaques() {
+		return der_trn_numero_empaques;
+	}
+
+	public void setDer_trn_numero_empaques(int der_trn_numero_empaques) {
+		this.der_trn_numero_empaques = der_trn_numero_empaques;
+	}
+
+	public String getDer_trn_tipo_embalaje() {
+		return der_trn_tipo_embalaje;
+	}
+
+	public void setDer_trn_tipo_embalaje(String der_trn_tipo_embalaje) {
+		this.der_trn_tipo_embalaje = der_trn_tipo_embalaje;
+	}
+
+	public int getDer_trn_numero_embalajes() {
+		return der_trn_numero_embalajes;
+	}
+
+	public void setDer_trn_numero_embalajes(int der_trn_numero_embalajes) {
+		this.der_trn_numero_embalajes = der_trn_numero_embalajes;
+	}
+
+	public String getDer_trn_tipo_embalaje2() {
+		return der_trn_tipo_embalaje2;
+	}
+
+	public void setDer_trn_tipo_embalaje2(String der_trn_tipo_embalaje2) {
+		this.der_trn_tipo_embalaje2 = der_trn_tipo_embalaje2;
+	}
+
+	public String getDer_trn_tipo_peligrosidad2() {
+		return der_trn_tipo_peligrosidad2;
+	}
+
+	public void setDer_trn_tipo_peligrosidad2(String der_trn_tipo_peligrosidad2) {
+		this.der_trn_tipo_peligrosidad2 = der_trn_tipo_peligrosidad2;
+	}
+
+	public int getDer_trn_peso_residuo2() {
+		return der_trn_peso_residuo2;
+	}
+
+	public void setDer_trn_peso_residuo2(int der_trn_peso_residuo2) {
+		this.der_trn_peso_residuo2 = der_trn_peso_residuo2;
+	}
+
+	public String getDer_ges_tipo_empaque2() {
+		return der_ges_tipo_empaque2;
+	}
+
+	public void setDer_ges_tipo_empaque2(String der_ges_tipo_empaque2) {
+		this.der_ges_tipo_empaque2 = der_ges_tipo_empaque2;
+	}
+
+	public int getDer_ges_numero_empaques2() {
+		return der_ges_numero_empaques2;
+	}
+
+	public void setDer_ges_numero_empaques2(int der_ges_numero_empaques2) {
+		this.der_ges_numero_empaques2 = der_ges_numero_empaques2;
+	}
+
+	public String getDer_ges_tipo_embalaje2() {
+		return der_ges_tipo_embalaje2;
+	}
+
+	public void setDer_ges_tipo_embalaje2(String der_ges_tipo_embalaje2) {
+		this.der_ges_tipo_embalaje2 = der_ges_tipo_embalaje2;
+	}
+
+	public int getDer_ges_numero_embalajes2() {
+		return der_ges_numero_embalajes2;
+	}
+
+	public void setDer_ges_numero_embalajes2(int der_ges_numero_embalajes2) {
+		this.der_ges_numero_embalajes2 = der_ges_numero_embalajes2;
+	}
+
+	public String getDer_ges_tipo_peligrosidad3() {
+		return der_ges_tipo_peligrosidad3;
+	}
+
+	public void setDer_ges_tipo_peligrosidad3(String der_ges_tipo_peligrosidad3) {
+		this.der_ges_tipo_peligrosidad3 = der_ges_tipo_peligrosidad3;
+	}
+
+	public String getDer_ges_tipo_manejo2() {
+		return der_ges_tipo_manejo2;
+	}
+
+	public void setDer_ges_tipo_manejo2(String der_ges_tipo_manejo2) {
+		this.der_ges_tipo_manejo2 = der_ges_tipo_manejo2;
+	}
+
+	public String getDer_ges_ti_gestion() {
+		return der_ges_ti_gestion;
+	}
+
+	public void setDer_ges_ti_gestion(String der_ges_ti_gestion) {
+		this.der_ges_ti_gestion = der_ges_ti_gestion;
+	}
+
+	public String getDer_ges_subti_gestion() {
+		return der_ges_subti_gestion;
+	}
+
+	public void setDer_ges_subti_gestion(String der_ges_subti_gestion) {
+		this.der_ges_subti_gestion = der_ges_subti_gestion;
+	}
+
+	public int getDer_ges_peso_residuo2() {
+		return der_ges_peso_residuo2;
+	}
+
+	public void setDer_ges_peso_residuo2(int der_ges_peso_residuo2) {
+		this.der_ges_peso_residuo2 = der_ges_peso_residuo2;
+	}
+
 	public Declaracion getDeclaracion_res() {
 		return declaracion_res;
 	}
+
 	public void setDeclaracion_res(Declaracion declaracion_res) {
 		this.declaracion_res = declaracion_res;
 	}
 
- 	public TipoResiduos getTipoResDec() {
-	return tipoResDec;
-}
-public void setTipoResDec(TipoResiduos tipoResDec) {
-	this.tipoResDec = tipoResDec;
-}
-public Residuos getResiduosDecl() {
-	return residuosDecl;
-}
-public void setResiduosDecl(Residuos residuosDecl) {
-	this.residuosDecl = residuosDecl;
-}
+	public TipoResiduos getTipoResDec() {
+		return tipoResDec;
+	}
 
-public TipoEmbalaje getTipoEmbDec() {
-	return tipoEmbDec;
-}
-public void setTipoEmbDec(TipoEmbalaje tipoEmbDec) {
-	this.tipoEmbDec = tipoEmbDec;
-}
-public TipoEmpaque getTipoEmpDec() {
-	return tipoEmpDec;
-}
-public void setTipoEmpDec(TipoEmpaque tipoEmpDec) {
-	this.tipoEmpDec = tipoEmpDec;
-}
+	public void setTipoResDec(TipoResiduos tipoResDec) {
+		this.tipoResDec = tipoResDec;
+	}
 
+	public TipoEmbalaje getTipoEmbDec() {
+		return tipoEmbDec;
+	}
 
-	public String getDec_ges_ti_gestion() {
-	return der_ges_ti_gestion;
-}
-public void setDec_ges_ti_gestion(String dec_ges_ti_gestion) {
-	this.der_ges_ti_gestion = dec_ges_ti_gestion;
-}
-public String getDec_ges_subti_gestion() {
-	return der_ges_subti_gestion;
-}
-public void setDec_ges_subti_gestion(String dec_ges_subti_gestion) {
-	this.der_ges_subti_gestion = dec_ges_subti_gestion;
-}
-public TipoGestion getTipoGes() {
-	return tipoGes;
-}
-public void setTipoGes(TipoGestion tipoGes) {
-	this.tipoGes = tipoGes;
-}
-public TipoManejo getSubtipoGes() {
-	return subtipoGes;
-}
-public void setSubtipoGes(TipoManejo subtipoGes) {
-	this.subtipoGes = subtipoGes;
-}
+	public void setTipoEmbDec(TipoEmbalaje tipoEmbDec) {
+		this.tipoEmbDec = tipoEmbDec;
+	}
+
+	public TipoEmbalaje getTipoEmbDecTrn() {
+		return tipoEmbDecTrn;
+	}
+
+	public void setTipoEmbDecTrn(TipoEmbalaje tipoEmbDecTrn) {
+		this.tipoEmbDecTrn = tipoEmbDecTrn;
+	}
+
+	public TipoEmbalaje getTipoEmbDecGes() {
+		return tipoEmbDecGes;
+	}
+
+	public void setTipoEmbDecGes(TipoEmbalaje tipoEmbDecGes) {
+		this.tipoEmbDecGes = tipoEmbDecGes;
+	}
+
+	public TipoEmpaque getTipoEmpDec() {
+		return tipoEmpDec;
+	}
+
+	public void setTipoEmpDec(TipoEmpaque tipoEmpDec) {
+		this.tipoEmpDec = tipoEmpDec;
+	}
+
+	public TipoEmpaque getTipoEmpDecTrn() {
+		return tipoEmpDecTrn;
+	}
+
+	public void setTipoEmpDecTrn(TipoEmpaque tipoEmpDecTrn) {
+		this.tipoEmpDecTrn = tipoEmpDecTrn;
+	}
+
+	public TipoEmpaque getTipoEmpDecGes() {
+		return tipoEmpDecGes;
+	}
+
+	public void setTipoEmpDecGes(TipoEmpaque tipoEmpDecGes) {
+		this.tipoEmpDecGes = tipoEmpDecGes;
+	}
+
+	public Residuos getResiduosDecl() {
+		return residuosDecl;
+	}
+
+	public void setResiduosDecl(Residuos residuosDecl) {
+		this.residuosDecl = residuosDecl;
+	}
+
+	public TipoGestion getTipoGes() {
+		return tipoGes;
+	}
+
+	public void setTipoGes(TipoGestion tipoGes) {
+		this.tipoGes = tipoGes;
+	}
+
+	public TipoManejo getSubtipoGes() {
+		return subtipoGes;
+	}
+
+	public void setSubtipoGes(TipoManejo subtipoGes) {
+		this.subtipoGes = subtipoGes;
+	}
+
+	public EstadoMateria getDeReEstado() {
+		return deReEstado;
+	}
+
+	public void setDeReEstado(EstadoMateria deReEstado) {
+		this.deReEstado = deReEstado;
+	}
+
 	@Override
 	public String toString() {
 		return der_id + " : " + der_declaracion + " : " + der_gen_nombre + " : " + der_gen_tipo_residuo + " : "
@@ -521,8 +477,28 @@ public void setSubtipoGes(TipoManejo subtipoGes) {
 	 	private TipoEmbalaje tipoEmbDec;
 	 	
 	 	@ManyToOne(fetch=FetchType.LAZY)
+	 	@JoinColumn(name = "DER_TRN_TIPO_EMBALAJE", referencedColumnName = "TEM_ID", insertable=false, updatable=false)
+	 	private TipoEmbalaje tipoEmbDecTrn;
+	 	
+	 	@ManyToOne(fetch=FetchType.LAZY)
+	 	@JoinColumn(name = "DER_GES_TIPO_EMBALAJE2", referencedColumnName = "TEM_ID", insertable=false, updatable=false)
+	 	private TipoEmbalaje tipoEmbDecGes;
+	 	
+	 	
+	 	
+	 	
+	 	@ManyToOne(fetch=FetchType.LAZY)
 	 	@JoinColumn(name = "DER_GEN_TIPO_EMPAQUE", referencedColumnName = "TEP_ID", insertable=false, updatable=false)
 	 	private TipoEmpaque tipoEmpDec;
+	 	
+	 	@ManyToOne(fetch=FetchType.LAZY)
+	 	@JoinColumn(name = "DER_TRN_TIPO_EMPAQUE", referencedColumnName = "TEP_ID", insertable=false, updatable=false)
+	 	private TipoEmpaque tipoEmpDecTrn;
+	 	
+	 	@ManyToOne(fetch=FetchType.LAZY)
+	 	@JoinColumn(name = "DER_GES_TIPO_EMPAQUE2", referencedColumnName = "TEP_ID", insertable=false, updatable=false)
+	 	private TipoEmpaque tipoEmpDecGes;
+	 	
 	 	
 	 	
 	 	@ManyToOne(fetch=FetchType.LAZY)
@@ -539,7 +515,9 @@ public void setSubtipoGes(TipoManejo subtipoGes) {
 	 	
 		  @ManyToOne(fetch=FetchType.LAZY)
 		   @JoinColumn(name = "der_gen_estado_materia", referencedColumnName = "ema_id", insertable=false, updatable=false)
-		   private EstadoMateria deReEstado;		  
+		   private EstadoMateria deReEstado;	
+		  
+		  
 	 	
 	 	
 		

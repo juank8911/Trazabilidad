@@ -68,8 +68,8 @@ public class DeclaResiAdapter implements JsonSerializer<Boolean>
 			jsonDeRe.addProperty("der_ges_numero_embalajes2", src.getDer_ges_numero_embalajes2());
 			jsonDeRe.addProperty("der_ges_tipo_peligrosidad3", src.getDer_ges_tipo_peligrosidad3());
 			jsonDeRe.addProperty("der_ges_tipo_manejo2", src.getDer_ges_tipo_manejo2());
-			jsonDeRe.addProperty("der_ges_ti_gestion", src.getDec_ges_ti_gestion());
-			jsonDeRe.addProperty("der__ges_subti_gestion", src.getDec_ges_subti_gestion());
+			jsonDeRe.addProperty("der_ges_ti_gestion", src.getDer_ges_ti_gestion());
+			jsonDeRe.addProperty("der__ges_subti_gestion", src.getDer_ges_subti_gestion());
 			jsonDeRe.addProperty("der_ges_peso_residuo2", src.getDer_ges_peso_residuo2());
 			log.info(String.valueOf(jsonDeRe));
 			lisJsontDec.add(jsonDeRe);

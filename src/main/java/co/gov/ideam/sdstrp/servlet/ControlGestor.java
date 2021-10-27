@@ -858,8 +858,8 @@ public class ControlGestor extends HttpServlet {
                 		decRes.setDer_ges_tipo_empaque2(tipEmpa[s]);
                 		decRes.setDer_ges_numero_empaques2(Integer.parseInt(cantEmpq[s]));
                 		decRes.setDer_ges_peso_residuo2(Integer.parseInt(cantPeso[s]));
-                		decRes.setDec_ges_ti_gestion(tGes[s]);
-                		decRes.setDec_ges_subti_gestion(tMan[s]);
+                		decRes.setDer_ges_ti_gestion(tGes[s]);
+                		decRes.setDer_ges_subti_gestion(tMan[s]);
                 		log.info(decRes.getDer_declaracion()+"");
                 		Declaracion dcla = em.find(Declaracion.class, Integer.valueOf(String.valueOf(decRes.getDer_declaracion())));
                 		dcla.setDec_ges_fecha_ent(fechEnt);
@@ -903,40 +903,48 @@ public class ControlGestor extends HttpServlet {
     
     protected void finalizaAprobGestor(HttpServletRequest request, HttpServletResponse response, String ruta)
             throws Exception {
+    	
+    	try {
+    	       int idDecla = Integer.parseInt(request.getParameter("idDecla"));
+    	        int idDeRes = Integer.parseInt(request.getParameter("idDecRes"));
+    	        Declaracion decla = declaDAO.findDdecla(idDecla);
+    	        DeclaracionResiduo decRes = declaDAO.findDeRes(idDeRes);
+    	        String tipEmbalaje = request.getParameter("tipEmbalaje");
+    	        int numEmbalaje = Integer.parseInt(request.getParameter("txtCantEmb"));
+    	        String tipEmpaque = request.getParameter("tipEmpaque");
+    	        
+    	        int numEmpaque = Integer.parseInt(request.getParameter("CantEmpq"));
+    	        int cantPeso = Integer.parseInt(request.getParameter("txtCantPeso"));
+    	        String fechaRec = request.getParameter("txtFRecibe");
+    	        SimpleDateFormat parseador = new SimpleDateFormat("yyyy-MM-dd");
+    	        Date fechaR = parseador.parse(fechaRec);
+    	        
+    	        
+    	        String vst = String.valueOf(request.getSession().getAttribute("idUsuario")); // llamar la variable de session
+    	        decla.setDec_ges_aprobada("A");
+    	        decla.setDec_ges_fecha_ent(fechaR);
+    	        decla.setDec_ges_fecha_ges(new Date());
+    	        decRes.setDer_ges_tipo_embalaje2(tipEmbalaje);
+    	        decRes.setDer_ges_numero_embalajes2(numEmbalaje);
+    	        decRes.setDer_ges_peso_residuo2(cantPeso);
+    	        decRes.setDer_ges_tipo_empaque2(tipEmpaque);
+    	        decRes.setDer_ges_numero_empaques2(numEmpaque);
+    	        declaDAO.updateDecla_DeclaRes(decla, decRes);
+    	    	log.info(request.getSession().getAttribute("idSede")+"");
+    	    	int coTransP = (int)request.getSession().getAttribute("idSede");
+//    	        log.info(idGes+"----------------------------------------------------");
+//    	        int idG = Integer.parseInt(coTransP);
+    	        //Crear ql sql no esta finalizado
+    	        declaDAO.getListaDeclaracionGes(coTransP);
+    	        dis = request.getRequestDispatcher(ruta);
+    	        dis.forward(request, response);
+		} catch (Exception e) {
+			// TODO: handle exception
+			Logger.getLogger(control.class.getName()).log(Level.SEVERE, null, e);
+			
+		}
         
-        int idDecla = Integer.parseInt(request.getParameter("idDecla"));
-        int idDeRes = Integer.parseInt(request.getParameter("idDecRes"));
-        Declaracion decla = declaDAO.findDdecla(idDecla);
-        DeclaracionResiduo decRes = declaDAO.findDeRes(idDeRes);
-        String tipEmbalaje = request.getParameter("tipEmbalaje");
-        int numEmbalaje = Integer.parseInt(request.getParameter("txtCantEmb"));
-        String tipEmpaque = request.getParameter("tipEmpaque");
-        
-        int numEmpaque = Integer.parseInt(request.getParameter("CantEmpq"));
-        int cantPeso = Integer.parseInt(request.getParameter("txtCantPeso"));
-        String fechaRec = request.getParameter("txtFRecibe");
-        SimpleDateFormat parseador = new SimpleDateFormat("yyyy-MM-dd");
-        Date fechaR = parseador.parse(fechaRec);
-        
-        
-        String vst = String.valueOf(request.getSession().getAttribute("idUsuario")); // llamar la variable de session
-        decla.setDec_ges_aprobada("A");
-        decla.setDec_ges_fecha_ent(fechaR);
-        decla.setDec_ges_fecha_ges(new Date());
-        decRes.setDer_ges_tipo_embalaje2(tipEmbalaje);
-        decRes.setDer_ges_numero_embalajes2(numEmbalaje);
-        decRes.setDer_ges_peso_residuo2(cantPeso);
-        decRes.setDer_ges_tipo_empaque2(tipEmpaque);
-        decRes.setDer_ges_numero_empaques2(numEmpaque);
-        declaDAO.updateDecla_DeclaRes(decla, decRes);
-    	log.info(request.getSession().getAttribute("idSede")+"");
-    	int coTransP = (int)request.getSession().getAttribute("idSede");
-//        log.info(idGes+"----------------------------------------------------");
-//        int idG = Integer.parseInt(coTransP);
-        //Crear ql sql no esta finalizado
-        declaDAO.getListaDeclaracionGes(coTransP);
-        dis = request.getRequestDispatcher(ruta);
-        dis.forward(request, response);
+ 
     }
 
     //Pantalla de Principal Gestor

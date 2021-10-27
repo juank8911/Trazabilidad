@@ -63,11 +63,39 @@ public class TipoEmpaque {
 		return "tipoEmpaque [tep_id=" + tep_id + ", tep_nombre=" + tep_nombre + "]";
 	}
 	
+	
+	public List<DeclaracionResiduo> getTipoEmpDecTrn() {
+		return tipoEmpDecTrn;
+	}
+
+	public void setTipoEmpDecTrn(List<DeclaracionResiduo> tipoEmpDecTrn) {
+		this.tipoEmpDecTrn = tipoEmpDecTrn;
+	}
+
+	public List<DeclaracionResiduo> getTipoEmpDecGes() {
+		return tipoEmpDecGes;
+	}
+
+	public void setTipoEmpDecGes(List<DeclaracionResiduo> tipoEmpDecGes) {
+		this.tipoEmpDecGes = tipoEmpDecGes;
+	}
+	
+
+
+
+
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jTipoEmp")
     private List<Residuos> jTipoEmp;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmpDec")
     private List<DeclaracionResiduo> tipoEmpDec;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmpDecTrn")
+    private List<DeclaracionResiduo> tipoEmpDecTrn;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmpDecGes")
+    private List<DeclaracionResiduo> tipoEmpDecGes;
 	
 	
 		}
