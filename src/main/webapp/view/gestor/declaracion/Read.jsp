@@ -33,9 +33,10 @@
 		<div class="row">
 			<kendo:grid name="historicoDecla" pageable="true" columnMenu="true" width="95%">
 			        <kendo:grid-toolbar>
-        				<kendo:grid-toolbarItem name="excel">
-        				</kendo:grid-toolbarItem>
-        			</kendo:grid-toolbar> 
+					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+				</kendo:grid-toolbar>
+				<kendo:grid-excel fileName="Reporte Mensual.xlsx" filterable="true"
+					proxyURL="/trazabilidad/informesServlet?action=histLisGen" /> 
         			<kendo:grid-excel fileName="Historico declaraciones.xlsx" filterable="true" proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
 				<kendo:dataSource pageSize="10"  >
     			<kendo:dataSource-transport>

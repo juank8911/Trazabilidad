@@ -877,16 +877,70 @@ public class ControlGestor extends HttpServlet {
     				s+=cDeclas;
     			}
 				
-			
+    	}	
     		
     	}
-
-		int coTransP = (int)request.getSession().getAttribute("idSede"); // llamar la variable de session
-		declaDAO.getListaDeclaracionGes(coTransP);
-
-        dis = request.getRequestDispatcher(ruta);
-        dis.forward(request, response);
-    }
+    	
+    	 protected void declaGESAprobar1(HttpServletRequest request, HttpServletResponse response, String ruta)
+    	            throws Exception
+    	            {
+    	     	String[] check = request.getParameterValues("prCheck[]");
+    	     	String[] de_decl = request.getParameterValues("declaracion[].delca");
+    	    	String[] tipoEmbalaje = request.getParameterValues("model[].tipEmpaque");
+//    	    	String[] idsDecla = request.getParameterValues("idDecla[]");
+    	    	String[] decla_res = request.getParameterValues("model[].idDecla");
+    	    	String[] idsDeclaRes = request.getParameterValues("model[].idDeclaRes");
+    	    	String[] cantEmb = request.getParameterValues("model[].txtCantEmb"); 
+    	    	String[] tipEmpa = request.getParameterValues("model[].tipEmbalaje");
+    	    	String[] cantEmpq = request.getParameterValues("model[].txtCantEmpq");
+    	    	String[] cantPeso = request.getParameterValues("model[].txtCantPeso");
+    	    	SimpleDateFormat parseador = new SimpleDateFormat("yyyy-MM-dd");
+    	    	SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+    	    	String fechaRes = request.getParameter("txtReco");
+    	    	String fechEntr = request.getParameter("txtEntr");
+    	    	Date fechRec = parseador.parse(fechaRes);
+    	    	int con = 0;
+    	    	log.info(check.length+"");
+    	    	for (int i=0; i < check.length; i++)
+    	    	{
+    	    	log.info(check.length+"");
+    			log.info(check[i]+"");
+    			log.info(i+"");
+    			Boolean ban  = Boolean.valueOf(check[i]) ;
+    				if(ban == true) 
+    				{
+    				
+    					con++;
+    					log.info(decla_res.length+"");
+    					for (int j=0; j < decla_res.length; j++) {
+    						log.info(j +" == "+decla_res.length );
+    						log.info(de_decl[i]+" == "+decla_res[j] );
+    					
+    						if(Integer.parseInt(de_decl[i])==Integer.parseInt(decla_res[j]))
+    						{	DeclaracionResiduo dres = new DeclaracionResiduo();
+    							dres = em.find(DeclaracionResiduo.class, Integer.parseInt(idsDeclaRes[j]));
+    	                		dres.setDer_ges_tipo_embalaje2(String.valueOf(tipoEmbalaje[j])); 
+    	                		dres.setDer_ges_numero_embalajes2(Integer.parseInt(cantEmb[j]));
+    	                		dres.setDer_ges_tipo_empaque2(tipEmpa[j]);
+    	                		dres.setDer_ges_numero_empaques2(Integer.parseInt(cantEmpq[j]));
+    	                		dres.setDer_ges_peso_residuo2(Integer.parseInt(cantPeso[j]));
+    	                		Declaracion dcla = em.find(Declaracion.class, Integer.valueOf(String.valueOf(dres.getDer_declaracion())));
+    	                		dcla.setDec_ges_fecha_ent(fechRec);
+    	                		dcla.setDec_ges_fecha_ges(fechRec);
+    	                		dcla.setDec_ges_aprobada("A");    	           
+    	                		declaDAO.updateDecla_DeclaRes(dcla,dres);
+    						}
+    					}
+    				
+    				}
+    	    	}
+    	    	request.setAttribute("infoMessage", " Se aprobaron "+ con +" declaraciones correctamente");
+    	    	int coTransP = (int)request.getSession().getAttribute("idSede"); // llamar la variable de session
+    			declaDAO.getListaDeclaracionGes(coTransP);
+    	    	this.gestor(request, response, ruta);
+    	     }
+    	 
+    	 
     // pantalla Gestor Lista declaraciones
     protected void finalizaListaGestor(HttpServletRequest request, HttpServletResponse response, String ruta)
             throws ServletException, IOException, SQLException {
