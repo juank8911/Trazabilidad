@@ -612,7 +612,7 @@ public class DeclaracionDAO {
 			em.clear();
 			CriteriaQuery<Declaracion> conRes = cb.createQuery(Declaracion.class);	
 			Root<Declaracion> rootDeR = conRes.from(Declaracion.class);
-			conRes.where(cb.and(cb.equal(rootDeR.get("dec_gestor"), idS),cb.equal(rootDeR.get("dec_gen_aprobada"), "A"),cb.equal(rootDeR.get("dec_trn_aprobada"), "A"),cb.notEqual(rootDeR.get("dec_trn_aprobada"), "R")));
+			conRes.where(cb.and(cb.equal(rootDeR.get("dec_gestor"), idS),cb.equal(rootDeR.get("dec_gen_aprobada"), "A"),cb.equal(rootDeR.get("dec_trn_aprobada"), "A"),cb.notEqual(rootDeR.get("dec_trn_aprobada"), "R"),cb.equal(rootDeR.get("dec_ges_aprobada"), "N")));
 			conRes.select(rootDeR);
 			log.info("-------------------------------Generando consulta");
 			listDeclaGest = em.createQuery(conRes).getResultList();
