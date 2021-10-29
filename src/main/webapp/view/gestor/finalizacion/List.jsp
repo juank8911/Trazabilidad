@@ -65,7 +65,14 @@
 
 
 		<div class="container">
-		<form method="post" id="formDeRe" class="form-control">
+		<p>
+	<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
+		</p>
+		<p>
+	<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
+		</p>
+		
+		
 			<table id="dTabla" name="dTabla" rules="rows"
 				class="table-condensed table-striped">
 				<thead>
@@ -80,13 +87,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					
+					<form method="post" id="formDeRe" class="form-control">
 						<c:forEach var="listdato" items="${listDeclaGest}">
 							<tr class="saleRow" id="saleRow">
 								<td id="thcheck"><input type="checkbox" class="brand"
 									name="brand[]"></td>
 								<td></td>
 								<td>${listdato.dec_id}</td>
+<%-- 								<td>${listdato.declaracion_res}</td> --%>
 								<td><i class="ti-bar-chart-alt"></i> -
 									${listdato.decSedGen.empresaSed.emp_nombre_comercial}
 									::${listdato.decSedGen.sed_nombre} ::
@@ -103,7 +111,7 @@
 								<td><fmt:formatDate
 										value="${listdato.prog_dec.pro_fecha_inicial}"
 										timeStyle="none" dateStyle="long" /></td>
-<%-- 								<td>${fn:length(listdato.declaracion_res)}</td> --%>
+								<td>${fn:length(listdato.declaracion_res)}</td>
 								<td id="btons">
 									<button type="button" class="btn btn-danger ti-trash" data-
 										data-id="${listdato.dec_id}"
@@ -115,6 +123,7 @@
 								<td colspan="7">
 
 									<table class="tbItems table-sm" rules="rows">
+									<c:if test="${not empty listdato.declaracion_res}">
 										<c:forEach items="${listdato.declaracion_res}" var="deca">
 											<thead>
 												<tr>
@@ -139,7 +148,7 @@
 													</td>
 													<td><select id="tipEmbalaje" name="model[].tipEmbalaje"
 														class="form-select sm-2" required>
-															<option value="${deca.tipoEmbDec.tem_id}" selected>${deca.tipoEmbDec.tem_nombre}</option>
+															<option value="${deca.tipoEmbDecTrn.tem_id}" selected>${deca.tipoEmbDecTrn.tem_nombre}</option>
 															<c:forEach var="dato" items="${listaTipoEmbalaje}">
 																<option value="${dato.tem_id}">${dato.tem_nombre}</option>
 															</c:forEach>
@@ -149,7 +158,7 @@
 														value="${deca.der_gen_numero_embalajes}" readonly></td>
 													<td><select id="tipEmpaque" class="form-select"
 														name="tipEmpaque[]" class="form-select sm-2">
-															<option value="${deca.tipoEmpDec.tep_id}" selected>${deca.tipoEmpDec.tep_nombre}</option>
+															<option value="${deca.tipoEmpDecTrn.tep_id}" selected>${deca.tipoEmpDecTrn.tep_nombre}</option>
 															<c:forEach var="dato1" items="${listaTipoEmpaque}">
 																<option value="${dato1.tep_id}">${dato1.tep_nombre}</option>
 															</c:forEach>
@@ -194,6 +203,7 @@
 
 
 										</c:forEach>
+										</c:if>
 										<tr>
 											<td colspan="8">
 												<div class="form-group">
@@ -208,6 +218,7 @@
 								</td>
 
 							</tr>
+							
 						</c:forEach>
 						<c:if test="${not empty listDeclaGest}">
 							<tr>

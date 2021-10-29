@@ -28,7 +28,7 @@ public class Ubicacion implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_Ubica")
-	@SequenceGenerator(initialValue = 5,allocationSize=1,name = "sequence_Ubica", sequenceName = "TRPT_UBICACION_SEQ")
+	@SequenceGenerator(initialValue = 200,allocationSize=1,name = "sequence_Ubica", sequenceName = "TRPT_UBICACION_SEQ")
 	@Column(name="ID_UBC")
     private String id_ubc;
 	@Column(name="ID_UBC_DEPT")

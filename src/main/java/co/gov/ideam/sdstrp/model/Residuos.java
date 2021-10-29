@@ -30,7 +30,7 @@ public class Residuos implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_Residuos")
-	@SequenceGenerator(initialValue = 5,allocationSize=1,name = "sequence_Residuos", sequenceName = "TRPT_RESIDUO_SEQ")
+	@SequenceGenerator(initialValue = 200,allocationSize=1,name = "sequence_Residuos", sequenceName = "TRPT_RESIDUO_SEQ")
 	@Column(name="RES_ID")
     private int res_id;
 	

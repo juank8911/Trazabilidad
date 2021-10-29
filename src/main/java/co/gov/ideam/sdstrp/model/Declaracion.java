@@ -32,7 +32,7 @@ public class Declaracion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_Declaracion")
-	@SequenceGenerator(initialValue = 3,allocationSize=1,name = "sequence_Declaracion", sequenceName = "TRPT_DECLARACION_SEQ")
+	@SequenceGenerator(initialValue = 200,allocationSize=1,name = "sequence_Declaracion", sequenceName = "TRPT_DECLARACION_SEQ")
 	@Column(name="DEC_ID")
 	private int dec_id;
 	
@@ -353,15 +353,15 @@ public class Declaracion implements Serializable {
 	}
 	
 	
-	@OneToMany(cascade = CascadeType.ALL , mappedBy = "declaracion_res")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "declaracion_res")
 	 private List<DeclaracionResiduo> declaracion_res;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
 	   @JoinColumn(name = "dec_generador", referencedColumnName = "sed_id", insertable=false, updatable=false)
 	   private Sede decSedGen;
 	
-	  @ManyToOne(fetch=FetchType.LAZY)
+	  @ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
 	   @JoinColumn(name = "dec_gestor", referencedColumnName = "sed_id", insertable=false, updatable=false)
 	   private Sede decSedGes;
 	  
@@ -369,7 +369,7 @@ public class Declaracion implements Serializable {
 	   @JoinColumn(name = "dec_transportador", referencedColumnName = "sed_id", insertable=false, updatable=false)
 	   private Sede decSedTran;
 	  
-	   @OneToOne
+	   @OneToOne(fetch=FetchType.LAZY)
 	   @JoinColumn(name = "dec_prog_id", referencedColumnName = "pro_id", insertable=false, updatable=false)
 	   private Programacion prog_dec;
 	  

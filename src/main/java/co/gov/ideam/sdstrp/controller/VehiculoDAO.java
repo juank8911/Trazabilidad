@@ -117,6 +117,12 @@ public void listarVehiculosTrans(int idS) {
 		 conRes.select(RootRes);
 		 listaVehiculoTrans = em.createQuery(conRes).getResultList();
 		 log.info(listaVehiculoTrans.size()+"");
+		 for (Vehiculo veh : listaVehiculoTrans) {
+			 log.info(veh.getVeh_capacidad()+"");
+			 log.info(veh.getVeh_transportador()+"");
+			 log.info(veh.getVeh_chasis()+"");
+			 	
+		}
 		 		 
 	} catch (Exception e) {
         System.out.println("Fallo lista de autorizaciones por autoridad: " + e.getMessage());

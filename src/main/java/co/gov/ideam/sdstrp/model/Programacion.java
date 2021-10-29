@@ -41,7 +41,7 @@ public class Programacion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_pr")
-	@SequenceGenerator(initialValue = 4,allocationSize=1,name = "sequence_pr", sequenceName = "TRPT_PROGRAMACION_SEQ")
+	@SequenceGenerator(initialValue = 200,allocationSize=1,name = "sequence_pr", sequenceName = "TRPT_PROGRAMACION_SEQ")
 	@Column(name="PRO_ID")
     private int pro_id;
 	

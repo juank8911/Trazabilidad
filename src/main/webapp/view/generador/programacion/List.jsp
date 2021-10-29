@@ -175,12 +175,12 @@
 					</button>
 				</c:forEach>
                      
-                    <div class="modal fade" id="programResiduo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal fade bd-example-modal-lg" id="programResiduo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
 
-                                <h2 class="modal-title" id="myModalLabel"></h2> 
+                                <h2 class="modal-title" id="myModalLabel">Modal 1</h2> 
 
                             </div> 
                             <div class="modal-body"> 
@@ -319,19 +319,19 @@
 
                 <!-- Modal Full calendar Agregar, editar, eliminar-->
                 <div class="modal fade" id="fullModalCrear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Residuo:  <small id="fullTitulo"></small> </h5>
+                                <h5 class="modal-title">Residuo: <small id="fullTitulo"></small> </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
                             <form method="post" action="controlGenerador?action=programaRGuardaGenera" class="needs-validation form-control">
-                                <div class="form-row col-md-12">
+                                <div class="form-row col-md-8">
 
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-2">
                                         <label>Fecha: </label>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -342,8 +342,8 @@
                                 </div>
                                 <div class="form-group row col-md-12" name="traz" id="traz"> -->
 											<div class="col-md-5">
-												<label for="txtTrans">Transportador: </label> <select
-													name="chekTrans" id="chekTrans" class="form-control">
+												<label for="txtTrans">Transportador: </label> 
+												<select name="chekTrans" id="chekTrans" class="form-control">
 													<option>--------SELECCIONE TRANSPORTADOR--------</option>
 													<c:forEach items="${listaSedeProgTrans}" var="sed">
 														<option value="${sed.sed_id}">
@@ -354,10 +354,10 @@
 												</select>
 											</div>
 											<div class="col-md-6">
-												<label for="txtGes">Gestor</label> <select name="txtGes"
-													id="txtGes" class="form-control">
+												<label for="txtGes">Gestor</label> 
+												<select name="txtGes" id="txtGes" class="form-control" >
 													<option>-------- SELECCIONE TRANSPORTADOR --------</option>
-<!-- 												</select> -->
+												</select>
 											</div>
  										</div> 
 
@@ -367,7 +367,7 @@
                                         <label for="validationCustom01">Residuo </label>
                                     </div>
                                     <div class="form-group col-md-8">
-                                        <select class="form-control" id="txtResi" name="txtResi" required="" multiple>                                           
+                                        <select class="form-control" id="txtPrueba" name="txtPrueba[]" required="" multiple>                                           
                                             <c:forEach var="dato" items="${listaResiduosGenId}">
 
                                                 <option value="${dato.get(0)}">${dato.get(1)} </option>

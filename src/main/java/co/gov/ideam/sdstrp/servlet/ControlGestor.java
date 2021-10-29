@@ -994,7 +994,8 @@ public class ControlGestor extends HttpServlet {
     	        dis.forward(request, response);
 		} catch (Exception e) {
 			// TODO: handle exception
-			Logger.getLogger(control.class.getName()).log(Level.SEVERE, null, e);
+			System.out.println("Fallo lista de finalizacion Gestor CotrolDecla 997: " + e.getMessage());
+            e.fillInStackTrace();
 			
 		}
         

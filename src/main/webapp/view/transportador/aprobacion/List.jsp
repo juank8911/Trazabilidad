@@ -145,13 +145,17 @@
 													<td><input type="number" name="model[].txtCantEmb"
 														id="txtCantEmb" class="form-control"
 														value="${decaRes.der_gen_numero_embalajes}" readonly></td>
-													<td><select id="tipEmpaque" class="form-select"
+														
+													<td>
+													<select id="tipEmpaque" class="form-select"
 														name="model[].tipEmpaque" class="form-select sm-2">
 															<option value="${decaRes.tipoEmpDec.tep_id}" selected>${decaRes.tipoEmpDec.tep_nombre}</option>
 															<c:forEach var="dato1" items="${listaTipoEmpaque}">
 																<option value="${dato1.tep_id}">${dato1.tep_nombre}</option>
 															</c:forEach>
-													</select></td>
+													</select>
+													</td>
+													
 													<td><input type="number" required name="model[].txtCantEmpq"
 														id="txtCantEmpq" class="form-control sm-2"
 														value="${decaRes.der_gen_numero_empaques}" readonly></td>

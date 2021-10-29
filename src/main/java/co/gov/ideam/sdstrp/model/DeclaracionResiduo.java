@@ -31,7 +31,7 @@ public class DeclaracionResiduo implements Serializable {
 //	"DER_ID" NUMBER(10,0) NOT NULL ENABLE, 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_DeclaracionRes")
-	@SequenceGenerator(initialValue = 2,allocationSize=1,name = "sequence_DeclaracionRes", sequenceName = "TRPT_DECLARACION_RESIDUO_SEQ")
+	@SequenceGenerator(initialValue = 200,allocationSize=1,name = "sequence_DeclaracionRes", sequenceName = "TRPT_DECLARACION_RESIDUO_SEQ")
 	@Column(name="DER_ID")
     private int der_id;
 //	"DER_DECLARACION" NUMBER,
@@ -468,7 +468,7 @@ public class DeclaracionResiduo implements Serializable {
 	   @JoinColumn(name = "DER_DECLARACION", referencedColumnName = "DEC_ID", insertable=false, updatable=false)
 	   private Declaracion declaracion_res;
 	 	
-	 	@ManyToOne(fetch=FetchType.LAZY)
+	 	@ManyToOne( fetch=FetchType.LAZY)
 	 	@JoinColumn(name = "DER_GEN_TIPO_RESIDUO", referencedColumnName = "TRE_ID", insertable=false, updatable=false)
 	 	private TipoResiduos tipoResDec;
 	 	

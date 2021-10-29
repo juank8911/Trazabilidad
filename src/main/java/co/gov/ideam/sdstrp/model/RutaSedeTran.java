@@ -31,7 +31,7 @@ public class RutaSedeTran implements Serializable  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_RutaST")
-	@SequenceGenerator(initialValue = 5,allocationSize=1,name = "sequence_RutaST", sequenceName = "TRPT_UBICACION_SEQ")
+	@SequenceGenerator(initialValue = 200,allocationSize=1,name = "sequence_RutaST", sequenceName = "TRPT_UBICACION_SEQ")
 	@Column(name="RUG_ID")
 	private int rug_id;
 	

@@ -32,6 +32,7 @@ import java.util.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 
 import org.hibernate.*;
 
@@ -138,6 +139,7 @@ public class DeclaracionDAO {
     {
     	return listDeclaHoy;
     }
+    
     @Produces
     @Named
     public List<Declaracion> getListDeclaGen()
@@ -574,6 +576,7 @@ public class DeclaracionDAO {
 			for (Declaracion tuple : listDeclaTranp) {
 				log.info("////////////////////////////////////////////////////////");
 				log.info(tuple.getDecSedGes().getDepartamento()+"");
+				log.info(tuple.getProg_dec().getPro_fecha_final()+"");
 				log.info(tuple.getDecSedGes().getSedMunic()+"");
 				log.info(tuple.getDecSedGes().getSed_nombre()+"");
 				log.info(tuple.getDecSedGen().getSed_nombre()+"");
@@ -591,7 +594,7 @@ public class DeclaracionDAO {
 					log.info(declnRid.getTipoEmpDec().getTep_nombre()+"");
 					log.info(declnRid.getDer_gen_peso_residuo()+"");
 				}
-				
+				log.info("FINALIZADA LA CONSULTA");
 			}
 			
 		} catch (Exception e) {
@@ -603,13 +606,14 @@ public class DeclaracionDAO {
     }
     
     
+    
+    @Transactional
     public void getListaDeclaracionGes(int idS)
     {
 
 
     	CriteriaBuilder cb = em.getCriteriaBuilder();
 		try {
-			em.clear();
 			CriteriaQuery<Declaracion> conRes = cb.createQuery(Declaracion.class);	
 			Root<Declaracion> rootDeR = conRes.from(Declaracion.class);
 			conRes.where(cb.and(cb.equal(rootDeR.get("dec_gestor"), idS),cb.equal(rootDeR.get("dec_gen_aprobada"), "A"),cb.equal(rootDeR.get("dec_trn_aprobada"), "A"),cb.notEqual(rootDeR.get("dec_trn_aprobada"), "R"),cb.equal(rootDeR.get("dec_ges_aprobada"), "N")));
@@ -618,12 +622,15 @@ public class DeclaracionDAO {
 			listDeclaGest = em.createQuery(conRes).getResultList();
 			
 		
-			
+			log.info(listDeclaGest.size()+"");
 			for (Declaracion tuple : listDeclaGest) {
 				log.info("////////////////////////////////////////////////////////");
 				log.info(tuple.getDecSedGes().getDepartamento()+"");
 				log.info(tuple.getDecSedGes().getSedMunic()+"");
 				log.info(tuple.getDecSedGes().getSed_nombre()+"");
+				log.info(tuple.getDecSedTran().getDepartamento()+"");
+				log.info(tuple.getDecSedTran().getSedMunic()+"");
+				log.info(tuple.getDecSedTran().getSed_nombre()+"");
 				log.info(tuple.getDecSedGen().getSed_nombre()+"");
 				String em = tuple.getDecSedGes().getEmpresaSed().getEmp_nombre_comercial();
 				em = tuple.getDecSedGen().getEmpresaSed().getEmp_nombre_comercial();
@@ -632,12 +639,12 @@ public class DeclaracionDAO {
 				dep = tuple.getDecSedGen().getDepartamento().getDept_nombre();
 				dep = tuple.getDecSedGes().getSedMunic().getMunic_nombre();
 				dep = tuple.getDecSedGen().getSedMunic().getMunic_nombre();
+				dep = tuple.getDecSedTran().getDepartamento().getDept_nombre();
+				dep = tuple.getDecSedTran().getSedMunic().getMunic_nombre();   tuple.getProg_dec().getPro_fecha_inicial();
 				List<DeclaracionResiduo> decares = tuple.getDeclaracion_res();
 				for (DeclaracionResiduo declnRid : decares) {
 					log.info(declnRid.getDer_gen_nombre());
 					log.info(declnRid.getDer_id()+"");
-					log.info(declnRid.getTipoEmbDec().getTem_nombre()+"");
-					log.info(declnRid.getTipoEmpDec().getTep_nombre()+"");
 					log.info(declnRid.getDer_trn_peso_residuo2()+"");
 					log.info("problema aqui id embalaje");
 					log.info(declnRid.getDer_trn_tipo_embalaje()+"");
@@ -647,13 +654,20 @@ public class DeclaracionDAO {
 					log.info(declnRid.getTipoEmpDecTrn().getTep_id()+"");
 					log.info("problema aqui nombre empaque");
 					log.info(declnRid.getTipoEmbDecTrn().getTem_nombre()+"");
+					log.info(declnRid.getResiduosDecl().gettResiduo().getTre_id()+"");
+					log.info(declnRid.getResiduosDecl().gettGestion().getId_tip_gestion()+"");
+					log.info(declnRid.getResiduosDecl().gettManejo().getTma_id()+"");
+					
+					
+					
+					log.info("finalizado la conzulta");
 					
 				}
 				
 			}
 			
 		} catch (Exception e) {
-            System.out.println("Fallo lista de finalizacion Gestor: " + e.getMessage());
+            System.out.println("Fallo lista de finalizacion Gestor Decla dao 656: " + e.getMessage());
             e.fillInStackTrace();
 			// TODO: handle exception
 		}
@@ -680,6 +694,7 @@ public class DeclaracionDAO {
 				log.info(tuple.getDecSedTran().getSed_nombre()+"");
 				log.info(tuple.getDecSedGen().getSed_nombre()+"");
 				List<DeclaracionResiduo> decares = tuple.getDeclaracion_res();
+				log.info(decares.get(0).getDer_gen_nombre());
 				for (DeclaracionResiduo declnRid : decares) {
 					log.info(declnRid.getDer_gen_nombre());
 					log.info(declnRid.getTipoEmbDec().getTem_nombre()+"");
@@ -689,7 +704,7 @@ public class DeclaracionDAO {
 			}
 			
 		} catch (Exception e) {
-            System.out.println("Fallo lista de autorizaciones: " + e.getMessage());
+            System.out.println("Fallo lista de declaraciones transportador: " + e.getMessage());
             e.fillInStackTrace();
 			// TODO: handle exception
 		}

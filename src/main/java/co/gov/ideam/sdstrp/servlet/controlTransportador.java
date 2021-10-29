@@ -65,10 +65,10 @@ public class controlTransportador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Inject
     private Logger log;
+	
     @Inject
     private EntityManager em;
-//	@Inject
-//	private ComboServices comboServices;
+
 	@Inject
 	private VehiculoDAO vehDAO;
 	@Inject
@@ -89,6 +89,7 @@ public class controlTransportador extends HttpServlet {
 	
 	@Inject
 	private RutasDAO rutDAO;
+	
 	@Inject
 	private DeclaracionDAO declaDao;
 	
@@ -763,12 +764,12 @@ public class controlTransportador extends HttpServlet {
             {
      	String[] check = request.getParameterValues("prCheck[]");
      	String[] de_decl = request.getParameterValues("declaracion[].delca");
-    	String[] tipoEmbalaje = request.getParameterValues("model[].tipEmpaque");
+    	String[] tipoEmbalaje = request.getParameterValues("model[].tipEmbalaje");
 //    	String[] idsDecla = request.getParameterValues("idDecla[]");
     	String[] decla_res = request.getParameterValues("model[].idDecla");
     	String[] idsDeclaRes = request.getParameterValues("model[].idDeclaRes");
     	String[] cantEmb = request.getParameterValues("model[].txtCantEmb"); 
-    	String[] tipEmpa = request.getParameterValues("model[].tipEmbalaje");
+    	String[] tipEmpa = request.getParameterValues("model[].tipEmpaque");
     	String[] cantEmpq = request.getParameterValues("model[].txtCantEmpq");
     	String[] cantPeso = request.getParameterValues("model[].txtCantPeso");
     	String vhei = request.getParameter("txtVhei");

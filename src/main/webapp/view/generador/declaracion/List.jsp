@@ -140,7 +140,7 @@
 							<tr class="itemsRow">
 								<td colspan="5">
 									
-										<table class="tbItems table-sm" rules="rows">
+										<table class="tbItems table-sm" rules="rows" >
 												
 									<thead>
 											
@@ -156,9 +156,9 @@
 
 												</tr>
 											</thead>
-											<tbody id="bodDecaRes">
+											<tbody id="Item${listdato.dec_id}">
 											<c:forEach items="${listdato.declaracion_res}" var="deca">
-													<tr id="trDres">
+													<tr id="${listdato.dec_id}">
 	
 														
 														<td>${deca.der_gen_nombre} 
@@ -196,13 +196,12 @@
 												</c:forEach>
 												<tr>
 													<td colspan="5"></td>
-										 			<td >
+										 			<td class="boton" id="boton">
 										 
-										 				<button type="button" class="btn btn-success"  onclick="enviar(this)" >
-<!-- 												data-toggle="modal" data-target="#exampleModal" -->
-												<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-														<span class="sr-only">Loading...</span>
-												Enviar Declaracion</button>
+										 				<button type="button" class="btn btn-success" 
+													data-toggle="modal" data-target="#exampleModal" data-id="${listdato.dec_id}" >
+														Enviar Declaracion
+														</button>
 													</td>
 													</tr>
 											</tbody>
@@ -238,10 +237,14 @@
 							disponible para futuras modificaciones. Si esta seguro haga clic
 							en "Aceptar" de lo contrario clic en "Cancelar"</p>
 					</div>
-					<div class="modal-footer">
+					<div class="modal-footer" id="foot">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
-						<button type="button" id="envio" class="btn btn-success" onclick="enviar()" >Enviar</button>
+						<button type="button" id="envioFin" class="btn btn-success" >
+						<span class="spinner-border spinner-border-sm" role="status"  aria-hidden="true"></span>
+						<span class="sr-only">Loading...</span>
+						Enviar
+						</button>
 					</div>
 				</div>
 			</div>

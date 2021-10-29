@@ -36,7 +36,7 @@ public class Sede implements Serializable
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_sede")
-	@SequenceGenerator(initialValue = 4,allocationSize=1, name = "sequence_sede", sequenceName = "TRPT_SEDE_SEQ")
+	@SequenceGenerator(initialValue = 200,allocationSize=1, name = "sequence_sede", sequenceName = "TRPT_SEDE_SEQ")
 	@Column(name="SED_ID")
 	private int sed_id;
 

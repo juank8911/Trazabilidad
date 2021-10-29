@@ -2,6 +2,7 @@ package co.gov.ideam.sdstrp.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -85,16 +86,16 @@ public class TipoEmpaque {
 
 
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jTipoEmp")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "jTipoEmp")
     private List<Residuos> jTipoEmp;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmpDec")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "tipoEmpDec")
     private List<DeclaracionResiduo> tipoEmpDec;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmpDecTrn")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "tipoEmpDecTrn")
     private List<DeclaracionResiduo> tipoEmpDecTrn;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmpDecGes")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "tipoEmpDecGes")
     private List<DeclaracionResiduo> tipoEmpDecGes;
 	
 	

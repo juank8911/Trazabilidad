@@ -27,7 +27,7 @@ public class Rutas implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_Ruta")
-	@SequenceGenerator(initialValue = 5,allocationSize=1,name = "sequence_Ruta", sequenceName = "TRPT_RUTA_SEQ")
+	@SequenceGenerator(initialValue = 200,allocationSize=1,name = "sequence_Ruta", sequenceName = "TRPT_RUTA_SEQ")
 	@Column(name="ID_RUTA")
 	private int id_ruta;
 	@Column(name="RUT_NOMBRE")

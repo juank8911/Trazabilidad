@@ -36,7 +36,6 @@
 		<script src="assets/js/metisMenu.min.js"></script>
 		<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
-		<script src="assets/js/cambioPerfil.js"></script>
 		<script src="assets/js/listSTG.js"></script>
 		<script src="assets/js/validaciones.js"></script>		
 <!--         <script src="assets/js/fullcalendar.min.js"></script> -->

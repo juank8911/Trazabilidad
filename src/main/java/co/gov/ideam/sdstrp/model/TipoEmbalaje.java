@@ -4,6 +4,7 @@ package co.gov.ideam.sdstrp.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -92,16 +93,16 @@ public class TipoEmbalaje implements Serializable {
 
 
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jTipoEmb")
+	@OneToMany(cascade = CascadeType.ALL ,mappedBy = "jTipoEmb")
     private List<Residuos> jTipoEmb;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmbDec")
+	@OneToMany(cascade = CascadeType.ALL ,mappedBy = "tipoEmbDec")
 	 private List<DeclaracionResiduo> tipoEmbDec;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmbDecTrn")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "tipoEmbDecTrn")
 	 private List<DeclaracionResiduo> tipoEmbDecTrn;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoEmbDecGes")
+	@OneToMany(cascade = CascadeType.ALL , mappedBy = "tipoEmbDecGes")
 	 private List<DeclaracionResiduo> tipoEmbDecGes;
 	
 	

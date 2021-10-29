@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence")
-	@SequenceGenerator(initialValue = 5,allocationSize=1,name = "sequence", sequenceName = "TRPT_USUARIO_SEQ")
+	@SequenceGenerator(initialValue = 150,allocationSize=1,name = "sequence", sequenceName = "TRPT_USUARIO_SEQ")
 	@Column(name = "ID_USR")
 	private int id_usr;
 

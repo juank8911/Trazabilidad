@@ -22,6 +22,7 @@
 
 </div>
 <!-- header area start -->
+<script src="assets/js/cambioPerfil.js"></script>
 <div class="header-area">
 	<div class="row align-items-center">
 		<!-- nav and search button -->
