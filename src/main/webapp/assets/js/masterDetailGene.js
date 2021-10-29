@@ -418,8 +418,8 @@ $("input", trs).removeAttr("readonly");
  	  $(".saleRow td:nth-child(1)").html("<a onclick='remove(this)'><img id='myImg' src='assets/images/icon/market-value/triangle-down.png' /></a>");
 
 $('#exampleModal').on('show.bs.modal', function (event) {
-		event.preventDefault();
-        event.stopImmediatePropagation();
+//		event.preventDefault();
+//        event.stopImmediatePropagation();
   var button = $(event.relatedTarget) // Button that triggered the modal
   var recipient = button.data('id') // Extract info from data-* attributes
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -428,6 +428,7 @@ var envio = document.getElementById("envioFin");
 envio.setAttribute("data-id", recipient);
 })
 
+var i =0;
 	$('#envioFin').click(function(e) {
 		e.preventDefault();
         e.stopImmediatePropagation();
@@ -436,14 +437,15 @@ envio.setAttribute("data-id", recipient);
 	var button = $(this) // Button that triggered the modal
   	var id = button.data('id')
 console.log("///////////////////id///////////////////////////////////////");
-		console.log("#"+id+" #"+id);
+		console.log("#"+id);
 console.log("///////////////////id///////////////////////////////////////");		
-		var table1 = $("#Item"+id);
+		var table1 = $("#Item"+id+" #"+id);
 		var  ebody = $("table").find("#Item"+id)
 		var table = $(ebody).find("#"+id);
 		console.log("///////////////////table///////////////////////////////////////");
 		console.log(table);
 		console.log(table1);
+		window.alert("PRUEBA DE REPETICION "+i)
 		console.log("///////////////////table///////////////////////////////////////");
 		var tipEmbalajeIn = $("table").find('#tipEmbalaje');
 		var tipEmbalajeIn = $("table").find('#tipEmbalaje');
@@ -451,7 +453,7 @@ console.log("///////////////////id///////////////////////////////////////");
 		var txtCantEmpqIn = $("table").find('#txtCantEmpq');
 		var tipEmpaqueIn = $("table").find('#tipEmpaque');
 		var txtCantPesoin = $("table").find('#txtCantPeso');
-		
+		i++;
 		var idDeclaRes = new Array() 
 		var tipEmbalaje = new Array();
 		var txtCantEmb = new Array(); 
@@ -472,14 +474,13 @@ console.log("///////////////////id///////////////////////////////////////");
 
 			console.log("//////////////////////THIS DEL FOR////////////////////////////////////");
 			console.log(this);
-			window.alert("mostrando this")
 			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
 			console.log($(this).find('#txtCantEmb').value);
 			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
 			if($(this).find('#txtCantEmb').value!="")
 			{
 				namesValues = [].map.call($(this).find('#idDeclaRes'),function(dataImput){
-				console.log("///////////////////////////#idDeclaRres///////////////////////////////");
+				console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
 					var vist = $(this).prop('outerHTML');
 				console.log(vist);
 				console.log("encontrado id dela Res");
