@@ -113,7 +113,7 @@
 			<div class="container">
 			<div class="alert alert-success alert-dismissable" role="alert">
  				 Declaracion enviada correctamente
-				</div>
+			</div>
 				<table id="dTabla" name="dTabla" rules="rows">
 					<thead>
 						<tr>
@@ -126,7 +126,7 @@
 					</thead>
 					<tbody>
 						<c:forEach var="listdato" items="${listDeclaHoy}">
-							<tr class="saleRow">
+							<tr class="saleRow" id="sale${listdato.dec_id}">
 								<td></td>
 								<td>${listdato.dec_id}</td>
 								<td> <i class="ti-truck">    </i> - ${listdato.decSedTran.empresaSed.emp_nombre_comercial} :: ${listdato.decSedTran.sed_nombre} :: ${listdato.decSedTran.sed_direccion} :: ${listdato.decSedTran.departamento.dept_nombre} :: ${listdato.decSedTran.sedMunic.munic_nombre} <br>  
@@ -137,7 +137,7 @@
 										timeStyle="none" dateStyle="long" /></td>
 								<td>${fn:length(listdato.declaracion_res)}</td>
 							</tr>
-							<tr class="itemsRow">
+							<tr class="itemsRow" >
 								<td colspan="5">
 									
 										<table class="tbItems table-sm" rules="rows" >
@@ -158,13 +158,13 @@
 											</thead>
 											<tbody id="Item${listdato.dec_id}">
 											<c:forEach items="${listdato.declaracion_res}" var="deca">
-													<tr id="${listdato.dec_id}">
+													<tr id="tr${listdato.dec_id}">
 	
 														
-														<td>${deca.der_gen_nombre} 
+														<td id="td${listdato.dec_id}">${deca.der_gen_nombre} 
 														<input  type="hidden"  value=" ${deca.der_id}" id="idDeclaRes" name="idDeclaRes[]" />
 														</td>
-														<td><select id="tipEmbalaje" name="tipEmbalaje[]"
+														<td id="td${listdato.dec_id}"><select id="tipEmbalaje" name="tipEmbalaje[]"
 															class="form-select sm-2" required id="tipEmbalaje" >
 																<option value="${deca.tipoEmbDec.tem_id}">${deca.tipoEmbDec.tem_nombre}</option>
 																<c:forEach var="dato" items="${listaTipoEmbalaje}">
@@ -174,22 +174,22 @@
 														<input type="hidden"
 															value="${deca.der_declaracion}" name="idDecla[]" id="idDecla "/>
 														</td>
-														<td><input type="number" name="txtCantEmb[]"
+														<td id="td${listdato.dec_id}"><input type="number" name="txtCantEmb[]"
 														id="txtCantEmb" class="form-control" ></td>
 															
-														<td><select id="tipEmpaque" name="tipEmpaque[]"
+														<td id="td${listdato.dec_id}"><select id="tipEmpaque" name="tipEmpaque[]"
 															class="form-select sm-2" required id="tipEmpaque">
 																<option value="${deca.tipoEmpDec.tep_id}">${deca.tipoEmpDec.tep_nombre}</option>
 																<c:forEach var="dato1" items="${listaTipoEmpaque}">
 																	<option value="${dato1.tep_id}">${dato1.tep_nombre}</option>
 																</c:forEach>
 														</select></td>
-														<td> <input type="number" name="txtCantEmpq[]"
+														<td id="td${listdato.dec_id}"> <input type="number" name="txtCantEmpq[]"
 														id="txtCantEmpq" class="form-control" >
 														
 							
 															
-														<td><input type="number" required name="txtCantPeso[]"
+														<td id="td${listdato.dec_id}"><input type="number" required name="txtCantPeso[]"
 															id="txtCantPeso" class="form-control sm-2" ></td>
 													</tr>
 													
@@ -223,7 +223,7 @@
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content"></div>
+				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Enviar
 							Declaracion</h5>
@@ -232,7 +232,10 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body"></div>
+					<div class="modal-body">
+							<div class="alert alert-success alert-dismissable" role="alert">
+ 				 			Declaracion enviada correctamente
+							</div>
 						<p>Al crear la declaracion la informacion reportada no estara
 							disponible para futuras modificaciones. Si esta seguro haga clic
 							en "Aceptar" de lo contrario clic en "Cancelar"</p>

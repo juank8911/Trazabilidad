@@ -430,30 +430,27 @@ envio.setAttribute("data-id", recipient);
 
 var i =0;
 	$('#envioFin').click(function(e) {
+$("#envioFin").attr("disabled", 'disabled');
 		e.preventDefault();
         e.stopImmediatePropagation();
-		$("#exampleModal").modal('hide');
-	
 	var button = $(this) // Button that triggered the modal
   	var id = button.data('id')
-console.log("///////////////////id///////////////////////////////////////");
-		console.log("#"+id);
-console.log("///////////////////id///////////////////////////////////////");		
-		var table1 = $("#Item"+id+" #"+id);
-		var  ebody = $("table").find("#Item"+id)
-		var table = $(ebody).find("#"+id);
-		console.log("///////////////////table///////////////////////////////////////");
-		console.log(table);
-		console.log(table1);
-		window.alert("PRUEBA DE REPETICION "+i)
-		console.log("///////////////////table///////////////////////////////////////");
-		var tipEmbalajeIn = $("table").find('#tipEmbalaje');
-		var tipEmbalajeIn = $("table").find('#tipEmbalaje');
-		var txtCantEmbIn = $("table").find('#txtCantEmb');	
-		var txtCantEmpqIn = $("table").find('#txtCantEmpq');
-		var tipEmpaqueIn = $("table").find('#tipEmpaque');
-		var txtCantPesoin = $("table").find('#txtCantPeso');
-		i++;
+//console.log("///////////////////id///////////////////////////////////////");
+//		console.log("#"+id);
+//console.log("///////////////////id///////////////////////////////////////");		
+//		var table1 = $("#"+id);
+//		var tableP = $("table").prop('outerHTML'); 
+//		console.log(tableP)
+		var table1 = document.getElementById("Item"+id);
+//		var trs = $(table1).getElementById("sale"+id)
+//		var  ebody = $("table").find("#Item"+id)
+//		var table = $(ebody).find("#"+id);
+//		console.log("///////////////////table1 - tbody table///////////////////////////////////////");
+//		console.log(table1);
+//		console.log("///////////////////ebody///////////////////////////////////////");
+//		console.log(trs);
+		
+
 		var idDeclaRes = new Array() 
 		var tipEmbalaje = new Array();
 		var txtCantEmb = new Array(); 
@@ -463,71 +460,129 @@ console.log("///////////////////id///////////////////////////////////////");
 		var txtCantPeso = new Array();
 		
 
-		var tableP = $("table").prop('outerHTML'); 
-		console.log(tableP)
-		console.log("///////////////////LENGTH///////////////////////////////////////");
-		var cont = $("table").length;
-		console.log("los rows son "+ cont);
-		console.log("//////////////afuer del for///////////////////////////////////////");
-			
-				$("table").find("td").each(function() {
 
-			console.log("//////////////////////THIS DEL FOR////////////////////////////////////");
-			console.log(this);
-			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
-			console.log($(this).find('#txtCantEmb').value);
-			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
-			if($(this).find('#txtCantEmb').value!="")
-			{
-				namesValues = [].map.call($(this).find('#idDeclaRes'),function(dataImput){
-				console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
-					var vist = $(this).prop('outerHTML');
-				console.log(vist);
-				console.log("encontrado id dela Res");
+//		console.log("///////////////////LENGTH///////////////////////////////////////");
+		var cont = $(table1).length;
+//		console.log("los rows son "+ cont);
+//		console.log("//////////////afuer del for///////////////////////////////////////");
+			
+				$(table1).find("tr").each(function() {
+//			console.log("//////////////////////EACH DE TR////////////////////////////////////");
+//			console.log(this);	
+					$(this).find("td").each(function(){
+//					console.log("//////////////////////EACH DE TD////////////////////////////////////");
+//			console.log(this);
+//			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
+//			console.log($(this).find('input'));	
+//			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
+			namesValues = [].map.call($(this).find('#idDeclaRes'),function(dataImput){
+//				console.log("///////////////////////////vista del objeto///////////////////////////////");
+//				console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
+//				console.log("encontrado id dela Res "+dataImput.value);					
 				idDeclaRes.push(dataImput.value);
-					});
-					namesValues = [].map.call($(this).find('#tipEmbalaje'),function(dataImput){
-					console.log(this);	
-					console.log("encontrado tipo embalaje");
+					});	
+				namesValues = [].map.call($(this).find('#tipEmbalaje'),function(dataImput){
 					tipEmbalaje.push(dataImput.value);
 					});
 					namesValues = [].map.call($(this).find('#txtCantEmb'),function(dataImput){
-						console.log(this);
 					txtCantEmb.push(dataImput.value);
-					
 					});
 					
 					namesValues = [].map.call($(this).find('#tipEmpaque'),function(dataImput){
-						console.log(this);
 					tipEmpaque.push(dataImput.value);
 						});
 					namesValues = [].map.call($(this).find('#txtCantEmpq'),function(dataImput){
-						console.log(this);
 					txtCantEmpq.push(dataImput.value);
 						});
 					namesValues = [].map.call($(this).find('#txtCantPeso'),function(dataImput){
-						console.log(this);
 						txtCantPeso.push(dataImput.value);
-						});
-			}
+						});	
+					});
+
+			
+			
+//			if($(this).find('#txtCantEmb').value!="")
+//			{
+//				namesValues = [].map.call($(this).find('#idDeclaRes'),function(dataImput){
+//				console.log("///////////////////////////vista del objeto///////////////////////////////");
+//					var vist = $(this).prop('outerHTML');
+//				console.log(vist);
+//				console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
+//				console.log("encontrado id dela Res "+dataImput.value);
+//				if(dataImput.value=="")
+//				{
+//					console.log("vacio")				}
+//				else{
+//					console.log("lleno")				}
+//				idDeclaRes.push(dataImput.value);
+//					});
+//					namesValues = [].map.call($(this).find('#tipEmbalaje'),function(dataImput){
+//					console.log(tehis);	
+//					console.log("encontrado tipo embalaje");
+//					tipEmbalaje.push(dataImput.value);
+//					});
+//					namesValues = [].map.call($(this).find('#txtCantEmb'),function(dataImput){
+//						consol.log(this);
+//					txtCantEmb.push(dataImput.value);
+//					
+//					});
+//					
+//					namesValues = [].map.call($(this).find('#tipEmpaque'),function(dataImput){
+//						console.log(this);
+//					tipEmpaque.push(dataImput.value);
+//						});
+//					namesValues = [].map.call($(this).find('#txtCantEmpq'),function(dataImput){
+//						console.log(this);
+//					txtCantEmpq.push(dataImput.value);
+//						});
+//					namesValues = [].map.call($(this).find('#txtCantPeso'),function(dataImput){
+//						console.log(this);
+//						txtCantPeso.push(dataImput.value);
+//						});
+//			}
 
 
 						
 					
 			
         });		
-		console.log("tamaño de los array")
-		console.log(idDeclaRes.length);
-		console.log(tipEmbalaje.length);
-		console.log(txtCantEmb.length);
-		console.log(tipEmpaque.length);
-		console.log(txtCantEmpq.length);
-		console.log(txtCantPeso.length);
+//		console.log("tamaño de los array")
+//		console.log(idDeclaRes.length);
+//		console.log(tipEmbalaje.length);
+//		console.log(txtCantEmb.length);
+//		console.log(tipEmpaque.length);
+//		console.log(txtCantEmpq.length);
+//		console.log(txtCantPeso.length);
 		
-			for(var j=0;j<txtCantEmpq.length;j++)
-			{
-			console.log(txtCantEmpq[j]);	
-			};
+//			for(var j=0;j<txtCantEmpq.length;j++)
+//			{
+//			console.log(txtCantEmpq[j]);	
+//			};
+			
+			
+				 $.ajax({
+            type: 'POST',
+            url: 'controlGenerador?action=CrearDeclaResiduo',
+            data: {idDeclaRes,'tipEmbalaje[]':tipEmbalaje,'txtCantEmb[]':txtCantEmb ,'tipEmpaque[]': tipEmpaque,'txtCantEmpq[]':txtCantEmpq,'txtCantPeso[]':txtCantPeso},
+            statusCode: {
+                404: function () {
+                    alert('pagina no encontrada');
+                },
+                500: function () {
+                    alert('Error servidor');
+                }
+            },
+            success: function (datos) {
+//				$("#exampleModal").find('.modal-body .alert').val("Declaracion enviada con exito")
+				$('.alert').show()
+//				$("#exampleModal").modal('hide');
+              location.reload('controlGenerador?action=generador');
+            }
+
+        });			
+			
+			
+			
 	})
 
 
