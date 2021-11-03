@@ -541,19 +541,31 @@ public class ControlGenerador extends HttpServlet {
         		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 Calendar cini = Calendar.getInstance();
                 Calendar cinf = Calendar.getInstance();
-            	switch (request.getParameter("txtRep")) {
+                String call = "1";
+                switch (request.getParameter("txtRep")) {
+//                {
+//                call  = "1";	
+//                }	
+//                else
+//                {
+//                	call = request.getParameter("txtRep");
+//                }
+//                log.info(call+"");
+
 				case "1":
 					log.info("repeticion = 1");
-                	log.info("FECHA ACTUAL");
+					String fecha1 = request.getParameter("txtFactual");
+					fecha = parseador.parse(fecha1);
+                	log.info("FECHA ACTUAL"+ fecha);
                 	log.info(request.getParameter("txtFactual"));
-                	String fecha1 = request.getParameter("txtFactual");
-                	fecha = parseador.parse(fecha1);
+                	
                 	log.info(""+fecha);
                 	log.info(formateador.format(fecha));
                 	fecha = parseador.parse(fecha1);
                 	log.info(""+fecha);
                 	dates.add(fecha);
 					break;
+	        
 				case "2":
 					log.info("repeticion = 2");
 					cini.setTime(formateador.parse(request.getParameter("txtFactual")));
@@ -689,10 +701,14 @@ public class ControlGenerador extends HttpServlet {
                 	log.info(""+fech);
                 	log.info(""+request.getParameter("txtFfinal"));
                 	prog.setPro_fecha_inicial(fech);
-                	if(!request.getParameter("txtFfinal").equals(""))
+                	if(!request.getParameter("localiza").equals("btnMod"))
                 	{
-                    	prog.setPro_fecha_final(formateador.parse(request.getParameter("txtFfinal")));
+                    	if(!request.getParameter("txtFfinal").equals(""))
+                    	{
+                        	prog.setPro_fecha_final(formateador.parse(request.getParameter("txtFfinal")));
+                    	}
                 	}
+
                 	log.info("s"+prog.getPro_fecha_inicial());
                 	//campo transportador
                 	log.info(request.getParameter("localiza"));

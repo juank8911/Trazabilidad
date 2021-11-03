@@ -71,7 +71,7 @@
                     $('#btnEliminar').prop('disabled',true);
 
                     cleanForm()
-                    $('#txtFechaM').val(date.format());
+                    $('#txtFactual').val(date.format());
                     $('#fullModalCrear').modal();
                 },
 
@@ -221,18 +221,19 @@
 <!-- 										</div> -->
 										<div class="form-group row col-md-12">
 
-											<div class="form-group col-md-5">
-												<label for="txtFactual" class="form-label">Fecha: </label> <input
-													type="date" name="txtFactual" class="form-control"
+											<div class="form-group col-md-3">
+												<label for="txtFactual" class="form-label">Fecha: </label> 
+												<input
+													type="date" name="txtFactual" class="form-control col-md-7"
 													id="txtFactual" plac eholder="">
 													<input type="hidden" name="localiza" value="btnResi">
 											</div>
 
 											<div class="form-group col-md-5">
 												<label for="txtRep" class="form-label">Se Repite? :</label>
-												<select class="form-control" name="txtRep"
+												<select class="form-control" name="txtRep" id="txtRep"
 													onChange="mostrarF(this.value);">
-													<option value="1">Nunca</option>
+													<option value="1" selected>Nunca</option>
 													<option value="2">Todos los Dias</option>
 													<option value="3">Cada Semana</option>
 													<option value="4">Cada Mes</option>
@@ -334,14 +335,15 @@
                                     <div class="form-group col-md-2">
                                         <label>Fecha: </label>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <input class="form-control" type="date" id="txtFechaM" name="txtFechaM" />
+                                    <div class="form-group col-md-6">
+                                        <input class="form-control" type="date" id="txtFactual" name="txtFactual" />
                                         <input type="hidden" id="txtProg" name="txtProg" />
                                         <!--input type="text" id="txtTitle" name="txtTitle" /-->
                                     </div>
                                 </div>
                                 <div class="form-group row col-md-12" name="traz" id="traz"> -->
 											<div class="col-md-5">
+												<input type="hidden" name="txtRep" value="1" id="txtRep" />
 												<label for="txtTrans">Transportador: </label> 
 												<select name="chekTrans" id="chekTrans" class="form-control">
 													<option>--------SELECCIONE TRANSPORTADOR--------</option>
@@ -367,14 +369,14 @@
                                         <label for="validationCustom01">Residuo </label>
                                     </div>
                                     <div class="form-group col-md-8">
-                                        <select class="form-control" id="txtPrueba" name="txtPrueba[]" required="" multiple>                                           
+                                        <select class="form-control" id="txtPrueba" name="txtPrueba[]" required=""  disabled="" multiple>                                           
                                             <c:forEach var="dato" items="${listaResiduosGenId}">
 
                                                 <option value="${dato.get(0)}">${dato.get(1)} </option>
 
                                             </c:forEach>
                                         </select>
-                                        <input type="hidden" name="localiza" value="btnResi">
+                                        <input type="hidden" name="localiza" value="btnMod">
                                     </div>
 
                                 </div>
@@ -428,7 +430,7 @@
                         arrayAgendar={     // se crean variables y se almacenan los eventos asociados al modal en fullCalendar
                             idRes: $('#txtResi').val(),
                             idProg: $('#txtProg').val(),
-                            start: $('#txtFechaM').val(),
+                            start: $('#txtFactual').val(),
                             title: $('#txtTitle').val(),
                             idGes: $('#txtGestor').val(),
                             idTrans: $('#txtTrans').val(),
