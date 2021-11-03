@@ -47,7 +47,7 @@
         
 <!-- 		<script src='assets/js/fullcalendar/main.js'></script> -->
         <script src="assets/js/fullcalendar.min.js"></script>
-<!--         <script src="assets/js/es.js"></script> -->
+        <script src="assets/js/es.js"></script>
         <script src="assets/js/validaciones.js"></script>
         
         <!-- bootstrap 4 js -->
