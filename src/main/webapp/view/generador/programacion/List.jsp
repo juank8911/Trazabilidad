@@ -30,24 +30,27 @@
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
         <link rel="stylesheet" href="assets/css/checkbox.css">
+        <script src="assets/js/jquery.min.js"></script>
         <!-- modernizr css -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
         
         
         <!-- jquery latest version -->
         
-        <script src="assets/js/jquery.min.js"></script>
+        
         
         <!-- funciones javascript para listado programacion -->
         <script src="assets/js/modalPrograma.js"></script>
          <script src="assets/js/popper.min.js"></script>
-                <script src="assets/js/bootstrap.min.js"></script>
+
         <!-- full calendario -->
-        <script src="assets/js/moment.min.js"></script>
+        
         
 <!-- 		<script src='assets/js/fullcalendar/main.js'></script> -->
         <script src="assets/js/fullcalendar.min.js"></script>
-        <script src="assets/js/es.js"></script>
+<!--         <script src="assets/js/es.js"></script> -->
         <script src="assets/js/validaciones.js"></script>
         
         <!-- bootstrap 4 js -->
@@ -63,15 +66,29 @@
                     center: 'title',
                     right: 'month, basicWeek'
                 },
+//                 dayClick:function (info){
+//                     //alert('fecha seleccionada'+date.format());
+//                     alert('Clicked on: ' + info.date);
+//                     $('#btnAgendarResi').prop('disabled',false);
+//                     $('#btnModificar').prop('disabled',true);
+//                     $('#btnEliminar').prop('disabled',true);
+// //                     $('#Factual').val(date.format());
+
+//                     cleanForm()
+// //                     $('#txtFactual').val(date.format());
+//                     $('#fullModalCrear').modal();
+//                 },
                 
                 dayClick:function (date,jsEvent,view){
-                    //alert('fecha seleccionada'+date.format());
+                    alert('fecha seleccionada '+date.format());
+//                     alert('Clicked on: ' + info.dateStr);
                     $('#btnAgendarResi').prop('disabled',false);
                     $('#btnModificar').prop('disabled',true);
                     $('#btnEliminar').prop('disabled',true);
+                    $('#Factual').val(date.format());
 
                     cleanForm()
-                    $('#txtFactual').val(date.format());
+//                     $('#txtFactual').val(date.format());
                     $('#fullModalCrear').modal();
                 },
 
@@ -105,7 +122,7 @@
                     $('#txtResi').val(calEvent.idRes); // llamar el evento  del Residuo
                     $('#txtProg').val(calEvent.idProg); // llamar el evento  del Residuo
                     fechaHora= calEvent.start._i.split(' ');
-                    $('#txtFechaM').val(fechaHora[0]);
+                    $('#Factual').val(fechaHora[0]);
                     $('#txtHora').val(fechaHora[1]);
                     
                     
@@ -116,7 +133,7 @@
                     eventDrop:function(calEvent){
                         $('#txtProg').val(calEvent.idProg); // llamar el evento  del Residuo
                         fechaHora= calEvent.start.format().split('T');
-                        $('#txtFechaM').val(fechaHora[0]);
+                        $('#Factual').val(fechaHora[0]);
                         $('#txtHora').val(fechaHora[1]);
                         
         
@@ -221,11 +238,11 @@
 <!-- 										</div> -->
 										<div class="form-group row col-md-12">
 
-											<div class="form-group col-md-3">
+											<div class="form-group col-md-8">
 												<label for="txtFactual" class="form-label">Fecha: </label> 
 												<input
 													type="date" name="txtFactual" class="form-control col-md-7"
-													id="txtFactual" plac eholder="">
+													id="txtFactual">
 													<input type="hidden" name="localiza" value="btnResi">
 											</div>
 
@@ -336,12 +353,12 @@
                                         <label>Fecha: </label>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input class="form-control" type="date" id="txtFactual" name="txtFactual" />
+                                        <input class="form-control" type="date" id="Factual" name="txtFactual" readonly="readonly"/>
                                         <input type="hidden" id="txtProg" name="txtProg" />
-                                        <!--input type="text" id="txtTitle" name="txtTitle" /-->
+<!--                                         <input type="text" id="txtTitle" name="txtTitle" /> -->
                                     </div>
                                 </div>
-                                <div class="form-group row col-md-12" name="traz" id="traz"> -->
+                                <div class="form-group row col-md-12" name="traz" id="traz">
 											<div class="col-md-5">
 												<input type="hidden" name="txtRep" value="1" id="txtRep" />
 												<label for="txtTrans">Transportador: </label> 
@@ -384,8 +401,8 @@
                             </div>
                             <div class="modal-footer">
                                                
-                                                <button type="submit" class="btn btn-success" type="submit">Crear Programacion</button>
-                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="submit" class="btn btn-success" id="btnCrea" type="submit">Crear Programacion</button>
+                                                 <button type="button" class="btn btn-secondary" id="btnCierra" data-dismiss="modal">Cerrar</button>
                           </div>
 							</form>
                         </div>
@@ -405,6 +422,8 @@
                 	  modal.find('form').append("<input type='hidden' name='txtPrueba[]' value="+id+">");
                 	  modal.find('.modal-title').text('Crear Programacion de: ' + nom)
                 	  modal.find('.modal-body #txtResi').val(recipient)
+                	  modal.find('.modal-footer #btnCrea').attr("disabled", 'disabled');
+                	  modal.find('.modal-footer #btnCierra').attr("disabled", 'disabled');
                 	})
                              
                     var arrayAgendar;
@@ -430,7 +449,7 @@
                         arrayAgendar={     // se crean variables y se almacenan los eventos asociados al modal en fullCalendar
                             idRes: $('#txtResi').val(),
                             idProg: $('#txtProg').val(),
-                            start: $('#txtFactual').val(),
+                            start: $('#Factual').val(),
                             title: $('#txtTitle').val(),
                             idGes: $('#txtGestor').val(),
                             idTrans: $('#txtTrans').val(),
@@ -450,7 +469,7 @@
                                     if (!modal) {
                                         $('#fullModalCrear').modal('toggle');
                                     }
-
+// 										cleanForm();
                                     location.reload();
 
                                 },
