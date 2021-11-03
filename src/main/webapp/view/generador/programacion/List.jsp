@@ -192,8 +192,8 @@
 					</button>
 				</c:forEach>
                      
-                    <div class="modal fade bd-example-modal-lg" id="programResiduo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                    <div class="modal fade" id="programResiduo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
 
@@ -236,17 +236,15 @@
 <!-- 												</select> -->
 <!-- 											</div> -->
 <!-- 										</div> -->
-										<div class="form-group row col-md-12">
-
-											<div class="form-group col-md-8">
+										<div class="form-row align-items-center">
+											<div class="form-group col-auto">
 												<label for="txtFactual" class="form-label">Fecha: </label> 
 												<input
-													type="date" name="txtFactual" class="form-control col-md-7"
+													type="date" name="txtFactual" class="form-control"
 													id="txtFactual">
-													<input type="hidden" name="localiza" value="btnResi">
-											</div>
-
-											<div class="form-group col-md-5">
+												</div>	
+											<div class="form-group col-auto
+											">
 												<label for="txtRep" class="form-label">Se Repite? :</label>
 												<select class="form-control" name="txtRep" id="txtRep"
 													onChange="mostrarF(this.value);">
@@ -259,8 +257,8 @@
 											</div>
 										</div>
 
-										<div class="form-row col-md-12">
-											<div class="form-grup">
+										<div class="form-row align-items-center">
+											<div class="form-group">
 												<label for="txtFfinal" id="hastaFL" style="display: none">Hasta
 												</label> <input type="date" name="txtFfinal" class="form-control"
 													id="fechaActual2" style="display: none" placeholder=""
@@ -270,8 +268,8 @@
 										</div>
 
 
-										<div class="form-row m-3" id="diasSemana" style="display: none">
-						<div class="form-check form-check-inline col-md-12">
+						<div class="form-col m-3" id="diasSemana" style="display: none">
+						<div class="form-check form-check col-">
 							<div class="custom-control custom-checkbox checkbox-xl">
 								<input type="checkbox" class="custom-control-input"
 									name="btnLunes" id="btnLunes"> <label
