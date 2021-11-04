@@ -69,6 +69,9 @@
 						</div>
 					</div>
 				</li>
+				<div class="spinner-border text-light" role="status">
+  				<span class="sr-only">Loading...</span>
+				</div>
 				<li class="dropdown"><i class="ti-help" data-toggle="dropdown"></i>
 
 				</li>

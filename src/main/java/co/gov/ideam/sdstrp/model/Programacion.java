@@ -140,6 +140,32 @@ public class Programacion implements Serializable {
 	public void setPro_gestor(int pro_gestor) {
 		this.pro_gestor = pro_gestor;
 	}
+	
+	
+
+	public Declaracion getProg_dec() {
+		return prog_dec;
+	}
+
+	public void setProg_dec(Declaracion prog_dec) {
+		this.prog_dec = prog_dec;
+	}
+
+	public Sede getSedGene() {
+		return sedGene;
+	}
+
+	public void setSedGene(Sede sedGene) {
+		this.sedGene = sedGene;
+	}
+
+	public Sede getJsedprog() {
+		return jsedprog;
+	}
+
+	public void setJsedprog(Sede jsedprog) {
+		this.jsedprog = jsedprog;
+	}
 
 	@Override
 	public String toString() {
@@ -151,7 +177,7 @@ public class Programacion implements Serializable {
 	
 
 	 
-	 @OneToOne(cascade = CascadeType.ALL, mappedBy = "prog_dec")
+	 @OneToOne(fetch=FetchType.LAZY, mappedBy = "prog_dec")
 	 private Declaracion prog_dec;
 	 
 	  

@@ -50,9 +50,18 @@ public class ProgramacionDao {
 
     
     private List<Tuple> listaProgramacionC;
+    private List<Programacion> listaProgramacionC1;
     
 
     private Programacion newProg;
+    
+    @Produces
+    @Named
+    public List<Programacion> getListaProgramacionC1()
+    {
+    	programacionResiduios(3);
+    	return listaProgramacionC1;
+    }
     
     @Produces
     @Named
@@ -84,6 +93,50 @@ public class ProgramacionDao {
 			 listaProgramacionC = em.createQuery(conRes).getResultList();
 		} catch (Exception e) {
             System.out.println("Fallo lista de autorizaciones: " + e.getMessage());
+            e.fillInStackTrace();
+			// TODO: handle exception
+		}	
+    }
+    
+    //Agregar id de generador para mostar sus programaciones
+    public void programacionResiduios1(int idS)
+    {
+//    						 select pro_id , pro_fecha_inicial , res_nombre, a.sed_id as idTrans, a.sed_nombre as transportador , b.sed_id as idGes, b.sed_nombre as gestor, res_id from trpt_programacion\n" +
+//    	"                    inner join trpt_programacion_residuo on (pro_id = pre_programacion)\n" +
+//    	"                    inner join trpt_residuo on(res_id= pre_residuo)\n" +
+//    	"                    inner join trpt_sede a on (trpt_residuo.res_transportador = a.sed_id)\n" +
+//    	"                    inner join trpt_sede b on (trpt_residuo.res_gestor = b.sed_id)\n" +
+//    	"                    where pro_generador = "+id
+    	
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Programacion> conRes = cb.createQuery(Programacion.class);	
+			 Root<Programacion> rootRes = conRes.from(Programacion.class);
+//			 Join<ServicioGestor, TipoResiduos> jointTRE = RootRes.join("tiResiduos", JoinType.INNER);
+//			 Join<Declaracion,Programacion> joinPrPr = rootRes.join("prog_dec",JoinType.INNER);
+//			 Join<Declaracion, DeclaracionResiduo> joinDecs = rootRes.join("declaracion_res",JoinType.INNER);
+//			 Join<DeclaracionResiduo, Residuos> joinPrRs = joinDecs.join("residuosDecl",JoinType.INNER);
+			 conRes.where(cb.equal(rootRes.get("pro_generador"),idS));
+			 conRes.select(rootRes);
+			 listaProgramacionC1 = em.createQuery(conRes).getResultList();
+			 for (Programacion prog : listaProgramacionC1) {
+				 log.info("//////////////inicio///////////////////////");
+				log.info(prog.getPro_id()+" ID DESDE EL PROGRAMA");
+				log.info(prog.getPro_fecha_inicial()+" FECHA INCIAL PROGRAMA");
+				log.info(prog.getProg_dec().getDec_prog_id()+" id progamacion EN DECLARACION");
+				log.info(prog.getProg_dec().getDec_id()+" id declaracion DECLARACION");
+				log.info(prog.getProg_dec().getDeclaracion_res().size()+" tamaño decla res");
+				for (DeclaracionResiduo tuple : prog.getProg_dec().getDeclaracion_res()) {
+					log.info(tuple.toString());
+					log.info(tuple.getDer_id()+"");
+//					tuple.getDer_gen_nombre();
+					log.info(tuple.getDer_gen_nombre()+ " Nombre residuo");
+					log.info("/////////////////////////////fin////////////////////");
+					
+				}
+			}
+		} catch (Exception e) {
+            System.out.println("Fallo lista de programacion c1: " + e.getMessage());
             e.fillInStackTrace();
 			// TODO: handle exception
 		}	

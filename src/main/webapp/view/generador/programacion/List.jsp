@@ -80,7 +80,7 @@
 //                 },
                 
                 dayClick:function (date,jsEvent,view){
-                    alert('fecha seleccionada '+date.format());
+//                     alert('fecha seleccionada '+date.format());
 //                     alert('Clicked on: ' + info.dateStr);
                     $('#btnAgendarResi').prop('disabled',false);
                     $('#btnModificar').prop('disabled',true);
