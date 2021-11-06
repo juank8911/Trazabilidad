@@ -1,0 +1,73 @@
+#body-row {
+    margin-left:0;
+    margin-right:0;
+}
+#sidebar-container {
+    min-height: 100vh;   
+    background-color: #ffffff;
+    padding: 0;
+}
+
+/* Sidebar sizes when expanded and expanded */
+.sidebar-expanded {
+    width: 230px;
+}
+.sidebar-collapsed {
+    width: 60px;
+}
+
+/* Menu item*/
+#sidebar-container .list-group a {
+    height: 50px;
+    color: white;
+}
+
+/* Submenu item*/
+#sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px;
+}
+.sidebar-submenu {
+    font-size: 0.9rem;
+}
+
+/* Separators */
+.sidebar-separator-title {
+    background-color: white;
+    height: 35px;
+    color: black !important;
+}
+.sidebar-separator {
+    background-color: white;
+    height: 25px;
+    color: black !important;
+}
+.logo-separator {
+    background-color: white;    
+    height: 60px;
+    color: black !important;
+}
+
+a.bg-white:focus, a.bg-white:hover, button.bg-white:focus, button.bg-white:hover {
+    background-color: #58a749!important;
+    color: white !important;
+}
+
+/* Closed submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+	font-family: "Font Awesome 5 Free"; 
+	font-weight: 900;
+  	content: " \f0d7";
+  	display: inline;
+  	text-align: right;
+  	padding-left: 10px;
+}
+/* Opened submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+	font-family: "Font Awesome 5 Free"; 
+	font-weight: 900; 
+	content: "\f0da";
+  	display: inline;
+  	text-align: right;
+  	padding-left: 10px;
+}

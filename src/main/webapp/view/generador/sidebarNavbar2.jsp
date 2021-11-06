@@ -1,42 +1,20 @@
-<%--
-    JBoss, Home of Professional Open Source
-    Copyright 2015, Red Hat, Inc. and/or its affiliates, and individual
-    contributors by the @authors tag. See the copyright.txt in the
-    distribution for a full listing of individual contributors.
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
---%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<link rel="stylesheet" href="assets/css/bootstrap.min.css" >
-<link rel="stylesheet" type="text/css" href="assets/css/sidebarjk.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/all.min.css" />
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js" ></script>
-<script src="assets/js/bootstrap.min.js" ></script>
-<script src="assets/js/sidebarjk.js" ></script>
-<title>kitchensink-jsp</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- Here we include the css file -->
-
-</head>
-<body>
-<jsp:forward page="view/login.jsp" />
+<%-- 
+    Document   : sidebarNavbar
+    Created on : 13/10/2020, 09:14:52 AM
+    Author     : yorman
+--%>
+<!-- SIDE BAR DE GENERADOR-->
+<!--[if lt IE 8]>
+                <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+<!-- preloader area start -->
+<div id="preloader">
+	<div class="loader"></div>
+</div>
+<!-- preloader area end -->
 <script src="assets/js/cambioPerfil.js"></script>
 <div class="logo1">
 	<img src="assets/images/logo_sdstrp.png" alt="logo1"></a> <img
@@ -63,10 +41,10 @@
   <div class="notification-area col-md-6 col-sm-4 clearfix" id="navbarNavDropdown">
     <ul class="navbar-nav pull-right">
     
-      <li class="dropdown"><i class="far fa-bell fa-1x"> <span class="badge badge-pill badge-primary ml-2">5</span>
+      <li class="dropdown"><i class="far fa-bell fa-1x"> <span class="badge badge-pill badge-danger ml-2">5</span>
 		</i>
 	 </li>
-		<li class="dropdown"><i class="far fa-flag fa-1x"><span class="badge badge-pill badge-primary ml-2" >3</span></i>
+		<li class="dropdown"><i class="far fa-flag fa-1x"><span class="badge badge-pill badge-danger ml-2" >3</span></i>
 		</li>
 		<li >
 		<div class="spinner-border text-light" id="carga" role="status">
@@ -127,56 +105,66 @@
         <ul class="list-group">
             <!-- Separator with title -->
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <small>MAIN MENU</small>
+                <h6>Menu ${usuario}</h6>
             </li>
             <!-- /END Separator -->
             <!-- Menu with submenu -->
                         <a href="#submenu1" data-toggle="collapse" aria-expanded="true" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-user fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Profile</span>
+                    <span class="fas fa-info fa-fw mr-3"></span>
+                    
+                    <span class="menu-collapsed">Informacion</span>
                     <span class="submenu-icon ml-auto"></span>
                 </div>
             </a>
             <!-- Submenu content -->
             <div id="submenu1" class="sidebar-submenu collapse show" style="">
-                <a href="controlGenerador?action=perfilLeeGenera" class="list-group-item list-group-item-action bg-white text-black-50">
+                <a href="controlGenerador?action=perfilLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">perfil</span>
                 </a>
-                <a method="post" href="controlGenerador?action=passGenera" class="list-group-item list-group-item-action bg-white text-black-50">
-                    <span class="menu-collapsed">contraseña</span>
+                <a method="post" href="controlGenerador?action=passGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-key fa-fw mr-3"></span>
+                    <span class="menu-collapsed">contraseÃ±a</span>
                 </a>
             </div>   
             <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fas fa-tachometer-alt fa-fw mr-3"></span> 
-                    
-                    
-                    <span class="menu-collapsed">Dashboard</span>
+                    <span class="fas fa-industry fa-fw mr-3"></span>                     
+                    <span class="menu-collapsed">Declaraciones</span>
                     <span class="submenu-icon ml-auto"></span>
                 </div>
             </a>
             <!-- Submenu content -->
             <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="#" class="list-group-item list-group-item-action bg-white text-black-50">
-                    <span class="menu-collapsed">Charts</span>
+                <a href="controlGenerador?action=residuoLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">                
+                <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
+                    <span class="menu-collapsed">residuos</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action bg-white text-black-50">
-                    <span class="menu-collapsed">Reports</span>
+                <a href="#" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
+                
+                    <span class="menu-collapsed">programacion</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action bg-white text-black-50">
-                    <span class="menu-collapsed">Tables</span>
+                <a href="controlGenerador?action=programaListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-share-square fa-fw mr-3"></span>                 
+                    <span class="menu-collapsed">declaracion & envio</span>
                 </a>
+				<a href="#" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-calendar-alt mr-3"></span>                 
+                    <span class="menu-collapsed">reporte mensual</span>
+                </a>                
+                
             </div>         
-            <a href="#" class="bg-success list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-tasks fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Tasks</span>    
-                </div>
-            </a>
+<!--             <a href="#" class="bg-success list-group-item list-group-item-action"> -->
+<!--                 <div class="d-flex w-100 justify-content-start align-items-center"> -->
+<!--                     <span class="fa fa-tasks fa-fw mr-3"></span> -->
+<!--                     <span class="menu-collapsed">Tasks</span>     -->
+<!--                 </div> -->
+<!--             </a> -->
             <!-- Separator with title -->
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <small>OPTIONS</small>
+                <h6>OPTIONS</h6>
             </li>
             <!-- /END Separator -->
             <a href="#" class="bg-success list-group-item list-group-item-action">
@@ -197,7 +185,7 @@
             <!-- /END Separator -->
             <a href="#" class="bg-success list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
+                    <span class="fa fa-question fa-fb mr-3"></span>
                     <span class="menu-collapsed">Help</span>
                 </div>
             </a>
@@ -213,24 +201,3 @@
             </li>   
         </ul><!-- List Group END-->
     </div><!-- sidebar-container END -->
-
-    <!-- MAIN -->
-    <div class="col">
-        
-        <h1>
-            Trazabilidad
-            <small class="text-muted">Version 2.1</small>
-        </h1>
-        
-        
-        <div class="card">
-
-        </div>
-       
-
-
-    </div><!-- Main Col END -->
-    
-</div><!-- body-row END -->
-</body>
-</html>

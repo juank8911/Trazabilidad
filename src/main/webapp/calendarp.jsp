@@ -10,6 +10,7 @@
 <meta charset='utf-8' />
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" > -->
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/themify-icons.css">
 <link rel="stylesheet" href="assets/css/metisMenu.css">
@@ -30,13 +31,14 @@
 
 
 <script src="assets/js/jquery.min.js"></script>
-<!--    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script> -->
+<script src="assets/js/bootstrap.bundle.min.js" ></script>
+<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 <script src="assets/js/fullCalendar/main.js"></script>
 <script src="assets/js/fullCalendar/locales-all.js"></script>
 
 <!-- funciones javascript para listado programacion -->
         <script src="assets/js/modalPrograma.js"></script>
-         <script src="assets/js/popper.min.js"></script>
+<!--          <script src="assets/js/popper.min.js"></script> -->
 <link rel="stylesheet" href="assets/css/styles.css">
 <!-- full calendario -->
         <script src="assets/js/validaciones.js"></script>
@@ -66,19 +68,31 @@
 	       headerToolbar: {
 	       left: 'prev,next,today',
 	       center: 'title',
-	       right: 'dayGridMonth,basicWeek'},
-	       dayClick:function (date,jsEvent,view){
-//             alert('fecha seleccionada '+date.format());
-//             alert('Clicked on: ' + info.dateStr);
-            $('#btnAgendarResi').prop('disabled',false);
-            $('#btnModificar').prop('disabled',true);
-            $('#btnEliminar').prop('disabled',true);
-            $('#Factual').val(date.format());
+	       right: 'dayGridMonth,timeGridWeek,timeGridDay'},
+	       dateClick: function(info) {
+	    	//             alert('fecha seleccionada '+date.format());
+	    	//             alert('Clicked on: ' + info.dateStr);
+	    	             $('#btnAgendarResi').prop('disabled',false);
+	    	             $('#btnModificar').prop('disabled',true);
+	    	             $('#btnEliminar').prop('disabled',true);
+	    	             $('#Factual').val(info.dateStr);
 
-            cleanForm()
-//             $('#txtFactual').val(date.format());
-            $('#fullModalCrear').modal();
-        },
+	    	             cleanForm()
+	    	//             $('#txtFactual').val(date.format());
+	    	             $('#fullModalCrear').modal();
+	    	  },
+// 	       dayClick:function (date,jsEvent,view){
+// //             alert('fecha seleccionada '+date.format());
+// //             alert('Clicked on: ' + info.dateStr);
+//             $('#btnAgendarResi').prop('disabled',false);
+//             $('#btnModificar').prop('disabled',true);
+//             $('#btnEliminar').prop('disabled',true);
+//             $('#Factual').val(date.format());
+
+//             cleanForm()
+// //             $('#txtFactual').val(date.format());
+//             $('#fullModalCrear').modal();
+//         },
 	       droppable: true, // this allows things to be dropped onto the calendar
 	       drop: function(info) {
 //	            alert(info.event.title + " was dropped on " + info.event.start.toISOString());
@@ -103,9 +117,17 @@
 			                }
 			            },
 			            success: function (datos) {
-				            window.alert(datos);
+				            
 	// //						$("#exampleModal").find('.modal-body .alert').val("Declaracion enviada con exito")
-//	 						$('.alert').show()
+								if(datos=="true")
+									{
+									$('.alert').alert();
+									}
+								else
+									{
+									$('#alertErr').alert();
+									}
+//	 						
 	// //						$("#exampleModal")/.modal('hide');
 //	 		              location.reload('controlGenerador?action=generador');
 			            }
@@ -324,10 +346,15 @@
 					</div>
 				</div>
 			</div>
+
+			<div class='col-10' id='calendar-container'>
+			<div class="alert alert-danger" id="alertErr" role="alert">
+  			This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+			</div>
 				<div class="alert alert-success" role="alert">
   					Programacion agregada con exito!
 				</div>
-			<div class='col-10' id='calendar-container'>
+				
 				<div id='CalendarioResi'></div>
 			</div>
 

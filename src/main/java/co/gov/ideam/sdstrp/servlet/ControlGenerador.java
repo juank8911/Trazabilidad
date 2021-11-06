@@ -306,7 +306,7 @@ public class ControlGenerador extends HttpServlet {
 	                out.write(stu.toString());
 	                break;
 	            case "programaListaGenera":
-	                ruta = "/calendarp.jsp";
+	                ruta = "view/henerador/programacion/List.jsp";
 	                if (sesion.getAttribute("perfil") == null) {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);
@@ -817,7 +817,7 @@ public class ControlGenerador extends HttpServlet {
 			// TODO Auto-generated method stub
 			resDAO.setTitulo("sdstrp - Residuo");
 			log.info("Sede es ="+request.getSession().getAttribute("idSede"));
-	        int rs =  (int) request.getSession().getAttribute("idSede"); // llamar la variable de session de Sede
+//	        int rs =  (int) request.getSession().getAttribute("idSede"); // llamar la variable de session de Sede
 //	        log.info("Servicio listar gestor: "+ rs);
 //	        resDAO.listarResiduoGeneradorId(rs);
 	        dis = request.getRequestDispatcher(ruta);

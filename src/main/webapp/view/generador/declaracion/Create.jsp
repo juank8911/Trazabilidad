@@ -8,7 +8,7 @@
 </demo:header>
         
     <body>
-         <%@include file ="../sidebarNavbar.jsp" %>
+         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
             <div class="main-content">
 

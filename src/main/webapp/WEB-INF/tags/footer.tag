@@ -11,7 +11,7 @@
                 <!-- bootstrap 4 js -->
                 <script src="assets/js/owl.carousel.min.js"></script>
                 <script src="assets/js/jquery.slimscroll.min.js"></script>
-                <script src="assets/js/jquery.slicknav.min.js"></script>
+<!--                 <script src="assets/js/jquery.slicknav.min.js"></script> -->
 
                 <!-- start chart js -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
@@ -29,4 +29,4 @@
                 <script src="assets/js/pie-chart.js"></script>
                 <!-- others plugins -->
                 <script src="assets/js/plugins.js"></script>
-                <script src="assets/js/scripts.js"></script>
+<!--                 <script src="assets/js/scripts.js"></script> -->

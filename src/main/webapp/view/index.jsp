@@ -36,7 +36,6 @@
 
 </head>
 <body>
-<jsp:forward page="view/login.jsp" />
 <script src="assets/js/cambioPerfil.js"></script>
 <div class="logo1">
 	<img src="assets/images/logo_sdstrp.png" alt="logo1"></a> <img
@@ -46,7 +45,7 @@
 </div>
  <!-- Bootstrap NavBar -->
  <div class="header-area">
-<%--  <jsp:forward page="view/login.jsp" /> --%>
+ <jsp:forward page="view/login.jsp" />
 
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
 <div class="col-md-1 col-sm-8 clearfix">

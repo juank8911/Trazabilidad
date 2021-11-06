@@ -1,12 +1,15 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<demo:header>
+<demo:header/>
  <title>sdstrp - Panel de Control</title>
-</demo:header>
+ </head>
 
  <body>
 
-        <%@include file ="sidebarNavbar.jsp" %>
+        <%@include file ="sidebarNavbar2.jsp" %>
+       <!-- MAIN -->
+    <div class="col">
             <div class="main-content">
 
                 <!-- page title area start -->
@@ -25,25 +28,25 @@
                 </div>
                 <!-- page title area end -->
                 <div class="main-content-inner">
-                    <div class="row">
+                        <div class="row">
                         <!-- seo fact area start -->
                         <div class="col-lg-10 mt-4">
                             <div class="row">
-                                <div class="col-3 ">
+                                <div class="col-4 ">
                                     <div class="card">
                                         <div class="seo-fact sbg1">
                                             <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="ti-archive"></i>No Enviadas</div>
+                                                <div class="seofct-icon"><i class="fas fa-archive"></i>No Enviadas</div>
                                                 <h2>${dashNoEnviadas}</h2>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-4">
                                     <div class="card">
                                         <div class="seo-fact sbg1">
                                             <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="ti-layout-media-right"></i> Enviadas</div>
+                                                <div class="seofct-icon"><i class="fas fa-file-import"></i></i> Enviadas</div>
                                                 
                                                 <h2> ${dashEnviadas}</h2>
                                             </div>
@@ -52,37 +55,37 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-3">
+                                <div class="col-4">
                                     <div class="card">
                                         <div class="seo-fact sbg2">
                                             <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="ti-truck"></i> Aprobadas</div>
-                                                <h2>${dashAprovadas}</h2>
+                                                <div class="seofct-icon"><i class="fas fa-truck-moving"></i>Aprobadas</div>
+                                                 <h2>${dashAprovadas}</h2>
                                             </div>
                                             
                                         </div>
                                     </div>
                                 </div>
-                                <div class=" col-3">
-                                    <div class="card">
-                                        <div class="seo-fact sbg2">
-                                            <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="fa fa-industry"></i>Finalizadas</div>
-                                                <h2>${dashFinalizadas}</h2>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
+
                                 </div>
                             </div>
-                                                <div class="col-lg-10 mt-3">
-                                                    <div class="row">
-                                                        <div class="col-3 mt-1">
+                      
+												<div class="col mt-4">
+										 <div class="row">
+                                    		<div class="card">
+                                        		<div class="seo-fact sbg2">
+                                            		<div class="p-3 d-flex justify-content-between align-items-center">
+                                                		<div class="seofct-icon"><i class="fa fa-industry"></i>Finalizadas</div>
+                                                		 <h2>${dashFinalizadas}</h2>
+                                            		</div>
+                                        		</div>
+                                    		</div>
+                                		</div>
+                                                        <div class="row mt-4">
                                                             <div class="card">
                                                                 <div class="seo-fact sbg1">
                                                                     <div class="p-3 d-flex justify-content-between align-items-center">
-                                                                        <div class="seofct-icon"><i class="ti-calendar"></i>Programadas Generador</div>
+                                                                        <div class="seofct-icon"><i class="fas fa-calendar-alt"></i></i>Programadas Generador</div>
                                                                         <h2>${dashPrograma}</h2>
                                                                     </div>
 
@@ -90,11 +93,11 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-3 mt-1">
+                                                        <div class="row mt-4">
                                                             <div class="card">
                                                                 <div class="seo-fact sbg3">
                                                                     <div class="p-3 d-flex justify-content-between align-items-center">
-                                                                        <div class="seofct-icon"><i class="ti-truck"></i>Rechazadas Transportador</div>
+                                                                        <div class="seofct-icon"><i class="fas fa-truck-moving"></i>Rechazadas Transportador</div>
                                                                         <h2>${dashRechasadas}</h2>
                                                                     </div>
 
@@ -102,27 +105,24 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-3 mt-1">
+                                                        <div class="row mt-4">
                                                             <div class="card">
                                                                 <div class="seo-fact sbg3">
                                                                     <div class="p-3 d-flex justify-content-between align-items-center">
-                                                                        <div class="seofct-icon"><i class="fa fa-industry"></i> Rechazadas Gestor</div>
-                                                                        <h2>${dashRechaGes}</h2>
+                                                                        <div class="seofct-icon"><i class="fas fa-industry"></i> Rechazadas Gestor</div>
+                                                                       <h2>${dashRechaGes}</h2>
                                                                     </div>
 
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                    </div>
+                
                                                 </div>
+
                         </div>
                         <!-- seo fact area end -->
 
-
-                    </div>
-                    <!-- page title area end -->
-                    <div class="main-content-inner">
 
                     </div>
                     <!-- main content area end -->
@@ -138,7 +138,7 @@
 				</div>
 
                 <!-- bootstrap 4 js -->
-                <script src="assets/js/popper.min.js"></script>
+<!--                 <script src="assets/js/popper.min.js"></script> -->
                 <script src="assets/js/owl.carousel.min.js"></script>
 
                 <script src="assets/js/jquery.slimscroll.min.js"></script>
@@ -161,7 +161,11 @@
                 <!-- others plugins -->
                 <script src="assets/js/plugins.js"></script>
                 <script src="assets/js/scripts.js"></script>
-                
-                </body>
+       
 
+
+    </div><!-- Main Col END -->
+    
+</div><!-- body-row END -->
+                </body>
                 </html>

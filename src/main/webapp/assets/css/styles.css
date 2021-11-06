@@ -362,7 +362,7 @@
 
 .horizontal-menu ul li:hover>a,
 .horizontal-menu ul li.active>a {
-    color: #007BFF;
+    color: #58a749;
 }
 
 .horizontal-menu nav>ul>li:first-child>a {
@@ -382,7 +382,7 @@
     background: #fff;
     opacity: 0;
     visibility: hidden;
-    border-top: 4px solid #007BFF;
+    border-top: 4px solid #58a749;
     border-radius: 3px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
 }
@@ -567,7 +567,7 @@
 }
 
 .notification-area li.settings-btn.active i {
-    color: #007BFF;
+    color: #58a749;
 }
 
 .notification-area li>i {
@@ -1964,7 +1964,7 @@ p.card-text {
 /*-------------------- 16. Pagination ------------------- */
 
 .pg-color-border li a {
-    border-color: #007BFF;
+    border-color: #58a749;
 }
 
 .pagination li a {
@@ -2059,7 +2059,7 @@ label {
 }
 
 .fw-icons a:hover {
-    color: #007BFF;
+    color: #58a749;
 }
 
 .fw-icons a i {
@@ -2115,7 +2115,7 @@ label {
 }
 
 .icon-container:hover span {
-    color: #007BFF;
+    color: #58a749;
 }
 
 /*-------------------- END Icons ------------------- */
@@ -2167,7 +2167,7 @@ div.dataTables_wrapper div.dataTables_length select {
 /* datatable-primary */
 
 .datatable-primary thead {
-    background: #4336fb;
+    background: #58a749;
     color: #fff;
 }
 
@@ -2193,20 +2193,20 @@ table.dataTable thead td {
 
 .datatable-primary .dataTables_paginate .page-item.active .page-link,
 .datatable-primary .dataTables_paginate .page-item .page-link:hover {
-    background-color: #4336fb;
-    border-color: #4336fb;
+    background-color: #58a749;
+    border-color: #58a749;
     color: #fff;
 }
 
 .datatable-primary .dataTables_paginate .page-link {
-    color: #4336fb;
-    border: 1px solid #4336fb;
+    color: #58a749;
+    border: 1px solid #58a749;
 }
 
 .datatable-primary .dataTables_paginate .paginate_button.disabled,
 .datatable-primary .dataTables_paginate .paginate_button.disabled:hover,
 .datatable-primary .dataTables_paginate .paginate_button.disabled:active {
-    color: #4336fb!important;
+    color: #58a749!important;
     border: none;
 }
 

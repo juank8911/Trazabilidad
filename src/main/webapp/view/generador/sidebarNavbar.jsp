@@ -21,6 +21,7 @@
 		src="assets/images/logo_ideam.png" alt="logo1"></a>
 
 </div>
+
 <!-- header area start -->
 <script src="assets/js/cambioPerfil.js"></script>
 <div class="header-area">
@@ -42,6 +43,10 @@
 				</i></li>
 				<li class="dropdown"><i class="ti-flag-alt"><span>3</span></i>
 
+				</li>
+				<li>
+				<div class="spinner-border text-light" role="status">
+				</div>
 				</li>
 				<li>
 					<div class="dropdown col-lg-6 col-md-4 col-sm-6">
@@ -69,9 +74,7 @@
 						</div>
 					</div>
 				</li>
-				<div class="spinner-border text-light" role="status">
-  				<span class="sr-only">Loading...</span>
-				</div>
+				
 				<li class="dropdown"><i class="ti-help" data-toggle="dropdown"></i>
 
 				</li>

@@ -1,43 +1,45 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+<demo:header/>
 <title>sdstrp - Crea Residuo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/png"
-	href="assets/images/icon/favicon.ico">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/metisMenu.css">
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/slicknav.min.css">
-<!-- amchart css -->
-<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css"
-type="text/css" media="all" />
-<!-- others css -->
-<link rel="stylesheet" href="assets/css/typography.css">
-<link rel="stylesheet" href="assets/css/default-css.css">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
-<link rel="stylesheet" href="assets/css/coloresInst.css">
-<!-- modernizr css -->
-<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-<!-- jquery latest version -->
-<script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
-<script src="assets/js/listSTG.js"></script>
+  </head>
+<!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
 
-</head>
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+<!-- <link rel="shortcut icon" type="image/png" -->
+<!-- 	href="assets/images/icon/favicon.ico"> -->
+<!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/themify-icons.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/metisMenu.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/owl.carousel.min.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/slicknav.min.css"> -->
+<!-- <!-- amchart css --> -->
+<!-- <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" -->
+<!-- type="text/css" media="all" /> -->
+<!-- <!-- others css --> -->
+<!-- <link rel="stylesheet" href="assets/css/typography.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/default-css.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/responsive.css"> -->
+<!-- <link rel="stylesheet" href="assets/css/coloresInst.css"> -->
+<!-- <!-- modernizr css --> -->
+<!-- <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script> -->
+<!-- <!-- jquery latest version --> -->
+<!-- <script src="assets/js/vendor/jquery-2.2.4.min.js"></script> -->
+<!--  -->
+
+<!-- </head> -->
 
 <body>
 
-	<%@include file="../sidebarNavbar.jsp"%>
+	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
+	<div class="col">
 	<div class="main-content">
 
 		<!-- page title area start -->
@@ -47,7 +49,7 @@ type="text/css" media="all" />
 					<div class="breadcrumbs-area">
 						<h4 class="page-title pull-left">Crear Residuo</h4>
 						<ul class="breadcrumbs pull-left">
-							<li><span> en el sistema de informaciÃ³n</span></li>
+							<li><span> en el sistema de información</span></li>
 						</ul>
 					</div>
 				</div>
@@ -58,158 +60,147 @@ type="text/css" media="all" />
 		<!-- main content area inicio -->
 		<div class="main-content-inner">
 			<div class="row">
-
-				<div class="row form-control">
-
-
 					<!-- Server side start -->
-
-
-					<form method="post" action="controlGenerador?action=Registrar"
-						id="data">
-
-						<div class="form-row">
-							<label for="descripcionResiduo" class="form-group col-md-2">DescripciÃ³n:
-							</label> <input type="text" name="txtDescript"
-								class="form-control form-group col-md-10"
-								id="descripcionResiduo" placeholder="" value="" required="">
-
-
-							<label class="form-group col-md-2" for="corrienteResiduo">Corriente
-								Residuo: </label> <select class="form-control form-group col-md-10"
-								id="tipResiduo" name="tipResiduo" required="">
-
+					<form  method="post" action="controlGenerador?action=Registrar" id="data">
+						<div class="row g-3">
+						<div class="col-md-12 mt-4">
+							<label class="form-label" for="descripcionResiduo" >Descripción:</label> 
+							<input type="text" name="txtDescript"
+								class="form-control" id="descripcionResiduo" placeholder="" value="" required="" />
+						</div>
+							
+						<div class="col-md-12 mt-4" >
+							<label class="form-label" for="tipResiduo">Corriente Residuo: </label> 
+								<select class="form-control" id="tipResiduo" name="tipResiduo" required="">
 								<option>Seleccione</option>
 								<c:forEach var="dato" items="${listTiResiduos}">
 									<option value="${dato.tre_id}">${dato.tre_id} :: ${dato.tre_nombre}</option>
 								</c:forEach>
-
 							</select>
 						</div>
 
-						<div class="form-row">
+						<div class="col-md-6 mt-4">
 
-							<label class="form-group col-md-2" for="estadoMateria">Estado de la
-								Materia: </label> <select class="form-control form-group col-md-4"
+							<label class="form-label" for="estadoMateria">Estado de la Materia: </label>
+							 <select class="form-control"
 								id="tipMateria" name="tipMateria" required="">
 								<option>Seleccione</option>
 								<c:forEach var="dato" items="${listaEstadoMateria}">
 									<option value="${dato.ema_id}">${dato.ema_nombre}</option>
 								</c:forEach>
 							</select> 
-							
-							
-							<label for="ubicacion"
-								class="col-form-label form-group col-md-2">Gestion: </label> 
-								<select
-								class="form-control form-group col-md-4" id="gestion"
+						</div>
+						
+					<div class="col-md-6 mt-4">
+							<label for="gestionUbica" class="form-label">Gestion: </label> 
+								<select class="form-control" id="gestion"
 								name="gestionUbica" onChange="ocultarInterna(this.value);" required="">
 								<option>Seleccione</option>
 								<c:forEach var="dato" items="${listaGestionUbicacion}">
 									<option value="${dato.id_gestion_ubi}">${dato.nombre_gestion_ubi}</option>
 								</c:forEach>
 							</select>
-
 						</div>
-												<div class="form-row">
-
-
-							<label class="form-group col-md-2" for="tipoGestion">Tipo
-								Gestion: </label> 
-								<select class="form-control form-group col-md-4"
+						
+					<div class="col-md-6 mt-4">
+							<label class="form-label" for="tipoGestion">Tipo Gestion: </label> 
+								<select class="form-control"
 								id="tipGestion" name="tipGestion" required="">
 								<option>Seleccione</option>
 								<c:forEach var="dato" items="${listaTipoGestion}">
 									<option value="${dato.id_tip_gestion}">${dato.nombre_gestion}</option>
 								</c:forEach>
-							</select> <label for="peligrosidad"
-								class="col-form-label form-group col-md-2">Peligrosidad:
-							</label> <select class="form-control form-group col-md-4" id="tipPeligro"
+							</select> 
+					</div>
+					
+					<div class="col-md-6 mt-4">
+						<label for="peligrosidad" class="form-label">Peligrosidad: </label>
+							 <select class="form-control" id="tipPeligro"
 								name="tipPeligro" required="">
 								<option>Seleccione</option>
 								<c:forEach var="dato" items="${listaTipoPeligrosidad}">
 									<option value="${dato.tpe_id}">${dato.tpe_nombre}</option>
 								</c:forEach>
-							</select> <label class="form-group col-md-2" for="subTipGest">Sub
-								tipo de Gestion: </label> <select
-								class="form-control form-group col-md-10" id="subTipGest"
+							</select> 
+						</div>
+						
+						<div class="col-md-12 mt-4">	
+							<label class="form-label" for="subTipGest">Sub tipo de Gestion: </label>
+							  <select class="form-control" id="subTipGest"
 								name="subTipGest" required="">
 								<option>Seleccione --- Tipo Gestion</option>
-
 							</select>
-
 						</div>
-						<div class="form-row">
-
-							<label class="form-group col-md-2" for="tipoEmpaque"
-								id="ltipEmpa">Tipo Empaque: </label> <select
-								class="form-control form-group col-md-4" id="tipEmpa"
-								name="tipEmpa" required="">
+						
+						<div class="col-md-6 mt-4">
+							<label class="form-label" for="tipEmpa" id="ltipEmpa">Tipo Empaque: </label>
+							 <select class="form-control" id="tipEmpa" name="tipEmpa" required="">
 								<option>Seleccione</option>
 								<c:forEach var="dato" items="${listaTipoEmpaque}">
 									<option value="${dato.tep_id}">${dato.tep_nombre}</option>
 								</c:forEach>
-
-							</select> <label for="tipoEmbalaje"
-								class="col-form-label form-group col-md-2" id="ltipEmbalaje">Tipo
-								Embalaje: </label> <select class="form-control form-group col-md-4"
-								id="tipEmbalaje" name="tipEmbalaje" required="">
+								</select>
+						</div>
+						<div class="col-md-6 mt-4">
+							 <label for="tipoEmbalaje" class="form-label" id="ltipEmbalaje">Tipo Embalaje: </label>
+								 <select class="form-control" id="tipEmbalaje" name="tipEmbalaje" required="">
 								<option>Seleccione</option>
 								<c:forEach var="dato" items="${listaTipoEmbalaje}">
 									<option value="${dato.tem_id}">${dato.tem_nombre}</option>
 								</c:forEach>
 							</select>
 						</div>
+							</div>
 
+						<div id="mostrarOcultar" class="row">
 
-						<div id="mostrarOcultar">
+							<div class="col-md-6 mt-4">
 
-							<div class="form-row">
-
-								<label class="form-group col-md-2" for="transporte"
-									id="li_transpo">Transportador: </label> <select
-									class="form-control form-group col-md-4" id="i_transpo"
+								<label class="form-label" for="i_transpo"
+									id="li_transpo">Transportador: </label> 
+									<select
+									class="form-control" id="i_transpo"
 									name="i_transpo">
 									<option value="null">Seleccione</option>
 									<c:forEach var="dato" items="${listaEmpTrans}">
 										<option value="${dato.emp_id}">${dato.emp_nombre_comercial}</option>
 									</c:forEach>
-								</select> <label for="sedeTrans"
-									class="col-form-label form-group col-md-2" id="lsedeTransp">
-									Sede: </label> <select class="form-control form-group col-md-4"
+								</select>
+								 </div>
+								 
+								 <div class="col-md-6 mt-4">
+								 <label for="sedeTrans" class="form-label " id="lsedeTransp">
+									Sede: </label> <select class="form-control "
 									id="sedeTransp" name="sedeTransp">
 									<option>Seleccione</option>
-
-
-								</select> <label class="form-group col-md-2" for="gestor" id="li_Gestor">Gestor:
-								</label> <select class="form-control form-group col-md-4" id="i_Gestor"
-									name="i_Gestor">
+								</select>
+								 </div>
+								 
+								<div class="col-md-6 mt-4">
+								<label class="form-label" for="gestor" id="li_Gestor">Gestor:</label> 
+								<select class="form-control" id="i_Gestor" name="i_Gestor">
 									<option value="null">Seleccione</option>
 									<c:forEach var="dato" items="${listaEmpresaGestor}">
 										<option value="${dato.emp_id}">${dato.emp_nombre_comercial}</option>
 									</c:forEach>
-
-								</select> <label for="sedeGestor"
-									class="col-form-label form-group col-md-2" id="lsedeGestor">
-									Sede: </label> <select class="form-control form-group col-md-4"
+								</select>
+								</div>
+								<div class="col-md-6 mt-4">
+								 <label for="sedeGestor" class="form-label" id="lsedeGestor"> Sede: </label>
+								 <select class="form-control"
 									id="sedeGestor" name="sedeGestor">
 									<option>Seleccione</option>
-
 								</select>
-
 							</div>
 
 						</div>
-
+						
+							<div class="col-md-12 mt-4">
 						<input class="btn btn-success mb-3" type="submit" name="action"
-							value="Registrar">	
-							<button class="btn btn-success mb-3"  name="action"
-							value="residuoLeeGenera" >Cancelar</button>						
-							
+							value="Registrar">							
+							</div>
 
 					</form>
-
-				</div>
 				<!-- Server side end -->
 			</div>
 		</div>
@@ -220,7 +211,7 @@ type="text/css" media="all" />
 	<footer>
 		<div class="footer-area">
 			<p>
-				Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
+				Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
 				los derechos reservados.
 			</p>
 		</div>
@@ -254,6 +245,7 @@ type="text/css" media="all" />
 	<!-- others plugins -->
 	<script src="assets/js/plugins.js"></script>
 	<script src="assets/js/scripts.js"></script>
+	</div>
 </body>
 
 </html>

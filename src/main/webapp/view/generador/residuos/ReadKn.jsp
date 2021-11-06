@@ -1,9 +1,9 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- <!DOCTYPE html> -->
 <!-- <html class="no-js" lang="en"> -->
 
@@ -41,18 +41,39 @@
 
 <!--     </head> -->
 <demo:header />
+ </head>
 <body>
 
 
 
-	<%@include file="../sidebarNavbar.jsp"%>
+	<%@include file="../sidebarNavbar2.jsp"%>
+	<div class="col">
 	<!-- main content area start -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
-
-
-
-	</br>
-	</br>
+	 <style>
+    #grid .k-grid-toolbar
+    {
+        padding: .6em 1.3em .6em .4em;
+    }
+    .category-label
+    {
+        vertical-align: middle;
+        padding-right: .5em;
+    }
+    #category
+    {
+        vertical-align: middle;
+    }
+    .refreshBtnContainer 
+    {
+        display: inline-block;
+    }
+    .k-grid .toolbar 
+    {
+        margin-left: auto;
+        margin-right: 0;
+    }
+ </style>
 	<!-- page title area start -->
 	<div>
 		<div class="row align-items-center">
@@ -60,7 +81,7 @@
 				<div class="breadcrumbs-area">
 					<h4 class="page-title pull-left">Listado de Residuo</h4>
 					<ul class="breadcrumbs pull-left">
-						<li><span> en el sistema de información</span></li>
+						<li><span> en el sistema de informaci�n</span></li>
 					</ul>
 				</div>
 			</div>
@@ -70,17 +91,12 @@
 	<!-- page title area end -->
 	<!-- main content area inicio -->
 
-	<div class="row">
+	<div class="container">
+	
+		<div class="row">
+		
 		<div class="col-lg-6 col-ml-12">
 			<!-- Server side start -->
-
-
-			<div class="card-body">
-				<a type="button" class="btn btn-success mb-3 ti-plus pull-right"
-					href="controlGenerador?action=residuoCreaGenera" class="text-white">
-					Crear Residuo</a>
-			</div>
-
 		</div>
 	</div>
 
@@ -92,13 +108,14 @@
 	</p>
 
 
-	<div class="container">
-
-
 			<kendo:grid name="Residuos" groupable="true" pageable="true"
 				columnMenu="true" width="99%">
 				<kendo:grid-toolbar>
-					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+				
+					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>					
+					<kendo:grid-toolbarItem name="crea" text="Crear Residuo">
+
+					</kendo:grid-toolbarItem>
 				</kendo:grid-toolbar>
 				<kendo:grid-excel fileName="Reporte Mensual.xlsx" filterable="true"
 					proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
@@ -146,18 +163,6 @@
 								<kendo:dataSource-schema-model-field name="sede_ges">
 									<kendo:dataSource-schema-model-field-validation required="true" />
 								</kendo:dataSource-schema-model-field>
-								<%--                         <kendo:dataSource-schema-model-field name="conGen" type="number" editable="false"> --%>
-								<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-								<%--                         </kendo:dataSource-schema-model-field> --%>
-								<%--                         <kendo:dataSource-schema-model-field name="conTrn" type="number" editable="false"> --%>
-								<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-								<%--                         </kendo:dataSource-schema-model-field> --%>
-								<%--                         <kendo:dataSource-schema-model-field name="conGes" type="number" editable="false"> --%>
-								<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-								<%--                         </kendo:dataSource-schema-model-field> --%>
-								<%--                         <kendo:dataSource-schema-model-field name="conSed" type="number" editable="false"> --%>
-								<%--                         	<kendo:dataSource-schema-model-field-validation required="true" /> --%>
-								<%--                         </kendo:dataSource-schema-model-field> --%>
 							</kendo:dataSource-schema-model-fields>
 						</kendo:dataSource-schema-model>
 					</kendo:dataSource-schema>
@@ -219,6 +224,17 @@
 					</kendo:grid-column>
 				</kendo:grid-columns>
 			</kendo:grid>
+			<script type="text/javascript">
+	$(function () {
+	    var grid = $("#Residuos");
+	    grid.find(".k-grid-toolbar").on("click", ".k-grid-crea", function (e) {
+            e.preventDefault();
+            window.location.href = "controlGenerador?action=residuoCreaGenera";
+        });
+	    
+	});
+</script>
+
 	</div>
 
 	<br />
@@ -226,7 +242,6 @@
 
 
 	<script type="text/x-kendo-template" id="popupTemplate">
---
   <div class="k-edit-label" > 
         <label for="res_nombre">Nombre:</label>
     </div>
@@ -318,45 +333,10 @@
         <input id="sede_ges" name="sede_ges" data-bind=" value: sede_ges.ges_nombre " required />
         <span class="k-invalid-msg" data-for="sede_ges"></span>
     </div>
-----
  </script>
+ 	<demo:footer />
+ </div>
 
-	<demo:footer />
-	<!--                 <footer> -->
-	<!--                     <div class="footer-area"> -->
-	<!--                         <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p> -->
-	<!--                     </div> -->
-	<!--                 </footer> -->
-	<!--                 footer area end -->
-
-	<!--             page container area end -->
-
-
-	<!--             bootstrap 4 js -->
-	<!--             <script src="assets/js/popper.min.js"></script> -->
-	<!--             <script src="assets/js/bootstrap.min.js"></script> -->
-	<!--             <script src="assets/js/owl.carousel.min.js"></script> -->
-	<!--             <script src="assets/js/metisMenu.min.js"></script> -->
-	<!--             <script src="assets/js/jquery.slimscroll.min.js"></script> -->
-	<!--             <script src="assets/js/jquery.slicknav.min.js"></script> -->
-
-	<!--             start chart js -->
-	<!--             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script> -->
-	<!--             start highcharts js -->
-	<!--             <script src="https://code.highcharts.com/highcharts.js"></script> -->
-	<!--             start zingchart js -->
-	<!--             <script src="https://cdn.zingchart.com/zingchart.min.js"></script> -->
-	<!--             <script> -->
-	<!-- //                 zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/"; -->
-	<!-- //                 ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"]; -->
-	<!--             </script> -->
-	<!--             all line chart activation -->
-	<!--             <script src="assets/js/line-chart.js"></script> -->
-	<!--             all pie chart -->
-	<!--             <script src="assets/js/pie-chart.js"></script> -->
-	<!--             others plugins -->
-	<!--             <script src="assets/js/plugins.js"></script> -->
-	<!--             <script src="assets/js/scripts.js"></script> -->
 </body>
 
 </html>
