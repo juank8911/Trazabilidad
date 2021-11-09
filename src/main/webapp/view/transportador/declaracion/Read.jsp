@@ -4,17 +4,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
 
 
-    <demo:header>
+    <demo:header/>
     <title>sdstrp - Declaracion</title>
-    </demo:header>
+    </head>
     <body>
-       <%@include file ="../sidebarNavbar.jsp" %>
+       <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
                 <!-- page title area start -->
                 <div>

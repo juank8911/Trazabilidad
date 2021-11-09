@@ -133,11 +133,16 @@ public class UserDao {
                 log.info(""+pssw);
                 log.info("Form usuario"+raizCons);
                 conCons.where(cb.and(cb.equal(raizCons.get("usr_nombre"),usr),cb.equal(raizCons.get("usr_clave"),pssw),cb.notEqual(raizCons.get("usr_estado"),0)));
-                conCons.select(raizCons);
-                System.out.println("respuesta de get List ------------");
-                System.out.println(em.createQuery(conCons).getResultList());
-                usuario =  em.createQuery(conCons).getSingleResult();
-               System.out.println("pruebas de datos");
+                conCons.select(raizCons);               
+                Object  usua =  em.createQuery(conCons).getSingleResult();
+                if (usua == null)
+                	{
+                	usuario = null;
+                	}
+                else
+                {
+                usuario = (Usuario) usua;	
+                System.out.println("pruebas de datos");
                 System.out.println(usuario.toString());
                  	usuario.getSedeUsu().getEmpresaSed();
                  	
@@ -145,7 +150,8 @@ public class UserDao {
                  		perfil.getUsuaPer().getUsr_nom_persona();
     					perfil.getPerUsu().getPerfil();
 					}
-    			
+                }
+		
 			} catch (Exception e) {
 	            System.out.println("Fallo validacion de usuario: " + e.getMessage());
 	            e.fillInStackTrace();

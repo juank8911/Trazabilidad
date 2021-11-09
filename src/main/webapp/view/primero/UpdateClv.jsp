@@ -1,33 +1,15 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>sdstrp - Actualizar contraseÃ±ade </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
-        <!-- start chart js -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+
+<demo:header />
+        
+        <title>sdstrp - Actualizar contraseñade </title>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/metisMenu.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/slicknav.min.css">
-        <!-- amchart css -->
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <!-- others css -->
-        <link rel="stylesheet" href="assets/css/typography.css">
-        <link rel="stylesheet" href="assets/css/default-css.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        <link rel="stylesheet" href="assets/css/coloresInst.css">
         <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
-        <!-- modernizr css -->
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+        
         <!-- modernizr css -->
        <script src="assets/js/primSesion.js"></script>
     </head>
@@ -53,7 +35,7 @@
 							</button>
 						</div>
 						<div class="modal-body">
-						<p>Estimado usuario, su contraseÃ±a actual fue generada de manera automatica 
+						<p>Estimado usuario, su contraseña actual fue generada de manera automatica 
 						por el sistema de informacion y por lo tanto es necesario actualizarla</p>
 						</div>
 						<div class="modal-footer">
@@ -71,9 +53,9 @@
                     <div class="row align-items-center">
                         <div class="col-sm-7">
                             <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Actualizar contraseÃ±a</h4>
+                                <h4 class="page-title pull-left">Actualizar contraseña</h4>
                                 <ul class="breadcrumbs pull-left">
-                                    <li><span> acceso al sistema de informaciÃ³n</span></li>
+                                    <li><span> acceso al sistema de información</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -90,32 +72,32 @@
                     <div class="row form-control">
 				<div id="msg"></div>
 
-				<!-- Mensajes de VerificaciÃ³n -->
+				<!-- Mensajes de Verificación -->
 				<input type="hidden" name="actual" id="actual" >
 				<div id="errorAc" class="alert alert-danger ocultar" role="alert">
-					La contraseÃ±a actual esta errada, vuelve a intentar !</div>
+					La contraseña actual esta errada, vuelve a intentar !</div>
 				<div id="error" class="alert alert-danger ocultar" role="alert">
-					Las ContraseÃ±as no coinciden, vuelve a intentar !</div>
+					Las Contraseñas no coinciden, vuelve a intentar !</div>
 				<div id="ok" class="alert alert-success ocultar" role="alert">
-					Las ContraseÃ±as coinciden ! (Procesando formulario ... )</div>
+					Las Contraseñas coinciden ! (Procesando formulario ... )</div>
 				<div class="col-8">
         
                         <form method="post" onsubmit="pssValidate(); return false" action="control?action=perfilActualizaContra" name="f1" >
                             <input type="text" name="txtUsuario" value="${idUsuario}" hidden="">
                         <div class="form-group row">
-                            <label for="validationCustom01" class="col-4 col-form-label">ContraseÃ±a Actual *</label>
-                         <input type="password" name="txtPassActu"  placeholder="Tu ContraseÃ±a" id="validationCustom02" class="form-control col-8" value="" required="">
+                            <label for="validationCustom01" class="col-4 col-form-label">Contraseña Actual *</label>
+                         <input type="password" name="txtPassActu"  placeholder="Tu Contraseña" id="validationCustom02" class="form-control col-8" value="" required="">
                          </div>
                         <div class="form-group row">
-                          <label for="validationCustom01" class="col-4 col-form-label">ContraseÃ±a Nueva *</label>
-                          <input type="password" name="txtPassNuev1" id="txtPassNuev1" placeholder="Tu ContraseÃ±a Nueva" id="validationCustom02" class="form-control col-8" value="" required="">
+                          <label for="validationCustom01" class="col-4 col-form-label">Contraseña Nueva *</label>
+                          <input type="password" name="txtPassNuev1" id="txtPassNuev1" placeholder="Tu Contraseña Nueva" id="validationCustom02" class="form-control col-8" value="" required="">
                         </div>
                         <div class="form-group row">
-                            <label for="validationCustom01" class="col-4 col-form-label">Repita ContraseÃ±a *</label>
-                            <input type="password" name="txtPassNuev2" id="txtPassNuev2" placeholder="Repita ContraseÃ±a Nueva" id="validationCustom02" class="form-control col-8" value="" required="">
+                            <label for="validationCustom01" class="col-4 col-form-label">Repita Contraseña *</label>
+                            <input type="password" name="txtPassNuev2" id="txtPassNuev2" placeholder="Repita Contraseña Nueva" id="validationCustom02" class="form-control col-8" value="" required="">
                         </div>
                         <div class="form-group d-flex justify-content-center">
-                            <button class="btn btn-success mx-2" type="submit" >Actualizar ContraseÃ±a</button>
+                            <button class="btn btn-success mx-2" type="submit" >Actualizar Contraseña</button>
                             <c:choose>
                               <c:when test="${nSesion == 1}">
                               <button class="btn btn-success mx-2" type="submit"><a href="control?action=ingresar" class="text-white">Cancelar</a></button>
@@ -132,7 +114,7 @@
                 <!-- footer area start-->
                 <footer>
                     <div class="footer-area">
-                        <p>Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
+                        <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
                     </div>
                 </footer>
                 <!-- footer area end-->

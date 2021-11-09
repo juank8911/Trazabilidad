@@ -1,29 +1,10 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+
+<demo:header />
+
         <title>sdstrp - Vehiculo </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/metisMenu.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/slicknav.min.css">
-        <link rel="stylesheet" href="assets/css/coloresInst.css">
-        <!-- amchart css -->
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <!-- others css -->
-        <link rel="stylesheet" href="assets/css/typography.css">
-        <link rel="stylesheet" href="assets/css/default-css.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        <!-- modernizr css -->
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+      
     </head>
 
     <body>
@@ -81,7 +62,7 @@
                                             <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>CorporaciÃ³n para el Desarrollo Sostenible del ArchipiÃ©lago de San AndrÃ©s, Providencia y Santa Catali</p>
+                                            <p>Corporación para el Desarrollo Sostenible del Archipiélago de San Andrés, Providencia y Santa Catali</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-success mb-3" data-dismiss="modal"> Perfil</button>
@@ -112,12 +93,12 @@
                             <ul class="metismenu" id="menu" >
                                 <li><a href="controlTrans?action=transp"><i class="ti-dashboard"></i> <span>Inicio</span></a></li>
                                 <li class="active">
-                                    <a aria-expanded="true"><i class="ti-angle-down"></i><span>InformaciÃ³n</span></a>
+                                    <a aria-expanded="true"><i class="ti-angle-down"></i><span>Información</span></a>
                                     <ul class="collapse">
                                         <li><a method="post" href="controlTrans?action=empresaLeerTransp" aria-expanded="true"><i class="fa fa-university"></i><span>Empresa</span></a></li>
                                         <li><a href="controlTrans?action=sedeLeeTransp" aria-expanded="true"><i class="fa fa-building"></i><span>Establecimiento</span></a></li>
                                         <li><a href="controlTrans?action=perfilLeeTransp" aria-expanded="true"><i class="fa fa-male"></i><span>Perfil</span></a></li>
-                                        <li><a method="post" href="controlTrans?action=claveTransp" aria-expanded="true"><i class="ti-key"></i><span>ContraseÃ±a</span></a></li>
+                                        <li><a method="post" href="controlTrans?action=claveTransp" aria-expanded="true"><i class="ti-key"></i><span>Contraseña</span></a></li>
                                     </ul>
                                 </li>
                                 <li class="active">
@@ -153,7 +134,7 @@
                             <div class="breadcrumbs-area">
                                 <h4 class="page-title pull-left">Listado de Vehiculo</h4>
                                 <ul class="breadcrumbs pull-left">
-                                    <li><span> inscritas en el sistema de informaciÃ³n</span></li>
+                                    <li><span> inscritas en el sistema de información</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -190,7 +171,7 @@
                 <!-- footer area start-->
                 <footer>
                     <div class="footer-area">
-                        <p>Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
+                        <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
                     </div>
                 </footer>
                 <!-- footer area end-->

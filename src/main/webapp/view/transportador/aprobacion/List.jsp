@@ -5,30 +5,28 @@
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <demo:header/>
-<title>sdstrp - Reporte Mesual</title>
-</head>
-
 <title>sdstrp - Listado de Aprobados</title>
-
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/slicknav.min.css">
-<!-- amchart css -->
+<link rel="stylesheet" href="assets/css/masterDetail.css">
+<script src="assets/js/masterDetail.js"></script>
 <link rel="stylesheet"
 	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
 	type="text/css" media="all" />
+</head>
+
+<!-- amchart css -->
+
 <!-- others css -->
 <!-- modernizr css -->
-<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
 
 
 <!-- jquery latest version -->
-<link rel="stylesheet" href="assets/css/masterDetail.css">
-<script src="assets/js/masterDetail.js"></script>
+
 </head>
 
 <body>
 
-	<%@include file="../sidebarNavbar.jsp"%>
+	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
 	<div class="col">
 
