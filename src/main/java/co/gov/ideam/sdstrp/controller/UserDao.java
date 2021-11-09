@@ -133,25 +133,26 @@ public class UserDao {
                 log.info(""+pssw);
                 log.info("Form usuario"+raizCons);
                 conCons.where(cb.and(cb.equal(raizCons.get("usr_nombre"),usr),cb.equal(raizCons.get("usr_clave"),pssw),cb.notEqual(raizCons.get("usr_estado"),0)));
-                conCons.select(raizCons);               
-                Object  usua =  em.createQuery(conCons).getSingleResult();
-                if (usua == null)
-                	{
-                	usuario = null;
-                	}
+                conCons.select(raizCons);  
+                List result = em.createQuery(conCons).getResultList();
+                if(!result.isEmpty())
+                {
+                	usuario = em.createQuery(conCons).getSingleResult();
+                    System.out.println("pruebas de datos");
+                    System.out.println(usuario.toString());
+                     	usuario.getSedeUsu().getEmpresaSed();
+                     	
+                     	for (Usuario_Perfil perfil : usuario.getUsuaPer()) {
+                     		perfil.getUsuaPer().getUsr_nom_persona();
+        					perfil.getPerUsu().getPerfil();
+    					}
+                }
                 else
                 {
-                usuario = (Usuario) usua;	
-                System.out.println("pruebas de datos");
-                System.out.println(usuario.toString());
-                 	usuario.getSedeUsu().getEmpresaSed();
-                 	
-                 	for (Usuario_Perfil perfil : usuario.getUsuaPer()) {
-                 		perfil.getUsuaPer().getUsr_nom_persona();
-    					perfil.getPerUsu().getPerfil();
-					}
+                	usuario = null;
                 }
-		
+
+    			
 			} catch (Exception e) {
 	            System.out.println("Fallo validacion de usuario: " + e.getMessage());
 	            e.fillInStackTrace();

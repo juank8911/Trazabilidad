@@ -797,13 +797,16 @@ public class control extends HttpServlet {
 			String user = request.getParameter("txtUser");
 			String pass = request.getParameter("txtPass");
 			if (user != null && pass != null) {
-				Usuario usua = userDao.ingresar(user, pass);
-				if (usua == null) {
+				Usuario usu = userDao.ingresar(user, pass) == null ? null : userDao.ingresar(user, pass) ;
+				if (usu == null) {
 					log.info("usuario no existe");
 					request.setAttribute("msjClave", "Usuario o Contraseña incorreectos");
 					dis = request.getRequestDispatcher("view/login.jsp");
 					dis.forward(request, response);
 				}
+				else
+				{
+				Usuario usua = (Usuario) usu;
 				log.info(usua.toString());
 				List<Usuario_Perfil> lPerfiles = usua.getUsuaPer();
 				log.info("Prueba login nuevo 1");
@@ -832,6 +835,7 @@ public class control extends HttpServlet {
 					sesion.setAttribute("nSesion", usua.getNumero_sesion());
 //					dash = dashDAO.cantResiduoDashboardAut(idUser);
 					this.redirigir(request, response);
+				
 				} else {
 					Usuario listUsu;
 					log.info("passw " + pass + " / " + "user " + user);
@@ -875,7 +879,9 @@ public class control extends HttpServlet {
 					
 					this.redirigir(request, response);
 				}
-			} else {
+				}
+				}
+			 else {
 
 				request.setAttribute("msjClave", "Usuario o Contraseña incorreectos");
 				dis = request.getRequestDispatcher("view/login.jsp");
@@ -890,6 +896,10 @@ public class control extends HttpServlet {
 
 			 System.out.println("Fallo metdo ingresar1 : " + e.getMessage());
 	            e.fillInStackTrace();
+	            request.setAttribute("msjClave", "Ocurrio un error inesperado");
+	          
+	            dis = request.getRequestDispatcher("view/login.jsp");
+				dis.forward(request, response);
 		}
 
 	}
