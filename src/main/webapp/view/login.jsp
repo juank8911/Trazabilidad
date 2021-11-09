@@ -65,6 +65,14 @@
                         <b>Acceso al Sistema de Información</b>
                     </div>
                     <div class="login-form-body">
+                    <c:choose>
+							<c:when test="${msjClave== '' || msjClave== null}">  
+       
+							</c:when>
+							<c:otherwise> 
+								<span style="color: red;">${msjClave}</span>
+							</c:otherwise>
+						</c:choose>
                          ${msjUsuario}
                         <div class="form-gp">
                             <label for="exampleInputEmail1"> </label>
@@ -72,7 +80,7 @@
                             
                             <i class="ti-user"></i>
                         </div>
-                         ${msjClave}
+                        
                         <div class="form-gp">
                             <label for="exampleInputPassword1"> </label>
                             <input type="password" name="txtPass" id="exampleInputPassword1" placeholder="Contraseña">

@@ -801,8 +801,7 @@ public class control extends HttpServlet {
 				if (usu == null) {
 					log.info("usuario no existe");
 					request.setAttribute("msjClave", "Usuario o Contraseña incorreectos");
-					dis = request.getRequestDispatcher("view/login.jsp");
-					dis.forward(request, response);
+					
 				}
 				else
 				{
@@ -880,10 +879,11 @@ public class control extends HttpServlet {
 					this.redirigir(request, response);
 				}
 				}
+				
 				}
 			 else {
 
-				request.setAttribute("msjClave", "Usuario o Contraseña incorreectos");
+				request.setAttribute("msjClave", "Debe Ingresar los datos");
 				dis = request.getRequestDispatcher("view/login.jsp");
 				dis.forward(request, response);
 			}
@@ -900,6 +900,9 @@ public class control extends HttpServlet {
 	          
 	            dis = request.getRequestDispatcher("view/login.jsp");
 				dis.forward(request, response);
+		}finally {
+			dis = request.getRequestDispatcher("view/login.jsp");
+			dis.forward(request, response);
 		}
 
 	}
