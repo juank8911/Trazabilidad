@@ -3,16 +3,18 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <demo:header/>
+<title>sdstrp - Reporte Mesual</title>
+</head>
 
     <body>
    
-        <%@include file="../sidebarNavbar.jsp"%>
+        <%@include file="../sidebarNavbar2.jsp"%>
 <%--         <demo:slideGen/> --%>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col">
 
                 <!-- page title area start -->
                 <div>
@@ -29,22 +31,7 @@
                     </div>
                     
                 </div>
-                <!-- page title area end -->
-                            <br />
-                            <br />
-                            <!--br />
-                            <div class="text-uppercase bg-success mb-3">
-                           <button type="button" class="fa fa-newspaper-o btn btn-success btn-xs"> Columnas</button>
-                           <button type="button" class="fa fa-floppy-o btn btn-success btn-xs">Exportar</button>
-                          
-                           <div class="pull-right">
-                                <form action="#">
-                                <input type="text" name="search" placeholder="Buscar..." required="">
-                                <i class="ti-search col-md-1"></i>
-                            </form>
-                           </div>
-                           </div-->
-                           
+   
           <kendo:grid  name="Residuos" groupable="true" pageable="true" columnMenu="true" width="99%">
     		<kendo:grid-toolbar>
         				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
@@ -101,6 +88,7 @@
                 <!-- main content area end -->
                 <!-- footer area start-->
                <demo:footer/>
+               </div>
     </body>
 
 </html>

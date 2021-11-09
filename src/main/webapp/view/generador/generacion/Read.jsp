@@ -1,19 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+
 
 <demo:header />
+</head>
 
 <body>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
-	<%@include file="../sidebarNavbar.jsp"%>
+	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="main-content">
+	<div class="col">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
 		<!-- page title area start -->
 		<div>
@@ -30,7 +28,7 @@
 			</div>
 
 		</div>
-		<div class="row">
+		<div class="col">
 			<kendo:grid name="historicoDecla" pageable="true" columnMenu="true" width="95%">
 			        <kendo:grid-toolbar>
         				<kendo:grid-toolbarItem name="excel">

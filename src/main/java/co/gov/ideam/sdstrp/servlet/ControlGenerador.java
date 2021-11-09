@@ -306,7 +306,7 @@ public class ControlGenerador extends HttpServlet {
 	                out.write(stu.toString());
 	                break;
 	            case "programaListaGenera":
-	                ruta = "view/henerador/programacion/List.jsp";
+	                ruta = "view/generador/programacion/List.jsp";
 	                if (sesion.getAttribute("perfil") == null) {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);

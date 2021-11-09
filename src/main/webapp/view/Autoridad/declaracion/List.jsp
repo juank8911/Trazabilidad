@@ -4,7 +4,7 @@
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@page import="java.util.HashMap"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -183,7 +183,7 @@
                     <!-- footer area start-->
 <!--                     <footer> -->
 <!--                         <div class="footer-area"> -->
-<!--                             <p>Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p> -->
+<!--                             <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p> -->
 <!--                         </div> -->
 <!--                     </footer> -->
 <!--                     footer area end -->

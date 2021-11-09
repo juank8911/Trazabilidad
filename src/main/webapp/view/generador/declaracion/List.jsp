@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+   
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -6,30 +7,28 @@
 <demo:header/>
 <title>sdstrp - Declaracion & Envio</title>
 
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+
 	
 <!-- amchart css -->
 <link rel="stylesheet"
 	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
 	type="text/css" media="all" />
 <!-- Kendo -->
-<link rel="stylesheet" href="assets/css/kendo.default-v2.min.css">
+<!-- <link rel="stylesheet" href="assets/css/kendo.default-v2.min.css"> -->
 <!-- jquery latest version -->
 <!-- <script src="assets/js/jquery-1.12.3.min.js"></script> -->
 
-<!-- jquery latest version -->
-<script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+
 <!-- others css -->
-<script src="<c:url value='/assets/js/kendo/kendo.all.min.js' />"></script>
-<link rel="stylesheet" href="assets/css/typography.css">
-<link rel="stylesheet" href="assets/css/styles.css">
+<%-- <script src="<c:url value='/assets/js/kendo/kendo.all.min.js' />"></script> --%>
+
 <link rel="stylesheet" href="assets/css/masterDetail.css">
 <!-- modernizr css -->
-<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
-<script src="assets/js/kendoV2.all.min.js"></script>
 
-<script src="assets/js/validaciones.js"></script>
+<!-- <script src="assets/js/kendoV2.all.min.js"></script> -->
+
+<!-- <script src="assets/js/validaciones.js"></script> -->
    </head>
 
 <body>
@@ -38,10 +37,9 @@
 	
 	<script src="assets/js/masterDetailGene.js"></script>
 	<!-- main content area start -->
-	<div class="main-content">
+	<div class="col">
 
 		<!-- page title area start -->
-		<div>
 			<div class="row align-items-center">
 				<div class="col-sm-7">
 					<div class="breadcrumbs-area">
@@ -53,53 +51,48 @@
 				</div>
 				<!-- FIN DE MENU  -->
 			</div>
-		</div>
+
 		<!-- page title area end -->
 		<!-- main content area inicio -->
-		<br>
 
-		<div class="row">
-			<div class="col-md-11 container">
+		<div class="col" >
+			<div class="main-content-inner">
+			<div class="row">
+					<!-- Server side start -->
+					<form method="post" action="controlGenerador?action=enviosBuscarFch" >
+						<div class="row g-3">
+						<div class="col-md-12 mt-4">	
+							<label class="form-label" for="txtGi" >Filtrar declaraciones pendientes de envÃ­o por: </label>
+							   <select class="form-control is-valid" name="txtGi" id="txtGi">
+			                     <option value="${idUsuario}" >Fecha de programacion de entrega de los residuos al transportador</option>
+			                  </select>
+						</div>
+						
+						<div class="col-md-6 mt-4">
+							<label class="form-label" for="txtFIn" id="txtFIn">Desde: </label>
+							<input type="date" name="txtFIni" class="form-control" id="txtFIni" required="">
+						</div>
+						<div class="col-md-6 mt-4">
+							 <label for="txtFFin" class="form-label" id="txtFFin">Hasta: </label>
+							 <input type="date" name="txtFFin" class="form-control" id="txtFFin" required="">
+						</div>
+							</div>
 
-			                        <form method="post" action="controlGenerador?action=enviosBuscarFch" class="needs-validation form-control" novalidate="">
+						
+							<div class="col-md-12 mt-4">	
+							<button class="btn btn-success mb-3" type="submit">Buscar</button>					
+							</div>
 
-			                            <div class="form-row ">
-			                              <div class="form-group container">
-    											<label for="txtGi">Filtrar declaraciones pendientes de envío por</label>
-			                                    <select class="form-control is-valid" name="txtGi" id="txtGi">
-			                                        <option value="${idUsuario}" >Fecha de programacion de entrega de los residuos al transportador</option>
-			                                    </select>
-  											</div>
-			                                <input type="hidden" value="${idUsuario}" name="txtG">
-										</div>
-			                            <div class="form-row container">
-			                            	<div class="col col-md-6">
-												<div class="form-group">
-													<label for="txtFIni">Desde:</label> 
-													<input type="date" name="txtFIni" class="form-control" id="txtFIni" placeholder="" value="" required="">																							
-												</div>
-											</div>
-											
-											<div class="col col-md-6">
-												<div class="form-group">
-													<label for="txtFFin">Hasta:</label> 
-													<input type="date" name="txtFFin" class="form-control" id="txtFFin" placeholder="" value="" required="">																							
-												</div>
-											</div>
-											<div class="form-row ">
-			                                <div class="form-group col-md-5">
-			                                    <button class="btn btn-success " type="submit">Buscar</button>
-			                                </div>
-			                                </div>
-			                            </div>
-			                        </form>
+					</form>
+				<!-- Server side end -->
 			</div>
-
-			<div class="container">
+			<div class="row">
+			
 			<div class="alert alert-success alert-dismissable" role="alert">
  				 Declaracion enviada correctamente
 			</div>
-				<table id="dTabla" name="dTabla" rules="rows">
+			
+			<table id="dTabla" name="dTabla" rules="rows">
 					<thead>
 						<tr>
 							<th scope="col"></th>
@@ -199,12 +192,12 @@
 						
 					<tbody>
 				</table>
-
 			</div>
-
 		</div>
-
-		<!-- Modal -->
+			</div>
+			<demo:footer></demo:footer>
+			
+					<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
@@ -237,49 +230,9 @@
 				</div>
 			</div>
 		</div>
+				</div>
 
-	</div>
-	<!-- main content area end -->
-
-	<!-- footer area start-->
-	<footer>
-		<div class="footer-area">
-			<p>
-				Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
-				los derechos reservados.
-			</p>
-		</div>
-	</footer>
-	<!-- footer area end-->
-
-	<!-- page container area end -->
-	</div>
-	<!-- bootstrap 4 js -->
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/metisMenu.min.js"></script>
-	<script src="assets/js/jquery.slimscroll.min.js"></script>
-	<script src="assets/js/jquery.slicknav.min.js"></script>
-
-	<!-- start chart js -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-	<!-- start highcharts js -->
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<!-- start zingchart js -->
-	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-	<script>
-                zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-                ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-            </script>
-	<!-- all line chart activation -->
-	<script src="assets/js/line-chart.js"></script>
-	<!-- all pie chart -->
-	<script src="assets/js/pie-chart.js"></script>
-	<!-- others plugins -->
-	<script src="assets/js/plugins.js"></script>
-	<script src="assets/js/scripts.js"></script>
+		
 </body>
 
 </html>

@@ -1,13 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 
 <demo:header/>
+<title>sdstrp - Programacion</title>
 <link rel="stylesheet" href="assets/css/checkbox.css">
 <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 <link href='assets/css/fullcalendar/main.css' rel='stylesheet' />
 
-<script src="assets/js/bootstrap.bundle.min.js" ></script>
+<script src="assets/js/bootstrap.bundle.js" ></script>
 <script src="assets/js/fullCalendar/main.js"></script>
 <script src="assets/js/fullCalendar/locales-all.js"></script>
 
@@ -48,8 +50,7 @@
 	    	             $('#btnModificar').prop('disabled',true);
 	    	             $('#btnEliminar').prop('disabled',true);
 	    	             $('#Factual').val(info.dateStr);
-
-	    	             cleanForm()
+// 	    	             cleanForm()
 	    	//             $('#txtFactual').val(date.format());
 	    	             $('#fullModalCrear').modal();
 	    	  },
@@ -127,11 +128,12 @@
 	<%@include file ="/view/generador/sidebarNavbar2.jsp" %>
 	<!-- page title area start -->
 	<div class="col">
-	<div>
+
+	<div class="row">
 		<div class="row align-items-center">
-			<div class="col-sm-6">
+			<div class="col-sm-12">
 				<div class="breadcrumbs-area">
-					<h4 class="page-title pull-left">Listado de Programación</h4>
+					<h4 class="page-title pull-left">Listado de ProgramaciÃ³n</h4>
 					<ul class="breadcrumbs pull-left">
 						<li><span>Registrados en el sistema de informacion</span></li>
 					</ul>
@@ -139,20 +141,16 @@
 			</div>
 			<!-- FIN DE MENU  -->
 		</div>
-		<button type="button" class="btn btn-success mb-3 ti-plus pull-right">
-			<a href="controlGenerador?action=programaCreaGenera"
-				class="text-white"> Crear Programación</a>
-		</button>
 	</div>
-
-	<div class="container">
-
+	<a href="controlGenerador?action=programaCreaGenera" class="float">
+	<i class="fa fa-plus my-float"></i>
+	</a>
 		<div class="row">
 
 			<div class="col-2">
 				<div id='external-events'>
 					<p>
-						<strong>Residuos Drag</strong>
+						<strong>Mis residuos</strong>
 					</p>
 					<c:forEach var="dato" items="${listaResiduosGenId}">
 						<button type="button" style="white-space: normal;"
@@ -163,7 +161,16 @@
 					</c:forEach>
 
 				</div>
-				<div class="modal fade" id="programResiduo" tabindex="-1"
+				</div>
+
+			<div class='col-10' id='calendar-container'>
+			<p>Calendar</p>				
+				<div id='CalendarioResi'></div>
+			</div>
+
+		</div>
+		</div>
+						<div class="modal fade" id="programResiduo" tabindex="-1"
 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
@@ -182,35 +189,6 @@
 										<div
 											class="form-group row col-md-12 justify-content-md-center">
 											<div class="col-md-auto">
-												<!-- 												<div class="custom-control custom-checkbox checkbox-lg"> -->
-												<!-- 													<input type="checkbox" class="custom-control-input" -->
-												<!-- 														name="btnInterna" id="btnInterna" -->
-												<!-- 														onchange="interna(this.checked)"> -->
-												<!-- 													<label class="custom-control-label" for="btnInterna">Interna</label> -->
-												<!-- 												</div> -->
-											</div>
-										</div>
-
-										<!-- 										<div class="form-group row col-md-12" name="traz" id="traz"> -->
-										<!-- 											<div class="col-md-6"> -->
-										<!-- 												<label for="txtTrans">Transportador: </label> <select -->
-										<!-- 													name="chekTrans" id="chekTrans" class="form-control"> -->
-										<!-- 													<option>--------SELECCIONE TRANSPORTADOR--------</option> -->
-										<%-- 													<c:forEach items="${listaSedeProgTrans}" var="sed"> --%>
-										<%-- 														<option value="${sed.sed_id}"> --%>
-										<%-- 															${sed.empresaSed.emp_nombre_comercial} :: --%>
-										<%-- 															${sed.sed_nombre} :: ${sed.sed_direccion}</option> --%>
-										<%-- 													</c:forEach> --%>
-
-										<!-- 												</select> -->
-										<!-- 											</div> -->
-										<!-- 											<div class="col-md-6"> -->
-										<!-- 												<label for="txtGes">Gestor</label> <select name="txtGes" -->
-										<!-- 													id="txtGes" class="form-control"> -->
-										<!-- 													<option>-------- SELECCIONE TRANSPORTADOR --------</option> -->
-										<!-- 												</select> -->
-										<!-- 											</div> -->
-										<!-- 										</div> -->
 										<div class="form-row align-items-center">
 											<div class="form-group col-auto">
 												<label for="txtFactual" class="form-label">Fecha: </label> <input
@@ -226,7 +204,7 @@
 													<option value="2">Todos los Dias</option>
 													<option value="3">Cada Semana</option>
 													<option value="4">Cada Mes</option>
-													<option value="5">Cada Año</option>
+													<option value="5">Cada AÃ±o</option>
 												</select>
 											</div>
 										</div>
@@ -307,24 +285,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class='col-10' id='calendar-container'>
-			<div class="alert alert-danger" id="alertErr" role="alert">
-  			This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-			</div>
-				<div class="alert alert-success" role="alert">
-  					Programacion agregada con exito!
-				</div>
-				
-				<div id='CalendarioResi'></div>
-			</div>
-
-		</div>
-		
 		<footer>
                 <div class="footer-area">
-                    <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
+                    <p>Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
                 </div>
             </footer>
             <!-- footer area end-->
@@ -355,7 +318,6 @@
                     <script src="assets/js/scripts.js"></script> 
 					<script src="assets/js/jquery.multiselect.js" type="text/javascript"></script>
 					<script src="assets/js/listSTG.js"></script>
-	</div>
 	</div>
 </body>
 </html>

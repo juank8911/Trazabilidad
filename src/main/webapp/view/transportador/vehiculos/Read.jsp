@@ -1,17 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
    
    
-<demo:header>
+<demo:header/>
 <title>sdstrp - Vehiculo </title> 
-</demo:header>
+</head>
 
     
    
-        <%@include file ="../sidebarNavbar.jsp" %>
+        <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col">
 
                 <!-- page title area start -->
                
@@ -20,7 +19,7 @@
                             <div class="breadcrumbs-area">
                                 <h4 class="page-title pull-left">Listado de Vehiculo</h4>
                                 <ul class="breadcrumbs pull-left">
-                                    <li><span> inscritas en el sistema de informaciÃ³n</span></li>
+                                    <li><span> inscritas en el sistema de información</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -42,7 +41,7 @@
 
                                         </div>
                                         <div>
-                                            <table id="grid">
+                                            <table id="grid verde">
                                                 <thead>
 
                                                     <tr>
@@ -86,8 +85,8 @@
                                                                 <form action="controlTrans" method="post">
                                                                     <input type="hidden" name="txtId" value="${dato.get(0)}">
 
-                                                                    <button type="submit" name="action" value="vehiActuaTransp"class="btn btn-success ti-pencil-alt"> </button>
-                                                                    <button type="submit" name="action" value="vehiEliminaTransp" class="btn btn-danger ti-trash"> </button>
+                                                                    <button type="submit" name="action" value="vehiActuaTransp"class="btn btn-success far fa-edit"> </button>
+                                                                    <button type="submit" name="action" value="vehiEliminaTransp" class="btn btn-danger fa fa-trash"> </button>
                                                                 </form>
                                                             </td>
                                                         </tr>

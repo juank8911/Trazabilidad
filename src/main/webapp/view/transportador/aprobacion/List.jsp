@@ -1,21 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-<!-- LISTA APROBADOS TRANSPORTADOR -->
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+<%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<demo:header/>
+<title>sdstrp - Reporte Mesual</title>
+</head>
+
 <title>sdstrp - Listado de Aprobados</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/png"
-	href="assets/images/icon/favicon.ico">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/metisMenu.css">
+
 <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
 <link rel="stylesheet" href="assets/css/slicknav.min.css">
 <!-- amchart css -->
@@ -23,20 +17,11 @@
 	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
 	type="text/css" media="all" />
 <!-- others css -->
-<link rel="stylesheet" href="assets/css/typography.css">
-<link rel="stylesheet" href="assets/css/default-css.css">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
 <!-- modernizr css -->
 <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-<link rel="stylesheet"
-	href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.common.min.css">
-<link rel="stylesheet"
-	href="https://kendo.cdn.telerik.com/2020.3.1118/styles/kendo.default.min.css">
+
 
 <!-- jquery latest version -->
-<script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
-<script src="assets/js/kendoV2.all.min.js"></script>
 <link rel="stylesheet" href="assets/css/masterDetail.css">
 <script src="assets/js/masterDetail.js"></script>
 </head>
@@ -45,7 +30,7 @@
 
 	<%@include file="../sidebarNavbar.jsp"%>
 	<!-- main content area start -->
-	<div class="main-content">
+	<div class="col">
 
 		<!-- page title area start -->
 		<div>
@@ -65,7 +50,7 @@
 		<br>
 
 
-		<div class="container">
+		<div class="row-10">
 			<p>
 	<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
 		</p>

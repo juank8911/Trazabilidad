@@ -1,14 +1,14 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 
-<demo:header>
+<demo:header />
 <title>sdstrp - Panel de Control</title>
-</demo:header>
+</head>
     <body>
-        <%@include file ="sidebarNavbar.jsp" %>
+        <%@include file ="sidebarNavbar2.jsp" %>
         
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col">
 
                 <!-- page title area start -->
                 <div>
@@ -126,12 +126,13 @@
                         <!-- seo fact area end -->
                     </div>
                     <!-- page title area end -->
-                    <div class="main-content-inner">
+                    <div class="row">
 
                     </div>
                     <!-- main content area end -->
                     <!-- footer area start-->
-                    <demo:footer/>                
+                    <demo:footer/>
+                    </div>                
                 </body>
 
                 </html>

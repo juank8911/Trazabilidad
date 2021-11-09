@@ -1,12 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+
 
     <head>
-        <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>sdstrp - Residuo </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +41,7 @@
 
     <body>
         
-        <%@include file ="../sidebarNavbar.jsp" %>
+        <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
             
 
@@ -54,7 +52,7 @@
                             <div class="breadcrumbs-area">
                                 <h4 class="page-title pull-left">Salidas</h4>
                                 <ul class="breadcrumbs pull-left">
-                                    <li><span>  en el sistema de informaciÃ³n</span></li>
+                                    <li><span>  en el sistema de información</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -165,7 +163,7 @@
                 
                <br/>
                     <div class="footer-area">
-                        <p>Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
+                        <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
                     </div>
                 </footer>
                 <!-- footer area end-->
@@ -201,4 +199,3 @@
     </body>
 
 </html>
-

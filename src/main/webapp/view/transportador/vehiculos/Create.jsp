@@ -3,13 +3,13 @@
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         
- <demo:header>
+ <demo:header/>
  <title>sdstrp - Crear Vehiculo </title>
-  </demo:header>
+  </head>
     <body>
-        <%@include file ="../sidebarNavbar.jsp" %>
+        <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            
+            	<div class="row">
 
                 <!-- page title area start -->
                 <div>
@@ -162,6 +162,7 @@
 
                <demo:footer>
                </demo:footer>
+               </div>
     </body>
 
 </html>

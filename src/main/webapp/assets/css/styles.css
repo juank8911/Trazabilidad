@@ -299,6 +299,7 @@
 
 
 /*-------------------- 2.1.1 Horizontal Menu -------------------*/
+/**
 
 .body-bg {
     background: #F3F8FB;
@@ -413,10 +414,10 @@
 .header-bottom .search-box input {
     max-width: 350px;
     width: 100%;
-}
+} */
 
 /* mobile menu */
-
+/**
 .slicknav_menu {
     background: #8255f7;
     padding: 0;
@@ -462,7 +463,7 @@
 .slicknav_nav .slicknav_item .slicknav_arrow {
     float: right;
 }
-
+*/
 /*-------------------- END Horizontal Menu -------------------*/
 
 

@@ -128,7 +128,32 @@
                     <span class="menu-collapsed">contraseña</span>
                 </a>
             </div>   
+            
             <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fas fa-truck fa-fw mr-3"></span>                     
+                    <span class="menu-collapsed">Vehiculos</span>  
+                
+                    <span class=""></span>
+                </div>
+            </a>
+            <!-- Submenu content -->
+            <div id='submenu2' class="collapse sidebar-submenu">
+                <a href="controlTrans?action=vehiculoTransp" class="list-group-item list-group-item-action bg-white text-dark">                
+                <span style="color: black;" class="far fa-eye fa-fw mr-3"></span> 
+                    <span class="menu-collapsed">listar</span>
+                </a>
+                <a href="controlTrans?action=vehiCreaTransp" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-plus fa-fw mr-3"></span> 
+                    <span class="menu-collapsed">Crear</span>
+                </a>
+              
+            </div>  
+            <!-- Separator with title -->
+            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                <h6>Reportes</h6>
+            </li>  
+           <a href="#submenu5" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-industry fa-fw mr-3"></span>                     
                     <span class="menu-collapsed">Declaraciones</span>
@@ -136,38 +161,24 @@
                 </div>
             </a>
             <!-- Submenu content -->
-            <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="controlGenerador?action=residuoLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">                
-                <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">residuos</span>
+            <div id='submenu5' class="collapse sidebar-submenu">
+                <a href="controlTrans?action=declaraListaTransp" class="list-group-item list-group-item-action bg-white text-dark">                
+                <span style="color: black;" class="fas fa-map-marked-alt  fa-fw mr-3"></span> 
+                    <span class="menu-collapsed">Ruta</span>
                 </a>
-                <a href="controlGenerador?action=programaListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="controlTrans?action=indiListaTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
   
-                    <span class="menu-collapsed">programacion</span>
+                    <span class="menu-collapsed">Indicadores</span>
                 </a>
-                <a href="controlGenerador?action=enviosBuscarhoy" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fas fa-share-square fa-fw mr-3"></span>                 
-                    <span class="menu-collapsed">declaracion & envio</span>
-                </a>
-				<a href="controlGenerador?action=reporteMGenera" class="list-group-item list-group-item-action bg-white text-dark">
+
+				<a href="controlTrans?action=salidaListTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-calendar-alt mr-3"></span>                 
-                    <span class="menu-collapsed">reporte mensual</span>
-                </a>                
-                
-            </div>         
-<!--             <a href="#" class="bg-success list-group-item list-group-item-action"> -->
-<!--                 <div class="d-flex w-100 justify-content-start align-items-center"> -->
-<!--                     <span class="fa fa-tasks fa-fw mr-3"></span> -->
-<!--                     <span class="menu-collapsed">Tasks</span>     -->
-<!--                 </div> -->
-<!--             </a> -->
-            <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <h6>Reportes</h6>
-            </li>  
-            
-                        <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                    <span class="menu-collapsed">Salida</span>
+                </a>
+            	</div>
+            	
+                <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-industry fa-fw mr-3"></span>                     
                     <span class="menu-collapsed">Consultas</span>
@@ -176,17 +187,16 @@
             </a>
             <!-- Submenu content -->
             <div id='submenu3' class="collapse sidebar-submenu">
-                <a href="controlGenerador?action=historicoListaGenera" class="list-group-item list-group-item-action bg-white text-dark">                
+                <a href="controlTrans?action=declaraListaTransp" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
                     <span class="menu-collapsed">Historico</span>
                 </a>
-                <a href="controlGenerador?action=indiListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="controlTrans?action=indiListaTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
-  
                     <span class="menu-collapsed">Indicadores</span>
                 </a>
 
-				<a href="controlGenerador?action=salidaListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+				<a href="controlTrans?action=salidaListTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-calendar-alt mr-3"></span>                 
                     <span class="menu-collapsed">Salida</span>
                 </a>                
@@ -208,21 +218,23 @@
 <!--                 </div> -->
 <!--             </a> -->
             <!-- Separator without title -->
-            <li class="list-group-item sidebar-separator menu-collapsed"></li>            
+                       <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                <h6>Herramientas</h6>
+            </li>            
             <!-- /END Separator -->
-<!--             <a href="#" class="bg-success list-group-item list-group-item-action"> -->
+<!--             <a href="control?action=cerrar" class="bg-success list-group-item list-group-item-action"> -->
 <!--                 <div class="d-flex w-100 justify-content-start align-items-center"> -->
 <!--                     <span class="fa fa-question fa-fb mr-3"></span> -->
 <!--                     <span class="menu-collapsed">Help</span> -->
 <!--                 </div> -->
 <!--             </a> -->
-            <a href="control?action=cerrar" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span id="collapse-icon" class="fas fa-lock mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span>
-                </div>
-            </a>
-            <a href="#" data-toggle="sidebar-colapse" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
+<!--                         <a href="control?action=cerrar" class="bg-success list-group-item list-group-item-action d-flex align-items-center"> -->
+<!--                 <div class="d-flex w-100 justify-content-start align-items-center"> -->
+<!--                     <span id="collapse-icon" class="fas fa-lock mr-3"></span> -->
+<!--                     <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span> -->
+<!--                 </div> -->
+<!--             </a> -->
+            <a href="#" data-toggle="sidebar-colapse" class="bg-success list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span id="collapse-icon" class="fa fa-angle-double-left mr-3"></span>
                     <span id="collapse-text" class="menu-collapsed">Collapse</span>
