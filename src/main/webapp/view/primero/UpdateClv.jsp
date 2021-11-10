@@ -5,22 +5,21 @@
 
 <demo:header />
         
-        <title>sdstrp - Actualizar contraseñade </title>
+        <title>sdstrp - Actualizar contraseña </title>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
         <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
 
-        
         <!-- modernizr css -->
        <script src="assets/js/primSesion.js"></script>
     </head>
 
     <body data-sesionCl="${nSesion}">
     
-        <c:if test="${selPerfil.id_perfil == 1}"><%@include file ="../Autoridad/sidebarNavbar.jsp" %> </c:if>
-    	<c:if test="${selPerfil.id_perfil == 2}"><%@include file ="../ideam/sidebarNavbar.jsp" %> </c:if>	
-    	<c:if test="${selPerfil.id_perfil == 3}"><%@include file ="../generador/sidebarNavbar.jsp" %> </c:if>
-    	<c:if test="${selPerfil.id_perfil == 4}"><%@include file ="../transportador/sidebarNavbar.jsp" %> </c:if>
-    	<c:if test="${selPerfil.id_perfil == 5}"><%@include file ="../gestor/sidebarNavbar.jsp" %> </c:if>
+        <c:if test="${selPerfil.id_perfil == 1}"><%@include file ="../Autoridad/sidebarNavbar2.jsp" %> </c:if>
+    	<c:if test="${selPerfil.id_perfil == 2}"><%@include file ="../ideam/sidebarNavbar2.jsp" %> </c:if>	
+    	<c:if test="${selPerfil.id_perfil == 3}"><%@include file ="../generador/sidebarNavbar2.jsp" %> </c:if>
+    	<c:if test="${selPerfil.id_perfil == 4}"><%@include file ="../transportador/sidebarNavbar2.jsp" %> </c:if>
+    	<c:if test="${selPerfil.id_perfil == 5}"><%@include file ="../gestor/sidebarNavbar2.jsp" %> </c:if>
     	
             			<!-- Modal -->
 			<div class="modal fade" id="firstSessionCl" tabindex="-1"
@@ -46,7 +45,7 @@
 				</div>
 			</div>
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col">
 
                 <!-- page title area start -->
                 <div>

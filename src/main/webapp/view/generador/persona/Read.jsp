@@ -1,34 +1,15 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+
+<demo:header />
+        
         <title>sdstrp - Ver Perfil</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/metisMenu.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/slicknav.min.css">
-        <!-- amchart css -->
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <!-- others css -->
-        <link rel="stylesheet" href="assets/css/typography.css">
-        <link rel="stylesheet" href="assets/css/default-css.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        <link rel="stylesheet" href="assets/css/coloresInst.css">
-        <!-- modernizr css -->
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
+  </head>
 
     <body>
-        <%@include file ="../sidebarNavbar.jsp" %>
+        <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- page title area start -->
+            <div class="col">
             <div>
                 <div class="row align-items-center">
                     <div class="col-sm-6">
@@ -46,7 +27,7 @@
             <!-- main content area inicio -->
             <div class="main-content-inner">
                 <br>
-                <div class="form-control">
+                <div class="col">
                 		
                     <div class="form-group row">
                     <div class="row col-md-8">
@@ -77,17 +58,17 @@
                     </div>
                     
                     <div class="form-group row">
-                    <div class="col-md-2">
+                    <div class="col-md-5">
                      <label for="direc" id="perfil"><strong>Direccion:</strong></label>
                      <label id="direc">${idSede.sed_direccion} , ${departamento} </label>
                     </div>
 
-                     <div class="col-md-2">
+                     <div class="col-md-4">
                      <label for="telef" id="perfil"><strong>Telefono:</strong></label>
                      <label id="telef">${idSede.sed_telefono_nro}</label>
                     </div>
 
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                      <label for="extn" id="perfil"><strong>Ext:</strong></label>
                      <label id="extn">${idSede.sed_telefono_ext}</label>
 						</div>
@@ -110,15 +91,17 @@
                     
                     
     
-                
+                <div class="row">
                 <footer>
                     <div class="footer-area">
-                        <p>Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
+                        <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
                     </div>
                 </footer>
+                </div>
                 <!-- footer area end-->
             
             <!-- page container area end -->
+			</div>
 			</div>
             <!-- jquery latest version -->
             <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>

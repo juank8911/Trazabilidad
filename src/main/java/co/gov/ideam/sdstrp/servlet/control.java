@@ -665,10 +665,11 @@ public class control extends HttpServlet {
 		dis.forward(request, response);
 	}
 
-	private void redirigir(HttpServletRequest request, HttpServletResponse response)
+	private String redirigir(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		String ruta = "view/Login.jsp" ;
 		try {
-
+	
 		// TODO Auto-generated method stub
 		HttpSession sesion = request.getSession();
 
@@ -680,6 +681,7 @@ public class control extends HttpServlet {
 		{
 			combo.darListaTipoDocumento();
 			userDao.primerSesUsu(idUsu);
+			ruta = "view/primero/Update.jsp";
 			request.getRequestDispatcher("view/primero/Update.jsp").forward(request, response);			
 		}
 		else if(nSesion == 1)
@@ -690,11 +692,13 @@ public class control extends HttpServlet {
 				dashDAO.declaracionDeAut(idUsu);
 				Tuple declas =dashDAO.getDeclarAut();
 				this.ordenar(declas, sesion);
+				ruta = "view/Autoridad/autoridad.jsp";
 				request.getRequestDispatcher("view/Autoridad/autoridad.jsp").forward(request, response);
 				break;
 
 			case "2":
 				dashDAO.declasIdeam();
+				ruta = "controlIDEAM?action=ideam";
 				request.getRequestDispatcher("controlIDEAM?action=ideam").forward(request, response);
 
 				break;
@@ -702,17 +706,19 @@ public class control extends HttpServlet {
 			case "3":
 
 				System.out.println("entrando al controlador de generador");
-				request.getRequestDispatcher("controlGenerador?action=generador").forward(request, response);
+				ruta = "controlGenerador?action=generador";
+//				request.getRequestDispatcher("controlGenerador?action=generador").forward(request, response);
 
 				break;
 
 			case "4":
-				
+				ruta ="controlTrans?action=transp";
 				request.getRequestDispatcher("controlTrans?action=transp").forward(request, response);
 
 				break;
 
 			case "5":
+				ruta = "ControlGestor?action=gestor";
 				request.getRequestDispatcher("ControlGestor?action=gestor").forward(request, response);
 				break;
 			}
@@ -722,6 +728,8 @@ public class control extends HttpServlet {
 			// TODO: handle exception
 			System.out.println("Fallo metdo redirigir : " + e.getMessage());
             e.fillInStackTrace();
+		}finally {
+			return ruta;
 		}
 
 
@@ -801,7 +809,7 @@ public class control extends HttpServlet {
 				if (usu == null) {
 					log.info("usuario no existe");
 					request.setAttribute("msjClave", "Usuario o Contraseña incorreectos");
-					
+					ruta = "view/login.jsp";
 				}
 				else
 				{
@@ -876,7 +884,7 @@ public class control extends HttpServlet {
 					userDao.inPerfilSeleccionado(per.getId_perfil(), per.getId_usr());
 					
 					
-					this.redirigir(request, response);
+					ruta = this.redirigir(request, response);
 				}
 				}
 				
@@ -884,13 +892,12 @@ public class control extends HttpServlet {
 			 else {
 
 				request.setAttribute("msjClave", "Debe Ingresar los datos");
-				dis = request.getRequestDispatcher("view/login.jsp");
-				dis.forward(request, response);
+				
 			}
 		} 
 		else {
 			ruta = "view/login.jsp";
-			this.redirigir(request, response);
+			ruta = this.redirigir(request, response);
 		}
 		} catch (Exception e) {
 
@@ -901,7 +908,7 @@ public class control extends HttpServlet {
 	            dis = request.getRequestDispatcher("view/login.jsp");
 				dis.forward(request, response);
 		}finally {
-			dis = request.getRequestDispatcher("view/login.jsp");
+			dis = request.getRequestDispatcher(ruta);
 			dis.forward(request, response);
 		}
 
