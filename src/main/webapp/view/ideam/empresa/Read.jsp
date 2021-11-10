@@ -33,15 +33,15 @@
 <!-- </head> -->
 
 <demo:header/>
-
+</head>
 <body>
 
-	<%@include file="../sidebarNavbar.jsp"%>
+	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="main-content">
+	<div class="col">
 
 		<!-- page title area start -->
-		<div>
+		<div class="row">
 			<div class="row align-items-center">
 				<div class="col-sm-6">
 					<div class="breadcrumbs-area">
@@ -65,7 +65,7 @@
 
 		<br /> <br />
 
-		<div class="single-table">
+		<div class="row">
 
 				<div class="table-responsive">
 					<kendo:grid  name="Empresa" pageable="true"  navigatable="true" groupable="true" columnMenu="true" width="95%">
@@ -185,8 +185,10 @@
 		<!--/div-->
 		<!-- main content area end -->
 		<!-- footer area start-->
+		<div class="row">
 		<demo:footer/>
-
+		</div>
+			</div>
 </body>
 
 </html>

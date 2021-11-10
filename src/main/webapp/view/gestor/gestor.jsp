@@ -1,17 +1,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 
 
-<demo:header>
+<demo:header />
 <title>sdstrp - Panel de Control</title>
-</demo:header>
+</head>
     <body>
-       <%@include file ="sidebarNavbar.jsp" %>
+       <%@include file ="sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col">
 
                 <!-- page title area start -->
-                <div>
+                <div class="row">
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area">
@@ -25,7 +26,7 @@
                     </div>
                 </div>
                 <!-- page title area end -->
-                <div class="main-content-inner">
+                <div class="row">
                     <div class="row">
                         <!-- seo fact area start -->
                         <div class="col-lg-10 mt-4">
@@ -101,45 +102,19 @@
 
                     </div>
                     <!-- page title area end -->
-                    <div class="main-content-inner">
-
+                    <div class="row">
+						<demo:footer/>
                     </div>
                     <!-- main content area end -->
                     <!-- footer area start-->
-                    <footer>
-                        <div class="footer-area">
-                            <p>Copyright ® 2021 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
-                        </div>
-                    </footer>
+
                     <!-- footer area end-->
                 </div>
                 <!-- page container area end -->
 
                 <!-- jquery latest version -->
 
-                <!-- bootstrap 4 js -->
-                <script src="assets/js/popper.min.js"></script>
-                <script src="assets/js/owl.carousel.min.js"></script>
-                <script src="assets/js/jquery.slimscroll.min.js"></script>
-                <script src="assets/js/jquery.slicknav.min.js"></script>
-
-                <!-- start chart js -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-                <!-- start highcharts js -->
-                <script src="https://code.highcharts.com/highcharts.js"></script>
-                <!-- start zingchart js -->
-                <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-                <script>
-                    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-                    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-                </script>
-                <!-- all line chart activation -->
-                <script src="assets/js/line-chart.js"></script>
-                <!-- all pie chart -->
-                <script src="assets/js/pie-chart.js"></script>
-                <!-- others plugins -->
-                <script src="assets/js/plugins.js"></script>
-                <script src="assets/js/scripts.js"></script>
+             
                 
                 </body>
 

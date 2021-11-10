@@ -3,7 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!-- <!DOCTYPE html> -->
 <!-- <html class="no-js" lang="en"> -->
 
@@ -34,12 +34,13 @@
 <!-- <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script> -->
 <!-- </head> -->
 <demo:header/>
+</head>
 <body>
 
-	<%@include file="../sidebarNavbar.jsp"%>
+	<%@include file="../sidebarNavbar2.jsp"%>
 
 	<!-- main content area start -->
-	<div class="main-content">
+	<div class="col">
 
 		<!-- page title area start -->
 		<div>
@@ -64,7 +65,7 @@
 		<!--div class="card-body"-->
 
 		<br /> <br />
-		<div class="single-table">
+		<div class="row">
 			<div class="table-responsive">
 						
 				<p>
@@ -239,8 +240,9 @@
 		<!--/div-->
 		<!-- main content area end -->
 		<!-- footer area start-->
+		<div class="row">
 		<demo:footer/>
-
+		</div>
 </body>
 
 </html>

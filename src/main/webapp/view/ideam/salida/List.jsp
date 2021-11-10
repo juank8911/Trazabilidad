@@ -1,36 +1,17 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<demo:header />
         <title>sdstrp - Declaracion</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/metisMenu.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/slicknav.min.css">
-        <!-- amchart css -->
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <!-- others css -->
-        <link rel="stylesheet" href="assets/css/typography.css">
-        <link rel="stylesheet" href="assets/css/default-css.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        <!-- modernizr css -->
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
     </head>
 
     <body>
         
-        <%@include file ="../sidebarNavbar.jsp" %>
+        <%@include file ="../sidebarNavbar2.jsp" %>
         
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col">
                
 
                 <!-- page title area start -->
@@ -44,13 +25,13 @@
                         </div>
                         <select class="custom-select" id="inputGroupSelect01">
                             <option selected>Seleccione...</option>
-                            <option value="1">Fecha en la que la declaraciÃ³n fue marcada como enviada por el generador</option>
+                            <option value="1">Fecha en la que la declaración fue marcada como enviada por el generador</option>
                             <option value="2">Fecha de entrega de los residuos al transportador declarada por el generador</option>
                             <option value="3">Fecha de recogida de residuos declarada por el transportador</option>
-                            <option value="4">Fecha en la que la declaraciÃ³n fue marcada como aprobada por el transportador</option>
+                            <option value="4">Fecha en la que la declaración fue marcada como aprobada por el transportador</option>
                             <option value="5">Fecha de entrega de los resituos al gestor declarada por el transportador</option>
-                            <option value="6">Fecha de recepciÃ³n de los residuos declarada por el gestor</option>
-                            <option value="7">Fecha en la que la declaraciÃ³n fue maracada como finalizada por el gestor</option>
+                            <option value="6">Fecha de recepción de los residuos declarada por el gestor</option>
+                            <option value="7">Fecha en la que la declaración fue maracada como finalizada por el gestor</option>
                         </select>
                         </div> 
              
@@ -191,7 +172,7 @@
                 <!-- footer area start-->
                 <footer>
                     <div class="footer-area">
-                        <p>Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
+                        <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
                     </div>
                 </footer>
                 <!-- footer area end-->

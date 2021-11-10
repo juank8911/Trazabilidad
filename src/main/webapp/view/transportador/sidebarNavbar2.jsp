@@ -25,7 +25,7 @@
  <!-- Bootstrap NavBar -->
  <div class="header-area">
 <%--  <jsp:forward page="view/login.jsp" /> --%>
-<script src="assets/js/cambioPerfil.js"></script>
+
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
 <div class="col-md-1 col-sm-8 clearfix">
   <a class="navbar-brand" data-toggle="sidebar-colapse" href="#">

@@ -1,22 +1,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+
 
 <demo:header />
-
-<body>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
-	<%@include file="../sidebarNavbar.jsp"%>
+</head>
+<body>
+
+	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="main-content">
+	<div class="col">
 
 		<!-- page title area start -->
-		<div>
+		<div class="row">
 			<div class="row align-items-center">
 				<div class="col-sm-6">
 					<div class="breadcrumbs-area">
@@ -78,15 +77,16 @@
 		<!--/div-->
 		<!-- main content area end -->
 		<!-- footer area start-->
-
+<div class="row">
 		<footer>
 			<div class="footer-area">
 				<p>
-					Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
+					Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
 					los derechos reservados.
 				</p>
 			</div>
 		</footer>
+		</div>
 		<!-- footer area end-->
 	</div>
 	<!-- page container area end -->
