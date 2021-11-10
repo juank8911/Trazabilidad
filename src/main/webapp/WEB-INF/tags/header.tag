@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
 <script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js" ></script>
 <script src="assets/js/bootstrap.min.js" ></script>
 <script src="assets/js/sidebarjk.js" ></script>
 

@@ -4,7 +4,6 @@
 }
 #sidebar-container {
     min-height: 100vh;  
-    background-image: url("../imagenes/vec63227.jpg");
     padding: 0;
 }
 
@@ -24,8 +23,6 @@
 
 /* Submenu item*/
 #sidebar-container .list-group .sidebar-submenu a {
-	background-image: url("../images/vec63227.jpg");
-    background-size: 70% 70%;
     height: 45px;
     padding-left: 30px;
 }
@@ -33,12 +30,6 @@
     font-size: 0.9rem;
 }
 
-.list-group
-{
-	background-color: transparent;
-	background-image: url("../images/vec63227.jpg");
-       background-size: 50% 50%;
-}
 
 /* Separators */
 .sidebar-separator-title {
@@ -68,7 +59,7 @@
 
 a.bg-white:focus, a.bg-white:hover, button.bg-white:focus, button.bg-white:hover {
     background-color: #58a749!important;
-    color: white !important;
+    color: black !important;
 }
 
 /* Closed submenu icon */

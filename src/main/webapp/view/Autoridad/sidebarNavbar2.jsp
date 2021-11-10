@@ -119,6 +119,10 @@
             </a>
             <!-- Submenu content -->
             <div id="submenu1" class="sidebar-submenu collapse show" style="">
+            	<a href="ntrol?action=perfilLee" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Autoridad</span>
+                </a>
                 <a href="controlGenerador?action=perfilLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">perfil</span>
@@ -137,31 +141,16 @@
             </a>
             <!-- Submenu content -->
             <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="controlGenerador?action=residuoLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">                
-                <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">residuos</span>
+                <a href="control?action=empresaListar" class="list-group-item list-group-item-action bg-white text-dark">                
+                <span style="color: black;" class="fas fa-building fa-fw mr-3"></span> 
+                    <span class="menu-collapsed">Empresas</span>
                 </a>
-                <a href="controlGenerador?action=programaListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
-  
-                    <span class="menu-collapsed">programacion</span>
-                </a>
-                <a href="controlGenerador?action=enviosBuscarhoy" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fas fa-share-square fa-fw mr-3"></span>                 
-                    <span class="menu-collapsed">declaracion & envio</span>
-                </a>
-				<a href="controlGenerador?action=reporteMGenera" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fas fa-calendar-alt mr-3"></span>                 
-                    <span class="menu-collapsed">reporte mensual</span>
-                </a>                
-                
+                <a href="control?action=sedeLee" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-university fa-fw mr-3"></span> 
+                    <span class="menu-collapsed">Establecimientos</span>
+                </a>           
             </div>         
-<!--             <a href="#" class="bg-success list-group-item list-group-item-action"> -->
-<!--                 <div class="d-flex w-100 justify-content-start align-items-center"> -->
-<!--                     <span class="fa fa-tasks fa-fw mr-3"></span> -->
-<!--                     <span class="menu-collapsed">Tasks</span>     -->
-<!--                 </div> -->
-<!--             </a> -->
+
             <!-- Separator with title -->
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                 <h6>Reportes</h6>
@@ -176,17 +165,17 @@
             </a>
             <!-- Submenu content -->
             <div id='submenu3' class="collapse sidebar-submenu">
-                <a href="controlGenerador?action=historicoListaGenera" class="list-group-item list-group-item-action bg-white text-dark">                
+                <a href="control?action=declaraLista" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
                     <span class="menu-collapsed">Historico</span>
                 </a>
-                <a href="controlGenerador?action=indiListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="control?action=indiLista" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
   
                     <span class="menu-collapsed">Indicadores</span>
                 </a>
 
-				<a href="controlGenerador?action=salidaListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+				<a href="control?action=salidaList" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-calendar-alt mr-3"></span>                 
                     <span class="menu-collapsed">Salida</span>
                 </a>                
@@ -194,12 +183,7 @@
             </div>   
             
             <!-- /END Separator -->
-<!--             <a href="#" class="bg-success list-group-item list-group-item-action"> -->
-<!--                 <div class="d-flex w-100 justify-content-start align-items-center"> -->
-<!--                     <span class="fa fa-calendar fa-fw mr-3"></span> -->
-<!--                     <span class="menu-collapsed">Calendar</span> -->
-<!--                 </div> -->
-<!--             </a> -->
+
 <!--             <a href="#" class="bg-success list-group-item list-group-item-action"> -->
 <!--                 <div class="d-flex w-100 justify-content-start align-items-center"> -->
 <!--                     <span class="fa fa-envelope fa-fw mr-3"></span> -->

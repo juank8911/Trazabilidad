@@ -3,19 +3,20 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 
 <demo:header/>
-
+</head>
     <body>
-       <%@include file ="../sidebarNavbar.jsp" %>
+       <%@include file ="../sidebarNavbar2.jsp" %>
        
             <!-- sidebar menu area end -->
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col">
 
                 <!-- page title area start -->
-                <div>
+                <div clasas="row">
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area">
@@ -29,7 +30,7 @@
                     </div>
                 </div>
                 <!-- page title area end -->
-                <div class="main-content-inner">
+                <div class="row">
                     <!-- table success start -->
 
                     <div class="card">
@@ -60,7 +61,7 @@
                            									<kendo:grid-column title="Estado" field="estadoA"/>                           									
                            									<kendo:grid-column>
                            										<kendo:grid-column-command>
-                           														<kendo:grid-column-commandItem click="newContra" name="Recuperar ContrseÃ±a" text="Recuperar ContraseÃ±a" >
+                           														<kendo:grid-column-commandItem click="newContra" name="Recuperar Contrseña" text="Recuperar Contraseña" >
                            															<kendo:grid-column-commandItem-click>
                            															<script type="text/javascript">
                            															function newContra(e)
@@ -215,7 +216,7 @@
                 <!-- footer area start-->
                 
                <demo:footer/>
-
+		</div>
     </body>
 
 </html>

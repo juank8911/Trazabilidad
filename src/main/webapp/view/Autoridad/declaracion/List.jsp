@@ -42,7 +42,7 @@
 
         <%@include file ="../sidebarNavbar.jsp" %>
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col-10">
 
                 <!-- page title area start -->
                 <div>

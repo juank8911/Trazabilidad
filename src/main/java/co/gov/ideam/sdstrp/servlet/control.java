@@ -682,7 +682,7 @@ public class control extends HttpServlet {
 			combo.darListaTipoDocumento();
 			userDao.primerSesUsu(idUsu);
 			ruta = "view/primero/Update.jsp";
-			request.getRequestDispatcher("view/primero/Update.jsp").forward(request, response);			
+//			request.getRequestDispatcher("view/primero/Update.jsp").forward(request, response);			
 		}
 		else if(nSesion == 1)
 		{
@@ -693,13 +693,13 @@ public class control extends HttpServlet {
 				Tuple declas =dashDAO.getDeclarAut();
 				this.ordenar(declas, sesion);
 				ruta = "view/Autoridad/autoridad.jsp";
-				request.getRequestDispatcher("view/Autoridad/autoridad.jsp").forward(request, response);
+//				request.getRequestDispatcher("view/Autoridad/autoridad.jsp").forward(request, response);
 				break;
 
 			case "2":
 				dashDAO.declasIdeam();
 				ruta = "controlIDEAM?action=ideam";
-				request.getRequestDispatcher("controlIDEAM?action=ideam").forward(request, response);
+//				request.getRequestDispatcher("controlIDEAM?action=ideam").forward(request, response);
 
 				break;
 
@@ -713,13 +713,13 @@ public class control extends HttpServlet {
 
 			case "4":
 				ruta ="controlTrans?action=transp";
-				request.getRequestDispatcher("controlTrans?action=transp").forward(request, response);
+//				request.getRequestDispatcher("controlTrans?action=transp").forward(request, response);
 
 				break;
 
 			case "5":
 				ruta = "ControlGestor?action=gestor";
-				request.getRequestDispatcher("ControlGestor?action=gestor").forward(request, response);
+//				request.getRequestDispatcher("ControlGestor?action=gestor").forward(request, response);
 				break;
 			}
 			
@@ -841,7 +841,7 @@ public class control extends HttpServlet {
 					sesion.setAttribute("nom_epresa", aut.getAut_nombre());
 					sesion.setAttribute("nSesion", usua.getNumero_sesion());
 //					dash = dashDAO.cantResiduoDashboardAut(idUser);
-					this.redirigir(request, response);
+					ruta = this.redirigir(request, response);
 				
 				} else {
 					Usuario listUsu;
@@ -896,7 +896,7 @@ public class control extends HttpServlet {
 			}
 		} 
 		else {
-			ruta = "view/login.jsp";
+
 			ruta = this.redirigir(request, response);
 		}
 		} catch (Exception e) {
