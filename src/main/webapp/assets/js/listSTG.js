@@ -18,8 +18,8 @@ function ocultarInterna (id){
         $("#ltipEmbalaje").hide();
         $("#li_transpo").hide();
         $("#lsedeTransp").hide();
-        $("#ltipGestor").hide();
-        $("#lsedeGestor").hide();
+        $("#i_Gestor").hide();
+        $("#sedeGestor").hide();
         
     }else {
         $("#tipEmpa").show();
@@ -32,7 +32,7 @@ function ocultarInterna (id){
         $("#ltipEmbalaje").show();
         $("#li_transpo").show();
         $("#lsedeTransp").show();
-        $("#ltipGestor").show();
+        $("#li_Gestor").show();
         $("#lsedeGestor").show();
     }
     };

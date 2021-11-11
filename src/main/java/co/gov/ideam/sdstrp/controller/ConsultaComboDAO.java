@@ -88,6 +88,7 @@ public class ConsultaComboDAO {
     private List<TipoDocumento> listTiDocumento;
     private Sede sedetrs;
     private Sede sedeGene;
+    private boolean autoGestora;
 //    private List<TipoGestion> tipoGestion;
 //    private List<TipoGestion> tipoGestion;
     
@@ -97,6 +98,14 @@ public class ConsultaComboDAO {
 	
 //	Metodos que retornan las listas de todos los combos
 
+    
+    @Produces
+    @Named
+    public boolean getAutoGestora() {
+    	
+        return autoGestora;
+    }
+    
     @Produces
     @Named
     public List<TipoResiduos> getListTiResiduos() {
@@ -309,6 +318,8 @@ public class ConsultaComboDAO {
 		
 	}
 	
+	
+	
     
     private void listaCiiu() {
     	CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -318,6 +329,31 @@ public class ConsultaComboDAO {
 		 listCiiu = em.createQuery(conRes).getResultList();
 		
 	}
+    
+    public void EmpresaAutoGestora(int idSed)
+    {
+    	em.clear();
+    	CriteriaBuilder cb = em.getCriteriaBuilder();
+    	try {
+    		CriteriaQuery<Empresa> conEmp = cb.createQuery(Empresa.class);
+    		Root<Empresa> rootEmp = conEmp.from(Empresa.class);
+    		Join<Empresa, Sede> joinSed = rootEmp.join("empresaSed", JoinType.INNER);
+    		conEmp.where(cb.and(cb.equal(joinSed.get("sed_id"), idSed),cb.equal(joinSed.get("sed_gestor"),"S")));
+    		conEmp.select(rootEmp);
+    		List emps = em.createQuery(conEmp).getResultList();
+    		if(!emps.isEmpty())
+    		{
+    			autoGestora = true;
+    		}
+    		else
+    		{
+    			autoGestora = false;	
+    		}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+    }
     
     public void darListaTipoDocumento() {
     	CriteriaBuilder cb = em.getCriteriaBuilder();

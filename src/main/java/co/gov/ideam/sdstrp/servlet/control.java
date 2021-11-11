@@ -865,6 +865,7 @@ public class control extends HttpServlet {
 //				sesion.setAttribute("departamento", sede.getDept_nombre()); //
 					sesion.setAttribute("telefono", usuario.getUsr_telefono()); //
 					sesion.setAttribute("doc", usuario.getUsr_email()); //
+					log.info(sede.getSed_id()+"");
 					sesion.setAttribute("idSede", sede.getSed_id()); // idSede
 					sesion.setAttribute("nom_epresa", empre.getEmp_nombre_comercial());
 					sesion.setAttribute("idEpresa", empre.getEmp_id());

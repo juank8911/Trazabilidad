@@ -14,9 +14,10 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -39,7 +40,9 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <!-- modernizr css -->
-    <script src="resources/js/vendor/modernizr-2.8.3.min.js"></script>
+     <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js" ></script>
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
 <!--     <div id="preloader">
@@ -55,14 +58,15 @@
          <!-- login area start -->
     <div class="login-area">
         <br />
-        <h5 class="titulo"> Sistema de declaración y trazabilidad de residuos peligrosos</h5>
+        
+        <h5 class="titulo"> Sistema de declaraciÃ³n y trazabilidad de residuos peligrosos</h5>
         <br />
         <div class="container">
             <div class="login-box ptb--40">
                 
                 <form method="post" action="control?action=ingresar" style="border-radius: 2em">
                     <div class="login-form-head">
-                        <b>Acceso al Sistema de Información</b>
+                        <b>Acceso al Sistema de InformaciÃ³n</b>
                     </div>
                     <div class="login-form-body">
                     <c:choose>
@@ -70,7 +74,8 @@
        
 							</c:when>
 							<c:otherwise> 
-								<span style="color: red;">${msjClave}</span>
+								<span id="failses" style="color: red;">${msjClave}</span>
+
 							</c:otherwise>
 						</c:choose>
                          ${msjUsuario}
@@ -82,14 +87,18 @@
                         </div>
                         
                         <div class="form-gp">
+                        	<span id="txt")>prueba</span>
                             <label for="exampleInputPassword1"> </label>
-                            <input type="password" name="txtPass" id="exampleInputPassword1" placeholder="Contraseña">
+                            <input type="password" name="txtPass" id="exampleInputPassword1" placeholder="ContraseÃ±a">
                             <i class="ti-lock"></i>
                         </div>
                       
                         <div class="submit-btn-area">
-                            
-                            <button  id="form_logi" type="submit">Ingresar <i class="ti-arrow-right"></i></button>
+                            <span id="countdown"></span>
+                            <button  id="form_logi" type="submit">
+                            <span class="spinner-border spinner-border-sm" id="fLog" role="status" aria-hidden="True"></span>
+                            Ingresar <i class="ti-arrow-right"></i>
+                            </button>
                             
                         </div>
                         
@@ -98,9 +107,10 @@
             </div>
         </div>
     </div>
+
     <!-- login area end -->
 		<!-- jquery latest version -->
-    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+   
     <!-- bootstrap 4 js -->
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -112,5 +122,6 @@
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>

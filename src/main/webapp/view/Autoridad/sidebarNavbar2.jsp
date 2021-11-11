@@ -26,7 +26,7 @@
  <div class="header-area">
 <%--  <jsp:forward page="view/login.jsp" /> --%>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+<nav class="navbar navbar-expand-md navbar-dark bg-transparent">
 <div class="col-md-1 col-sm-8 clearfix">
   <a class="navbar-brand" data-toggle="sidebar-colapse" href="#">
     <i class="fas fa-bars"></i>

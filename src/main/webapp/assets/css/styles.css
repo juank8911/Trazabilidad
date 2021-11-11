@@ -473,7 +473,8 @@
     padding: 5px;
     background: #fff;
     border: 1px solid #155724;
-    background-color: #58a749;
+    /*background-color: #58a749;*/
+    background-image: url("../images/banverde.jpg") !important;
     margin: 5% 0% 0% 0%;
     border-radius: 0.3em; 
 }

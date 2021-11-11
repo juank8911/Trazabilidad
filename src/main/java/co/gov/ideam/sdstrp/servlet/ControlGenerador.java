@@ -169,8 +169,9 @@ public class ControlGenerador extends HttpServlet {
 	    				ruta = "view/login.jsp";
 	                    this.dirigir(request, response, ruta);
 	    			} else {
-//	    				int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("iSede")));
+	    				int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
 //	    				resDAO.listarResiduo(idSed);
+	    				combo.EmpresaAutoGestora(idSed);
 	                    this.dirigir(request, response, ruta);
 	    			}
 	                break;
