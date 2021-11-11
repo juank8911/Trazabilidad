@@ -12,21 +12,21 @@ function ocultarInterna (id){
         $("#tipEmbalaje").hide();
         $("#i_transpo").hide();
         $("#sedeTransp").hide();
-        $("#tipGestor").hide();
+        $("#i_Gestor").hide();
         $("#sedeGestor").hide();
         $("#ltipEmpa").hide();
         $("#ltipEmbalaje").hide();
         $("#li_transpo").hide();
         $("#lsedeTransp").hide();
-        $("#i_Gestor").hide();
-        $("#sedeGestor").hide();
+        $("#li_Gestor").hide();
+        $("#lsedeGestor").hide();
         
     }else {
         $("#tipEmpa").show();
         $("#tipEmbalaje").show();
         $("#i_transpo").show();
         $("#sedeTransp").show();
-        $("#tipGestor").show();
+        $("#i_Gestor").show();
         $("#sedeGestor").show();
         $("#ltipEmpa").show();
         $("#ltipEmbalaje").show();
