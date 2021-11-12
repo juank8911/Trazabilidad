@@ -222,12 +222,6 @@
                     <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span>
                 </div>
             </a>
-            <a href="#" data-toggle="sidebar-colapse" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span id="collapse-icon" class="fa fa-angle-double-left mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Collapse</span>
-                </div>
-            </a>
             <!-- Logo -->
             <li class="list-group-item logo-separator d-flex justify-content-center">
                 <img src='assets/images/logo_sdstrp.png' width="30" height="30" />    

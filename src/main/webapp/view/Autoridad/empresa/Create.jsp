@@ -62,13 +62,13 @@
                                                          <label for="validationCustom01">Razon Social:</label>
                                                         </div>
                                                          <div class="form-group col-md-10">
-                                                         <input type="text" name="txtRaSoc" class="form-control is-valid" id="txtRaSoc" placeholder="" value="" required="">
+                                                         <input type="text" name="txtRaSoc" class="form-control" id="txtRaSoc" placeholder="" value="" required="">
                                                          </div>
                                                         <div class="form-group col-md-2">
                                                          <label for="validationCustom01">Nombre Comercial:</label>
                                                         </div>
                                                          <div class="form-group col-md-10">
-                                                         <input type="text" name="txtNomComer"class="form-control is-valid" id="txtNomComer" placeholder="" value="" required="">
+                                                         <input type="text" name="txtNomComer"class="form-control" id="txtNomComer" placeholder="" value="" required="">
                                                          </div>
                                                 </div>
 
@@ -78,7 +78,7 @@
                                                                 <label for="validationCustom01">NIT:</label>
                                                                 </div>
                                                                 <div class="form-group col-md-4">
-                                                                <input type="number" name="txtNit" class="form-control is-valid" id="txtNit"  value="" required="">
+                                                                <input type="number" name="txtNit" class="form-control" id="txtNit"  value="" required="">
                                                                 </div>
                                                              <div class="form-group col-md-2">   
                                                          <label for="example-text-input" class="col-form-label">CIUU:</label>
@@ -98,7 +98,7 @@
                                                         <label for="validationCustom01">Departamento:</label>
                                                              </div>
                                                         <div class="form-group col-md-4">
-                                                        <select class="form-control is-valid" name="txtDepar">
+                                                        <select class="form-control" name="txtDepar">
                                                         <c:forEach items="${listaDepar}" var="dep">
                                                         <option value="${dep.id_dept}">${dep.dept_nombre}</option>
                                                         </c:forEach>
@@ -118,20 +118,20 @@
                                                          <label for="validationCustom01">Direccion:</label>
                                                          </div>
                                                          <div class="form-group col-md-4">
-                                                         <input type="text" name="txtDirecc" class="form-control is-valid" id="txtDirecc"  value="" required="">
+                                                         <input type="text" name="txtDirecc" class="form-control" id="txtDirecc"  value="" required="">
                                                          </div>
                                                          
                                                          <div class="form-group col-md-2">
                                                          <label for="example-text-input" class="col-form-label">Telefono:</label>
                                                          </div>
                                                          <div class="form-group col-md-2">
-                                                         <input type="text" name="txtTel" class="form-control is-valid" id="txtTel"  value="" required="">
+                                                         <input type="text" name="txtTel" class="form-control" id="txtTel"  value="" required="">
                                                          </div>
                                                          <div class="form-group col-md-1">
                                                          <label for="example-text-input" class="col-form-label">Ext:</label>
                                                          </div>
                                                          <div class="form-group col-md-1">
-                                                         <input type="text" name="txtExt" class="form-control is-valid" id="txtExt"  value="" required="">
+                                                         <input type="text" name="txtExt" class="form-control" id="txtExt"  value="" required="">
                                                          </div>
                                                          </div>
                                                          <div class="form-row">
@@ -140,14 +140,14 @@
                                                          <label for="validationCustom01">CC Representante:</label>
                                                          </div>
                                                          <div class="form-group col-md-4">
-                                                         <input type="number" name="txtReprCed" class="form-control is-valid" id="txtReprCed"  value="" required="">
+                                                         <input type="number" name="txtReprCed" class="form-control " id="txtReprCed"  value="" required="">
                                                          </div>
                                                          
                                                          <div class="form-group col-md-2">
                                                          <label for="example-text-input" class="col-form-label">Email Representante:</label>
                                                          </div>
                                                          <div class="form-group col-md-4">
-                                                         <input type="email" name="txtEmail" class="form-control is-valid" id="txtEmail"  value="" required="">
+                                                         <input type="email" name="txtEmail" class="form-control" id="txtEmail"  value="" required="">
                                                          </div>
                                                          </div>
                                                     
@@ -156,7 +156,7 @@
                                                             <label for="validationCustom01">Nombre Representante:</label>
                                                             </div>
                                                         <div class="form-group col-10">
-                                                        <input type="text" name="txtRepr" class="form-control is-valid" id="txtRepr" required="">
+                                                        <input type="text" name="txtRepr" class="form-control" id="txtRepr" required="">
                                                         </div>
                                                         </div>
                                                 <div class="form-row">

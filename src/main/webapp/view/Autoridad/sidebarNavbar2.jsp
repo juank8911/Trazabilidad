@@ -119,15 +119,15 @@
             </a>
             <!-- Submenu content -->
             <div id="submenu1" class="sidebar-submenu collapse show" style="">
-            	<a href="ntrol?action=perfilLee" class="list-group-item list-group-item-action bg-white text-dark">
+            	<a href="control?action=autoridad" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">Autoridad</span>
                 </a>
-                <a href="controlGenerador?action=perfilLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="control?action=perfilLee" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">perfil</span>
                 </a>
-                <a method="post" href="controlGenerador?action=passGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a method="post" href="control?action=passGenera" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-key fa-fw mr-3"></span>
                     <span class="menu-collapsed">contraseña</span>
                 </a>
