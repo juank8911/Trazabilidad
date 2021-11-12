@@ -109,14 +109,14 @@
 								id="tipGestion" name="tipGestion" required="">
 								<option value="">Seleccione</option>
 								<c:forEach var="dato" items="${listaTipoGestion}">
-								<c:choose>
-											<c:when test="${(dato.id_tip_gestion === 1 || dato.id_tip_gestion === '1') && (autoGestora === false || autoGestora === 'false')}">
-											<option value="${dato.id_tip_gestion}" disabled="disabled">${dato.nombre_gestion}</option>
-											</c:when>
-										<c:otherwise>
+<%-- 								<c:choose> --%>
+<%-- 											<c:when test="${(dato.id_tip_gestion === 1 || dato.id_tip_gestion === '1') && (autoGestora === false || autoGestora === 'false')}"> --%>
+<%-- 											<option value="${dato.id_tip_gestion}" disabled="disabled">${dato.nombre_gestion}</option> --%>
+<%-- 											</c:when> --%>
+<%-- 										<c:otherwise> --%>
             									<option value="${dato.id_tip_gestion}">${dato.nombre_gestion}</option>
-        								</c:otherwise>
-							   </c:choose>
+<%--         								</c:otherwise> --%>
+<%-- 							   </c:choose> --%>
 								
 								</c:forEach>
 							</select> 
