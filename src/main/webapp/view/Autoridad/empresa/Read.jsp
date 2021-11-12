@@ -10,7 +10,7 @@
 
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="main-content">
+	<div class="col">
 
 		<!-- page title area start -->
 		<div>
@@ -328,8 +328,8 @@
 		<!--/div-->
 		<!-- main content area end -->
 		<!-- footer area start-->
-		<demo:footer/>
-
+		<deo:footer/>
+</div>
 </body>
 
 </html>

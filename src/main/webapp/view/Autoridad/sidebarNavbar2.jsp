@@ -148,6 +148,10 @@
                 <a href="control?action=sedeLee" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-university fa-fw mr-3"></span> 
                     <span class="menu-collapsed">Establecimientos</span>
+                </a> 
+                <a href="control?action=usuarioLista" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-university fa-fw mr-3"></span> 
+                    <span class="menu-collapsed">Usuario</span>
                 </a>           
             </div>         
 
@@ -204,12 +208,6 @@
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span id="collapse-icon" class="fas fa-lock mr-3"></span>
                     <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span>
-                </div>
-            </a>
-            <a href="#" data-toggle="sidebar-colapse" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span id="collapse-icon" class="fa fa-angle-double-left mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Collapse</span>
                 </div>
             </a>
             <!-- Logo -->

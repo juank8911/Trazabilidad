@@ -43,7 +43,7 @@
 									</div>
 									<div class="form-group col-md-10">
 										<input type="text" name="txtNombre"
-											class="form-control is-valid" id="validationCustom02"
+											class="form-control" id="validationCustom02"
 											placeholder="" value="" required="">
 									</div>
 								</div>
@@ -56,7 +56,7 @@
 									
 										<select data-live-search="true" name="txtEmpr" id="txtEmpr"
 											data-live-search-style="startsWith"
-											class="form-control is-valid">
+											class="form-control">
 											<c:forEach items="${listaEmpresasAu}" var="emp">
 												<option value="${emp.get(3)}">${emp.get(1)} : ${emp.get(0)}</option>
 											</c:forEach>
@@ -68,7 +68,7 @@
 										<label for="validationCustom01">Departamento:</label>
 									</div>
 									<div class="form-group col-md-5">
-										<select class="form-control is-valid" name="txtDepar"
+										<select class="form-control" name="txtDepar"
 											id="txtDepar">
 											<option>----SELECT----</option>
 											<c:forEach items="${listaDepar}" var="dep">
@@ -84,7 +84,7 @@
 											Inicio Actividad:</label>
 									</div>
 									<div class="form-group col-md-2">
-										<input class="form-control is-valid" type="date"
+										<input class="form-control" type="date"
 											name="txtInicio">
 									</div>
 
@@ -92,7 +92,7 @@
 										<label for="example-text-input" class="col-form-label">Municipio:</label>
 									</div>
 									<div class="form-group col-md-6">
-										<select class="form-control is-valid" name="txtMun"
+										<select class="form-control" name="txtMun"
 											id="txtMun">
 											<option>SELECIONE UN DEPARTAMENO</option>
 										</select>
@@ -105,7 +105,7 @@
 									</div>
 									<div class="form-group col-md-2">
 										<input type="number" name="txtNuEmpl"
-											class="form-control is-valid" id="txtNuEmpl" placeholder=""
+											class="form-control" id="txtNuEmpl" placeholder=""
 											value="" required="">
 									</div>
 
@@ -116,7 +116,7 @@
 									</div>
 									<div class="form-group col-md-4">
 										<input type="text" name="txtDirec"
-											class="form-control is-valid" id="validationCustom02"
+											class="form-control" id="validationCustom02"
 											value="" required="">
 									</div>
 									<div class="col-md-12 form-row">
@@ -127,7 +127,7 @@
 											</div>
 											<div class="form-group col-md-2">
 												<input type="number" name="txtTel"
-													class="form-control is-valid" id="validationCustom02"
+													class="form-control" id="validationCustom02"
 													value="" required="">
 											</div>
 											<div class="form-group col-md-1">
@@ -136,7 +136,7 @@
 
 											<div class="form-group col-md-2">
 												<input type="number" name="txtExt"
-													class="form-control is-valid" id="validationCustom02"
+													class="form-control" id="validationCustom02"
 													value="" required="">
 											</div>
 										</div>
