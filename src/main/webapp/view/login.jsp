@@ -87,7 +87,7 @@
                         </div>
                         
                         <div class="form-gp">
-                        	<span id="txt")>prueba</span>
+                        	<span id="txt")></span>
                             <label for="exampleInputPassword1"> </label>
                             <input type="password" name="txtPass" id="exampleInputPassword1" placeholder="Contraseña">
                             <i class="ti-lock"></i>

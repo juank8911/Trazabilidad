@@ -68,6 +68,9 @@
                                 </div>
 
                                 </div>
+                                <div class="row">
+                                	 <canvas id="marksChart" width="60%" height="40%"></canvas>
+                                </div>
                             </div>
                       
 												<div class="col mt-4">

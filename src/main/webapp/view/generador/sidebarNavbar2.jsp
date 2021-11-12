@@ -60,7 +60,7 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<h5 class="modal-title" style="text-align: center !important">${usuario}</h5>
-									<button type="button" class="close" data-dismiss="modal">
+									<button type="button" id="btnusuario" class="close" data-dismiss="modal">
 										<span>&times;</span>
 									</button>
 								</div>

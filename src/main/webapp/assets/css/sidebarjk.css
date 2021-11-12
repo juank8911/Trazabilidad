@@ -3,6 +3,13 @@
     margin-right:0;
 }
 
+#btnusuario
+{
+	color: #fff !important;
+    background-color: #169d02 !important;
+    border-color: #169d02 !important;
+}
+
 .bg-slide {
     	background-image: url("../images/banverde.jpg") !important;
 }
@@ -75,7 +82,7 @@
 
 
 a.bg-white:focus, a.bg-white:hover, button.bg-white:focus, button.bg-white:hover {
-    background-color: #58a749!important;
+    background-image: url("../images/banverde.jpg") !important;
     color: white !important;
 }
 

@@ -40,7 +40,7 @@
                                     <div class="card">
                                         <div class="seo-fact sbg1">
                                             <div class="p-4 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="ti-archive"></i> Generadores</div>
+                                                <div class="seofct-icon"><i class="fas fa-archive"></i> Generadores</div>
                                                 <h2>${gendhSedesAut}</h2>
                                             </div>
                                             
@@ -51,7 +51,7 @@
                                     <div class="card">
                                         <div class="seo-fact sbg2">
                                             <div class="p-4 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="ti-truck"></i> Transportadores</div>
+                                                <div class="seofct-icon"><i class="fas fa-truck-moving"></i> Transportadores</div>
                                                 <h2>${trndhSedesAut}</h2>
                                             </div>
                                             
@@ -73,7 +73,7 @@
                                     <div class="card">
                                         <div class="seo-fact sbg3">
                                             <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="fa fa-building-o"></i> Establecimientos</div>
+                                                <div class="seofct-icon"><i class="fas fa-building"></i> Establecimientos</div>
                                                 <h2>${SedesAut}</h2>
                                             </div>
                                             
@@ -102,7 +102,7 @@
                             <div class="card mt-1">
                                 <div class="seo-fact sbg1">
                                     <div class="p-3 d-flex justify-content-between align-items-center">
-                                        <div class="seofct-icon"><i class="ti-archive"></i>No Enviadas</div>
+                                        <div class="seofct-icon"><i class="fas fa-archive"></i>No Enviadas</div>
                                         <h2>${noEnviadasAut}</h2>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                                     <div class="card mt-1">
                                         <div class="seo-fact sbg1">
                                             <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="ti-layout-media-right"></i> Enviadas</div>
+                                                <div class="seofct-icon"><i class="fas fa-file-import"></i> Enviadas</div>
                                                 <h2>${enviadasAut}</h2>
                                             </div>
                                             
@@ -121,7 +121,7 @@
                                     <div class="card mt-1">
                                         <div class="seo-fact sbg2">
                                             <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="ti-truck"></i> Aprobadas</div>
+                                                <div class="seofct-icon"><i class="fas fa-truck-moving"></i> Aprobadas</div>
                                                 <h2>${aprovadasAut}</h2>
                                             </div>
                                             
@@ -131,7 +131,7 @@
                                     <div class="card mt-1">
                                         <div class="seo-fact sbg3">
                                             <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="ti-truck"></i>Rechazadas Transportador</div>
+                                                <div class="seofct-icon"><i class="fas fa-truck-moving"></i>Rechazadas Transportador</div>
                                                 <h2>${rechasadasTAut}</h2>
                                             </div>
                                             
@@ -172,8 +172,8 @@
 						<h:outputText value="" escape="false" />
 					</h:panelGroup>	
 					<h:panelGroup styleClass="info-box-content" layout="block">
-						<h:outputText value="" styleClass="info-box-text" />	
-						<h:outputText value="" styleClass="info-box-number" />
+						<h:outputText value="20" styleClass="info-box-text" />	
+						<h:outputText value="30" styleClass="info-box-number" />
 					</h:panelGroup>
 				</h:panelGroup>	
 			</h:panelGroup>
