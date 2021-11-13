@@ -67,7 +67,7 @@
 						<div class="col-md-12 mt-4">
 							<label class="form-label" for="descripcionResiduo" >Descripción:</label> 
 							<input type="text" name="txtDescript"
-								class="form-control" id="descripcionResiduo"  value="" required="" />
+								class="form-control" id="descripcionResiduo" required="" />
 						</div>
 							
 						<div class="col-md-12 mt-4" >

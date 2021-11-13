@@ -45,7 +45,7 @@
 	       right: 'dayGridMonth,timeGridWeek,timeGridDay'},
 	       dateClick: function(info) {
 	    	//             alert('fecha seleccionada '+date.format());
-	    	//             alert('Clicked on: ' + info.dateStr);
+	    	            alert('Clicked on: ' + info.dateStr);
 	    	             $('#btnAgendarResi').prop('disabled',false);
 	    	             $('#btnModificar').prop('disabled',true);
 	    	             $('#btnEliminar').prop('disabled',true);
@@ -142,11 +142,11 @@
 			<!-- FIN DE MENU  -->
 		</div>
 	</div>
-	<a href="controlGenerador?action=programaCreaGenera" class="float">
-	<i class="fa fa-plus my-float"></i>
-	</a>
-		<div class="row">
 
+		<div class="row">
+				<a href="controlGenerador?action=programaCreaGenera" id="btnfloat" class="float">
+				<i class="fa fa-plus my-float"></i>
+				</a>
 			<div class="col-2">
 				<div id='external-events'>
 					<p>
@@ -170,6 +170,82 @@
 
 		</div>
 		</div>
+		
+		                <!-- Modal Full calendar Agregar, editar, eliminar-->
+                <div class="modal fade" id="fullModalCrear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Residuo: <small id="fullTitulo"></small> </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                            <form method="post" action="controlGenerador?action=programaRGuardaGenera" class="needs-validation form-control">
+                                <div class="form-row col-md-8">
+
+                                    <div class="form-group col-md-2">
+                                        <label>Fecha: </label>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input class="form-control" type="date" id="Factual" name="txtFactual" readonly="readonly"/>
+                                        <input type="hidden" id="txtProg" name="txtProg" />
+<!--                                         <input type="text" id="txtTitle" name="txtTitle" /> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row col-md-12" name="traz" id="traz">
+											<div class="col-md-5">
+												<input type="hidden" name="txtRep" value="1" id="txtRep" />
+												<label for="txtTrans">Transportador: </label> 
+												<select name="chekTrans" id="chekTrans" class="form-control">
+													<option>--------SELECCIONE TRANSPORTADOR--------</option>
+													<c:forEach items="${listaSedeProgTrans}" var="sed">
+														<option value="${sed.sed_id}">
+															${sed.empresaSed.emp_nombre_comercial} ::
+															${sed.sed_nombre} :: ${sed.sed_direccion}</option>
+													</c:forEach>
+
+												</select>
+											</div>
+											<div class="col-md-6">
+												<label for="txtGes">Gestor</label> 
+												<select name="txtGes" id="txtGes" class="form-control" >
+													<option>-------- SELECCIONE TRANSPORTADOR --------</option>
+												</select>
+											</div>
+ 										</div> 
+
+                                        
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="validationCustom01">Residuo </label>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                        <select class="form-control" id="txtPrueba" name="txtPrueba[]" required=""  disabled="" multiple>                                           
+                                            <c:forEach var="dato" items="${listaResiduosGenId}">
+
+                                                <option value="${dato.get(0)}">${dato.get(1)} </option>
+
+                                            </c:forEach>
+                                        </select>
+                                        <input type="hidden" name="localiza" value="btnMod">
+                                    </div>
+
+                                </div>
+								
+                            </div>
+                            <div class="modal-footer">
+                                               
+                                                <button type="submit" class="btn btn-success" id="btnCrea" type="submit">Crear Programacion</button>
+                                                 <button type="button" class="btn btn-secondary" id="btnCierra" data-dismiss="modal">Cerrar</button>
+                          </div>
+							</form>
+                        </div>
+                    </div>
+                </div>
+		
+		
 						<div class="modal fade" id="programResiduo" tabindex="-1"
 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">

@@ -83,6 +83,7 @@
 
 a.bg-white:focus, a.bg-white:hover, button.bg-white:focus, button.bg-white:hover {
     background-image: url("../images/banverde.jpg") !important;
+    background-size: 249% 476% !important;
     color: white !important;
 }
 
@@ -103,4 +104,9 @@ a.bg-white:focus, a.bg-white:hover, button.bg-white:focus, button.bg-white:hover
   	display: inline;
   	text-align: right;
   	padding-left: 10px;
+}
+
+#btnfloat
+{
+	z-index: 30;
 }

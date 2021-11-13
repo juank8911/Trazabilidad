@@ -119,7 +119,7 @@
             </a>
             <!-- Submenu content -->
             <div id="submenu1" class="sidebar-submenu collapse show" style="">
-                <a href="controlGenerador?action=perfilLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="controlTrans?action=perfilLeeTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">perfil</span>
                 </a>

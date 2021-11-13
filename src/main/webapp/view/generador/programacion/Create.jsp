@@ -1,47 +1,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html class="no-js" lang="es">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+<demo:header/>
 <title>sdstrp - Crea Programacion</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/png"
-	href="assets/images/icon/favicon.ico">
-
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/metisMenu.css">
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/slicknav.min.css">
-<link rel="stylesheet" href="assets/css/coloresInst.css">
-
-<!-- amchart css -->
-<!-- <link rel="stylesheet" -->
-<!-- 	href="https://www.amcharts.com/lib/3/plugins/export/export.css" -->
-<!-- 	type="text/css" media="all" /> -->
-<!-- others css -->
-<link rel="stylesheet" href="assets/css/typography.css">
-<link rel="stylesheet" href="assets/css/default-css.css">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
 <link rel="stylesheet" href="assets/css/checkbox.css" >
-<!-- modernizr css -->
-
-
-
 </head>
 
 <body>
-	<%@include file="../sidebarNavbar.jsp"%>
+	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="main-content">
+	<div class="col">
 
 		<!-- page title area start -->
-		<div>
+		<div class="row">
 			<div class="row align-items-center">
 				<div class="col-sm-7">
 					<div class="breadcrumbs-area">
@@ -57,7 +28,7 @@
 		<!-- page title area end -->
 		<!-- main content area inicio -->
 		<br>
-		<div class="main-content-inner">
+		<div class="row">
 			<div class="row ">
 				<!-- Server side start -->
 
