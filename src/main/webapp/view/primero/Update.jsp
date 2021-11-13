@@ -14,10 +14,10 @@
     	<c:if test="${nSesion == 1 }">
     	<p>${perfil}</p>	
        	<c:if test="${perfil == 1}"><%@include file ="../Autoridad/sidebarNavbar.jsp" %> </c:if>
-    	<c:if test="${perfil == 2}"><%@include file ="../ideam/sidebarNavbar.jsp" %> </c:if>	
+    	<c:if test="${perfil == 2}"><%@include file ="../ideam/sidebarNavbar2.jsp" %> </c:if>	
     	<c:if test="${perfil == 3}"><%@include file ="../generador/sidebarNavbar2.jsp" %> </c:if>
     	<c:if test="${perfil == 4}"><%@include file ="../transportador/sidebarNavbar2.jsp" %> </c:if>
-    	<c:if test="${perfil == 5}"><%@include file ="../gestor/sidebarNavbar.jsp" %> </c:if>
+    	<c:if test="${perfil == 5}"><%@include file ="../gestor/sidebarNavbar2.jsp" %> </c:if>
         </c:if>
             <!-- sidebar menu area end -->
             <!-- page title area start -->
