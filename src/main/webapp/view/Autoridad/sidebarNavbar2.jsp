@@ -127,7 +127,7 @@
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">perfil</span>
                 </a>
-                <a method="post" href="control?action=passGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a method="post" href="control?action=passActualiza" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-key fa-fw mr-3"></span>
                     <span class="menu-collapsed">contraseña</span>
                 </a>

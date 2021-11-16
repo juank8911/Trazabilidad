@@ -161,7 +161,7 @@ public class control extends HttpServlet {
 			}
 			break;
 		case "passActualiza":
-			ruta = "view/generador/password/Update.jsp";
+			ruta = "view/primero/UpdateClv.jsp";
 			if (sesion.getAttribute("perfil") == null) {
 				ruta = "view/login.jsp";
 				this.dirigir(request, response, ruta);
