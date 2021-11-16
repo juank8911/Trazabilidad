@@ -262,9 +262,10 @@ $(document).ready(function () {
 			</div>
 			<!-- main content area end -->
 		</div>
-				  <demo:footer/>
+				
 		<!-- footer area end-->
 	</div>
+	  <demo:footer/>
 	<!-- page container area end -->
 </body>
 

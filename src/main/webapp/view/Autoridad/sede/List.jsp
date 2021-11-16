@@ -12,7 +12,7 @@
 	<%@include file="../sidebarNavbar2.jsp"%>
 
 	<!-- main content area start -->
-	<div class="col">
+	<div class="col-10">
 
 		<!-- page title area start -->
 		<div class="row">
@@ -27,10 +27,10 @@
 				</div>
 				<!-- FIN DE MENU  -->
 			</div>
-			<button type="button" class="btn btn-success mb-3 ti-plus pull-right">
-				<a href="control?action=sedeCrea" class="text-white"> Crear
-					Establecimiento </a>
-			</button>
+							<a href="control?action=sedeCrea" id="btnfloat" class="float">
+				<i class="fa fa-plus my-float"></i>
+				</a>
+
 		</div>
 		<!-- page title area end -->
 		<!--div class="main-content-inner"-->

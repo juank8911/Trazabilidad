@@ -1,10 +1,12 @@
+<div class="row">
+
 <footer>
                         <div class="footer-area">
                             <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
                         </div>
-                    </footer>
+                   </footer>
                     <!-- footer area end-->
-                </div>
+                
                 <!-- page container area end -->
 
                 <!-- jquery latest version -->
@@ -14,7 +16,7 @@
 <!--                 <script src="assets/js/jquery.slicknav.min.js"></script> -->
 
                 <!-- start chart js -->
-                <script src="https://cdnjs.cloud flare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<!--                 <script src="https://cdnjs.cloud flare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script> -->
                 <!-- start highcharts js -->
                 <script src="https://code.highcharts.com/highcharts.js"></script>
                 <!-- start zingchart js -->
@@ -30,3 +32,4 @@
                 <!-- others plugins -->
                 <script src="assets/js/plugins.js"></script>
 <!--                 <script src="assets/js/scripts.js"></script> -->
+</div>

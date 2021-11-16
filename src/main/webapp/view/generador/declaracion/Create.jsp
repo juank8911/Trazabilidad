@@ -91,7 +91,7 @@
                                 </div>
                                     <div class="form-group col-md-1">
                                     
-                                        <input  id="declarar" class="btn btn-success form-group" value="Enviar Declaracion">
+                                   <input  id="declarar" class="btn btn-success form-group" value="Enviar Declaracion">
                                 </div>
 
                             </form>

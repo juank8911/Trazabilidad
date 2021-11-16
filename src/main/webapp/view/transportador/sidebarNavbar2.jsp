@@ -48,7 +48,7 @@
 		</li>
 		<li >
 		<div class="spinner-border text-light" id="carga" role="status">
-   			<span class="visually-hidden">Loading...</span>
+   			<span class="sr-only">Loading...</span>
 		</div>
 		</li>
       <li class="nav-item">
@@ -166,18 +166,12 @@
                 <span style="color: black;" class="fas fa-map-marked-alt  fa-fw mr-3"></span> 
                     <span class="menu-collapsed">Ruta</span>
                 </a>
-                <a href="controlTrans?action=indiListaTransp" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
+                <a href="controlTrans?action=apruebaTransp" class="list-group-item list-group-item-action bg-white text-dark">
+                <span style="color: black;" class="fas fa-check-double fa-fw mr-3"></span> 
   
-                    <span class="menu-collapsed">Indicadores</span>
-                </a>
-
-				<a href="controlTrans?action=salidaListTransp" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fas fa-calendar-alt mr-3"></span>                 
-                    <span class="menu-collapsed">Salida</span>
+                    <span class="menu-collapsed">Aprobacion</span>
                 </a>
             	</div>
-            	
                 <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-industry fa-fw mr-3"></span>                     
@@ -234,10 +228,10 @@
 <!--                     <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span> -->
 <!--                 </div> -->
 <!--             </a> -->
-            <a href="#" data-toggle="sidebar-colapse" class="bg-success list-group-item list-group-item-action">
+            <a href="control?action=cerrar" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
                 <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span id="collapse-icon" class="fa fa-angle-double-left mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Collapse</span>
+                    <span id="collapse-icon" class="fas fa-lock mr-3"></span>
+                    <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span>
                 </div>
             </a>
             <!-- Logo -->

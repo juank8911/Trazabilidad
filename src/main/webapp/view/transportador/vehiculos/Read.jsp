@@ -10,7 +10,7 @@
    
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col">
+            <div class="col-10">
 
                 <!-- page title area start -->
                
@@ -28,20 +28,12 @@
                 
                 <!-- page title area end -->
                 <!-- main content area inicio -->
-                <div class="main-content-inner">
-                 
-                                     <button type="button" class="btn btn-success mb-3 ti-plus pull-right"><a href="controlTrans?action=vehiCreaTransp" class="text-white">Crear Vehiculo </a> 
-                                                              
-                    <p>
-            			<label style="color: green;width: 100%;text-align: left;">${infoMessage}</label> 
-        			</p>
-        			<p>
-             			<label style="color: red; width: 100%;text-align: left;">${errorMessage}</label>
-        			</p>
 
-                                        </div>
-                                        <div>
-                                            <table id="grid verde">
+                                        <div class=row>
+                                        				<a href="controlTrans?action=vehiCreaTransp" id="btnfloat" class="float">
+													<i class="fa fa-plus my-float"></i>
+														</a>
+                                            <table id="grid">
                                                 <thead>
 
                                                     <tr>
@@ -82,12 +74,9 @@
                                                             <td>${dato.get(8)}</td>
 
                                                             <td>
-                                                                <form action="controlTrans" method="post">
                                                                     <input type="hidden" name="txtId" value="${dato.get(0)}">
-
-                                                                    <button type="submit" name="action" value="vehiActuaTransp"class="btn btn-success far fa-edit"> </button>
-                                                                    <button type="submit" name="action" value="vehiEliminaTransp" class="btn btn-danger fa fa-trash"> </button>
-                                                                </form>
+																	<button type="button" data-bs-id="${dato.get(0)}" onclick="editarRes(this)" class="btn btn-success fas fa-pencil-alt"></button>
+                                                                    
                                                             </td>
                                                         </tr>
 
@@ -122,6 +111,7 @@
                     <!-- main content area end -->
                 </div>
                 <!-- footer area start-->
+                </div>
                <demo:footer/>
     </body>
 

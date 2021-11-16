@@ -1,66 +1,62 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 <demo:header />
-        <title>sdstrp - Residuo </title>
-    </head>
+<title>sdstrp - Residuo</title>
+</head>
 
-    <body>
-        
-        <%@include file ="../sidebarNavbar.jsp" %>
-            <!-- main content area start -->
-            
+<body>
 
-                <!-- page title area start -->
-                <div>
-                    <div class="row align-items-center">
-                        <div class="col-sm-7">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Salidas</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>  en el sistema de información</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                </div>
-                <!-- page title area end -->
-                <!-- main content area inicio -->
-                
-                    <div class="row">
+	<%@include file="../sidebarNavbar2.jsp"%>
+	<!-- main content area start -->
+	<div class="col-9">
 
-					
-                    <table id="grid">
-                        <thead id="verde">
+		<!-- page title area start -->
+		<div class="row-10">
+			<div class="row align-items-center">
+				<div class="col-sm-7">
+					<div class="breadcrumbs-area">
+						<h4 class="page-title pull-left">Salidas</h4>
+						<ul class="breadcrumbs pull-left">
+							<li><span> en el sistema de información</span></li>
+						</ul>
+					</div>
+				</div>
+				<!-- FIN DE MENU  -->
+			</div>
+		</div>
+		<!-- page title area end -->
+		<!-- main content area inicio -->
 
-                        <tr>
-                            <th scope="col">Numero de Declaracion <br/>
-                                 
-                            </th>
-                            <th scope="col">Fecha de Envio<br />
-                                 </th>
-                            <th scope="col">Corriente Reciduo<br />
-                                 </th>
-                            <th scope="col">Peso Decalarado <br />por el Generdaor</th>
-                            <th scope="col">Transportador<br /></th>
-                            <th scope="col">Fecha de<br /> recoleccion</th>
-                            <th scope="col">peso declarado<br /></th>
-                            <th scope="col">Gestor<br /></th>
-                            <th scope="col">Fecha de Recepcion<br /> por el Generador </th>
-                            <th scope="col">Peso recibido por<br /> el Gestor</th>
-                            
-                            <th scope="col">Estado</th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
+<div class="row-9">
+				<table id="grid">
+    <colgroup>
+        <col style="width:100px" />
+        <col style="width:200px" />
+        <col />
+    </colgroup>
+    <thead>
+        <tr>
+           <th data-field="dec_id" >Numero de Declaracion </th>                    
+			<th data-field="dec_gen_fecha_trn" > Fecha de Envio</th>                          
+			<th data-field="der_gen_cor" > Corriente Reciduo</th>                        
+			<th data-field="dec_ges_peso" > Peso Decalarado <br />por el Generdaor</th>    
+			<th data-field="tRes" >Transportador<br /></th>                       
+			<th data-field="dec_trn_fecha_rec" >Fecha de<br /> recoleccion</th>                
+			<th data-field="dec_trn_peso" >peso declarado <br/> transportador</th>                      
+			<th data-field="sed_nombre" >Gestor</th>                              
+			<th data-field="dec_gen_fecha_ges" >Fecha de Recepcion<br /> por el Generador </th>
+			<th data-field="tRes" >Peso recibido por<br /> el Gestor</th>         
+			<th data-field="pesoGen">Estado</th>                                    
+        </tr>
+    </thead>
+    <tbody>
                         <c:forEach var="dato" items="${listDeclaSal}">
                         <tr>
                         	
                             <td scope="row" rowspan="${dato.declaracion_res.size()}">${dato.dec_id}</td>
-                            <td scope="row" rowspan="${dato.declaracion_res.size()}" ><fmt:formatDate value="${dato.dec_gen_fecha_gen}" timeStyle="none" dateStyle="long" /></td>
+                            <td scope="row" rowspan="${dato.declaracion_res.size()}" >${dato.dec_gen_fecha_gen}</td>
                            
                             
                                                  
@@ -96,74 +92,77 @@
                             </c:forEach>
 
                         </c:forEach>
-                        </tbody>
-                        
-                    </table>
-                    
-                
-                <script>
-                                $(document).ready(function() {
-                                    
-                                    $("#grid").kendoGrid({
-                                        toolbar: ["excel"],
-                                        
-                                        excel: {
-                                            allPages: true
-                                        },
-                                        height: 450,
-                                        
-                                        columnMenu: true,
-                                        pageable: {
-                                            pageSize: 5
-                                        },
-                                        sortable: true
-   
-                                    });
-                                });
-                            </script>
-					         </div>
-                    <!-- main content area end -->
-                         </div>
-                <!-- footer area start-->
-                <footer>
-                <br/>
-                
-               <br/>
-                    <div class="footer-area">
-                        <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
-                    </div>
-                </footer>
-                <!-- footer area end-->
+    </tbody>
+    
+    
+</table>
+		</div>
+		<!-- main content area end -->
+<script type="text/javascript">
+// $(document).ready(function() {
+// $("#grid").kendoGrid({
+
+//     columns: [
+//         {
+//             field: "dec_id",
+//             filterable: true,
+//         },
+//         {
+//             field: "dec_gen_fecha_trn",
+//             filterable: false,
+//         },
+//         {
+//             field: "der_gen_cor",
+//             filterable: false,
+//         },
+//         {
+//             field: "dec_ges_peso",
+//             filterable: false,
+//         },
+//         {
+//             field: "tRes",
+//             filterable: false,
+//         },
+//         {
+//             field: "dec_trn_fecha_rec",
+//             filterable: false,
+//         },
+//         {
+//             field: "dec_trn_peso",
+//             filterable: false,
+//         },
+//         {
+//             field: "sed_nombre",
+//             filterable: false,
+//         },
+//         {
+//             field: "dec_gen_fecha_ges",
+//             filterable: false,
+//         },
+//         {
+//             field: "tRes",
+//             filterable: false,
             
-            <!-- page container area end -->
+//         },
+//         {
+//             field: "pesoGen",
+//             filterable: false,
+            
+//         }
 
-          
-            <!-- bootstrap 4 js -->
-            <script src="assets/js/popper.min.js"></script>
-            <script src="assets/js/bootstrap.min.js"></script>
-            <script src="assets/js/owl.carousel.min.js"></script>
-            <script src="assets/js/metisMenu.min.js"></script>
-            <script src="assets/js/jquery.slimscroll.min.js"></script>
-            <script src="assets/js/jquery.slicknav.min.js"></script>
+        
+//     ]
+// });
+// });
+</script>
 
-            <!-- start chart js -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-            <!-- start highcharts js -->
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <!-- start zingchart js -->
-            <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-            <script>
-                zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-                ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-            </script>
-            <!-- all line chart activation -->
-            <script src="assets/js/line-chart.js"></script>
-            <!-- all pie chart -->
-            <script src="assets/js/pie-chart.js"></script>
-            <!-- others plugins -->
-            <script src="assets/js/plugins.js"></script>
-            <script src="assets/js/scripts.js"></script>
-    </body>
+	</div>
+		<!-- main content area end -->
+	</div>
+	<!-- footer area start-->
+	<demo:footer />
+	;
+</body>
 
 </html>
 

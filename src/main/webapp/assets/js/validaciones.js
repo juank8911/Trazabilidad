@@ -250,20 +250,10 @@ function comprobarClave(){
         alert("Las nuevas claves no son iguales");
 }
 
-//
-//$(document).ready(function () {
-//    $("#grid").kendoGrid({
-//        
-//        height: 450,
-//
-//        
-//        pageable: {
-//            pageSize: 6
-//        },
-//        sortable: true
-//
-//    });
-//});
+
+$(document).ready(function () {
+    
+});
 
 
     

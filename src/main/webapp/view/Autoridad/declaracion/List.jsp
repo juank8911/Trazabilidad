@@ -40,7 +40,7 @@
             <![endif]-->
         <!-- preloader area start -->
 
-        <%@include file ="../sidebarNavbar.jsp" %>
+        <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
             <div class="col-10">
 
@@ -58,20 +58,10 @@
                         <!-- FIN DE MENU  -->
                     </div>
                 </div>
-                </br>
+
                 <!-- main content area inicio -->
-                
-                <div class="text-uppercase bg-success mb-3">
-                           <button type="button" class="fa fa-newspaper-o btn btn-success"> Columnas</button>
-                           <button type="button" class="fa fa-floppy-o btn btn-success"> Exportar</button>
-                           <div class="pull-right">
-                                <form action="#">
-                                <input type="text" name="search" placeholder="Buscar..." required="">
-                                <i class="ti-search col-md-2"></i>
-                            </form>
-                           </div>
-                           </div>
-                <div class="single-table">
+
+                <div class="row">
                                 <div class="table-responsive">                                    
  <%
 	HashMap<String, Object> data = new HashMap<String, Object>();
@@ -217,6 +207,7 @@
 <!--                 others plugins -->
 <!--                 <script src="assets/js/plugins.js"></script> -->
 <!--                 <script src="assets/js/scripts.js"></script> -->
+</div>
 <demo:footer></demo:footer>
 
                 </body>

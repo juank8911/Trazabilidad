@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+
+
 // funcion para ocultar por valor de ubicacion
 function ocultarInterna (id){
     if (id == "1") {
@@ -36,6 +38,55 @@ function ocultarInterna (id){
         $("#lsedeGestor").show();
     }
     };
+
+
+
+
+
+$(document).on('click', '#editbtn', function(e) {
+	 alert("hello"); 
+	e.preventDefault();
+        e.stopImmediatePropagation();
+	var btn = $(this);
+	console.log(btn);
+	var id = btn.data('id')
+	console.log(id);
+
+});
+
+$(document).on('click', '#editbtn1', function(e) 
+{ alert("hello1"); 
+e.preventDefault();
+        e.stopImmediatePropagation();
+	var btn = $(this);
+	console.log(btn);
+	var id = btn.data('id')
+	console.log(id);
+});
+
+//$(document).ready(function () {
+//	window.alert('inicio paginas')
+//
+////$(document).on('click', '#editbtn', function() { alert("prueba"); });
+////	
+////$('#editbtn').click(function(event){
+////	console.log('pressbn')
+////	 var button = $(event.relatedTarget)
+////console.log(button);
+//////	window.alert("boton");
+////});
+//	
+//	});
+	
+//function edtarVh(btn)
+//{
+//	var btdata = btn;
+//	console.log(btn);
+//	var recipient = btdata.data('id')
+////	window.alert(recipient);
+//}
+
+
     
 $(document).ready(function () {
     $('select[name=tipGestion]').on('change', function () {
@@ -208,6 +259,15 @@ $(document).ready(function () {
     });
 
 });
+
+function editarRes(bn)
+{
+	console.log(bn);
+	var btn = bn;
+	id = btn.getAttribute('data-bs-id')
+	console.log(id);
+	window.location.href='controlTrans?action=vehiActuaTransp'+'&data1='+id;
+}
 
 
 

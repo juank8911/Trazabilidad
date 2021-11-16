@@ -4,6 +4,7 @@
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <demo:header/>
 <title>sdstrp - Listado de Aprobados</title>
 <link rel="stylesheet" href="assets/css/masterDetail.css">
@@ -28,10 +29,10 @@
 
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="col">
+	<div class="col-10">
 
 		<!-- page title area start -->
-		<div>
+		<div class="row-10">
 			<div class="row align-items-center">
 				<div class="col-sm-7">
 					<div class="breadcrumbs-area">
@@ -49,12 +50,8 @@
 
 
 		<div class="row-10">
-			<p>
 	<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
-		</p>
-		<p>
 	<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
-		</p>
 	
 			<table id="dTabla" name="dTabla" rules="rows"
 				class="table-condensed table-striped">
@@ -83,11 +80,13 @@
 							 </td>
 								<td><fmt:formatDate
 										value="${listdato.prog_dec.pro_fecha_inicial}"
-										timeStyle="none" dateStyle="long" /></td>
-										<t>${fn:length(listdato.declaracion_res)}</td>
+										timeStyle="none" dateStyle="long" />
+								</td>
+										
+										<td>${fn:length(listdato.declaracion_res)}</td>
 								
 								<td id="btons">
-									<button type="button" class="btn btn-danger ti-trash" data-id="${listdato.dec_id}" data-fecha="${listdato.prog_dec.pro_fecha_inicial}" data-toggle="modal" data-target="#modalRhT">
+									<button type="button" class="btn btn-danger fas fa-trash" data-id="${listdato.dec_id}" data-fecha="${listdato.prog_dec.pro_fecha_inicial}" data-toggle="modal" data-target="#modalRhT">
 									</button>
 								</td>
 							</tr>
@@ -147,7 +146,7 @@
 														id="txtCantPeso" class="form-control sm-2"
 														value="${decaRes.der_gen_peso_residuo}" readonly></td>
 													<td id="btons">
-														<button type="button" onclick="editar(this)"
+														<button type="button" onclick="editarRes(this)"
 															class="btn btn-success ti-pencil-alt"></button>
 													</td>
 												</tr>
@@ -271,14 +270,14 @@
 								disponible para futuras modificaciones. Si esta seguro haga clic
 								en "Aceptar" de lo contrario clic en "Cancelar"</p>
 						</div>
-						<div class="spinner-grow" role="status">
+						<div class="spinner-grow" hidden="" role="status">
 							<span class="sr-only">Loading...</span>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">Close</button>
 							<button type="button" id="envio" class="btn btn-success text-nowrap" onclick="enviar()">
-							<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+							<span class="spinner-border spinner-border-sm" role="status" hidden="" aria-hidden="true"></span>
 							<span class="sr-only">Loading...</span>
 							Enviar
 							</button>
@@ -291,49 +290,8 @@
 
 	</div>
 
+<demo:footer/>
 
-	<footer>
-		<div class="footer-area">
-			<p>
-				Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
-				los derechos reservados.
-			</p>
-		</div>
-	</footer>
-	<!-- footer area end-->
-
-
-	<!-- page container area end -->
-
-
-	<!-- bootstrap 4 js -->
-
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/metisMenu.min.js"></script>
-	<script src="assets/js/jquery.slimscroll.min.js"></script>
-	<script src="assets/js/jquery.slicknav.min.js"></script>
-
-	<!-- start chart js -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-	<!-- start highcharts js -->
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<!-- start zingchart js -->
-	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-	<script>
-            zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-        </script>
-	<!-- all line chart activation -->
-	<script src="assets/js/line-chart.js"></script>
-	<!-- all pie chart -->
-	<script src="assets/js/pie-chart.js"></script>
-	<!-- others plugins -->
-	<script src="assets/js/plugins.js"></script>
-<!-- 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> -->
-		<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/scripts.js"></script>
 </body>
 
 </html>

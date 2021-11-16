@@ -208,6 +208,24 @@ public class Vehiculo implements Serializable {
 	}
 
 	
+	
+	
+	public TipoVehiculo getTvehiculo() {
+		return tvehiculo;
+	}
+
+	public void setTvehiculo(TipoVehiculo tvehiculo) {
+		this.tvehiculo = tvehiculo;
+	}
+
+	public Sede getVehiSede() {
+		return vehiSede;
+	}
+
+	public void setVehiSede(Sede vehiSede) {
+		this.vehiSede = vehiSede;
+	}
+
 	@Override
 	public String toString() {
 		return veh_id + " : " + veh_capacidad + " : " + veh_chasis + " : " + veh_desig_padre + " : " + veh_designacion

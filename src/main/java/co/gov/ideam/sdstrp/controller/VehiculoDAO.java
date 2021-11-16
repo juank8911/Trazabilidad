@@ -44,6 +44,8 @@ public class VehiculoDAO {
     @Inject
     private Event<Vehiculo> vehiEventSrc;
     
+    private Vehiculo vVehiculo;
+    
     private Vehiculo newVehi;
     
     private List<Tuple> listaVehiculoUsu;
@@ -51,6 +53,13 @@ public class VehiculoDAO {
     static List<Vehiculo> listaVehiculoTrans;
     
     
+    
+    @Produces
+    @Named
+    public Vehiculo getVVehiculo()
+    {
+    	return vVehiculo;
+    }
     
     @Produces
     @Named
@@ -98,6 +107,14 @@ public void listarVehiculosUs(int idS) {
 		// TODO: handle exception
 	}
 
+}
+
+public void vehiculoId(String  id)
+{
+	vVehiculo = em.find(Vehiculo.class, id);
+	vVehiculo.getTvehiculo().getTve_id();
+	vVehiculo.getVehiSede().getSed_nombre();
+	
 }
 
 public void listarVehiculosTrans(int idS) {

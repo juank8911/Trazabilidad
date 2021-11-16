@@ -1,6 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+
 
 
 <demo:header />
@@ -9,10 +8,10 @@
     <body>
        <%@include file ="sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col">
+            <div class="col-10">
 
                 <!-- page title area start -->
-                <div class="row">
+                <div class="row-10">
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="breadcrumbs-area">
@@ -26,7 +25,7 @@
                     </div>
                 </div>
                 <!-- page title area end -->
-                <div class="row">
+                <div class="row-10">
                     <div class="row">
                         <!-- seo fact area start -->
                         <div class="col-lg-10 mt-4">
@@ -102,9 +101,8 @@
 
                     </div>
                     <!-- page title area end -->
-                    <div class="row">
 						<demo:footer/>
-                    </div>
+
                     <!-- main content area end -->
                     <!-- footer area start-->
 

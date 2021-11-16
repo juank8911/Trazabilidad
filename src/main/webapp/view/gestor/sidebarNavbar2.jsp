@@ -119,7 +119,7 @@
             </a>
             <!-- Submenu content -->
             <div id="submenu1" class="sidebar-submenu collapse show" style="">
-                <a href="controlGenerador?action=perfilLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="ControlGestor?action=perfilLeerGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">perfil</span>
                 </a>
@@ -137,23 +137,22 @@
             </a>
             <!-- Submenu content -->
             <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="controlGenerador?action=residuoLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">                
+                <a href="ControlGestor?action=servicioListaGestor" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">residuos</span>
+                    <span class="menu-collapsed">Servicios
+											Prestados</span>
                 </a>
-                <a href="controlGenerador?action=programaListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="ControlGestor?action=autorizaListaGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
   
-                    <span class="menu-collapsed">programacion</span>
+                    <span class="menu-collapsed">Autorizaciones
+											Ambientales</span>
                 </a>
-                <a href="controlGenerador?action=enviosBuscarhoy" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="ControlGestor?action=finalizaListaGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-share-square fa-fw mr-3"></span>                 
-                    <span class="menu-collapsed">declaracion & envio</span>
+                    <span class="menu-collapsed">Finalizacion</span>
                 </a>
-				<a href="controlGenerador?action=reporteMGenera" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fas fa-calendar-alt mr-3"></span>                 
-                    <span class="menu-collapsed">reporte mensual</span>
-                </a>                
+            
                 
             </div>         
 <!--             <a href="#" class="bg-success list-group-item list-group-item-action"> -->
@@ -176,17 +175,17 @@
             </a>
             <!-- Submenu content -->
             <div id='submenu3' class="collapse sidebar-submenu">
-                <a href="controlGenerador?action=historicoListaGenera" class="list-group-item list-group-item-action bg-white text-dark">                
+                <a href="ControlGestor?action=declaraListaGestor" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
                     <span class="menu-collapsed">Historico</span>
                 </a>
-                <a href="controlGenerador?action=indiListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="ControlGestor?action=indiListaGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
   
                     <span class="menu-collapsed">Indicadores</span>
                 </a>
 
-				<a href="controlGenerador?action=salidaListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+				<a href="ControlGestor?action=salidaListaGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-calendar-alt mr-3"></span>                 
                     <span class="menu-collapsed">Salida</span>
                 </a>                
@@ -220,12 +219,6 @@
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span id="collapse-icon" class="fas fa-lock mr-3"></span>
                     <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span>
-                </div>
-            </a>
-            <a href="#" data-toggle="sidebar-colapse" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span id="collapse-icon" class="fa fa-angle-double-left mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Collapse</span>
                 </div>
             </a>
             <!-- Logo -->

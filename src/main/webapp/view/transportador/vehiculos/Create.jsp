@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
         
  <demo:header/>
  <title>sdstrp - Crear Vehiculo </title>
@@ -9,7 +9,7 @@
     <body>
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            	<div class="row">
+            	<div class="col-10">
 
                 <!-- page title area start -->
                 <div>
@@ -18,7 +18,7 @@
                             <div class="breadcrumbs-area">
                                 <h4 class="page-title pull-left">Crear de Vehiculo</h4>
                                 <ul class="breadcrumbs pull-left">
-                                    <li><span> asociado a la sede del transportador en el sistema de informaciÃ³n</span></li>
+                                    <li><span> asociado a la sede del transportador en el sistema de información</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -28,14 +28,14 @@
                 <!-- page title area end -->
                 <!-- main content area inicio -->
 
-                                <form method="post" action="controlTrans?action=vehiGuardaTransp" class="needs-validation form-control" novalidate="">
+                                <form method="post" action="controlTrans?action=vehiGuardaTransp" class="needs-validation form-group" novalidate="">
 
                                     <div class="form-row">
                                         <div class="form-group col-md-2">
                                             <label for="example-text-input" class="col-form-label">Tipo de Vehiculo </label>
 
                                         </div>
-                                        <div class="form-group col-md-2">
+                                        <div class="form-group col-md-4">
                                             <select class="form-control is-valid" name="tipoVeh" id="tipVeh">
                                                 <option selected="">Seleccione Tipo</option>
                                                 <c:forEach var="dato" items="${listaTipoVeh}">  
@@ -45,11 +45,11 @@
                                                 </c:forEach>
                                             </select>
                                         </div>
-                                        <div class="form-group col-md-1">
+                                        <div class="form-group col-md-2">
                                             <label for="example-text-input" class="col-form-label">Designacion*</label>
 
                                         </div>
-                                        <div class="form-group col-md-7">
+                                        <div class="form-group col-md-4">
                                             <select class="form-control is-valid" name="tipDesig">
                                                 <option>Seleccione Detalle del Vehiculo </option>
                                             </select>
@@ -106,7 +106,7 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-md-5">
-                                            <label for="validationCustom01">CaracterÃ­sticas de peligrosidad de los residuos a transportar* </label>
+                                            <label for="validationCustom01">Características de peligrosidad de los residuos a transportar* </label>
                                         </div>
                                         <div class="form-group col-md-7">
                                             <select class="custom-select is-valid" name="txtPeligrosidad[]" multiple>
@@ -159,10 +159,10 @@
                                     </div>
 
                                 </form>
-
+				</div>
                <demo:footer>
                </demo:footer>
-               </div>
+               
     </body>
 
 </html>

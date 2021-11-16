@@ -310,6 +310,8 @@ public class controlTransportador extends HttpServlet {
 //                vistaVehiculo vvu=vehDAO.listarId(idVeh);
 //                System.out.println("Controlador vehUpdate "+idVeh);
 //                request.setAttribute("vVehiculo", vvu);
+            	String  idV = request.getParameter("data1");
+            	vehDAO.vehiculoId(idV);
             	combo.getListaTipoVeh();
                 request.getRequestDispatcher("view/transportador/vehiculos/Update.jsp").forward(request, response);
 
