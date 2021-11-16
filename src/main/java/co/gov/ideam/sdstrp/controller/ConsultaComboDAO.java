@@ -850,6 +850,43 @@ public Sede sedeTrans(int idEmp)
 
 	}
 	
+	public void sedes1TransProg(int idGen)
+	{
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+
+			CriteriaQuery<Sede> conRes = cb.createQuery(Sede.class);		
+			Root<Sede> rootEmp  = conRes.from(Sede.class);
+	
+			Subquery<Long> sbq = conRes.subquery(Long.class);
+			Root<Residuos> rootsqDe = sbq.from(Residuos.class);
+			sbq.where(cb.equal(rootsqDe.get("res_sede_generador"),idGen));
+			sbq.groupBy(rootsqDe.get("res_sede_transporte"));
+			sbq.select(rootsqDe.get("res_sede_transporte")); 
+			Expression<Long> rGen = sbq.getSelection();
+
+
+			
+//			Path<Long> agegadas = (Path<Long>) cb.count(rootDeRe); 
+//			Expression<ResultType> expression = cb.coalesce(sbq, cb.literal(null) literal((ResultType) defaultResult);
+
+			conRes.select(rootEmp);
+			conRes.where(cb.in(rootEmp.get("sed_id")).value(rGen));
+			log.info(em.createQuery(conRes)+"");
+			listaSedeProgTrans = em.createQuery(conRes).getResultList();
+			for (Sede sede : listaSedeProgTrans) {
+				log.info(sede.getSed_nombre());
+				log.info(sede.getEmpresaSed().getEmp_nombre_comercial());
+			}
+			
+			
+		} catch (Exception e) {
+            System.out.println("Fallo validacion de sedes transportador:  " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+	}
+	
 	
 	public void sedesTransProg(int idGen)
 	{

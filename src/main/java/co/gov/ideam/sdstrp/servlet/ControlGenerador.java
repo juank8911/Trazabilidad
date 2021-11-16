@@ -327,7 +327,7 @@ public class ControlGenerador extends HttpServlet {
 		    	        System.out.println("generador "+ idSe);
 		    	        resDAO.listarResiduoGeneradorId(idSe);
 		    	        int idGess = (int) request.getSession().getAttribute("idUsuario");
-		    	        combo.sedesTransProg(idGess);
+		    	        combo.sedesTransProg(idSe);
 		                this.dirigir(request, response, ruta);
 		                
 	    			}
