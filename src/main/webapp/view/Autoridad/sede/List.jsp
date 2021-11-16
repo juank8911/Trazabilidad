@@ -12,12 +12,12 @@
 	<%@include file="../sidebarNavbar2.jsp"%>
 
 	<!-- main content area start -->
-	<div class="col-10">
+	<div class="col-9">
 
 		<!-- page title area start -->
-		<div class="row">
+		<div class="row-12">
 			<div class="row align-items-center">
-				<div class="col-sm-6">
+				<div class="col-sm-8">
 					<div class="breadcrumbs-area">
 						<h4 class="page-title pull-left">Listado de Establecimiento</h4>
 						<ul class="breadcrumbs pull-left">
@@ -40,18 +40,12 @@
 
 		<!--div class="card-body"-->
 
-		<br /> <br />
-		<div class="row">
+		<div class="row-10">
 			<div class="table-responsive">
-						
-				<p>
+								
 					<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
-				</p>
-				<p>
 					<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
-				</p>
-				
-			
+		
 				<kendo:grid  name="Sede" pageable="true" sortable="true" editable="true" navigatable="true" groupable="true" columnMenu="true" width="95%">
 				
     		<kendo:grid-editable mode="popup"  >

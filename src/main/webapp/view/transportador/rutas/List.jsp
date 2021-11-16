@@ -8,7 +8,7 @@
 
         <%@include file ="../sidebarNavbar2.jsp" %>
 
-        <div class="col-10">
+        <div class="col-9">
             <div class="row">
                 <div class="breadcrumbs-area">
                     <h4 class="page-title pull-left">Listado de Rutas</h4>

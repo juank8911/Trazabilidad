@@ -828,6 +828,8 @@ public class control extends HttpServlet {
 					Autoridad aut;
 					aut = userDao.datosAutoridad(usua.getId_usr());
 					sesion.setAttribute("usuario", aut.getAut_nombre());
+					sesion.setAttribute("idSede", aut.getId_aut()); // idSede
+					sesion.setAttribute("perfiles", usua.getUsuaPer());
 					sesion.setAttribute("idUsuario", aut.getId_aut());
 					sesion.setAttribute("correo", aut.getAut_nombre());
 					sesion.setAttribute("nomPersona", aut.getAut_nombre()); //
@@ -840,6 +842,7 @@ public class control extends HttpServlet {
 					sesion.setAttribute("doc", aut.getAut_nombre()); //
 					sesion.setAttribute("nom_epresa", aut.getAut_nombre());
 					sesion.setAttribute("nSesion", usua.getNumero_sesion());
+					userDao.inPerfilSeleccionado(perfil1.getId_perfil(), perfil1.getId_usr());
 //					dash = dashDAO.cantResiduoDashboardAut(idUser);
 					ruta = this.redirigir(request, response);
 				

@@ -33,18 +33,7 @@
                 <div class="row">
                     <!-- table success start -->
 
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="text-uppercase bg-success mb-3">
-                           <button type="button" class="fa fa-newspaper-o btn btn-success"> Columnas</button>
-                           <button type="button" class="fa fa-floppy-o btn btn-success">Exportar</button>
-                           <div class="pull-right">
-                                <form action="#">
-                                <input type="text" name="search" placeholder="Buscar..." required="">
-                                <i class="ti-search col-md-1"></i>
-                            </form>
-                           </div>
-                           </div>
+              
                            
                            			<kendo:grid name="usuario"  pageable="true" groupable="true" columnMenu="true" width="99%">
                            				<kendo:grid-toolbar>
@@ -211,12 +200,10 @@
                     </div>
 
                     <!-- table success end -->
-                </div>
                 <!-- main content area end -->
                 <!-- footer area start-->
                 
                <demo:footer/>
-		</div>
     </body>
 
 </html>

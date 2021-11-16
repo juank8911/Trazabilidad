@@ -42,7 +42,7 @@
 
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col-10">
+            <div class="col-9">
 
                 <!-- page title area start -->
                 <div>
@@ -61,7 +61,7 @@
 
                 <!-- main content area inicio -->
 
-                <div class="row">
+                <div class="row-11">
                                 <div class="table-responsive">                                    
  <%
 	HashMap<String, Object> data = new HashMap<String, Object>();
@@ -119,17 +119,17 @@
                     </kendo:grid>
                 </kendo:tabStrip-item-content>
             </kendo:tabStrip-item>
-            <kendo:tabStrip-item text="Rechasada ">
-                <kendo:tabStrip-item-content>
-                    <div class='employee-details'>
-                        <ul>
-                            <li><label>Rechasada por:</label>#= rechasoP #</li>
-                            <li><label>Fecha Rechaso:</label>#= fecha_rechasoP #</li>
-                            <li><label>Observaciones:</label>#= dec_ges_observacion #</li>
-                        </ul>
-                    </div>
-                </kendo:tabStrip-item-content>
-            </kendo:tabStrip-item>
+<%--             <kendo:tabStrip-item text="Rechasada "> --%>
+<%--                 <kendo:tabStrip-item-content> --%>
+<!--                     <div class='employee-details'> -->
+<!--                         <ul> -->
+<!--                             <li><label>Rechasada por:</label>#= rechasoP #</li> -->
+<!--                             <li><label>Fecha Rechaso:</label>#= fecha_rechasoP #</li> -->
+<!--                             <li><label>Observaciones:</label>#= dec_ges_observacion #</li> -->
+<!--                         </ul> -->
+<!--                     </div> -->
+<%--                 </kendo:tabStrip-item-content> --%>
+<%--             </kendo:tabStrip-item> --%>
         </kendo:tabStrip-items>
     </kendo:tabStrip>
 </kendo:grid-detailTemplate>

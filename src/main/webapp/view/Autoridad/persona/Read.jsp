@@ -8,7 +8,7 @@
     <body>
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- page title area start -->
-            <div class="col">
+            <div class="col-10">
             <div class="row">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
@@ -100,9 +100,10 @@
     
                 </div>
                 </div>
-                <demo:footer/>
+                
                 <!-- footer area end-->
             </div>
+            <demo:footer/>
           
     </body>
 

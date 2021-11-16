@@ -127,7 +127,7 @@
 <body>
 	<%@include file ="/view/generador/sidebarNavbar2.jsp" %>
 	<!-- page title area start -->
-	<div class="col">
+	<div class="col-9">
 
 	<div class="row">
 		<div class="row align-items-center">

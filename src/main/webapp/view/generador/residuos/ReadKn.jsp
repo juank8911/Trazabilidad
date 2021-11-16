@@ -100,12 +100,8 @@
 		</div>
 	</div>
 
-	<p>
 		<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
-	</p>
-	<p>
 		<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
-	</p>
 
 
 			<kendo:grid name="Residuos" groupable="true" pageable="true"
