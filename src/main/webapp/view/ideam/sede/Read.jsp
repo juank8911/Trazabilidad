@@ -1,28 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>sdstrp - Actualizar contraseÃ±ade </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/metisMenu.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/slicknav.min.css">
-        <!-- amchart css -->
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <!-- others css -->
-        <link rel="stylesheet" href="assets/css/typography.css">
-        <link rel="stylesheet" href="assets/css/default-css.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        <!-- modernizr css -->
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+<demo:header/>
+        <title>sdstrp - Actualizar contraseñade </title>
+
     </head>
 
     <body>
@@ -38,7 +21,7 @@
                             <div class="breadcrumbs-area">
                                 <h4 class="page-title pull-left">Listado de establecimiento</h4>
                                 <ul class="breadcrumbs pull-left">
-                                    <li><span> inscritas en el sistema de informaciÃ³n</span></li>
+                                    <li><span> inscritas en el sistema de información</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -76,7 +59,7 @@
                 <!-- footer area start-->
                 <footer>
                     <div class="footer-area">
-                        <p>Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
+                        <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
                     </div>
                 </footer>
                 <!-- footer area end-->

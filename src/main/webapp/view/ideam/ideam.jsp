@@ -89,7 +89,8 @@
 
                     <!-- page title area end -->
                     
-                    <div class="row align-items-start">
+              
+                    <div class="row justify-content-end">
                    <div class=" col-9">
               
                         <canvas id="grafico1" width="80" height="60"></canvas>

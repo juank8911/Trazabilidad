@@ -68,7 +68,7 @@
 									<p>${nom_epresa}</p>
 								</div>
 								<div class="modal-footer">
-									<a type="button" class="btn btn-outline-success mb-3" href="controlGenerador?action=perfilActuaGenera">Perfil</a>
+									<a type="button" class="btn btn-outline-success mb-3" href="control?action=perfilLee">Perfil</a>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<a type="button" class="btn btn-outline-success mb-3" href="control?action=cerrar">Cerrar Sesion</a>

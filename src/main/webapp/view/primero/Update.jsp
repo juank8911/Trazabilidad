@@ -73,7 +73,7 @@
                                                      <label for="example-text-input" class="col-form-label">Nro de Documento:</label>
                                                 </div>
                                                 <div class="form-group col-md-4">
-                                                    <input type="number" name="txtNumDoc" class="form-control" id="validationCustom02"  value="${pSUsuario.usr_documento}" required="">
+                                                    <input type="number" name="txtNumDoc" class="form-control" maxlength="10" id="validationCustom02"  value="${pSUsuario.usr_documento}" required="">
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label for="validationCustom01">Cargo </label>

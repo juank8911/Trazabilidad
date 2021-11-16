@@ -141,12 +141,7 @@
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
   
                     <span class="menu-collapsed">estableciomientos</span>
-                </a>
-                <a href="controlIDEAM?action=ideamUsuLista" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fas fa-share-square fa-fw mr-3"></span>                 
-                    <span class="menu-collapsed">Usuarios</span>
-                </a>                
-                
+                               
             </div>         
 <!--             <a href="#" class="bg-success list-group-item list-group-item-action"> -->
 <!--                 <div class="d-flex w-100 justify-content-start align-items-center"> -->
