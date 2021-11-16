@@ -28,8 +28,7 @@
             <!-- page title area end -->
             <!-- main content area inicio -->
             <div class="row">
-                <br>
-<div class="row">
+                
                 		
                     <div class="form-group row">
                     <div class="col-md-8">
@@ -89,8 +88,7 @@
                         </div>
 
                     </div>
-                    </div>
-                 </div>
+                                     </div>
                  </div>
 <demo:footer/>
 
