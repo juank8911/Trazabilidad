@@ -9,10 +9,10 @@
 <body>
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="col">
+	<div class="col-9">
 
 		<!-- page title area start -->
-		<div class="row">
+		<div class="row-11">
 			<div class="row align-items-center">
 				<div class="col-sm-7">
 					<div class="breadcrumbs-area">
@@ -28,14 +28,11 @@
 		<!-- page title area end -->
 		<!-- main content area inicio -->
 		<br>
-		<div class="row">
-			<div class="row ">
+		<div class="row-10">
 				<!-- Server side start -->
 
 
-				<form method="post"
-					action="controlGenerador?action=programaRGuardaGenera"
-					class="needs-validation form-control">
+	<form method="post" action="controlGenerador?action=programaRGuardaGenera" class="needs-validation form-control">
 							
 						
 						<div class="row justify-content-md-center">
@@ -170,62 +167,16 @@
 
 					<button class="btn btn-success mb-3" type="submit">Crear Programacion</button>
 					<button class="btn btn-success mb-3" type="submit">
-						<a href="controlGenerador?action=programaRGuardaGenera" class="text-white">Cancelar</a>
+						<a href="controlGenerador?action=listaGestorProg" class="text-white">Cancelar</a>
 					</button>
 					&nbsp;
 				</form>
 
 			</div>
 			<!-- Server side end -->
-		</div>
 		<!-- main content area end -->
 	</div>
-	<!-- footer area start-->
-	<footer>
-		<div class="footer-area">
-			<p>
-				Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
-				los derechos reservados.
-			</p>
-		</div>
-	</footer>
-	<!-- footer area end-->
-	</div>
-	<!-- page container area end -->
-
-	<!-- jquery latest version -->
-	<script src="assets/js/jquery.min.js"></script>
-	<!-- bootstrap 4 js -->
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/metisMenu.min.js"></script>
-	<script src="assets/js/jquery.slimscroll.min.js"></script>
-	<script src="assets/js/jquery.slicknav.min.js"></script>
-
-	<!-- start chart js -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-	<!-- start highcharts js -->
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<!-- start zingchart js -->
-	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-	<script>
-            zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-        </script>
-	<!-- all line chart activation -->
-	<script src="assets/js/line-chart.js"></script>
-	<!-- all pie chart -->
-	<script src="assets/js/pie-chart.js"></script>
-	<!-- others plugins -->
-	<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-	<script src="assets/js/plugins.js"></script>
-	<script src="assets/js/scripts.js"></script>
-	<script src="assets/js/validaciones.js"></script>
-	<script src="assets/js/jquery.multiselect.js" type="text/javascript"></script>
-	<script src="assets/js/listSTG.js"></script>
-	
+	<demo:footer/>
 </body>
 
 </html>
