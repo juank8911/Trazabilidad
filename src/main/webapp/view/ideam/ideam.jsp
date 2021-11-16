@@ -14,7 +14,7 @@
             <!-- main content area start -->
             
             <div class="col-9">
-            
+            		<div class="main-content">
 
                 <!-- page title area start -->
                 <div class="row">
@@ -33,9 +33,10 @@
                     </div>
                 
                 <!-- page title area end -->
+                <div class="main-content-inner">
                 <div class="row">
                          <!-- seo fact area start -->
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 mt-4">
                             <div class="row">
                                 <div class="col-3 mt-4 mb-3">
                                     <div class="card">
@@ -90,15 +91,9 @@
                     <!-- page title area end -->
                     
               
-                    <div class="row justify-content-end">
-                   <div class=" col-9">
-              
-                        <canvas id="grafico1" width="80" height="60"></canvas>
-     
-                   </div>
+                    <div class="col mt-4">
                     
-                    
-                        <div class="col-3">
+                        <div class="row">
 
                            
                             <div class="card mt-1">
@@ -188,6 +183,8 @@
                 </div>
                     <!-- footer area end-->
 					</div>
+                </div>
+                </div>
                 </div>
                        <demo:footer/>         
                 <!-- page container area end -->
