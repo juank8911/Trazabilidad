@@ -57,6 +57,7 @@
 										<select data-live-search="true" name="txtEmpr" id="txtEmpr"
 											data-live-search-style="startsWith"
 											class="form-control">
+											<option>Seleccione empresa</option>
 											<c:forEach items="${listaEmpresasAu}" var="emp">
 												<option value="${emp.get(3)}">${emp.get(1)} : ${emp.get(0)}</option>
 											</c:forEach>
@@ -193,7 +194,7 @@
 											</div>
 											<div class="form-group col-md-4">
 												<input type="text" name="txtUsu" class="form-control is-valid" id="inUsu"
-													value="" required="">
+													value="" readonly="readonly" required="">
 											</div>
 											<div class="form-group col-md-1">
 												<label for="example-text-input" class="col-form-label">Contraseña:</label>
@@ -201,7 +202,7 @@
 
 											<div class="form-group col-md-4">
 												<input type="text" name="txtContra"
-													class="form-control is-valid" id="inContra" value="" required="">
+													class="form-control is-valid" readonly="readonly" id="inContra" value="" required="">
 											</div>
 										</div>
 											
