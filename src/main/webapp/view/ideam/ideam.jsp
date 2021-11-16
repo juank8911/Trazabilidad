@@ -13,7 +13,7 @@
         <%@include file ="sidebarNavbar2.jsp" %>
             <!-- main content area start -->
             
-            <div class="col">
+            <div class="col-9">
             
 
                 <!-- page title area start -->
@@ -31,10 +31,9 @@
                         </div>
                         <!-- FIN DE MENU  -->
                     </div>
-                </div>
+                
                 <!-- page title area end -->
                 <div class="row">
-                    <div class="row">
                          <!-- seo fact area start -->
                         <div class="col-lg-12">
                             <div class="row">
@@ -87,7 +86,7 @@
                         <!-- seo fact area end -->
 
 
-                    </div>
+
                     <!-- page title area end -->
                     
                     <div class="row align-items-start">
@@ -187,11 +186,9 @@
                     
                 </div>
                     <!-- footer area end-->
-                    <div class="row">
-                    <demo:footer/>
-                    </div>
+					</div>
                 </div>
-                            
+                       <demo:footer/>         
                 <!-- page container area end -->
   
                 </body>

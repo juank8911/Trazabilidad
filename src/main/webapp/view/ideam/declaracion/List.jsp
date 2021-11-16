@@ -4,9 +4,7 @@
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@page import="java.util.HashMap"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+
 
 <!--     <head> -->
 <!--         <meta charset="utf-8"> -->
@@ -32,8 +30,8 @@
 <!--         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script> -->
 <!--     </head> -->
 
-<demo:header></demo:header>
-
+<demo:header/>
+</head>
     <body>
         <!--[if lt IE 8]>
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -42,7 +40,7 @@
 
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col">
+            <div class="col-9">
 
                 <!-- page title area start -->
                 <div class="row">
