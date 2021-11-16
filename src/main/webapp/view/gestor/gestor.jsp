@@ -8,7 +8,7 @@
     <body>
        <%@include file ="sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col-10">
+            <div class="col">
 
                 <!-- page title area start -->
                 <div class="row-10">
