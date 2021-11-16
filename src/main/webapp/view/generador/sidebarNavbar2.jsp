@@ -27,7 +27,7 @@
 <%--  <jsp:forward page="view/login.jsp" /> --%>
 <script src="assets/js/cambioPerfil.js"></script>
 <nav class="navbar navbar-expand-md navbar-dark bg-transparent">
-<div class="col-md-1 col-sm-8 clearfix">
+<div class="col-md-1 col-sm-8 clearfix" id="navBtn">
   <a class="navbar-brand" data-toggle="sidebar-colapse" href="#">
     <i class="fas fa-bars"></i>
     <span class="menu-collapsed">Menu</span>
@@ -68,7 +68,7 @@
 									<p>${nom_epresa}</p>
 								</div>
 								<div class="modal-footer">
-									<a type="button" class="btn btn-outline-success mb-3" href="controlGenerador?action=perfilActuaGenera">Perfil</a>
+									<a type="button" class="btn btn-outline-success mb-3" href="controlGenerador?action=perfilLeeGenera">Perfil</a>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<a type="button" class="btn btn-outline-success mb-3" href="control?action=cerrar">Cerrar Sesion</a>

@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 <demo:header/>
@@ -16,7 +16,7 @@
 			<div class="row align-items-center">
 				<div class="col-sm-7">
 					<div class="breadcrumbs-area">
-						<h4 class="page-title pull-left">Crear de ProgramaciÃ³n</h4>
+						<h4 class="page-title pull-left">Crear de Programación</h4>
 						<ul class="breadcrumbs pull-left">
 							<li><span>configuradas de recogidas de residuos</span></li>
 						</ul>
@@ -95,7 +95,7 @@
 								<option value="2">Todos los Dias</option>
 								<option value="3">Cada Semana</option>
 								<option value="4">Cada Mes</option>
-								<option value="5">Cada AÃ±o</option>
+								<option value="5">Cada Año</option>
 							</select>
 								</div>
 
@@ -184,7 +184,7 @@
 	<footer>
 		<div class="footer-area">
 			<p>
-				Copyright Â® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
+				Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos
 				los derechos reservados.
 			</p>
 		</div>

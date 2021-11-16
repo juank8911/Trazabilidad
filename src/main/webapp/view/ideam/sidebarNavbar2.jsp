@@ -104,7 +104,7 @@
         <!-- Bootstrap List Group -->
         <ul class="list-group">
             <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed" id="navBtn">
                 <h6>Menu ${usuario}</h6>
             </li>
             <!-- /END Separator -->

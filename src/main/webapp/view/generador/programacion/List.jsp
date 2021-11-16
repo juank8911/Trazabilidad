@@ -169,7 +169,7 @@
 			</div>
 
 		</div>
-		</div>
+		
 		
 		                <!-- Modal Full calendar Agregar, editar, eliminar-->
                 <div class="modal fade" id="fullModalCrear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -246,7 +246,7 @@
                 </div>
 		
 		
-						<div class="modal fade" id="programResiduo" tabindex="-1"
+			<div class="modal fade" id="programResiduo" tabindex="-1"
 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
@@ -262,8 +262,7 @@
 									<div class="form-row">
 
 										<!--                                     -----Empieza el Form -->
-										<div
-											class="form-group row col-md-12 justify-content-md-center">
+										<div class="form-group row col-md-12 justify-content-md-center">
 											<div class="col-md-auto">
 										<div class="form-row align-items-center">
 											<div class="form-group col-auto">
@@ -356,44 +355,14 @@
 										<button type="submit" class="btn btn-success" type="submit">Crear
 											Programacion</button>
 									</div>
+									</div>
+									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-		<footer>
-                <div class="footer-area">
-                    <p>Copyright ® 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
-                </div>
-            </footer>
-            <!-- footer area end-->
-
-
-
-            <script src="assets/js/owl.carousel.min.js"></script>
-            <script src="assets/js/metisMenu.min.js"></script>
-            <script src="assets/js/jquery.slimscroll.min.js"></script>
-            <script src="assets/js/jquery.slicknav.min.js"></script>
-
-            <!-- start chart js -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-            <!-- start highcharts js -->
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <!-- start zingchart js -->
-            <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-            <script>
-                    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-                    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-                    </script>
-                    <!-- all line chart activation -->
-                    <script src="assets/js/line-chart.js"></script>
-                    <!-- all pie chart -->
-                    <script src="assets/js/pie-chart.js"></script>
-                    <!-- others plugins -->
-                    <script src="assets/js/plugins.js"></script>
-                    <script src="assets/js/scripts.js"></script> 
-					<script src="assets/js/jquery.multiselect.js" type="text/javascript"></script>
-					<script src="assets/js/listSTG.js"></script>
-	</div>
+				</div>
+<demo:footer/>
 </body>
 </html>

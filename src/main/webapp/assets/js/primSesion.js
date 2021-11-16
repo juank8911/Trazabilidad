@@ -29,6 +29,10 @@ $(document).ready(function () {
 			{
 			$('#firstSession').modal('toggle');	
 			document.getElementById("navBtn").classList.add("ocultar");
+			$('.menu-collapsed').toggleClass('d-none');
+    		$('.sidebar-submenu').toggleClass('d-none');
+    		$('.submenu-icon').toggleClass('d-none');
+    		$('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
 			}
 			
 	var nSesion = $("body").attr("data-sesionCl");
