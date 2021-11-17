@@ -794,7 +794,7 @@ public class ControlGenerador extends HttpServlet {
                     log.info(""+t);
                 }
     		} finally {
-    			 ruta = "controlGenerador?action=crearDeclaResiduos";
+    			 ruta = "controlGenerador?action=programaListaGenera";
     			out.write(resp);
     			dis = request.getRequestDispatcher(ruta);
     	        dis.forward(request, response);		
