@@ -758,11 +758,11 @@ ul.breadcrumbs {
 .breadcrumbs li a,
 .breadcrumbs li span {
     display: block;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
-    color: #7801ff;
+    color: #000000;
     letter-spacing: 0;
-    margin-right: 16px;
+    margin-right: 10px;
     position: relative;
 }
 

@@ -258,7 +258,7 @@ public class ControlGenerador extends HttpServlet {
 	                
 	            case "listaGestorProg":
 	            	int idTra = Integer.parseInt(String.valueOf(request.getParameter("codiTrans")));
-	            	 idGen = (int) request.getSession().getAttribute("idUsuario");
+	            	 idGen = (int) request.getSession().getAttribute("idSede");
 	            	List<Sede> sedesP = combo.listaGeneraTrPr(idTra, idGen );
 	            	StringBuilder gn = new StringBuilder("");
 	            	for (Sede sede : sedesP) {
