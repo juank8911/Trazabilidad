@@ -400,12 +400,13 @@ public class ControlGestor extends HttpServlet {
                 break;
             case "finalizaDeGestor":
                 /* Este es el Menu Actualiza autorizacion*/
-                ruta = "view/gestor/finalizacion/List.jsp";
+                ruta = "ControlGestor?action=finalizaListaGestor";
     			if (sesion.getAttribute("perfil") == null) {
     				ruta = "view/login.jsp";
     	               this.gestor(request, response, ruta);
     			} else {
     				this.finalizaDeclaGestor(request, response, ruta);
+    				this.gestor(request, response, ruta);
     			}
                 
                 break;
@@ -812,16 +813,16 @@ public class ControlGestor extends HttpServlet {
             throws Exception {
         
     	String[] check = request.getParameterValues("prCheck[]");
-    	String[] tipoEmbalaje = request.getParameterValues("tipEmbalaje[]");
-    	String[] idsDecla = request.getParameterValues("idDecla[]");
-    	String[] idsDeclaRes = request.getParameterValues("idDeclaRes[]");
-    	String[] cantEmb = request.getParameterValues("txtCantEmb[]"); 
-    	String[] tipEmpa = request.getParameterValues("tipEmpaque[]");
-    	String[] cantEmpq = request.getParameterValues("txtCantEmpq[]");
-    	String[] cantPeso = request.getParameterValues("txtCantPeso[]");
-    	String[] tGes = request.getParameterValues("tipGestion[]");
-    	String[] tMan = request.getParameterValues("tipMan[]");
-    	String[] observ = request.getParameterValues("txtObser[]");
+    	String[] tipoEmbalaje = request.getParameterValues("model[].tipEmbalaje");
+    	String[] idsDecla = request.getParameterValues("model[].idDecla");
+    	String[] idsDeclaRes = request.getParameterValues("model[].idDeclaRes");
+    	String[] cantEmb = request.getParameterValues("model[].txtCantEmb"); 
+    	String[] tipEmpa = request.getParameterValues("model[].tipEmpaque");
+    	String[] cantEmpq = request.getParameterValues("model[].txtCantEmpq");
+    	String[] cantPeso = request.getParameterValues("model[].txtCantPeso");
+    	String[] tGes = request.getParameterValues("model[].tipGestion");
+    	String[] tMan = request.getParameterValues("model[].tipMan");
+    	String[] observ = request.getParameterValues("model[].txtObser");
     	SimpleDateFormat parseador = new SimpleDateFormat("yyyy-MM-dd");
     	log.info(check.toString());
     	log.info(tipoEmbalaje.toString());

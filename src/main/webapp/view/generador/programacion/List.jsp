@@ -37,6 +37,9 @@
 	        	themeSystem: 'bootstrap',
 	        	navLinks: true,
 	        	editable: true,
+	            eventReceive: function(info) {
+	                console.log('event received!', info.event);
+	              },
 	        	selectable: true,
 	        	locale: 'es',
 	        	initialView: 'dayGridMonth',

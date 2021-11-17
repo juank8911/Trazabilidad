@@ -78,7 +78,7 @@
 										timeStyle="none" dateStyle="long" /></td>
 								<td>${fn:length(listdato.declaracion_res)}</td>
 								<td id="btons">
-									<button type="button" class="btn btn-danger ti-trash" data-
+									<button type="button" class="btn btn-danger fas fa-trash" data-
 										data-id="${listdato.dec_id}"
 										data-fecha="${listdato.prog_dec.pro_fecha_inicial}"
 										data-toggle="modal" data-target="#modalRhT"></button>
@@ -108,7 +108,7 @@
 												<tr>
 													
 													<td>${deca.der_gen_nombre}
-													<input type="hidden" value="${deca.der_id}" name="model[].]idDeclaRes" /> 
+													<input type="hidden" value="${deca.der_id}" name="model[].idDeclaRes" /> 
 													<input type="hidden" value="${deca.der_declaracion}" name="model[].idDecla" />
 													</td>
 													<td><select id="tipEmbalaje" name="model[].tipEmbalaje"
@@ -122,7 +122,7 @@
 														id="txtCantEmb" class="form-control"
 														value="${deca.der_gen_numero_embalajes}" readonly></td>
 													<td><select id="tipEmpaque" class="form-select"
-														name="tipEmpaque[]" class="form-select sm-2">
+														name="model[].tipEmpaque" class="form-select sm-2">
 															<option value="${deca.tipoEmpDecTrn.tep_id}" selected>${deca.tipoEmpDecTrn.tep_nombre}</option>
 															<c:forEach var="dato1" items="${listaTipoEmpaque}">
 																<option value="${dato1.tep_id}">${dato1.tep_nombre}</option>
@@ -131,12 +131,12 @@
 													<td><input type="number" required name="model[].txtCantEmpq"
 														id="txtCantEmpq" class="form-control sm-2"
 														value="${deca.der_gen_numero_empaques}" readonly></td>
-													<td><input type="number" required name="txtCantPeso[]"
+													<td><input type="number" required name="model[].txtCantPeso"
 														id="txtCantPeso" class="form-control sm-2"
 														value="${deca.der_gen_peso_residuo}" readonly></td>
 													<td id="btons">
 														<button type="button" onclick="editar(this)"
-															class="btn btn-success ti-pencil-alt"></button>
+															class="btn btn-success fas fa-pencil-alt"></button>
 													</td>
 												</tr>
 											<tbody id="res">
@@ -174,7 +174,7 @@
 												<div class="form-group">
 													<label for="txtObser">Observaciones</label>
 													<textarea class="form-control" id="txtObser"
-														name="txtObser[]" rows="3"></textarea>
+														name="model[].txtObser" rows="3"></textarea>
 												</div>
 											</td>
 										</tr>
