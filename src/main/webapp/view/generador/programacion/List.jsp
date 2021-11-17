@@ -36,6 +36,7 @@
 	       var calendar = new FullCalendar.Calendar(calendarEl, {
 	        	themeSystem: 'bootstrap',
 	        	navLinks: true,
+	        	editable: true,
 	        	selectable: true,
 	        	locale: 'es',
 	        	initialView: 'dayGridMonth',

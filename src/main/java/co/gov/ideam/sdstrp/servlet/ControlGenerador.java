@@ -794,16 +794,10 @@ public class ControlGenerador extends HttpServlet {
                     log.info(""+t);
                 }
     		} finally {
-    			
+    			 ruta = "view/generador/programacion/List.jsp";
     			out.write(resp);
-//    			resDAO.listarResiduoGeneradorId(idSed);
-//		        combo.sedesTransProg(idSed);
-//		        progDao.programacionResiduios(idSed);
-//    			ruta = "controlGenerador?action=programaListaGenera";
-//    			log.info(errorMessage.toString());
-//                request.setAttribute("errorMessage", errorMessage.toString());
-//                dis = request.getRequestDispatcher(ruta);
-//    	        dis.forward(request, response);		
+    			dis = request.getRequestDispatcher(ruta);
+    	        dis.forward(request, response);		
     		}
 
 			
