@@ -39,7 +39,7 @@
 		
 		
 			<table id="dTabla" name="dTabla" rules="rows"
-				class="table-condensed table-striped">
+				class="table-condensed table-striped" style="height: 95%;">
 				<thead>
 					<tr>
 						<th id="thcheck"><input type="checkbox" id="brand"></th>

@@ -75,6 +75,7 @@
 					<div class="row row-cols-2">
 
 								<div class="form-group col-md-5">
+								<input type="hidden" name="localiza" id="localiza" value="create">
   								<label for="txtFactual" class="form-label">Fecha: </label>
   								<input type="date" name="txtFactual" class="form-control" id="txtFactual" placeholder="">
 								</div>

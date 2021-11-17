@@ -146,7 +146,7 @@
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
   
                     <span class="menu-collapsed">Autorizaciones
-											Ambientales</span>
+														Ambientales</span>
                 </a>
                 <a href="ControlGestor?action=finalizaListaGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-share-square fa-fw mr-3"></span>                 
