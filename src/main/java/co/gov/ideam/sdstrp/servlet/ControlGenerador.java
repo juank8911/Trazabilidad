@@ -794,7 +794,7 @@ public class ControlGenerador extends HttpServlet {
                     log.info(""+t);
                 }
     		} finally {
-    			 ruta = "view/generador/programacion/List.jsp";
+    			 ruta = "controlGenerador?action=crearDeclaResiduos";
     			out.write(resp);
     			dis = request.getRequestDispatcher(ruta);
     	        dis.forward(request, response);		
