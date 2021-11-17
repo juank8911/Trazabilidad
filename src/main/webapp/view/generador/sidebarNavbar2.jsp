@@ -28,7 +28,7 @@
 <script src="assets/js/cambioPerfil.js"></script>
 <nav class="navbar navbar-expand-md navbar-dark bg-transparent">
 <div class="col-md-1 col-sm-8 clearfix" id="navBtn">
-  <a class="navbar-brand" data-toggle="sidebar-colapse" href="#">
+  <a class="navbar-brand" id="btnNav" data-toggle="sidebar-colapse" href="#">
     <i class="fas fa-bars"></i>
     <span class="menu-collapsed">Menu</span>
   </a>
@@ -81,7 +81,7 @@
       <!-- This menu is hidden in bigger devices with d-sm-none. 
            The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
       <li class="nav-item dropdown d-sm-block d-md-none">
-        <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="btnNav" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
@@ -109,7 +109,7 @@
             </li>
             <!-- /END Separator -->
             <!-- Menu with submenu -->
-                        <a href="#submenu1" data-toggle="collapse" aria-expanded="true" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="#submenu1" id="btnNav" data-toggle="collapse" id="btnmenu" aria-expanded="true" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-info fa-fw mr-3"></span>
                     
@@ -119,16 +119,16 @@
             </a>
             <!-- Submenu content -->
             <div id="submenu1" class="sidebar-submenu collapse show" style="">
-                <a href="controlGenerador?action=perfilLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="controlGenerador?action=perfilLeeGenera" id="btnNav" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
                     <span class="menu-collapsed">perfil</span>
                 </a>
-                <a method="post" href="controlGenerador?action=passGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a method="post" href="controlGenerador?action=passGenera" id="btnNav" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-key fa-fw mr-3"></span>
                     <span class="menu-collapsed">contraseña</span>
                 </a>
             </div>   
-            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" id="btnNav" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-industry fa-fw mr-3"></span>                     
                     <span class="menu-collapsed">Declaraciones</span>
@@ -137,16 +137,16 @@
             </a>
             <!-- Submenu content -->
             <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="controlGenerador?action=residuoLeeGenera" class="list-group-item list-group-item-action bg-white text-dark">                
+                <a href="controlGenerador?action=residuoLeeGenera" id="btnmenu" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
                     <span class="menu-collapsed">residuos</span>
                 </a>
-                <a href="controlGenerador?action=programaListaGenera" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="controlGenerador?action=programaListaGenera" id="btnmenu" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
   
                     <span class="menu-collapsed">programacion</span>
                 </a>
-                <a href="controlGenerador?action=enviosBuscarhoy" class="list-group-item list-group-item-action bg-white text-dark">
+                <a href="controlGenerador?action=enviosBuscarhoy" id="btnmenu" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-share-square fa-fw mr-3"></span>                 
                     <span class="menu-collapsed">declaracion & envio</span>
                 </a>
@@ -167,7 +167,7 @@
                 <h6>Reportes</h6>
             </li>  
             
-                        <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="#submenu3" data-toggle="collapse" id="btnNav" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-industry fa-fw mr-3"></span>                     
                     <span class="menu-collapsed">Consultas</span>
@@ -216,7 +216,7 @@
 <!--                     <span class="menu-collapsed">Help</span> -->
 <!--                 </div> -->
 <!--             </a> -->
-            <a href="control?action=cerrar" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
+            <a href="control?action=cerrar" id="btnNav" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span id="collapse-icon" class="fas fa-lock mr-3"></span>
                     <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span>

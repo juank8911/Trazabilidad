@@ -7,7 +7,6 @@
         
         <title>sdstrp - Actualizar contraseña </title>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-        <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
 
         <!-- modernizr css -->
        <script src="assets/js/primSesion.js"></script>

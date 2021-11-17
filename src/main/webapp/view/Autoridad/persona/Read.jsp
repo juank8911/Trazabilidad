@@ -8,25 +8,18 @@
     <body>
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- page title area start -->
-            <div class="col-10">
-            <div class="row">
-                <div class="row align-items-center">
-                    <div class="col-sm-6">
-                        <div class="breadcrumbs-area">
+            <div class="col-9">
+            <div class="row justify-content-md-center">
+
+							<h4>Ver<span class="badge bg-secondary">Perfi</span></h4>
                             <h4 class="page-title pull-left">Ver</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><span>Perfil</span></li>
+                                <li><span class="badge bg-secondary">Perfil</span></li>
                             </ul>
-                        </div>
-                    </div>
-                    <!-- FIN DE MENU  -->
-                </div>
             </div>
             <!-- page title area end -->
             <!-- main content area inicio -->
             <div class="row">
-                <br>
-                <div class="row form-control">
                     <div class="form-group row">
                     <div class="col-md-2">
                         <label for="validationCustom01"><strong>Razon Social:</strong></label>
@@ -94,14 +87,11 @@
                             <label for="validationCustom01">${correo}</label> 
                         </div>
                     </div>
-                    
-                    
-                    
-    
-                </div>
+
                 </div>
                 
                 <!-- footer area end-->
+            </div>
             </div>
             <demo:footer/>
           

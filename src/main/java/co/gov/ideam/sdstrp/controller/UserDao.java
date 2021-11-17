@@ -57,7 +57,7 @@ public class UserDao {
     private List<Tuple> tuple;
     private Object result;
     private Usuario newUsu;
-    private Usuario usuario;
+    static Usuario usuario;
     private int perfil ;
     static List<Perfil> inSelPerfiles;
     static Perfil SelPerfil;
@@ -101,7 +101,15 @@ public class UserDao {
     {
     	return perfil;
     }
-    
+
+    @Produces
+    @Named
+    public Usuario getUsuario()
+    {
+    	
+    	return usuario; 
+    }
+
     
     
     @Produces
@@ -110,6 +118,12 @@ public class UserDao {
     {
     	
     	return pSUsuario; 
+    }
+    
+    
+    public void usuarioId(int idU)
+    {
+    	usuario = em.find(Usuario.class, idU);
     }
     
     

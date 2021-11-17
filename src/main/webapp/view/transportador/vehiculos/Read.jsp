@@ -10,30 +10,26 @@
    
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col-9">
+            <div class="col-10">
 
-                <!-- page title area start -->
-               
-                    <div class="row align-items-center">
-                        <div class="col-sm-7">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Listado de Vehiculo</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span> inscritas en el sistema de información</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
+                    
+                     <div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Listado de Vehiculo</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">inscritas en el sistema de información</span></li>
+                            </ul>
+            		</div>
                 
                 <!-- page title area end -->
                 <!-- main content area inicio -->
 
-                                        <div class=row>
-                                        				<a href="controlTrans?action=vehiCreaTransp" id="btnfloat" class="float">
-													<i class="fa fa-plus my-float"></i>
-														</a>
-                                            <table id="grid">
+                                        <div class="row justify-content-md-center">
+                                        
+                                       <a href="controlTrans?action=vehiCreaTransp" id="btnfloat" class="float">
+											<i class="fa fa-plus my-float"></i>
+									   </a>
+									   
+                                            <table id="grid" style="width: 95%;">
                                                 <thead>
 
                                                     <tr>

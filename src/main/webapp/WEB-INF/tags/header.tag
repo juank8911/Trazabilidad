@@ -41,7 +41,7 @@
 	src="<c:url value='/assets/js/kendo/messages/kendo.messages.es-CO.min.js' />"></script>
 <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
-<script src="assets/js/listSTG.js"></script>
+
 
 
 

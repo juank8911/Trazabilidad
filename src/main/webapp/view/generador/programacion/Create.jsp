@@ -4,31 +4,25 @@
 <demo:header/>
 <title>sdstrp - Crea Programacion</title>
 <link rel="stylesheet" href="assets/css/checkbox.css" >
+<script src="assets/js/listSTG.js"></script>
+<script src="assets/js/validaciones.js"></script>
 </head>
 
 <body>
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="col-9">
+	<div class="col-10">
+	<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Crear de Programación</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">configuradas de recogidas de residuos</span></li>
+                            </ul>
+            </div>
 
-		<!-- page title area start -->
-		<div class="row-11">
-			<div class="row align-items-center">
-				<div class="col-sm-7">
-					<div class="breadcrumbs-area">
-						<h4 class="page-title pull-left">Crear de Programación</h4>
-						<ul class="breadcrumbs pull-left">
-							<li><span>configuradas de recogidas de residuos</span></li>
-						</ul>
-					</div>
-				</div>
-				<!-- FIN DE MENU  -->
-			</div>
-		</div>
 		<!-- page title area end -->
 		<!-- main content area inicio -->
 		<br>
-		<div class="row-10">
+		<div class="row justify-content-md-center">
 				<!-- Server side start -->
 
 
