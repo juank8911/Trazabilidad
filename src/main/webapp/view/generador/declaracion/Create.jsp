@@ -10,31 +10,15 @@
     <body>
          <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col-10">
+                		<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Crear Delaracion</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">de residuos</span></li>
+                            </ul>
+            			</div>
 
-                <!-- page title area start -->
-                <div>
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Crear Delaracion</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>de residuos </span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                    
-                </div>
-                <!-- page title area end -->
-<!--                 div class="main-content-inner" -->
-<!--                     table success start -->
- 
-<!--                     div class="card" -->
-                       
-<!--                         div class="card-body" -->
-                            <br />
+							<div class="row justify-content-md-center">
                             <c:forEach var="dato0" items="${listaDeclaracionProg}" begin="0" end="0">
                                 <div class="container bg-success text-white">
 
@@ -96,7 +80,8 @@
 
                             </form>
                             </c:forEach>
-                           
+                           </div>
+                           </div>
                 <!-- main content area end -->
                 <!-- footer area start-->
                 <demo:footer>

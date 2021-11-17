@@ -128,22 +128,16 @@
 	<%@include file ="/view/generador/sidebarNavbar2.jsp" %>
 	<!-- page title area start -->
 	<div class="col-9">
+		
+		<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Listado de Programación</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">Registrados en el sistema de informacion</span></li>
+                            </ul>
+            			</div>
 
-	<div class="row">
-		<div class="row align-items-center">
-			<div class="col-sm-12">
-				<div class="breadcrumbs-area">
-					<h4 class="page-title pull-left">Listado de Programación</h4>
-					<ul class="breadcrumbs pull-left">
-						<li><span>Registrados en el sistema de informacion</span></li>
-					</ul>
-				</div>
-			</div>
-			<!-- FIN DE MENU  -->
-		</div>
-	</div>
 
-		<div class="row">
+		<div class="row justify-content-md-center">
 				<a href="controlGenerador?action=programaCreaGenera" id="btnfloat" class="float">
 				<i class="fa fa-plus my-float"></i>
 				</a>

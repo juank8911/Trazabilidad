@@ -19,32 +19,23 @@
 <body>
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<div class="col-10">
+			<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Listado de Declaraciones</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">pendientes por finalizar</span></li>
+                            </ul>
+            			</div>
 
-		<!-- page title area start -->
-		<div class="row">
-			<div class="row align-items-center">
-				<div class="col-sm-7">
-					<div class="breadcrumbs-area">
-						<h4 class="page-title pull-left">Listado de Declaraciones
-							pendientes por finalizar</h4>
-
-					</div>
-				</div>
-				<!-- FIN DE MENU  -->
-			</div>
-		</div>
 		<!-- page title area end -->
 		<!-- main content area inicio -->
 		<br>
 
 
-		<div class="row">
-		<p>
+		<div class="row justify-content-md-center">
+		
 	<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
-		</p>
-		<p>
 	<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
-		</p>
+
 		
 		
 			<table id="dTabla" name="dTabla" rules="rows"
@@ -301,10 +292,11 @@
 			</div>
 
 		</div>
-			<div class="row">
-				<demo:footer/>
-			</div>
+			
+			
+			
 	</div>
+		<demo:footer/>
 
 </body>
 

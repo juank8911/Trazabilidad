@@ -16,23 +16,18 @@
             
 
                 <!-- page title area start -->
-                <div class="col-9">
-                    <div class="row align-items-center">
-                        <div class="col-sm-7">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Salidas</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>  en el sistema de información</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                    
-                    
-              <div>
+                <div class="col-10">
+                <div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Salidas</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">en el sistema de información</span></li>
+                            </ul>
+            			</div>
 
-					
+                    
+                    
+             <div class="row justify-content-md-center">
+	
                     <table id="grid">
                         <thead id="verde">
 
@@ -124,15 +119,8 @@
                             </script>
 					         </div>
                 </div>
-                <!-- page title area end -->
-                <!-- main content area inicio -->
-                
-
-                    <!-- main content area end -->
-                         </div>
-                <!-- footer area start-->
-                
+                    <demo:footer/>
     </body>
-    <demo:footer/>
+
 
 </html>

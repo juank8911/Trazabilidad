@@ -4,51 +4,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
-<!-- <!DOCTYPE html> -->
-<!-- <html class="no-js" lang="en"> -->
-
-<!--     <head> -->
-<!--         <meta charset="utf-8"> -->
-<!--         <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
-<!--         <title>sdstrp - Residuo </title> -->
-<!--         <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-<!--         <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico"> -->
-<!--         <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/kendo.default-v2.min.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/themify-icons.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/metisMenu.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/owl.carousel.min.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/slicknav.min.css"> -->
-<!--         amchart css -->
-<!--         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" /> -->
-<!--         others css -->
-<!--         <link rel="stylesheet" href="assets/css/typography.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/default-css.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/styles.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/responsive.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/coloresInst.css"> -->
-<!--         modernizr css -->
-<!--         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script> -->
-
-<!--         Kendo -->
-<!--         <link rel="stylesheet" href="assets/css/kendo.default-V2.min.css"> -->
-<!--         jquery latest version -->
-<!--         <script src="assets/js/jquery-1.12.3.min.js"></script> -->
-<!--         <script src="assets/js/kendoV2.all.min.js"></script> -->
-<!--         <link rel="stylesheet" href="assets/css/kendoV2.common.min.css"> -->
-<!--         <link rel="stylesheet" href="assets/css/kendo.default.min.css"> -->
-
-<!--     </head> -->
 <demo:header />
- </head>
-<body>
 
-
-
-	<%@include file="../sidebarNavbar2.jsp"%>
-	<div class="col">
-	<!-- main content area start -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
 	 <style>
     #grid .k-grid-toolbar
@@ -74,35 +31,32 @@
         margin-right: 0;
     }
  </style>
+ 
+ </head>
+<body>
+
+
+
+	<%@include file="../sidebarNavbar2.jsp"%>
+	<div class="col-10">
+	<!-- main content area start -->
+
 	<!-- page title area start -->
-	<div>
-		<div class="row align-items-center">
-			<div class="col-sm-7">
-				<div class="breadcrumbs-area">
-					<h4 class="page-title pull-left">Listado de Residuo</h4>
-					<ul class="breadcrumbs pull-left">
-						<li><span> en el sistema de información</span></li>
-					</ul>
-				</div>
-			</div>
-			<!-- FIN DE MENU  -->
-		</div>
-	</div>
+	
+	<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Listado de Residuo</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">en el sistema de información</span></li>
+                            </ul>
+            			</div>
+
 	<!-- page title area end -->
 	<!-- main content area inicio -->
 
-	<div class="container">
+	<div class="row justify-content-md-center">
 	
-		<div class="row">
-		
-		<div class="col-lg-6 col-ml-12">
-			<!-- Server side start -->
-		</div>
-	</div>
-
 		<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
 		<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
-
 
 			<kendo:grid name="Residuos" groupable="true" pageable="true"
 				columnMenu="true" width="99%">

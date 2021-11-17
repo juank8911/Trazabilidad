@@ -37,26 +37,20 @@
 	
 	<script src="assets/js/masterDetailGene.js"></script>
 	<!-- main content area start -->
-	<div class="col">
+	<div class="col-10">
 
 		<!-- page title area start -->
-			<div class="row align-items-center">
-				<div class="col-sm-7">
-					<div class="breadcrumbs-area">
-						<h4 class="page-title pull-left">Listado de declaraciones</h4>
-						<ul class="breadcrumbs pull-left">
-							<li><span>de residuos</span></li>
-						</ul>
-					</div>
-				</div>
-				<!-- FIN DE MENU  -->
-			</div>
+		<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Listado de declaraciones</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">de residuos</span></li>
+                            </ul>
+            </div>
 
 		<!-- page title area end -->
 		<!-- main content area inicio -->
 
-		<div class="col" >
-			<div class="main-content-inner">
+		<div class="row justify-content-md-center" >
 			<div class="row">
 					<!-- Server side start -->
 					<form method="post" action="controlGenerador?action=enviosBuscarFch" >
@@ -86,7 +80,7 @@
 					</form>
 				<!-- Server side end -->
 			</div>
-			<div class="row">
+			<div class="row justify-content-md-center">
 			
 			<div class="alert alert-success alert-dismissable" role="alert">
  				 Declaracion enviada correctamente
@@ -195,7 +189,7 @@
 			</div>
 		</div>
 			</div>
-			<demo:footer></demo:footer>
+	
 			
 					<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -230,9 +224,8 @@
 				</div>
 			</div>
 		</div>
-				</div>
 
-		
+		<demo:footer/>
 </body>
 
 </html>

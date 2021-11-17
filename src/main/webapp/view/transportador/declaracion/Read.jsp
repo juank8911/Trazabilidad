@@ -7,27 +7,23 @@
 
     <demo:header/>
     <title>sdstrp - Declaracion</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
     </head>
     <body>
        <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col-9">
-			<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
-                <!-- page title area start -->
-                <div class="row-10">
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Historico </h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>Transportador</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                </div>
-		<div class="row-10">
+            <div class="col-10">
+            
+            <div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Historico</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">Transportador</span></li>
+                            </ul>
+            			</div>
+            			
+			
+
+		 <div class="row justify-content-md-center">
 			<kendo:grid name="historicoDecla" pageable="true" columnMenu="true" width="95%" >
 			        <kendo:grid-toolbar>
         				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>

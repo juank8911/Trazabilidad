@@ -14,7 +14,14 @@
 <%--         <demo:slideGen/> --%>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
             <!-- main content area start -->
-            <div class="col">
+            <div class="col-10">
+            
+            <div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Reporte Mensual</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">Registros en el sistema de informacion</span></li>
+                            </ul>
+            			</div>
 
                 <!-- page title area start -->
                 <div>
@@ -31,6 +38,8 @@
                     </div>
                     
                 </div>
+                
+                <div class="row align-items-center">
    
           <kendo:grid  name="Residuos" groupable="true" pageable="true" columnMenu="true" width="99%">
     		<kendo:grid-toolbar>
@@ -82,13 +91,13 @@
     	</kendo:grid-column-group>
     	</kendo:grid-columns>
     		</kendo:grid>
-                            
-                             
+                </div>            
+                 </div>            
                                    
                 <!-- main content area end -->
                 <!-- footer area start-->
                <demo:footer/>
-               </div>
+               
     </body>
 
 </html>

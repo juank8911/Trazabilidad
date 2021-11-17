@@ -26,7 +26,7 @@
 				<!-- Server side start -->
 
 
-	<form method="post" action="controlGenerador?action=programaRGuardaGenera" class="needs-validation form-control">
+					<form method="post" action="controlGenerador?action=programaRGuardaGenera" >
 							
 						
 						<div class="row justify-content-md-center">

@@ -9,25 +9,16 @@
 
         <%@include file ="sidebarNavbar2.jsp" %>
        <!-- MAIN -->
-    <div class="col">
-            <div class="main-content">
+    <div class="col-10">
+    		<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Panel de Control</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">Generador</span></li>
+                            </ul>
+            </div>
 
-                <!-- page title area start -->
-                <div>
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Panel de Control</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>Generador</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                </div>
                 <!-- page title area end -->
-                <div class="main-content-inner">
+                <div class="row justify-content-md-center">
                         <div class="row">
                         <!-- seo fact area start -->
                         <div class="col-lg-10 mt-4">
@@ -138,7 +129,6 @@
                     <!-- footer area end-->
                 </div>
                 <!-- page container area end -->
-				</div>
 
                 <!-- bootstrap 4 js -->
 <!--                 <script src="assets/js/popper.min.js"></script> -->
