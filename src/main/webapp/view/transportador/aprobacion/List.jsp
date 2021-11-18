@@ -66,8 +66,8 @@
 									name="brand[]"></td>
 								<td></td>
 								<td>${listdato.dec_id}</td>
-								<td> <i class="ti-bar-chart-alt"></i> - ${listdato.decSedGen.empresaSed.emp_nombre_comercial}  :: ${listdato.decSedGes.sed_nombre} :: ${listdato.decSedGes.sed_direccion} :: ${listdato.decSedGes.departamento.dept_nombre} :: ${listdato.decSedGes.sedMunic.munic_nombre} <br> 
-									 <i class="ti-truck">        </i> - ${listdato.decSedGes.empresaSed.emp_nombre_comercial} :: ${listdato.decSedGen.sed_nombre} :: ${listdato.decSedGen.sed_direccion} :: ${listdato.decSedGen.departamento.dept_nombre} :: ${listdato.decSedGen.sedMunic.munic_nombre}
+								<td> <i class="fa-bar-chart-alt"></i> - ${listdato.decSedGen.empresaSed.emp_nombre_comercial}  :: ${listdato.decSedGes.sed_nombre} :: ${listdato.decSedGes.sed_direccion} :: ${listdato.decSedGes.departamento.dept_nombre} :: ${listdato.decSedGes.sedMunic.munic_nombre} <br> 
+									 <i class="fa-truck">        </i> - ${listdato.decSedGes.empresaSed.emp_nombre_comercial} :: ${listdato.decSedGen.sed_nombre} :: ${listdato.decSedGen.sed_direccion} :: ${listdato.decSedGen.departamento.dept_nombre} :: ${listdato.decSedGen.sedMunic.munic_nombre}
 									 		<input type="hidden" name="declaracion[].delca" value="${listdato.dec_id}"/>	  
 							 </td>
 								<td><fmt:formatDate
@@ -138,8 +138,8 @@
 														id="txtCantPeso" class="form-control sm-2"
 														value="${decaRes.der_gen_peso_residuo}" readonly></td>
 													<td id="btons">
-														<button type="button" onclick="editarRes(this)"
-															class="btn btn-success ti-pencil-alt"></button>
+														<button type="button" data-bs-status="read" id="btnedi" onclick="editar(this,event)"
+															class="btn btn-success fas fa-pencil-alt"></button>
 													</td>
 												</tr>
 

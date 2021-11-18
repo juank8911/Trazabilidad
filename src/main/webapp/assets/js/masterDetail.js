@@ -146,13 +146,50 @@ window.alert(che.length());
                
        return bancheck;
  }
+
+$(document).ready(function () {
+//	window.alert("doumemt ready")
+//	var i = 0;
+//	$('#btnedi').on('click', function (e) {
+//			e.preventDefault();
+//    		e.stopImmediatePropagation();
+//			window.alert(i + "propage");
+//	});
+//	
+//$('#btnedi').click(function(e) {
+//	window.alert("no on click")
+//			e.preventDefault();
+//    		e.stopImmediatePropagation();
+//			window.alert(i + "propage");
+//	});
+}); 
  
- 
- function editar(bt)
+ function editar(bt,e)
 {
-var trs = $(bt).parent().parent()
-$(bt).attr('class','btn btn-warning ti-save');
+	e.preventDefault();
+    e.stopImmediatePropagation();
+	var btn = bt;
+	var status =btn.getAttribute('data-bs-status') ;
+	
+//window.alert("antes /" + status);
+if(status == "read")
+{
+//window.alert(status + " /read");
+btn.setAttribute("data-bs-status", "write") ;
+var trs = $(btn).parent().parent()
+$(btn).attr('class','btn btn-warning fas fa-save');
 $("input", trs).removeAttr("readonly");
+//window.alert(status + " /cambio");
+}
+else
+//window.alert(status +" /write");
+//$(btn).attr('class','btn btn-success fas fa-pencil-alt');
+btn.setAttribute('data-bs-status', 'read') ;
+//window.alert(status+" /Cambio");
+{
+	
+}
+
 }
 
  
