@@ -17,7 +17,7 @@
                     <div class="row align-items-center">
                         <div class="col">
                             <div class="breadcrumbs-area">
-                                <div class="col-10">
+                                <div class="col-9">
                                 <h4 class="page-title pull-left">Panel de Control</h4>
                                 <ul class="breadcrumbs pull-left">
                                     

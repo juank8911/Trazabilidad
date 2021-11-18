@@ -38,7 +38,7 @@
 
 
 	<%@include file="../sidebarNavbar2.jsp"%>
-	<div class="col-10">
+	<div class="col-9">
 	<!-- main content area start -->
 
 	<!-- page title area start -->

@@ -14,7 +14,7 @@
 
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="col-10">
+	<div class="col-9">
 	<div class="row justify-content-md-center">
                             <h4 class="page-title pull-left">Crear Residuo</h4>
                             <ul class="breadcrumbs pull-left">

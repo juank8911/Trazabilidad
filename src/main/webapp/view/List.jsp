@@ -13,7 +13,7 @@
 
 	<!-- main content area start -->
 
-	<div class="col-10">
+	<div class="col-9">
 		<div class="row align-items-center">
 			<div class="col-sm-7">
 				<div class="breadcrumbs-area">

@@ -161,7 +161,7 @@
 				</div>
 				</div>
 
-			<div class='col-10' id='calendar-container'>
+			<div class='col-9' id='calendar-container'>
 			<p>Calendar</p>				
 				<div id='CalendarioResi'></div>
 			</div>

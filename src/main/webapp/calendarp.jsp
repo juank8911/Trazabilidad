@@ -347,7 +347,7 @@
 				</div>
 			</div>
 
-			<div class='col-10' id='calendar-container'>
+			<div class='col-9' id='calendar-container'>
 			<div class="alert alert-danger" id="alertErr" role="alert">
   			This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
 			</div>

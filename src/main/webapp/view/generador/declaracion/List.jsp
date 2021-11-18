@@ -37,7 +37,7 @@
 	
 	<script src="assets/js/masterDetailGene.js"></script>
 	<!-- main content area start -->
-	<div class="col-10">
+	<div class="col-9">
 
 		<!-- page title area start -->
 		<div class="row justify-content-md-center">
