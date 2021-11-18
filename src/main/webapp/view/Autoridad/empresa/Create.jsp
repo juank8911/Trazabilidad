@@ -26,7 +26,7 @@
 
                 <!-- page title area end -->
                 <!-- main content area inicio -->
-                <div class="row justify-content-md-center">>
+                <div class="row-10 justify-content-md-center">>
 			<form method="post" action="control?">
 				<div class="form-row">
 					<div class="form-group col-md-2">
@@ -58,7 +58,7 @@
 						<label for="example-text-input" class="col-form-label">CIUU:</label>
 					</div>
 					<div class="form-group col-md-4">
-						<select class="form-control is-valid" name="txtCiiu" required="">
+						<select class="form-control " name="txtCiiu" required="">
 							<c:forEach items="${listCiiu}" var="cii">
 								<option value="${cii.cii_id}">${cii.cii_id}/
 									${cii.cii_nombre}</option>
@@ -83,7 +83,7 @@
 						<label for="example-text-input" class="col-form-label">Municipio:</label>
 					</div>
 					<div class="form-group col-md-4">
-						<select class="form-control is-valid" name="txtMun" id="txtMun">
+						<select class="form-control " name="txtMun" id="txtMun">
 						</select>
 					</div>
 				</div>
