@@ -116,7 +116,7 @@
 													</select></td>
 													<td><input type="number" name="model[].txtCantEmb"
 														id="txtCantEmb" class="form-control"
-														value="${deca.der_gen_numero_embalajes}" readonly></td>
+														value="${deca.der_trn_numero_embalajes}" readonly></td>
 													<td><select id="tipEmpaque" class="form-select"
 														name="model[].tipEmpaque" class="form-select sm-2">
 															<option value="${deca.tipoEmpDecTrn.tep_id}" selected>${deca.tipoEmpDecTrn.tep_nombre}</option>
@@ -126,10 +126,10 @@
 													</select></td>
 													<td><input type="number" required name="model[].txtCantEmpq"
 														id="txtCantEmpq" class="form-control sm-2"
-														value="${deca.der_gen_numero_empaques}" readonly></td>
+														value="${deca.der_trn_numero_empaques}" readonly></td>
 													<td><input type="number" required name="model[].txtCantPeso"
 														id="txtCantPeso" class="form-control sm-2"
-														value="${deca.der_gen_peso_residuo}" readonly></td>
+														value="${deca.der_trn_peso_residuo2}" readonly></td>
 													<td id="btons">
 														<button type="button" onclick="editar(this)"
 															class="btn btn-success fas fa-pencil-alt"></button>
