@@ -141,8 +141,9 @@
 														id="txtCantPeso" class="form-control sm-2"
 														value="${decaRes.der_gen_peso_residuo}" readonly></td>
 													<td id="btons">
-														<button type="button" data-bs-status="read" id="btnedi" onclick="editar(this,event)"
-															class="btn btn-success fas fa-pencil-alt"></button>
+														<button type="button" data-bs-status="read" id="btnedi" 
+															class="btn btn-success fas fa-pencil-alt" data-stado="read"></button>
+<!-- 															onclick="editar(this,event)" -->
 													</td>
 												</tr>
 

@@ -14,6 +14,41 @@
 		modal.find('.modal-footer').append("<button type='button' id='rechasar'  class='btn btn-alert' data-url='controlTrans?action=declaTRNRechazar' data-id="+id+"  onclick='rechazar(this)'>Rechasar</button>");
      	})     
        });
+
+
+ $(document).ready(function () {
+		
+window.alert('prueba boton')
+		$('#btnedi').click(function(e) {
+				e.preventDefault();
+				e.stopImmediatePropagation();
+		var btn = $(this);
+		
+		var stado1 = btn.data('stado');
+		$(btn).removeAttr( "data-stado" );
+			
+		if(stado1=="read")
+		{
+			
+			$(btn).attr('data-stado','write');
+			var trs = $(btn).parent().parent()
+			$(btn).attr('class','btn btn-warning fas fa-save');
+			$("input", trs).removeAttr("readonly");
+		}
+		else if(stado1=="write")
+		{
+	
+			$(btn).attr('data-stado','read');
+			$(btn).attr('class','btn btn-success fas fa-pencil-alt');
+			$("input", trs).Attr("readonly");
+		}
+		else
+		{
+			console.log('fallo')
+		}
+				
+			})
+});
        
        
      function rechazar(btn){
@@ -147,29 +182,14 @@ window.alert(che.length());
        return bancheck;
  }
 
-$(document).ready(function () {
-//	window.alert("doumemt ready")
-//	var i = 0;
-//	$('#btnedi').on('click', function (e) {
-//			e.preventDefault();
-//    		e.stopImmediatePropagation();
-//			window.alert(i + "propage");
-//	});
-//	
-//$('#btnedi').click(function(e) {
-//	window.alert("no on click")
-//			e.preventDefault();
-//    		e.stopImmediatePropagation();
-//			window.alert(i + "propage");
-//	});
-}); 
- 
+
  function editar(bt,e)
 {
 	e.preventDefault();
     e.stopImmediatePropagation();
 	var btn = bt;
 	var status =btn.getAttribute('data-bs-status') ;
+	btn.removeAttr(data-bs-status);
 	
 //window.alert("antes /" + status);
 if(status == "read")
@@ -223,6 +243,9 @@ $('#submit').click(function(){
    
    
  });
+
+
+
  
  $(document).ready(function () {
 	
