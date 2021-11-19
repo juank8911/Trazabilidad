@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 
+import co.gov.ideam.sdstrp.controller.DashDao;
 import co.gov.ideam.sdstrp.controller.ResiduoDAO;
 import co.gov.ideam.sdstrp.util.BooleanTypeAdapter;
 import co.gov.ideam.sdstrp.util.ResiduosAdapter;
@@ -47,6 +48,8 @@ public class ResiduosServlet extends HttpServlet {
     private ResiduoDAO resDAO;
     
     @Inject
+    private DashDao dasDAO;
+    @Inject
     private Logger log;
     
     @Inject
@@ -68,13 +71,24 @@ public class ResiduosServlet extends HttpServlet {
 			break;
 			
 		default:
+		case "dashAut":
+			this.dashAut(request, response,sesion);
 			break;
 		}
 	}
     
     
     
-    private void updateRes(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) throws Exception {
+    private void dashAut(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) {
+		// TODO Auto-generated method stub
+    	int idSede = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
+    	das
+		
+	}
+
+
+
+	private void updateRes(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) throws Exception {
 		// TODO Auto-generated method stub
     		int idr = Integer.parseInt(String.valueOf(request.getParameter("emp_id")));
 			int id = Integer.parseInt(String.valueOf(request.getParameter("res_id")));

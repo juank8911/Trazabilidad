@@ -282,7 +282,7 @@ public class ControlGestor extends HttpServlet {
                 
                 break;
             case "declaGESRechsa":
-            	ruta = "view/gestor/finalzacion/List.jsp";
+            	ruta = "ControlGestor?action=finalizaListaGestor";
     			if (sesion.getAttribute("perfil") == null) {
     				ruta = "view/login.jsp";
     	               this.gestor(request, response, ruta);
@@ -788,15 +788,16 @@ public class ControlGestor extends HttpServlet {
     private void ordenarDash(HttpSession sesion) {
 		// TODO Auto-generated method stub
 		List<Tuple> dshi = dasDao.getConDashTrn();
+		log.info(dshi.size()+"");
 		if(!dshi.isEmpty())
 		{
 		for (Tuple dsh : dshi) {
 			sesion.setAttribute("dashEnviadasGes", dsh.get(0)==null ? 0 : dsh.get(0));
 		  sesion.setAttribute("dashNoEnviadasGes", dsh.get(1)==null ? 0 : dsh.get(1));
-		   sesion.setAttribute("dashAprovadasGes", dsh.get(2)==null ? 0 : dsh.get(2));
-		  sesion.setAttribute("dashRechasadasGes", dsh.get(3)==null ? 0 : dsh.get(3));
-		 sesion.setAttribute("dashFinalizadasGes", dsh.get(4)==null ? 0 : dsh.get(4));
-			sesion.setAttribute("dashRechaGesGes", dsh.get(5)==null ? 0 : dsh.get(5));
+		  sesion.setAttribute("dashAprovadasGes", dsh.get(2)==null ? 0 : dsh.get(2));
+		  sesion.setAttribute("dashRechasadas", dsh.get(3)==null ? 0 : dsh.get(3));
+		  sesion.setAttribute("dashFinalizadasGes", dsh.get(4)==null ? 0 : dsh.get(4));
+		  sesion.setAttribute("dashRechasadasGes", dsh.get(5)==null ? 0 : dsh.get(5));
 			sesion.setAttribute("dashProgramaGes", dsh.get(6)==null ? 0 : dsh.get(6));			
 		}	
 		}

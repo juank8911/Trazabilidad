@@ -1,19 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-
-<demo:header />
-<title>sdstrp - Listado de Finalizacion</title>
-<!-- amchart css -->
+<demo:header/>
+<title>sdstrp - Listado de finalizacion</title>
+<link rel="stylesheet" href="assets/css/masterDetail.css">
+<script src="assets/js/masterDetailGes.js"></script>
 <link rel="stylesheet"
 	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
 	type="text/css" media="all" />
-<!-- others css -->
-<script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
-<link rel="stylesheet" href="assets/css/masterDetail.css">
-<script src="assets/js/masterDetailGes.js"></script>
 </head>
 
 <body>
@@ -78,10 +76,8 @@
 										timeStyle="none" dateStyle="long" /></td>
 								<td>${fn:length(listdato.declaracion_res)}</td>
 								<td id="btons">
-									<button type="button" class="btn btn-danger fas fa-trash" data-
-										data-id="${listdato.dec_id}"
-										data-fecha="${listdato.prog_dec.pro_fecha_inicial}"
-										data-toggle="modal" data-target="#modalRhGe"></button>
+									<button type="button" class="btn btn-danger fas fa-trash" data-bs-id="${listdato.dec_id}" data-bs-fecha="${listdato.prog_dec.pro_fecha_inicial}" data-toggle="modal" data-target="#modalRhGe">
+									</button>
 								</td>
 							</tr>
 							<tr class="itemsRow">
@@ -238,29 +234,28 @@
 
 			<!-- Modale Rechasar decaracion -->
 
-
-			<div class="modal fade bd-example-modal-sm" id="modalRhGe"
-				tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-				aria-hidden="true">
-
-				<div class="modal-dialog modal-sm">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Rechasar
-								Declaracion</h5>
-						</div>
-						<div class="modal-body">
-								<p>Al !RECHASAR! la declaracion la informacion reportada no
-									estara disponible para futuras modificaciones. Si esta seguro
-									haga clic en "Rechasar" de lo contrario clic en "Cancelar"</p>
-						</div>
-						<div class="modal-footer"></div>
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        				<button type="button" id="btnModRech" class="btn btn-danger">Rechasar</button>
-					</div>
-				</div>
-
+	<div class="modal fade bd-example-modal-sm" id="modalRhGe" tabindex="-1" role="dialog" aria-hidden="true">
+	 
+  	<div class="modal-dialog modal-sm">
+    	<div class="modal-content">
+    	<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Rechasar Declaracion</h5>
+        </div>
+      		<div class="modal-body">
+      		
+				<p>Al !RECHASAR! la declaracion la informacion reportada no estara
+				disponible para futuras modificaciones. Si esta seguro haga clic
+				en "Rechasar" de lo contrario clic en "Cancelar"</p>
+			 
 			</div>
+			<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        				<button type="button" id="btnModRech" class="btn btn-danger">Rechasar</button>
+			</div>		
+    </div>
+  </div>
+
+</div>
 
 			<!-- Modal Enviar Declaracion -->
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
