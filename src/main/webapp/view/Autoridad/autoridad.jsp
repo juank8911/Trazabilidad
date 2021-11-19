@@ -78,9 +78,9 @@
                                 </div>
                             </div>
                              <div class="row">
-                                        <div id="chartjs-radar">
-  										<canvas id="canvas"></canvas>
-										</div>
+<!--                                         <div id="chartjs-radar"> -->
+<!--   										<canvas id="canvas"></canvas> -->
+<!-- 										</div> -->
                                 	 <canvas id="marksChart" width="60%" height="40%"></canvas>
                                 </div>
                         </div>
