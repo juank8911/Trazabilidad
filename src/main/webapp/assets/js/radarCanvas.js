@@ -1,3 +1,20 @@
+var stock = [];
+$(document).ready(function() {
+    $.ajax({
+        url: "/trazabilidad/residuosServlet?action=dashAut",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        method: "GET",
+        success: function(data) {
+            console.log(data);
+
+            for (var i in data) {
+                stock.push(data[i]);   
+         		}
+}
+});
+});
+
 window.chartColors = {
   red: 'rgb(255, 99, 132)',
   orange: 'rgb(255, 159, 64)',
@@ -24,34 +41,22 @@ var label1 =moment.duration(dataTime1.diff(now)).humanize(true);
 var label2 =moment.duration(dataTime2.diff(now)).humanize(true);
 var label3 =moment.duration(dataTime3.diff(now)).humanize(true);
 
+
+
 var color = Chart.helpers.color;
 var config = {
   type: 'radar',
   data: {
     labels: [
-      "Happiness", "Loneliness", "Health","Managing at Home", "Finances", "Work","Relationships", "Exercise", "Volunteer", "Attitude"],
+      "Aprovadas", "No Aprovadas", "No enviadas","Aprovadas tran", "rechazadas trans", "Aprovadas Ges","Rechasadas Ges", "bbb"],
     datasets: [{
       label: label1,
       backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
       borderColor: window.chartColors.red,
       pointBackgroundColor: window.chartColors.red,
-      data: [8,1,5,2,4,10,0,0,3],
+      data: stock,
       notes: ["I am pretty happy","I am isolated","none","none","none","none","none","none"]
-    }, {
-      label: label2,
-      backgroundColor: color(window.chartColors.blue).alpha(0.2).rgbString(),
-      borderColor: window.chartColors.blue,
-      pointBackgroundColor: window.chartColors.blue,
-      data: [10,3,4,3,5,8,7],
-      notes: ["Joined social club","none","none","none","none","Was late one day","Just broke up"]
-    },{
-      label: label3,
-      backgroundColor: color(window.chartColors.purple).alpha(0.2).rgbString(),
-      borderColor: window.chartColors.purple,
-      pointBackgroundColor: window.chartColors.purple,
-      data: [0,0,1,0,0,1,0,1,2,6],
-      notes: ["none","none","none","none","Won at bingo","none","none","Leg week", "Fed the poor", "Positive Mental Attitude"]
-    } ]
+    }]
   },
   options: {
     legend: {

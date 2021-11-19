@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
+import javax.persistence.Tuple;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +23,7 @@ import com.google.gson.JsonArray;
 import co.gov.ideam.sdstrp.controller.DashDao;
 import co.gov.ideam.sdstrp.controller.ResiduoDAO;
 import co.gov.ideam.sdstrp.util.BooleanTypeAdapter;
+import co.gov.ideam.sdstrp.util.DashDaoAdapter;
 import co.gov.ideam.sdstrp.util.ResiduosAdapter;
 
 import co.gov.ideam.sdstrp.model.DeclaracionResiduo;
@@ -54,6 +56,9 @@ public class ResiduosServlet extends HttpServlet {
     
     @Inject
     private ResiduosAdapter resAd;
+    
+    @Inject
+    private DashDaoAdapter dasAdp;
 	
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, Exception {
@@ -79,10 +84,25 @@ public class ResiduosServlet extends HttpServlet {
     
     
     
-    private void dashAut(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) {
+    private void dashAut(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) throws IOException {
 		// TODO Auto-generated method stub
+    	JsonArray jsArr = new JsonArray();
     	int idSede = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
-    	das
+    	dasDAO.declaracionDeAut(idSede);
+    	Tuple declasAu =  (Tuple) dasDAO.getDeclarAut();
+    	final Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").registerTypeAdapter(Residuos.class, new BooleanTypeAdapter()).create();
+	    response.setContentType("application/json");
+	    log.info(declasAu+"");
+	    if(!declasAu.equals("null"))
+	    {
+		    jsArr = dasAdp.adaDashAut(declasAu);
+		    response.getWriter().write( gson.toJson(jsArr));
+	    }
+	    else {
+	    	
+	    	response.getWriter().write( gson.toJson(jsArr));
+	    }
+
 		
 	}
 
