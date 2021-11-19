@@ -22,7 +22,7 @@
 		<!-- page title area end -->
 		<!-- main content area inicio -->
 
-<div class="row justify-content-md-center">
+<div class="row-9 justify-content-md-center">
 
 				<table id="grid">
     <colgroup>
@@ -31,7 +31,7 @@
         <col />
     </colgroup>
     <thead id="verde">
-        <tr>
+        <tr id="verde">
            <th data-field="dec_id" >Numero de Declaracion </th>                    
 			<th data-field="dec_gen_fecha_trn" > Fecha de Envio</th>                          
 			<th data-field="der_gen_cor" > Corriente Reciduo</th>                        
@@ -71,10 +71,10 @@
                             		<c:when test="${dato.dec_gen_aprobada == 'A' && dato.dec_trn_aprobada == 'N'}">
                             		<td scope="row" rowspan="${dato.declaracion_res.size()}">Enviada</td>
                             		</c:when>
-                            		</c:choose>
-                            		</td>
-                          </tr>		
+                            		</c:choose>	
+                          		
                             </c:if>
+                            
                             <c:if test="${loop.index != 0}">
                             <tr>
                             		<td> ${dere.der_gen_tipo_residuo}</td>
@@ -84,7 +84,7 @@
                             </tr>		
                             </c:if>
                             </c:forEach>
-
+							</tr>
                         </c:forEach>
     </tbody>
     

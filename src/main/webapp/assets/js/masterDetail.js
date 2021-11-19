@@ -18,7 +18,7 @@
 
  $(document).ready(function () {
 		
-window.alert('prueba boton')
+
 		$('#btnedi').click(function(e) {
 				e.preventDefault();
 				e.stopImmediatePropagation();
