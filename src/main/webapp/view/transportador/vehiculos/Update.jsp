@@ -10,7 +10,7 @@
     <body>
         <%@include file ="../sidebarNavbar2.jsp" %>
        
-        <div class="col-9">
+        <div class="col-9 ml-5">
             <!-- main content area start -->
            
 

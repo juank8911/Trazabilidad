@@ -224,7 +224,57 @@ $('#submit').click(function(){
    
  });
  
- 
+ $(document).ready(function () {
+	
+	$('#modalRhGe').on('show.bs.modal', function (event) {
+		console.log('vista modal datos');
+		var button = $(event.relatedTarget)
+		var id1 = button.data('bs-id');
+		console.log(id1);
+		var fecha =  button.data('bs-fecha');
+		console.log(fecha);
+		var envio = document.getElementById("btnModRech");
+		 envio.setAttribute("data-id", id1);
+		 envio.setAttribute("data-fecha", fecha);
+	console.log(id1 + " / "+ fecha);
+		})
+		
+
+		$('#btnModRech').click(function(e) {
+			e.preventDefault();
+        	e.stopImmediatePropagation();
+var tiempoTranscurrido = Date.now();
+var hoy = new Date(tiempoTranscurrido);
+				hoy = hoy.toISOString();
+				var button = $(this);
+				var id = button.data('id');
+				console.log(id);
+				var fecha =  button.data('fecha');
+				
+		$.ajax({
+            type: 'POST',
+            url: 'controlTrans?action=declaTRNRechazar',
+            data: {'idDec': id, 'fecha':fecha,'hoy':hoy},
+            statusCode: {
+                404: function () {
+                    alert('pagina no encontrada');
+                },
+                500: function () {
+                    alert('Error servidor');
+                }
+            },
+            success: function (datos) {
+            location.reload();
+				$('#modalRhGe').modal(toggle)	
+            }
+
+        });
+				
+		});
+		
+		
+});
+
  
  
        $(document).ready(function () {  

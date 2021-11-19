@@ -20,7 +20,7 @@
         
         <%@include file ="../sidebarNavbar2.jsp" %>
            
-				<div class="col-9">
+				<div class="col-9 ml-5">
                 <!-- page title area start -->
                 <div class="row-10">
                     <div class="row align-items-center">

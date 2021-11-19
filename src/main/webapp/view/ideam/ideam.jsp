@@ -13,7 +13,7 @@
         <%@include file ="sidebarNavbar2.jsp" %>
             <!-- main content area start -->
             
-            <div class="col-9">
+            <div class="col-9 ml-5">
             		<div class="main-content">
 
                 <!-- page title area start -->

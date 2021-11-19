@@ -42,22 +42,16 @@
 
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col-9">
+            <div class="col-9 ml-5">
 
-                <!-- page title area start -->
-                <div>
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Listado de declaraciones </h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>de residuos </span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                </div>
+
+				<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Listado de declaraciones</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">de residuos</span></li>
+                            </ul>
+            			</div>
+
 
                 <!-- main content area inicio -->
 

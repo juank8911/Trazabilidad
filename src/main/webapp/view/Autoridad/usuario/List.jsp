@@ -13,29 +13,23 @@
        
             <!-- sidebar menu area end -->
             <!-- main content area start -->
-            <div class="col">
+            <div class="col-9 ml-5">
+            
+            <div class="row justify-content-md-center">
+					<div class="col-sm-6">
+                            <h4 class="page-title pull-left">Listado de Usuarios</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">Registrados en el sistema de informacion</span></li>
+                            </ul>
+                            </div>
+            		
+				<!-- FIN DE MENU  -->
+			</div>
 
                 <!-- page title area start -->
-                <div clasas="row">
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Listado de Usuarios</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>Registrados en el sistema de informacion</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                </div>
                 <!-- page title area end -->
-                <div class="row">
-                    <!-- table success start -->
-
-              
-                           
-                           			<kendo:grid name="usuario"  pageable="true" groupable="true" columnMenu="true" width="99%">
+                <div class="row justify-content-md-center">
+                    <kendo:grid name="usuario"  pageable="true" groupable="true" columnMenu="true" width="99%">
                            				<kendo:grid-toolbar>
                            					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
                            				</kendo:grid-toolbar>
@@ -203,7 +197,7 @@
                 <!-- main content area end -->
                 <!-- footer area start-->
                 
-               <demo:footer/>
+        <demo:footer/>
     </body>
 
 </html>

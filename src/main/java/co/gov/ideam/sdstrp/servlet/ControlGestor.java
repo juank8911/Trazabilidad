@@ -281,6 +281,16 @@ public class ControlGestor extends HttpServlet {
     			}
                 
                 break;
+            case "declaGESRechsa":
+            	ruta = "view/gestor/finalzacion/List.jsp";
+    			if (sesion.getAttribute("perfil") == null) {
+    				ruta = "view/login.jsp";
+    	               this.gestor(request, response, ruta);
+    			} else {
+    				this.declaGesRechazar(request, response, ruta);
+    			}
+            	
+            	break;
             case "declaGESAprobar":
             	ruta = "view/gestor/autorizaciones/List.jsp";
             	String[] check = request.getParameterValues("prCheck[]");
@@ -954,6 +964,28 @@ public class ControlGestor extends HttpServlet {
         declaDAO.getListaDeclaracionGes(coTransP);   
         dis = request.getRequestDispatcher(ruta);
         dis.forward(request, response);
+    }
+    
+    
+    protected void declaGesRechazar(HttpServletRequest request, HttpServletResponse response, String ruta)
+            throws Exception {
+    	PrintWriter out = response.getWriter();
+    	StringBuilder sb = new StringBuilder("");
+//        int id = Integer.parseInt(request.getParameter("id_decla"));
+//        declaDAO.rechazaDeclaTrans(id);
+    	log.info(request.getParameterNames()+"");
+    	int idD= Integer.parseInt(String.valueOf(request.getParameter("idDec")));
+    	
+    	log.info(idD+"");
+    	Declaracion decla =	em.find(Declaracion.class, idD);
+    	decla.setDec_ges_aprobada("R");
+    	java.util.Calendar fecha = java.util.Calendar.getInstance();
+    	decla.setDec_trn_fecha_ent(fecha.getTime());
+    	request.setAttribute("infoMessage", " Se Rechaso la declaracion correctamente");
+    	int coTransP = (int)request.getSession().getAttribute("idSede"); // llamar la variable de session
+        declaDAO.updateDeclaRe(decla);
+        declaDAO.getListaDeclaracionGes(coTransP);
+    	this.gestor(request, response, ruta);
     }
     
     protected void finalizaAprobGestor(HttpServletRequest request, HttpServletResponse response, String ruta)

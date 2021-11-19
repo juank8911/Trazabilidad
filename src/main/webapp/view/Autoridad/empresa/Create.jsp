@@ -15,7 +15,7 @@
         <!-- preloader area start -->
        <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col-9">
+            <div class="col-9 ml-5">
 
 					<div class="row justify-content-md-center">
                             <h4 class="page-title pull-left">Crear empresas</h4>
@@ -136,7 +136,7 @@
 					<div class="form-group col-2">
 						<label for="validationCustom01">Nombre Representante:</label>
 					</div>
-					<div class="form-group col-9">
+					<div class="form-group col-9 ml-5">
 						<input type="text" name="txtRepr" class="form-control"
 							id="txtRepr" required="">
 					</div>

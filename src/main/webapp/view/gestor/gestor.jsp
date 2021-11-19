@@ -8,7 +8,7 @@
     <body>
        <%@include file ="sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="col-9">
+            <div class="col-9 ml-5">
 					                		<div class="row justify-content-md-center">
                             <h4 class="page-title pull-left">Panel de Control</h4>
                             <ul class="breadcrumbs pull-left">
@@ -63,7 +63,7 @@
                       
 												<div class="col mt-4">
 
-                                                        <div class="row mt-4">
+                                                        <div class="row">
                                                             <div class="card">
                                                                 <div class="seo-fact sbg3">
                                                                     <div class="p-3 d-flex justify-content-between align-items-center">
@@ -75,17 +75,6 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="row mt-4">
-                                                            <div class="card">
-                                                                <div class="seo-fact sbg3">
-                                                                    <div class="p-3 d-flex justify-content-between align-items-center">
-                                                                        <div class="seofct-icon"><i class="fas fa-truck-moving"></i>Rechazadas Transportador</div>
-                                                                        <h2>${dashRechasadas}</h2>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
 
                                                         <div class="row mt-4">
                                                             <div class="card">
@@ -121,55 +110,7 @@
             			
             			
 
-                <!-- page title area end -->
-   <div class="row justify-content-md-center">
-                
-                        <!-- seo fact area start -->
-                        <div class="col-lg-10 mt-4">
-                            <div class="row">
 
-                                
-
-                                <div class=" col-3">
-                                    <div class="card">
-                                        <div class="seo-fact sbg2">
-                                            <div class="p-3 d-flex justify-content-between align-items-center">
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-10 mt-3">
-                                <div class="row">
-                                                                
-                                <div class="col-3 mt-1">
-                                    <div class="card">
-                                        <div class="seo-fact sbg3">
-                                            <div class="p-3 d-flex justify-content-between align-items-center">
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-3 mt-1">
-                                    <div class="card">
-                                        <div class="seo-fact sbg3">
-                                            <div class="p-3 d-flex justify-content-between align-items-center">
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                                </div>
-                        </div>
                         <!-- seo fact area end -->
 
 

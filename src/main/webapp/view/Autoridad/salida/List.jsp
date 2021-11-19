@@ -1,234 +1,162 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+<demo:header />
+<title>sdstrp - Residuo</title>
+</head>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>sdstrp - Declaracion</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/themify-icons.css">
-        <link rel="stylesheet" href="assets/css/metisMenu.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/slicknav.min.css">
-        <link rel="stylesheet" href="assets/css/coloresInst.css">
-        <!-- amchart css -->
-        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-        <!-- others css -->
-        <link rel="stylesheet" href="assets/css/typography.css">
-        <link rel="stylesheet" href="assets/css/default-css.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        <!-- modernizr css -->
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
+<body>
 
-    <body>
-        <%@include file ="../sidebarNavbar2.jsp" %>
-            <!-- main content area start -->
-            <div class="main-content">
-               
+	<%@include file="../sidebarNavbar2.jsp"%>
+	<!-- main content area start -->
+	<div class="col-9 ml-5">
 
-                <!-- page title area start -->
-                <div>
-                    
-                    <form class="form-inline form-control">
-                        
-                        <div class="input-group col-4">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01">Filtrar por: </label>
-                        </div>
-                        <select class="custom-select" id="inputGroupSelect01">
-                            <option selected>Seleccione...</option>
-                            <option value="1">Fecha en la que la declaraci贸n fue marcada como enviada por el generador</option>
-                            <option value="2">Fecha de entrega de los residuos al transportador declarada por el generador</option>
-                            <option value="3">Fecha de recogida de residuos declarada por el transportador</option>
-                            <option value="4">Fecha en la que la declaraci贸n fue marcada como aprobada por el transportador</option>
-                            <option value="5">Fecha de entrega de los resituos al gestor declarada por el transportador</option>
-                            <option value="6">Fecha de recepci贸n de los residuos declarada por el gestor</option>
-                            <option value="7">Fecha en la que la declaraci贸n fue maracada como finalizada por el gestor</option>
-                        </select>
-                        </div> 
-             
-                        <label for="inlineFormInputGroup" class="col-1">Desde</label>
-                        
-                            <input class="form-control" type="date" value="2020-08-19" id="example-date-input">
-                        
-                        <label for="inlineFormInputGroup" class="col-1">Hasta</label>
-                        
-                            <input class="form-control" type="date" value="2020-08-19" id="example-date-input">
-                        <button type="submit" class="btn btn-success">Buscar</button>
-                        </form>
-                    
-                        
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Listado Salidas</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span>de informacion.</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                    
-                </div>
-                <!-- page title area end -->
-                    <!-- table success start -->
-                            <br />
+		<!-- page title area start -->
+		<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Salidas</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">en el sistema de informaci髇</span></li>
+                            </ul>
+            			</div>
+		<!-- page title area end -->
+		<!-- main content area inicio -->
+
+<div class="row justify-content-md-center">
+
+				<table id="grid">
+    <colgroup>
+        <col style="width:100px" />
+        <col style="width:200px" />
+        <col />
+    </colgroup>
+    <thead id="verde">
+        <tr>
+           <th data-field="dec_id" >Numero de Declaracion </th>                    
+			<th data-field="dec_gen_fecha_trn" > Fecha de Envio</th>                          
+			<th data-field="der_gen_cor" > Corriente Reciduo</th>                        
+			<th data-field="dec_ges_peso" > Peso Decalarado <br />por el Generdaor</th>    
+			<th data-field="tRes" >Transportador<br /></th>                       
+			<th data-field="dec_trn_fecha_rec" >Fecha de<br /> recoleccion</th>                
+			<th data-field="dec_trn_peso" >peso declarado <br/> transportador</th>                      
+			<th data-field="sed_nombre" >Gestor</th>                              
+			<th data-field="dec_gen_fecha_ges" >Fecha de Recepcion<br /> por el Generador </th>
+			<th data-field="tRes" >Peso recibido por<br /> el Gestor</th>         
+			<th data-field="pesoGen">Estado</th>                                    
+        </tr>
+    </thead>
+    <tbody>
+                        <c:forEach var="dato" items="${listDeclaSal}">
+                        <tr>
+                        	
+                            <td scope="row" rowspan="${dato.declaracion_res.size()}">${dato.dec_id}</td>
+                            <td scope="row" rowspan="${dato.declaracion_res.size()}" >${dato.dec_gen_fecha_gen}</td>
+                           
                             
-                            <div class="text-uppercase bg-success mb-3">
-                           <button type="button" class="fa fa-newspaper-o btn btn-success"> Columnas</button>
-                           <button type="button" class="fa fa-floppy-o btn btn-success">Exportar</button>
-                           </div>
-                            
-                                    <table id="dTabla">
-                                        <thead >
-                                            <tr>
-                                                <th scope="col" colspan="7">Generador</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Declaracion</th>
-                                                <th scope="row">Empresa</th>
-                                                <th scope="row">Nombre</th>
-                                                <th scope="row">Direccion</th>
-                                                <th scope="row">Tipo</th>
-                                                <th scope="row">Fecha</th>
-                                                <th scope="row">Opciones</th>
-                                                
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Declaracion hecha </td>
-                                                <td>Empresa registrada</td>
-                                                <td>Nombre empresa</td>
-                                                <td>Direccion empresa</td>
-                                                <td>Tipo Residuo </td>
-                                                <td>01/01/2020 </td>
-                                                <td><button type="button" class="btn btn-success btn-xs ti-search"></button>
-                                                    
-                                                <button type="button" class="btn btn-success btn-xs ti-pencil"></button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    </br>
-                                    <table id="dTabla">
-                                        <thead >
-                                            <tr>
-                                                <th scope="col" colspan="7">Transportador</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Declaracion</th>
-                                                <th scope="row">Empresa</th>
-                                                <th scope="row">Nombre</th>
-                                                <th scope="row">Direccion</th>
-                                                <th scope="row">Tipo</th>
-                                                <th scope="row">Fecha</th>
-                                                <th scope="row">Opciones</th>
-                                                
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Declaracion hecha </td>
-                                                <td>Empresa registrada</td>
-                                                <td>Nombre empresa</td>
-                                                <td>Direccion empresa</td>
-                                                <td>Tipo Residuo </td>
-                                                <td>01/01/2020 </td>
-                                                <td><button type="button" class="btn btn-success btn-xs ti-search"></button>
-                                                    
-                                                <button type="button" class="btn btn-success btn-xs ti-pencil"></button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    </br>
-                                    <table id="dTabla">
-                                        <thead >
-                                            <tr>
-                                                <th scope="col" colspan="7">Gestor</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Declaracion</th>
-                                                <th scope="row">Empresa</th>
-                                                <th scope="row">Nombre</th>
-                                                <th scope="row">Direccion</th>
-                                                <th scope="row">Tipo</th>
-                                                <th scope="row">Fecha</th>
-                                                <th scope="row">Opciones</th>
-                                                
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Declaracion hecha </td>
-                                                <td>Empresa registrada</td>
-                                                <td>Nombre empresa</td>
-                                                <td>Direccion empresa</td>
-                                                <td>Tipo Residuo </td>
-                                                <td>01/01/2020 </td>
-                                                <td><button type="button" class="btn btn-success btn-xs ti-search"></button>
-                                                    
-                                                <button type="button" class="btn btn-success btn-xs ti-pencil"></button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    </br>
-                                    <button class="btn btn-success" type="submit"><a href="control?action=autoridad" class="text-white">Cancelar</a></button>
-                              
-                   
+                                                 
+                            <c:forEach items="${dato.declaracion_res}" var="dere" varStatus="loop">
+                            <c:if test="${loop.index == 0}">
+                            		<td> ${dere.der_gen_tipo_residuo} -- </td>
+                            		<td>${dere.der_gen_peso_residuo}</td>
+                            		<td scope="row" rowspan="${dato.declaracion_res.size()}">${dato.decSedTran.sed_nombre}</td>
+                            		<td scope="row" rowspan="${dato.declaracion_res.size()}"><fmt:formatDate value="${dato.dec_trn_fecha_trn}" 	timeStyle="none" dateStyle="long" /></td>
+                            		<td scope="row" >${dere.der_trn_peso_residuo2}</td>
+                            		<td scope="row" rowspan="${dato.declaracion_res.size()}">${dato.decSedGes.sed_nombre}</td>
+                            		<td scope="row" rowspan="${dato.declaracion_res.size()}"><fmt:formatDate value="${dato.dec_ges_fecha_ent}" 	timeStyle="none" dateStyle="long" /></td>
+                            		<td scope="row" >${dere.der_ges_peso_residuo2}</td>
+                            		<c:choose>
+                            		<c:when test="${dato.dec_gen_aprobada == 'N'}">
+                            		<td scope="row" rowspan="${dato.declaracion_res.size()}">No Enviada</td>
+                            		</c:when>
+                            		<c:when test="${dato.dec_gen_aprobada == 'A' && dato.dec_trn_aprobada == 'N'}">
+                            		<td scope="row" rowspan="${dato.declaracion_res.size()}">Enviada</td>
+                            		</c:when>
+                            		</c:choose>
+                            		</td>
+                          </tr>		
+                            </c:if>
+                            <c:if test="${loop.index != 0}">
+                            <tr>
+                            		<td> ${dere.der_gen_tipo_residuo}</td>
+                            		<td>${dere.der_gen_peso_residuo}</td>
+                            		<td scope="row" >${dere.der_trn_peso_residuo2}</td>
+                            		<td scope="row" >${dere.der_ges_peso_residuo2}</td>
+                            </tr>		
+                            </c:if>
+                            </c:forEach>
 
-                    <!-- table success end -->
-                <!-- main content area end -->
-                <!-- footer area start-->
-                <footer>
-                    <div class="footer-area">
-                        <p>Copyright 庐 2020 <a href="http://www.ideam.gov.co/">IDEAM.</a>Todos los derechos reservados.</p>
-                    </div>
-                </footer>
-                <!-- footer area end-->
-            </div>
-            <!-- page container area end -->
+                        </c:forEach>
+    </tbody>
+    
+    
+</table>
+		</div>
+		<!-- main content area end -->
+<script type="text/javascript">
+// $(document).ready(function() {
+// $("#grid").kendoGrid({
 
-            <!-- jquery latest version -->
-            <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
-            <!-- bootstrap 4 js -->
-            <script src="assets/js/popper.min.js"></script>
-            <script src="assets/js/bootstrap.min.js"></script>
-            <script src="assets/js/owl.carousel.min.js"></script>
-            <script src="assets/js/metisMenu.min.js"></script>
-            <script src="assets/js/jquery.slimscroll.min.js"></script>
-            <script src="assets/js/jquery.slicknav.min.js"></script>
+//     columns: [
+//         {
+//             field: "dec_id",
+//             filterable: true,
+//         },
+//         {
+//             field: "dec_gen_fecha_trn",
+//             filterable: false,
+//         },
+//         {
+//             field: "der_gen_cor",
+//             filterable: false,
+//         },
+//         {
+//             field: "dec_ges_peso",
+//             filterable: false,
+//         },
+//         {
+//             field: "tRes",
+//             filterable: false,
+//         },
+//         {
+//             field: "dec_trn_fecha_rec",
+//             filterable: false,
+//         },
+//         {
+//             field: "dec_trn_peso",
+//             filterable: false,
+//         },
+//         {
+//             field: "sed_nombre",
+//             filterable: false,
+//         },
+//         {
+//             field: "dec_gen_fecha_ges",
+//             filterable: false,
+//         },
+//         {
+//             field: "tRes",
+//             filterable: false,
+            
+//         },
+//         {
+//             field: "pesoGen",
+//             filterable: false,
+            
+//         }
 
-            <!-- start chart js -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-            <!-- start highcharts js -->
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <!-- start zingchart js -->
-            <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-            <script>
-                zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-                ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
-            </script>
-            <!-- all line chart activation -->
-            <script src="assets/js/line-chart.js"></script>
-            <!-- all pie chart -->
-            <script src="assets/js/pie-chart.js"></script>
-            <!-- others plugins -->
-            <script src="assets/js/plugins.js"></script>
-            <script src="assets/js/scripts.js"></script>
+        
+//     ]
+// });
+// });
+</script>
 
-    </body>
+	</div>
+		<!-- main content area end -->
+	<!-- footer area start-->
+	<demo:footer />
+	;
+</body>
 
 </html>
+
+

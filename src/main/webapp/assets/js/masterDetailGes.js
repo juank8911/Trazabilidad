@@ -2,20 +2,20 @@
  * 
  */
   
-      $(document).ready(function () {
-      $('#modalRhGe').on('show.bs.modal', function (event) {
-	     var button = $(event.relatedTarget) // Button that triggered the modal
-	     var id = button.data('id');
-	     var fecha = button.data('fecha');
-	     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-	     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-	     var modal = $(this)
-	     modal.find('.modal-title').append();
-	     modal.find('#formDeRe','.modal-body').append("<input type='text' value="+id+" name='rechasa' />");
-	     modal.find('.modal-footer').append("<button type='button'  class='btn btn-secondary' data-dismiss='modal'>Close</button>");
-		modal.find('.modal-footer').append("<button type='button' id='rechasar'  class='btn btn-alert' data-url='ControlGestor?action=finalizaRechazaGestor' data-id="+id+"  onclick='rechazar(this)'>Rechasar</button>");
-     	})     
-       });
+//      $(document).ready(function () {
+//      $('#modalRhGe').on('show.bs.modal', function (event) {
+//	     var button = $(event.relatedTarget) // Button that triggered the modal
+//	     var id = button.data('id');
+//	     var fecha = button.data('fecha');
+//	     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+//	     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+//	     var modal = $(this)
+//	     modal.find('.modal-title').append();
+//	     modal.find('#formDeRe','.modal-body').append("<input type='text' value="+id+" name='rechasa' />");
+//	     modal.find('.modal-footer').append("<button type='button'  class='btn btn-secondary' data-dismiss='modal'>Close</button>");
+//		modal.find('.modal-footer').append("<button type='button' id='rechasar'  class='btn btn-alert' data-url='ControlGestor?action=finalizaRechazaGestor' data-id="+id+"  onclick='rechazar(this)'>Rechasar</button>");
+//     	})     
+//       });
        
        
      function rechazar(btn){
@@ -38,7 +38,62 @@
             }
 
         });
-     }
+     };
+
+$(document).ready(function () {
+	
+	window.alert('funvtion')
+	$('#modalRhGe').on('show.bs.modal', function (event) {
+		window.alert('alert')
+		console.log('vista modal datos');
+		var button = $(event.relatedTarget)
+		var id1 = button.data('id');
+		console.log(id1);
+		var fecha =  button.data('fecha');
+		console.log(fecha);
+		var envio = document.getElementById("btnModRech");
+		 envio.setAttribute("data-id", id1);
+		 envio.setAttribute("data-fecha", fecha);
+	console.log(id1 + " / "+ fecha);
+		})
+		
+
+		$('#btnModRech').click(function(e) {
+			e.preventDefault();
+        	e.stopImmediatePropagation();
+var tiempoTranscurrido = Date.now();
+var hoy = new Date(tiempoTranscurrido);
+				hoy = hoy.toISOString();
+				var button = $(this);
+				var id = button.data('id');
+				console.log(id);
+				var fecha =  button.data('fecha');
+				
+		$.ajax({
+            type: 'POST',
+            url: 'ControlGestor?action=declaGESRechsa',
+            data: {'idDec': id, 'fecha':fecha,'hoy':hoy},
+            statusCode: {
+                404: function () {
+                    alert('pagina no encontrada');
+                },
+                500: function () {
+                    alert('Error servidor');
+                }
+            },
+            success: function (datos) {
+            location.reload();
+				$('#modalRhGe').modal(toggle)	
+            }
+
+        });
+				
+		});
+		
+		
+});
+
+ 
      
    
       

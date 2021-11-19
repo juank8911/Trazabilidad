@@ -171,7 +171,7 @@ function interna(val) {
 
 $(document).ready(function () {
     $('select[name=chekTrans]').on('change', function () {
-			window.alert("pruebas");
+		
         $.ajax({
             type: 'GET',
             url: 'controlGenerador?action=listaGestorProg',
@@ -189,7 +189,7 @@ $(document).ready(function () {
                 //console.log('entrando a funcion succes');
                 var proDatos = datos.split("|");
 					$('select[name=txtGes]').append('<option >  ----------  SELECCIONE GESTOR  --------  </option>')
-					window.alert(proDatos.length);
+				
                 for (var i = 0; i < proDatos.length - 1; i++) { // inicia ciclo para extraer los datos del arreglo
 
                     var id_STG = proDatos[i].split("-")[0];

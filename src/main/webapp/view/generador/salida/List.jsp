@@ -16,7 +16,7 @@
             
 
                 <!-- page title area start -->
-                <div class="col-9">
+                <div class="col-9 ml-5">
                 <div class="row justify-content-md-center">
                             <h4 class="page-title pull-left">Salidas</h4>
                             <ul class="breadcrumbs pull-left">

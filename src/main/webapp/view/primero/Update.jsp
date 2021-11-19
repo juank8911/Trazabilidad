@@ -21,7 +21,7 @@
         </c:if>
             <!-- sidebar menu area end -->
             <!-- page title area start -->
-            <div class="col-9">
+            <div class="col-9 ml-5">
             <div>
                 <div class="row align-items-center">
                     <div class="col-sm-6">

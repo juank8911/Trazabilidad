@@ -746,19 +746,24 @@ public class controlTransportador extends HttpServlet {
     //Pantalla de Transportador Vehiculo
     protected void declaTRNRechazar(HttpServletRequest request, HttpServletResponse response, String ruta)
             throws Exception {
-        
+    	PrintWriter out = response.getWriter();
+    	StringBuilder sb = new StringBuilder("");
 //        int id = Integer.parseInt(request.getParameter("id_decla"));
 //        declaDAO.rechazaDeclaTrans(id);
     	log.info(request.getParameterNames()+"");
     	int idD= Integer.parseInt(String.valueOf(request.getParameter("idDec")));
+    	
     	log.info(idD+"");
     	Declaracion decla =	em.find(Declaracion.class, idD);
     	decla.setDec_trn_aprobada("R");
     	java.util.Calendar fecha = java.util.Calendar.getInstance();
     	decla.setDec_trn_fecha_ent(fecha.getTime());
+    	request.setAttribute("infoMessage", " Se Rechaso la declaracion correctamente");
+    	int coTransP = (int)request.getSession().getAttribute("idSede"); // llamar la variable de session
         declaDao.updateDeclaRe(decla);
-        dis = request.getRequestDispatcher(ruta);
-        dis.forward(request, response);
+        declaDao.getListaDeclaracionTranpor(coTransP);
+    	vehDAO.listarVehiculosTrans(coTransP);
+    	this.transp(request, response, ruta);
     }
     
     protected void declaTRNAprobar1(HttpServletRequest request, HttpServletResponse response, String ruta)

@@ -29,15 +29,18 @@
 
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="col-9">
+	<div class="col-9 ml-5">
 
 <div class="row justify-content-md-center">
+						<div class="row">
                             <h4 class="page-title pull-left">Listado de Declaraciones</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><span class="badge bg-primary">pendientes por aprobar</span></li>
                             </ul>
-            			</div>
-            			
+                            
+            			</div>            			
+
+ </div>        			
 
 
 
@@ -78,7 +81,7 @@
 										<td>${fn:length(listdato.declaracion_res)}</td>
 								
 								<td id="btons">
-									<button type="button" class="btn btn-danger fas fa-trash" data-id="${listdato.dec_id}" data-fecha="${listdato.prog_dec.pro_fecha_inicial}" data-toggle="modal" data-target="#modalRhT">
+									<button type="button" class="btn btn-danger fas fa-trash" data-bs-id="${listdato.dec_id}" data-bs-fecha="${listdato.prog_dec.pro_fecha_inicial}" data-toggle="modal" data-target="#modalRhGe">
 									</button>
 								</td>
 							</tr>
@@ -230,14 +233,15 @@
 			<h5 class="modal-title" id="exampleModalLabel">Rechasar Declaracion</h5>
         </div>
       		<div class="modal-body">
-      		<form method="post" action="controlTrans?action=" id="formDeRe" class="form-control">
+      		
 				<p>Al !RECHASAR! la declaracion la informacion reportada no estara
 				disponible para futuras modificaciones. Si esta seguro haga clic
 				en "Rechasar" de lo contrario clic en "Cancelar"</p>
-			  </form>
+			 
 			</div>
 			<div class="modal-footer">
-
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        				<button type="button" id="btnModRech" class="btn btn-danger">Rechasar</button>
 			</div>		
     </div>
   </div>
@@ -283,6 +287,7 @@
 	</div>
 
 <demo:footer/>
+
 
 </body>
 

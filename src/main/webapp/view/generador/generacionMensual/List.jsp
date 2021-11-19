@@ -14,7 +14,7 @@
 <%--         <demo:slideGen/> --%>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
             <!-- main content area start -->
-            <div class="col-9">
+            <div class="col-9 ml-5">
             
             <div class="row justify-content-md-center">
                             <h4 class="page-title pull-left">Reporte Mensual</h4>

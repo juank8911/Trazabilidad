@@ -37,7 +37,7 @@
 	
 	<script src="assets/js/masterDetailGene.js"></script>
 	<!-- main content area start -->
-	<div class="col-9">
+	<div class="col-9 ml-5">
 
 		<!-- page title area start -->
 		<div class="row justify-content-md-center">
@@ -57,7 +57,7 @@
 						<div class="row g-3">
 						<div class="col-md-12 mt-4">	
 							<label class="form-label" for="txtGi" >Filtrar declaraciones pendientes de envío por: </label>
-							   <select class="form-control is-valid" name="txtGi" id="txtGi">
+							   <select class="form-control" name="txtGi" id="txtGi">
 			                     <option value="${idUsuario}" >Fecha de programacion de entrega de los residuos al transportador</option>
 			                  </select>
 						</div>

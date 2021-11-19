@@ -18,7 +18,7 @@
 
 <body>
 	<%@include file="../sidebarNavbar2.jsp"%>
-	<div class="col-9">
+	<div class="col-9 ml-5">
 			<div class="row justify-content-md-center">
                             <h4 class="page-title pull-left">Listado de Declaraciones</h4>
                             <ul class="breadcrumbs pull-left">
@@ -81,7 +81,7 @@
 									<button type="button" class="btn btn-danger fas fa-trash" data-
 										data-id="${listdato.dec_id}"
 										data-fecha="${listdato.prog_dec.pro_fecha_inicial}"
-										data-toggle="modal" data-target="#modalRhT"></button>
+										data-toggle="modal" data-target="#modalRhGe"></button>
 								</td>
 							</tr>
 							<tr class="itemsRow">
@@ -250,14 +250,13 @@
 								Declaracion</h5>
 						</div>
 						<div class="modal-body">
-							<form method="post" action="controlTrans?action=" id="formDeRe"
-								class="form-control">
 								<p>Al !RECHASAR! la declaracion la informacion reportada no
 									estara disponible para futuras modificaciones. Si esta seguro
 									haga clic en "Rechasar" de lo contrario clic en "Cancelar"</p>
-							</form>
 						</div>
 						<div class="modal-footer"></div>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        				<button type="button" id="btnModRech" class="btn btn-danger">Rechasar</button>
 					</div>
 				</div>
 

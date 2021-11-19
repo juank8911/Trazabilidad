@@ -162,7 +162,7 @@
             </a>
             <!-- Submenu content -->
             <div id='submenu5' class="collapse sidebar-submenu">
-                <a href="controlTrans?action=declaraListaTransp" class="list-group-item list-group-item-action bg-white text-dark">                
+                <a href="controlTrans?action=rutaListaTransp" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-map-marked-alt  fa-fw mr-3"></span> 
                     <span class="menu-collapsed">Ruta</span>
                 </a>

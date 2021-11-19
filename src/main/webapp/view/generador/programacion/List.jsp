@@ -26,6 +26,7 @@
 		  new Draggable(containerEl, {
 			    itemSelector: '.fc-event',
 			    eventData: function(eventEl) {
+				
 			      return {
 			        title: eventEl.innerText
 			      };
@@ -37,9 +38,7 @@
 	        	themeSystem: 'bootstrap',
 	        	navLinks: true,
 	        	editable: true,
-	            eventReceive: function(info) {
-	                console.log('event received!', info.event);
-	              },
+	            
 	        	selectable: true,
 	        	locale: 'es',
 	        	initialView: 'dayGridMonth',
@@ -48,7 +47,6 @@
 	       center: 'title',
 	       right: 'dayGridMonth,timeGridWeek,timeGridDay'},
 	       dateClick: function(info) {
-	    	//             alert('fecha seleccionada '+date.format());
 	    	            alert('Clicked on: ' + info.dateStr);
 	    	             $('#btnAgendarResi').prop('disabled',false);
 	    	             $('#btnModificar').prop('disabled',true);
@@ -60,6 +58,9 @@
 	    	  },
 
 //         },
+					eventReceive: function(info) {
+	                console.log('event received!', info.event);
+	              },
 	       droppable: true, // this allows things to be dropped onto the calendar
 	       drop: function(info) {
 //	            alert(info.event.title + " was dropped on " + info.event.start.toISOString());
@@ -131,7 +132,7 @@
 <body>
 	<%@include file ="/view/generador/sidebarNavbar2.jsp" %>
 	<!-- page title area start -->
-	<div class="col-9">
+	<div class="col-9 ml-1">
 		
 		<div class="row justify-content-md-center">
                             <h4 class="page-title pull-left">Listado de Programación</h4>
@@ -155,13 +156,15 @@
 							class="btn btn-success btn-sm btn-block passingID fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event"
 							data-toggle="modal" data-whatever="${dato.get(0)}"
 							data-nombre="${dato.get(1)}" data-id="${dato.get(0)}"
-							data-target="#programResiduo">${dato.get(1)}</button>
+							>${dato.get(1)}</button>
+<!-- 							data-target="#programResiduo" -->
+							
 					</c:forEach>
 
 				</div>
 				</div>
 
-			<div class='col-9' id='calendar-container'>
+			<div class='col-9 ml-5' id='calendar-container'>
 			<p>Calendar</p>				
 				<div id='CalendarioResi'></div>
 			</div>
@@ -170,122 +173,122 @@
 
 		
 		
-			<div class="modal fade" id="programResiduo" tabindex="-1"
-					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
+<!-- 			<div class="modal fade" id="programResiduo" tabindex="-1" -->
+<!-- 					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+<!-- 					<div class="modal-dialog modal-dialog-centered" role="document"> -->
+<!-- 						<div class="modal-content"> -->
+<!-- 							<div class="modal-header"> -->
 
-								<h2 class="modal-title" id="myModalLabel">Modal 1</h2>
+<!-- 								<h2 class="modal-title" id="myModalLabel">Modal 1</h2> -->
 
-							</div>
-							<div class="modal-body">
-								<form method="post"
-									action="controlGenerador?action=programaRGuardaGenera"
-									class="needs-validation form-control">
-									<div class="form-row">
+<!-- 							</div> -->
+<!-- 							<div class="modal-body"> -->
+<!-- 								<form method="post" -->
+<!-- 									action="controlGenerador?action=programaRGuardaGenera" -->
+<!-- 									class="needs-validation form-control"> -->
+<!-- 									<div class="form-row"> -->
 
-										<!--                                     -----Empieza el Form -->
-										<div class="form-group row col-md-12 justify-content-md-center">
-											<div class="col-md-auto">
-										<div class="form-row align-items-center">
-											<div class="form-group col-auto">
-												<label for="txtFactual" class="form-label">Fecha: </label> <input
-													type="date" name="txtFactual" class="form-control"
-													id="txtFactual">
-											</div>
-											<div class="form-group col-auto
-											">
-												<label for="txtRep" class="form-label">Se Repite? :</label>
-												<select class="form-control" name="txtRep" id="txtRep"
-													onChange="mostrarF(this.value);">
-													<option value="1" selected>Nunca</option>
-													<option value="2">Todos los Dias</option>
-													<option value="3">Cada Semana</option>
-													<option value="4">Cada Mes</option>
-													<option value="5">Cada Año</option>
-												</select>
-											</div>
-										</div>
+<!-- 										                                    -----Empieza el Form -->
+<!-- 										<div class="form-group row col-md-12 justify-content-md-center"> -->
+<!-- 											<div class="col-md-auto"> -->
+<!-- 										<div class="form-row align-items-center"> -->
+<!-- 											<div class="form-group col-auto"> -->
+<!-- 												<label for="txtFactual" class="form-label">Fecha: </label> <input -->
+<!-- 													type="date" name="txtFactual" class="form-control" -->
+<!-- 													id="txtFactual"> -->
+<!-- 											</div> -->
+<!-- 											<div class="form-group col-auto -->
+<!-- 											"> -->
+<!-- 												<label for="txtRep" class="form-label">Se Repite? :</label> -->
+<!-- 												<select class="form-control" name="txtRep" id="txtRep" -->
+<!-- 													onChange="mostrarF(this.value);"> -->
+<!-- 													<option value="1" selected>Nunca</option> -->
+<!-- 													<option value="2">Todos los Dias</option> -->
+<!-- 													<option value="3">Cada Semana</option> -->
+<!-- 													<option value="4">Cada Mes</option> -->
+<!-- 													<option value="5">Cada Año</option> -->
+<!-- 												</select> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
 
-										<div class="form-row align-items-center">
-											<div class="form-group">
-												<label for="txtFfinal" id="hastaFL" style="display: none">Hasta
-												</label> <input type="date" name="txtFfinal" class="form-control"
-													id="fechaActual2" style="display: none" placeholder=""
-													value="">
-											</div>
+<!-- 										<div class="form-row align-items-center"> -->
+<!-- 											<div class="form-group"> -->
+<!-- 												<label for="txtFfinal" id="hastaFL" style="display: none">Hasta -->
+<!-- 												</label> <input type="date" name="txtFfinal" class="form-control" -->
+<!-- 													id="fechaActual2" style="display: none" placeholder="" -->
+<!-- 													value=""> -->
+<!-- 											</div> -->
 
-										</div>
-
-
-										<div class="form-col m-3" id="diasSemana"
-											style="display: none">
-											<div class="form-check form-check col-">
-												<div class="custom-control custom-checkbox checkbox-xl">
-													<input type="checkbox" class="custom-control-input"
-														name="btnLunes" id="btnLunes"> <label
-														class="custom-control-label" for="btnLunes">Lunes</label>
-												</div>
-
-												<div class="custom-control custom-checkbox checkbox-xl">
-													<input type="checkbox" class="custom-control-input"
-														name="btnMartes" id="btnMartes"> <label
-														class="custom-control-label" for="btnMartes">Martes</label>
-												</div>
+<!-- 										</div> -->
 
 
-												<div class="custom-control custom-checkbox checkbox-xl">
-													<input type="checkbox" class="custom-control-input"
-														name="btnMiercoles" id="btnMiercoles"> <label
-														class="custom-control-label" for="btnMiercoles">Miercoles</label>
-												</div>
+<!-- 										<div class="form-col m-3" id="diasSemana" -->
+<!-- 											style="display: none"> -->
+<!-- 											<div class="form-check form-check col-"> -->
+<!-- 												<div class="custom-control custom-checkbox checkbox-xl"> -->
+<!-- 													<input type="checkbox" class="custom-control-input" -->
+<!-- 														name="btnLunes" id="btnLunes"> <label -->
+<!-- 														class="custom-control-label" for="btnLunes">Lunes</label> -->
+<!-- 												</div> -->
+
+<!-- 												<div class="custom-control custom-checkbox checkbox-xl"> -->
+<!-- 													<input type="checkbox" class="custom-control-input" -->
+<!-- 														name="btnMartes" id="btnMartes"> <label -->
+<!-- 														class="custom-control-label" for="btnMartes">Martes</label> -->
+<!-- 												</div> -->
 
 
-												<div class="custom-control custom-checkbox checkbox-xl">
-													<input type="checkbox" class="custom-control-input"
-														name="btnJueves" id="btnJueves"> <label
-														class="custom-control-label" for="btnJueves">Jueves</label>
-												</div>
-
-												<div class="custom-control custom-checkbox checkbox-xl">
-													<input type="checkbox" class="custom-control-input"
-														name="btnViernes" id="btnViernes"> <label
-														class="custom-control-label" for="btnViernes">Viernes</label>
-												</div>
+<!-- 												<div class="custom-control custom-checkbox checkbox-xl"> -->
+<!-- 													<input type="checkbox" class="custom-control-input" -->
+<!-- 														name="btnMiercoles" id="btnMiercoles"> <label -->
+<!-- 														class="custom-control-label" for="btnMiercoles">Miercoles</label> -->
+<!-- 												</div> -->
 
 
-												<div class="custom-control custom-checkbox checkbox-xl">
-													<input type="checkbox" class="custom-control-input"
-														name="btnSabado" id="btnSabado"> <label
-														class="custom-control-label" for="btnSabado">Sabado</label>
-												</div>
+<!-- 												<div class="custom-control custom-checkbox checkbox-xl"> -->
+<!-- 													<input type="checkbox" class="custom-control-input" -->
+<!-- 														name="btnJueves" id="btnJueves"> <label -->
+<!-- 														class="custom-control-label" for="btnJueves">Jueves</label> -->
+<!-- 												</div> -->
+
+<!-- 												<div class="custom-control custom-checkbox checkbox-xl"> -->
+<!-- 													<input type="checkbox" class="custom-control-input" -->
+<!-- 														name="btnViernes" id="btnViernes"> <label -->
+<!-- 														class="custom-control-label" for="btnViernes">Viernes</label> -->
+<!-- 												</div> -->
 
 
-												<!-- 														------------------------------ -->
-												<div class="custom-control custom-checkbox checkbox-xl">
-													<input type="checkbox" class="custom-control-input"
-														name="btnDomingo" id="btnDomingo"> <label
-														class="custom-control-label" for="btnDomingo">Domingo</label>
-												</div>
+<!-- 												<div class="custom-control custom-checkbox checkbox-xl"> -->
+<!-- 													<input type="checkbox" class="custom-control-input" -->
+<!-- 														name="btnSabado" id="btnSabado"> <label -->
+<!-- 														class="custom-control-label" for="btnSabado">Sabado</label> -->
+<!-- 												</div> -->
 
-											</div>
-										</div>
-									</div>
 
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-dismiss="modal">Cerrar</button>
-										<button type="submit" class="btn btn-success" type="submit">Crear
-											Programacion</button>
-									</div>
-									</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- 																										------------------------------ -->
+<!-- 												<div class="custom-control custom-checkbox checkbox-xl"> -->
+<!-- 													<input type="checkbox" class="custom-control-input" -->
+<!-- 														name="btnDomingo" id="btnDomingo"> <label -->
+<!-- 														class="custom-control-label" for="btnDomingo">Domingo</label> -->
+<!-- 												</div> -->
+
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+
+<!-- 									<div class="modal-footer"> -->
+<!-- 										<button type="button" class="btn btn-secondary" -->
+<!-- 											data-dismiss="modal">Cerrar</button> -->
+<!-- 										<button type="submit" class="btn btn-success" type="submit">Crear -->
+<!-- 											Programacion</button> -->
+<!-- 									</div> -->
+<!-- 									</div> -->
+<!-- 									</div> -->
+<!-- 								</form> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 				</div>
 <demo:footer/>
 </body>

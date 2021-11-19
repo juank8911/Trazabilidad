@@ -16,7 +16,7 @@
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
             
-            <div class="col-9">
+            <div class="col-9 ml-5">
 
                 <!-- page title area start -->
                 <div class="row justify-content-md-center">

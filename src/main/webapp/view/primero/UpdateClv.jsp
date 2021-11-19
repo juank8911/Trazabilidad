@@ -20,7 +20,7 @@
     	<c:if test="${selPerfil.id_perfil == 4}"><%@include file ="../transportador/sidebarNavbar2.jsp" %> </c:if>
     	<c:if test="${selPerfil.id_perfil == 5}"><%@include file ="../gestor/sidebarNavbar2.jsp" %> </c:if>
     	
-    	<div class="col-9">
+    	<div class="col-9 ml-5">
             			<!-- Modal -->
 			<div class="modal fade" id="firstSessionCl" tabindex="-1"
 				role="dialog" aria-labelledby="exampleModalCenterTitle"

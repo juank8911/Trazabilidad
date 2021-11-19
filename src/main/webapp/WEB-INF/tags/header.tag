@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <link type="image/png" href="<c:url value='images/icon/favicon.ico'/>"
 	rel="shortcut icon">
+	
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="assets/css/styles.css" >
 <link rel="stylesheet" type="text/css" href="assets/css/sidebarjk.css" />
@@ -17,6 +18,7 @@
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
 <script src="assets/js/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
 <script src="assets/js/listSTG.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js" ></script>
 <script src="assets/js/bootstrap.min.js" ></script>
@@ -40,7 +42,7 @@
 <script
 	src="<c:url value='/assets/js/kendo/messages/kendo.messages.es-CO.min.js' />"></script>
 <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+
 
 
 

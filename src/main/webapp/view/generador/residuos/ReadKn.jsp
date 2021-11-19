@@ -6,7 +6,6 @@
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 <demo:header />
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
 	 <style>
     #grid .k-grid-toolbar
     {
@@ -38,7 +37,7 @@
 
 
 	<%@include file="../sidebarNavbar2.jsp"%>
-	<div class="col-9">
+	<div class="col-9 ml-5">
 	<!-- main content area start -->
 
 	<!-- page title area start -->
@@ -67,7 +66,7 @@
 
 					</kendo:grid-toolbarItem>
 				</kendo:grid-toolbar>
-				<kendo:grid-excel fileName="Reporte Mensual.xlsx" filterable="true"
+				<kendo:grid-excel fileName="Residuos.xlsx" filterable="true"
 					proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
 				<kendo:dataSource pageSize="4">
 					<kendo:dataSource-transport>
@@ -174,24 +173,7 @@
 					</kendo:grid-column>
 				</kendo:grid-columns>
 			</kendo:grid>
-			<script type="text/javascript">
-	$(function () {
-	    var grid = $("#Residuos");
-	    grid.find(".k-grid-toolbar").on("click", ".k-grid-crea", function (e) {
-            e.preventDefault();
-            window.location.href = "controlGenerador?action=residuoCreaGenera";
-        });
-	    
-	});
-</script>
-
-	</div>
-
-	<br />
-	<br />
-
-
-	<script type="text/x-kendo-template" id="popupTemplate">
+				<script type="text/x-kendo-template" id="popupTemplate">
   <div class="k-edit-label" > 
         <label for="res_nombre">Nombre:</label>
     </div>
@@ -284,6 +266,23 @@
         <span class="k-invalid-msg" data-for="sede_ges"></span>
     </div>
  </script>
+ 
+			<script type="text/javascript">
+	$(function () {
+	    var grid = $("#Residuos");
+	    grid.find(".k-grid-toolbar").on("click", ".k-grid-crea", function (e) {
+            e.preventDefault();
+            window.location.href = "controlGenerador?action=residuoCreaGenera";
+        });
+	    
+	});
+</script>
+
+	</div>
+
+
+
+
  	<demo:footer />
  </div>
 
