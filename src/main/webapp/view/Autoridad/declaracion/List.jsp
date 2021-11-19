@@ -64,6 +64,11 @@
 
    <kendo:grid name="grid" pageable="true" height="550px" detailTemplate="template"
 	dataBound="dataBound">
+		<kendo:grid-toolbar>
+				<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+					</kendo:grid-toolbar>
+				<kendo:grid-excel fileName="Residuos.xlsx" filterable="true"
+					proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
     <kendo:grid-columns>
         <kendo:grid-column title="Numero declaracion" field="dec_id" width="80px" />
         <kendo:grid-column title="Fecha Declaracion" field="dec_gen_fecha_gen" width="120px" format="{0:MM/dd/yyyy}" />

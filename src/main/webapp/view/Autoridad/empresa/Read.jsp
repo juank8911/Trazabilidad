@@ -43,6 +43,12 @@
 
 				<div class="table-responsive">
 					<kendo:grid  name="Empresa" pageable="true" sortable="true" editable="true" navigatable="true" groupable="true" columnMenu="true" width="95%">
+						<kendo:grid-toolbar>
+				
+					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+					</kendo:grid-toolbar>
+				<kendo:grid-excel fileName="empresas.xlsx" filterable="true"
+					proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
     		<kendo:grid-editable mode="popup"  >
     			<kendo:grid-editable-template>
 					<script>

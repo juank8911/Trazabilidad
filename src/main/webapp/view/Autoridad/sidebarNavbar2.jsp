@@ -15,7 +15,7 @@
 	<div class="loader"></div>
 </div>
 <!-- preloader area end -->
-<script src="assets/js/cambioPerfil.js"></script>
+<!-- <script src="assets/js/cambioPerfil.js"></script> -->
 <div class="logo1">
 	<img src="assets/images/logo_sdstrp.png" alt="logo1"></a> <img
 		src="assets/images/logo_siac.jpg" alt="logo1"></a> <img
@@ -35,7 +35,7 @@
   
  </div>
  <div class="col-md-5 col-sm-8 clearfix">
-  <demo:selectPerf/>
+<%--   <demo:selectPerf/> --%>
   </div>
   
   <div class="notification-area col-md-6 col-sm-4 clearfix" id="navbarNavDropdown">

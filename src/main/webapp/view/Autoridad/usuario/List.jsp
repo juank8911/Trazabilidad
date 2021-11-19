@@ -30,6 +30,12 @@
                 <!-- page title area end -->
                 <div class="row justify-content-md-center">
                     <kendo:grid name="usuario"  pageable="true" groupable="true" columnMenu="true" width="99%">
+                    	<kendo:grid-toolbar>
+				
+					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+					</kendo:grid-toolbar>
+				<kendo:grid-excel fileName="usuarios.xlsx" filterable="true"
+					proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
                            				<kendo:grid-toolbar>
                            					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
                            				</kendo:grid-toolbar>

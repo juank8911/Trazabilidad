@@ -40,6 +40,12 @@
 					<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
 		
 				<kendo:grid  name="Sede" pageable="true" sortable="true" editable="true" navigatable="true" groupable="true" columnMenu="true" width="95%">
+					<kendo:grid-toolbar>
+				
+					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>
+					</kendo:grid-toolbar>
+				<kendo:grid-excel fileName="sede.xlsx" filterable="true"
+					proxyURL="/trazabilidad/informesServlet?action=histLisGen" />
 				
     		<kendo:grid-editable mode="popup"  >
     			<kendo:grid-editable-template>
