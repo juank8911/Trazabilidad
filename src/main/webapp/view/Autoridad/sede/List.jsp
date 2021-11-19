@@ -14,19 +14,12 @@
 	<!-- main content area start -->
 	<div class="col-9">
 
-		<!-- page title area start -->
-		<div class="row-12">
-			<div class="row align-items-center">
-				<div class="col-sm-8">
-					<div class="breadcrumbs-area">
-						<h4 class="page-title pull-left">Listado de Establecimiento</h4>
-						<ul class="breadcrumbs pull-left">
-							<li><span>Registrados en el sistema de informacion</span></li>
-						</ul>
-					</div>
-				</div>
-				<!-- FIN DE MENU  -->
-			</div>
+
+<div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Listado de Establecimiento</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">Registrados en el sistema de informacion</span></li>
+                            </ul>
 							<a href="control?action=sedeCrea" id="btnfloat" class="float">
 				<i class="fa fa-plus my-float"></i>
 				</a>
@@ -40,7 +33,7 @@
 
 		<!--div class="card-body"-->
 
-		<div class="row-10">
+		<div class="row justify-content-md-center">
 			<div class="table-responsive">
 								
 					<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
@@ -296,15 +289,9 @@
 </script>
 		
 		</div>
-		<!--/div-->
-		<!--/div-->
-
-		<!-- table success end -->
-		<!--/div-->
-		<!-- main content area end -->
-		<!-- footer area start-->
-		<demo:footer/>
 		</div>
+		<demo:footer/>
+		
 
 </body>
 

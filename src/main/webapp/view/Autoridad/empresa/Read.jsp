@@ -14,15 +14,14 @@
 
 		<!-- page title area start -->
 		<div>
-			<div class="row align-items-center">
-				<div class="col-sm-6">
-					<div class="breadcrumbs-area">
-						<h4 class="page-title pull-left">Listado de Empresas</h4>
-						<ul class="breadcrumbs pull-left">
-							<li><span>Registrados en el sistema de informacion</span></li>
-						</ul>
-					</div>
-				</div>
+					<div class="row justify-content-md-center">
+					<div class="col-sm-6">
+                            <h4 class="page-title pull-left">Listado de Empresas</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">Registrados en el sistema de informacion</span></li>
+                            </ul>
+                            </div>
+            		
 				<!-- FIN DE MENU  -->
 			</div>
 			<button type="button" class="btn btn-success mb-3 ti-plus pull-right">

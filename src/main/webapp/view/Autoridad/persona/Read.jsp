@@ -9,14 +9,14 @@
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- page title area start -->
             <div class="col-9">
+            
             <div class="row justify-content-md-center">
-
-							<h4>Ver<span class="badge bg-secondary">Perfi</span></h4>
                             <h4 class="page-title pull-left">Ver</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><span class="badge bg-secondary">Perfil</span></li>
+                                <li><span class="badge bg-primary">Perfil</span></li>
                             </ul>
-            </div>
+            			</div>
+           
             <!-- page title area end -->
             <!-- main content area inicio -->
             <div class="row">
