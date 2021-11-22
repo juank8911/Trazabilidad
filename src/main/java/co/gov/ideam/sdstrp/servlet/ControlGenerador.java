@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
+import javax.jms.Session;
 import javax.persistence.EntityManager;
 import javax.persistence.Tuple;
 import javax.servlet.RequestDispatcher;
@@ -214,7 +215,7 @@ public class ControlGenerador extends HttpServlet {
 		                idGen = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
 		                int id = Integer.parseInt(String.valueOf(request.getParameter("id")));
 		                Residuos resi = em.find(Residuos.class, id);
-		                em.remove(resi);
+		                resDAO.deleteRes(resi);
 		                combo.listaResiduo();
 		                this.listarResiduosGene(request, response, ruta);
 	    			}
@@ -341,6 +342,16 @@ public class ControlGenerador extends HttpServlet {
 	    			} else {
 	    				
 	                    this.creaProgDecDecRes(request, response, ruta);
+	    			}	            
+	                break;
+	            case "programaRActualizaGenera":
+	            	ruta = "view/generador/programacion/List.jsp";
+	                if (sesion.getAttribute("perfil") == null) {
+	    				ruta = "view/login.jsp";
+	                    this.dirigir(request, response, ruta);
+	    			} else {
+	    				
+	                    this. updateProgDecDecRes(request, response, ruta);
 	    			}	            
 	                break;
 	            case "enviosBuscarhoy":	                
@@ -524,6 +535,19 @@ public class ControlGenerador extends HttpServlet {
             this.dirigir(request, response, ruta);
 			
 		}
+		
+		private void updateProgDecDecRes(HttpServletRequest request, HttpServletResponse response, String ruta) throws ServletException, IOException, ParseException {
+			int id = Integer.parseInt(String.valueOf(request.getParameter("id")));
+			Declaracion de = em.find(Declaracion.class, id);
+			Programacion pr = de.getProg_dec();
+			SimpleDateFormat formato = new SimpleDateFormat("dd-mm-yy");
+			String fechaI = request.getParameter("fechai");
+			Date fecha = formato.parse(fechaI);
+			pr.setPro_fecha_inicial(fecha);
+			progDao.updateProg(pr);
+			
+		}
+		
 		
 		private void creaProgDecDecRes(HttpServletRequest request, HttpServletResponse response, String ruta) throws ServletException, IOException {
 			// TODO Auto-generated method stub

@@ -106,6 +106,14 @@
 //	   			window.alert(1d);
 	  			
 	       },
+	       eventDrop: function(info) {
+		       
+	    	    alert(info.event.id + " was dropped on " + info.event.start.toISOString());
+
+	    	    if (!confirm("Are you sure about this change?")) {
+	    	      info.revert();
+	    	    }
+	    	  },
 	     events: [
 	    	 <c:forEach var="dato" items="${listaProgramacionC1}" >
 	    	 		<c:forEach var="decla" items="${dato.getProg_dec().getDeclaracion_res()}" varStatus="stat">
@@ -114,6 +122,7 @@
 				{
 					title: '${dato.getProg_dec().getDec_id()} - ${tit}',
 					time:'',
+					id: 'dato.getProg_dec().getDec_id()',
 					start: '<fmt:formatDate value="${dato.getPro_fecha_inicial()}" pattern="yyyy-MM-dd" />',
 					color: 'green',   // an option!
 			         textColor: 'white', // an option!

@@ -57,13 +57,13 @@
 		<label style="color: green; width: 100%; text-align: left;">${infoMessage}</label>
 		<label style="color: red; width: 100%; text-align: left;">${errorMessage}</label>
 
-			<kendo:grid name="Residuos" groupable="true" pageable="true"
+			<kendo:grid name="Residuos" groupable="true" sortable="true" resizable="true" pageable="true"
 				columnMenu="true" width="99%">
 				<kendo:grid-toolbar>
 				
 					<kendo:grid-toolbarItem name="excel"></kendo:grid-toolbarItem>					
 					<kendo:grid-toolbarItem name="crea" text="Crear Residuo">
-
+						
 					</kendo:grid-toolbarItem>
 				</kendo:grid-toolbar>
 				<kendo:grid-excel fileName="Residuos.xlsx" filterable="true"
@@ -71,9 +71,16 @@
 				<kendo:dataSource pageSize="4">
 					<kendo:dataSource-transport>
 						<kendo:dataSource-transport-read
-							url="/trazabilidad/residuosServlet?action=residuosAll" />
-						<kendo:dataSource-transport-update
-							url="/trazabilidad/controlGenerador?action=updateResiduo" />
+							url="/trazabilidad/residuosServlet?action=residuosAll" dataType="json" type="POST" contentType="application/json"/> 
+							<kendo:dataSource-transport-destroy 
+							url="/trazabilidad/controlGenerador?action=eliminarResiGenerador" dataType="json" type="POST" contentType="application/json" />
+								<kendo:dataSource-transport-parameterMap>
+                	<script>
+	                	function parameterMap(options,type) { 	                		
+	                		return JSON.stringify(options);	                		
+	                	}
+                	</script>
+                </kendo:dataSource-transport-parameterMap>
 					</kendo:dataSource-transport>
 					<kendo:dataSource-schema>
 						<kendo:dataSource-schema-model id="res_id">
@@ -145,30 +152,33 @@
 
 					<kendo:grid-column title="Opciones">
 						<kendo:grid-column-command>
-							<kendo:grid-column-commandItem name="editar" text="editar">
+							 
+							<kendo:grid-column-commandItem name="edit" >
 								<kendo:grid-column-commandItem-click>
 									<script type="text/javascript">
-            											function editar(e)
+            											function edit(e)
             											{
             												e.preventDefault();
             												var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
             											    window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera&id="+dataItem.res_id;
-//             												$.ajax({
-// 															        url: "/trazabilidad/controlGenerador?action=residuoActuaGeneraCarg",
-// 															        //send current record ID to the server
-// 															        data: { id: dataItem.res_id },
-// 															        success: function (data) {
-// 															            //update the current dataItem with the received data from the server
-// 															            //example data: {"OrderID":4,"OrderDate":"\/Date(1343941200000)\/","OrderDescription":"NewDescription","EmployeeId":4}
-// 															            window.alert("Carga de ruta y envio");
-// 															        	window.location.href = "/trazabilidad/controlGenerador?action=residuoActuaGenera";
-// 															        }
-// 															    })
+//             											
                 										}
             									</script>
 								</kendo:grid-column-commandItem-click>
 							</kendo:grid-column-commandItem>
-
+								<kendo:grid-column-commandItem name="destroy" >
+								 	 <kendo:grid-column-commandItem-click>
+								 	 		<script type="text/javascript">
+            											function destroy(e)
+            											{
+            												e.preventDefault();
+            												var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+            											    window.location.href = "/trazabilidad/controlGenerador?action=eliminarResiGenerador&id="+dataItem.res_id;
+//             												
+                										}
+            									</script>
+								 	 </kendo:grid-column-commandItem-click>
+								</kendo:grid-column-commandItem>
 						</kendo:grid-column-command>
 					</kendo:grid-column>
 				</kendo:grid-columns>

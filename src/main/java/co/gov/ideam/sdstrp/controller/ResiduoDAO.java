@@ -445,6 +445,20 @@ public class ResiduoDAO {
 	}
 
 
+
+	public void deleteRes(Residuos resi) throws Exception {
+		// TODO Auto-generated method stub
+		try {
+			em.remove(resi);
+			
+		} catch (Exception t) {
+			// TODO: handle exception
+			log.info("Exception:" + t.getMessage());
+            throw ((Exception) t);
+		}		
+	}
+
+
 	
 	
 

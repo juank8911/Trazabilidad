@@ -176,5 +176,22 @@ public class ProgramacionDao {
 
     }
 
+	public void updateProg(Programacion pr) throws Exception {
+		// TODO Auto-generated method stub
+		try {
+			em.merge(pr);
+		} catch (Exception e) {
+			// TODO: handle exception
+			Throwable t = e;
+            while ((t.getCause()) != null) {
+                t = t.getCause();
+            }
+            log.info("Exception:" + t.getMessage());
+            throw ((Exception) t);
+			
+		}
+		
+	}
+
 
 }

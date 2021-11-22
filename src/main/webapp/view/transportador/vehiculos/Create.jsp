@@ -9,7 +9,7 @@
     <body>
         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            	<div class="col-9 ml-5">
+            	<div class="col-9 ml-4">
             	<div class="row justify-content-md-center">
                             <h4 class="page-title pull-left">Crear de Vehiculo</h4>
                             <ul class="breadcrumbs pull-left">
@@ -20,7 +20,7 @@
 
                 <!-- page title area end -->
                 <!-- main content area inicio -->
-<div class="row justify-content-md-center">
+<div class="row-9 justify-content-md-center">
                                 <form method="post" action="controlTrans?action=vehiGuardaTransp" >
 
                                     <div class="form-row">
@@ -145,10 +145,10 @@
                                     </div>
                                     
                                     <br />
-                                    <div class="form-row form-control">
+                                    <div class="form-row">
 
-                                        <button class="btn btn-success " type="submit">Crear Vehiculo</button>
-                                        <button class="btn btn-success "><a href="controlTrans?action=vehiculoTransp" class="text-white">Cancelar</a></button>
+                                        <button class="btn btn-success mr-1" type="submit">Crear Vehiculo</button>
+                                        <button class="btn btn-success ml-1"><a href="controlTrans?action=vehiculoTransp" class="text-white">Cancelar</a></button>
                                     </div>
 
                                 </form>

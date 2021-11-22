@@ -107,6 +107,13 @@
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                 <h6>Menu ${usuario}</h6>
             </li>
+            <a href="controlTrans?action=transportador" id="btnNav" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fas fa-home fa-fw mr-3"></span>                     
+                    <span class="menu-collapsed">Inicio</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
             <!-- /END Separator -->
             <!-- Menu with submenu -->
                         <a href="#submenu1" data-toggle="collapse" aria-expanded="true" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
@@ -129,26 +136,13 @@
                 </a>
             </div>   
             
-            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
+            <a href="controlTrans?action=vehiculoTransp" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-truck fa-fw mr-3"></span>                     
                     <span class="menu-collapsed">Vehiculos</span>  
-                
-                    <span class=""></span>
                 </div>
             </a>
-            <!-- Submenu content -->
-            <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="controlTrans?action=vehiculoTransp" class="list-group-item list-group-item-action bg-white text-dark">                
-                <span style="color: black;" class="far fa-eye fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">listar</span>
-                </a>
-                <a href="controlTrans?action=vehiCreaTransp" class="list-group-item list-group-item-action bg-white text-dark">
-                <span style="color: black;" class="fas fa-plus fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">Crear</span>
-                </a>
-              
-            </div>  
+ 
             <!-- Separator with title -->
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                 <h6>Reportes</h6>
