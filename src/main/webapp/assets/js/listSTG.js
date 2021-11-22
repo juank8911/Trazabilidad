@@ -64,7 +64,12 @@ e.preventDefault();
 	console.log(id);
 });
 
-//$(document).ready(function () {
+$(document).ready(function () {
+$(document).on('click', '#btnSend', function(e) 
+{
+  $('#carga').show();
+  $('#carga').delay(5000).fadeOut(300);
+});	
 //	window.alert('inicio paginas')
 //
 ////$(document).on('click', '#editbtn', function() { alert("prueba"); });
@@ -76,7 +81,7 @@ e.preventDefault();
 //////	window.alert("boton");
 ////});
 //	
-//	});
+	});
 	
 //function edtarVh(btn)
 //{

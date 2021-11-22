@@ -19,23 +19,26 @@
                             </ul>
             			</div>
             			
-            			                <div class="row justify-content-md-center">
+            			<div class="row justify-content-md-center">
                         <div class="row">
                         <!-- seo fact area start -->
                         <div class="col-lg-10 mt-4">
                             <div class="row">
-                                <div class="col-4 ">
-                                    <div class="card">
-                                        <div class="seo-fact sbg1">
-                                            <div class="p-3 d-flex justify-content-between align-items-center">
-                                                <div class="seofct-icon"><i class="fas fa-archive"></i>No Enviadas</div>
-                                                  <h2>                                             	
-                        							${dashNoEnviadasTrn}
-                        						</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+						<div class="col-4 ">
+						<div class="card">
+							<div class="seo-fact sbg1">
+								<div
+									class="p-3 d-flex justify-content-between align-items-center">
+									<div class="seofct-icon">
+										<i class="fas fa-file-import"></i> Enviadas
+									</div>
+									<h2>${dashEnviadasTrn}</h2>
+
+								</div>
+							</div>
+						</div>
+						</div>
+
                                 <div class="col-4">
                                     <div class="card">
                                         <div class="seo-fact sbg1">
@@ -47,9 +50,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="col-4">
-                                    <div class="card">
+                         
+                         
+                                                        <div class="col-4">
+                                                            <div class="card">
                                         <div class="seo-fact sbg2">
                                             <div class="p-3 d-flex justify-content-between align-items-center">
                                                 <div class="seofct-icon"><i class="fa fa-industry"></i>Finalizadas</div>
@@ -59,7 +63,10 @@
                                             
                                         </div>
                                     </div>
-                                </div>
+                                                        </div>
+                         
+                                
+   
 
                                 </div>
                                 <div class="row">
@@ -67,10 +74,10 @@
                                 </div>
                             </div>
                       
-												<div class="col mt-4">
+									<div class="col mt-4">
 										 <div class="row">
                                     		<div class="card">
-                                        		<div class="seo-fact sbg2">
+                                        		<div class="seo-fact sbg3">
                                             		<div class="p-3 d-flex justify-content-between align-items-center">
                                                 		<div class="seofct-icon"><i class="fas fa-truck-moving"></i>Rechazadas Transportador</div>
                                                   <h2> ${dashRechasadasTrn}
@@ -79,19 +86,9 @@
                                         		</div>
                                     		</div>
                                 		</div>
-                                                        <div class="row mt-4">
-                                                            <div class="card">
-                                                                <div class="seo-fact sbg1">
-                                                                    <div class="p-3 d-flex justify-content-between align-items-center">
-                                                                        <div class="seofct-icon"><i class="fas fa-file-import"></i> Enviadas</div>
-                                                  							<h2> ${dashEnviadasTrn}</h2>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row mt-4">
-                                                            <div class="card">
+                                		
+                                         <div class="row mt-4">
+                                         <div class="card">
                                                                 <div class="seo-fact sbg3">
                                                                     <div class="p-3 d-flex justify-content-between align-items-center">
 																		<div class="seofct-icon"><i class="fa fa-industry"></i> Rechazadas Gestor</div>
@@ -100,11 +97,7 @@
 
                                                                 </div>
                                                             </div>
-                                                        </div>
-
-
-                
-                                                </div>
+								</div>
 
                         </div>
                         <!-- seo fact area end -->
@@ -115,12 +108,7 @@
                         </div>
                         <!-- seo fact area end -->
                     </div>
-                    <!-- page title area end -->
-                    <div class="row">
-
-                    </div>
-                    <!-- main content area end -->
-                    <!-- footer area start-->
+                    
                     <demo:footer/>               
                 </body>
 

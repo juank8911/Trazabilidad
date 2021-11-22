@@ -1,72 +1,39 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.List"%>
-<!DOCTYPE html>
-<html class="no-js" lang="en">
-
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
+<demo:header/>
 <title>sdstrp - Actualiza Residuo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/png"
-	href="assets/images/icon/favicon.ico">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/metisMenu.css">
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/slicknav.min.css">
-<!-- amchart css -->
-<link rel="stylesheet"
-	href="https://www.amcharts.com/lib/3/plugins/export/export.css"
-	type="text/css" media="all" />
-<!-- others css -->
-<link rel="stylesheet" href="assets/css/typography.css">
-<link rel="stylesheet" href="assets/css/default-css.css">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
 <link rel="stylesheet" href="assets/css/coloresInst.css">
-<!-- modernizr css -->
-<script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-<!-- jquery latest version -->
-<script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
 <script src="assets/js/listSTG.js"></script>
 
 </head>
 
     <body>
-         <%@include file ="../sidebarNavbar.jsp" %>
+         <%@include file ="../sidebarNavbar2.jsp" %>
             <!-- main content area start -->
-            <div class="main-content">
+            <div class="col-9 ml-5">
+            
+            <div class="row justify-content-md-center">
+                            <h4 class="page-title pull-left">Actualizacion de Residuo</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><span class="badge bg-primary">en el sistema de información</span></li>
+                            </ul>
+            </div>
+            
 
                 <!-- page title area start -->
-                <div>
-                    <div class="row align-items-center">
-                        <div class="col-sm-7">
-                            <div class="breadcrumbs-area">
-                                <h4 class="page-title pull-left">Actualizacion de Residuo</h4>
-                                <ul class="breadcrumbs pull-left">
-                                    <li><span> en el sistema de información</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- FIN DE MENU  -->
-                    </div>
-                </div>
                 <!-- page title area end -->
                 <!-- main content area inicio -->
-		<div class="main-content-inner">
+		<div class="row justify-content-md-center">
 			<div class="row">
 
-				<div class="row form-control">
+				<div class="row">
 
 
 					<!-- Server side start -->
 
 
-					<form method="post" action="controlGenerador?action=updateResiduo"
-						id="data">
+					<form method="post" action="controlGenerador?action=updateResiduo" id="data">
 
 						<div class="form-row">
 						<input type="hidden" value="${acResiduo.res_id}" name="id_res">

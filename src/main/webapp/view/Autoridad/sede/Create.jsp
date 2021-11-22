@@ -9,7 +9,7 @@
 <body>
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<!-- main content area start -->
-	<div class="col">
+	<div class="col-9">
 
 		<!-- page title area start -->
 		<div class ="row">

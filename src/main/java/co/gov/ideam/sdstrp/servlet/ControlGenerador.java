@@ -436,14 +436,22 @@ public class ControlGenerador extends HttpServlet {
 			}
 			else
 			{
+				log.info( dshi.toString());
 				for (Tuple dsh : dshi) {
-					sesion.setAttribute("dashEnviadas", dsh.get(0)==null ? 0 : dsh.get(0));
-					sesion.setAttribute("dashNoEnviadas", dsh.get(1)==null ? 0 : dsh.get(1));
+					log.info( dsh.get(1)+"");
+					sesion.setAttribute("dashEnviadas", dsh.get(1)==null ? 0 : dsh.get(1));
+					log.info( dsh.get(0)+"");
+					sesion.setAttribute("dashNoEnviadas", dsh.get(0)==null ? 0 : dsh.get(0));
+					log.info( dsh.get(2)+"");
 					sesion.setAttribute("dashAprovadas", dsh.get(2)==null ? 0 : dsh.get(2));
 					sesion.setAttribute("dashRechasadas", dsh.get(3)==null ? 0 : dsh.get(3));
+					log.info( dsh.get(3)+"");
 					sesion.setAttribute("dashFinalizadas", dsh.get(4)==null ? 0 : dsh.get(4));
+					log.info( dsh.get(4)+"");
 					sesion.setAttribute("dashRechaGes", dsh.get(5)==null ? 0 : dsh.get(5));
-					sesion.setAttribute("dashPrograma", dsh.get(6)==null ? 0 : dsh.get(6));			
+					log.info( dsh.get(5)+"");
+					sesion.setAttribute("dashPrograma", dsh.get(6)==null ? 0 : dsh.get(6));					
+					log.info( dsh.get(6)+"");
 				}
 
 			}
@@ -619,7 +627,7 @@ public class ControlGenerador extends HttpServlet {
 			                else if(cini.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY && request.getParameter("btnMiercoles")!=null)
 			                {
 			                	log.info("---------->" + cini.getTime().toString() + " es Miercoles ");
-			  
+			                	dates.add(cini.getTime());
 			                }
 			                else if(cini.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY && request.getParameter("btnJueves")!=null)
 			                {

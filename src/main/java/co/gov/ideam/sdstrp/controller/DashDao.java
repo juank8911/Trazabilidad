@@ -200,15 +200,16 @@ try {
 				conDash = null;
 				CriteriaBuilder cbDb = em.getCriteriaBuilder();
 		try {
+			log.info(perf);
 			CriteriaQuery<Tuple> conRes = cbDb.createTupleQuery();		
 			Root<Declaracion> rootDeRe = conRes.from(Declaracion.class);
-			conRes.where(cbDb.and(cbDb.equal(rootDeRe.get("dec_"+perf),idS),cbDb.equal(rootDeRe.get("dec_gen_aprobada"),"A")));
+			conRes.where(cbDb.and(cbDb.equal(rootDeRe.get("dec_"+perf),idS),cbDb.equal(rootDeRe.get("dec_gen_aprobada"),"N")));
 			conRes.groupBy(rootDeRe.get("dec_"+perf));
 			
 //			
 			Subquery<Long> sbq = conRes.subquery(Long.class);
 			Root<Declaracion> rootsqDe = sbq.from(Declaracion.class);
-			sbq.where(cbDb.and(cbDb.equal(rootsqDe.get("dec_"+perf),idS),cbDb.or(cbDb.equal(rootsqDe.get("dec_gen_aprobada"),"R"),cbDb.equal(rootsqDe.get("dec_gen_aprobada"),"N"))));
+			sbq.where(cbDb.and(cbDb.equal(rootsqDe.get("dec_"+perf),idS),cbDb.equal(rootsqDe.get("dec_gen_aprobada"),"A")));
 			sbq.groupBy(rootsqDe.get("dec_"+perf));
 			rootsqDe.alias("noEnv");
 			sbq.select(cbDb.count(rootsqDe.get("dec_"+perf))); 
@@ -258,7 +259,8 @@ try {
 //			Path<Long> agegadas = (Path<Long>) cb.count(rootDeRe); 
 //			Expression<ResultType> expression = cb.coalesce(sbq, cb.literal(null) literal((ResultType) defaultResult);
 
-			conRes.multiselect(cbDb.count(rootDeRe.get("dec_id"))
+			conRes.multiselect(
+					cbDb.count(rootDeRe.get("dec_id"))
 					,rGen
 					,apTrn
 					,reTrn
@@ -270,7 +272,14 @@ try {
 			
 			List<Tuple> res = em.createQuery(conRes).getResultList();
 			log.info(res.toString());
-			
+			for (Tuple tuple : res) {
+					log.info(tuple.get(0)+"");
+					log.info(tuple.get(1)+"");
+					log.info(tuple.get(2)+"");
+					log.info(tuple.get(3)+"");
+					log.info(tuple.get(4)+"");
+					log.info(tuple.get(5)+"");
+			}
 				conDash = res;	
 			
 			

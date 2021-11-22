@@ -25,7 +25,7 @@
 							<div class="row justify-content-md-center">
 
 					<!-- Server side start -->
-					<form  method="post" action="controlGenerador?action=Registrar" id="data">
+					<form  method="POST" action="controlGenerador?action=Registrar" id="data">
 						<div class="row g-3">
 						<div class="col-md-12 mt-4">
 							<label class="form-label" for="descripcionResiduo" >Descripción:</label> 

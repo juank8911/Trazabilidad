@@ -162,7 +162,7 @@
 
 					<button class="btn btn-success mb-3" type="submit">Crear Programacion</button>
 					<button class="btn btn-success mb-3" type="submit">
-						<a href="controlGenerador?action=listaGestorProg" class="text-white">Cancelar</a>
+						<a href="controlGenerador?action=listaGestorProg" id="btnSend" class="text-white">Cancelar</a>
 					</button>
 					&nbsp;
 				</form>

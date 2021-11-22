@@ -107,6 +107,13 @@
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
                 <h6>Menu ${usuario}</h6>
             </li>
+            <a href="ControlGestor?action=gestor" id="btnNav" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fas fa-home fa-fw mr-3"></span>                     
+                    <span class="menu-collapsed">Inicio</span>
+                    <span class="submenu-icon ml-auto"></span>
+                </div>
+            </a>
             <!-- /END Separator -->
             <!-- Menu with submenu -->
                         <a href="#submenu1" data-toggle="collapse" aria-expanded="true" class="bg-success list-group-item list-group-item-action flex-column align-items-start">

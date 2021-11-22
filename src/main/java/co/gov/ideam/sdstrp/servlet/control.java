@@ -515,7 +515,9 @@ public class control extends HttpServlet {
 		sede.setSed_municipio(Integer.parseInt(request.getParameter("txtMun")));
 		sede.setSed_direccion(request.getParameter("txtDirec"));
 		sede.setSed_telefono_nro(new BigInteger(request.getParameter("txtTel")));
-		sede.setSed_telefono_ext(Integer.parseInt(request.getParameter("txtExt")));
+		int ext = request.getParameter("txtExt").equals("")?0:1;
+		log.info(ext+"");
+		sede.setSed_telefono_ext(request.getParameter("txtExt").equals("")?0:Integer.parseInt(request.getParameter("txtExt")));
 		sede.setSed_generador(request.getParameter("txtEmpr"));
 		String idAu = sesion.getAttribute("idUsuario")+"";
 		int idUsu = Integer.parseInt(idAu);
