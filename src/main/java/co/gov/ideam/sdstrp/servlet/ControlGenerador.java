@@ -543,7 +543,7 @@ public class ControlGenerador extends HttpServlet {
 			Declaracion de = em.find(Declaracion.class, id);
 			
 			Programacion pr = em.find(Programacion.class, de.getDec_prog_id());
-			SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
+			SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 			String fechaI = request.getParameter("fechai");
 			Date fecha = formato.parse(fechaI);
 			pr.setPro_fecha_inicial(fecha);
