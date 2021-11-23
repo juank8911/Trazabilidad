@@ -107,13 +107,50 @@
 	  			
 	       },
 	       eventDrop: function(info) {
-		       
-	    	    alert(info.event.id + " was dropped on " + info.event.start.toISOString());
 
-	    	    if (!confirm("Are you sure about this change?")) {
+	    	   $('#carga').show();
+	    	    alert(info.event.id + " se modificara la fecha de esta programacion para el dia " + info.event.start.dateStrinfo.event.start.dateStr);
+
+	    	    if (!confirm("Esta seguro que desea cambiar la fecha?")) {
 	    	      info.revert();
 	    	    }
-	    	  },
+	    	    else
+		    	    {
+	    	    	$.ajax({
+			            type: 'GET',
+			            url: 'controlGenerador?action=programaRActualizaGenera',
+			            data: {'id':info.event.id,'fechai':info.event.start.dateStr},
+			            statusCode: {
+			                404: function () {
+			                    alert('pagina no encontrada');
+			                },
+			                500: function () {
+			                    alert('Error servidor');
+			                }
+			            },
+			            success: function (datos) {
+			            	window.alert(datos);
+	// //						$("#exampleModal").find('.modal-body .alert').val("Declaracion Actualizada con exito")
+								if(datos=="true" || datos==true )
+									{
+									
+									$('.alert-updt').show();
+									 $('#carga').hide();
+									}
+								else
+									{
+									$('#alertErr').alert();
+									 $('#carga').hide();
+									 
+									}
+//	 						
+	// //						$("#exampleModal")/.modal('hide');
+//	 		              location.reload('controlGenerador?action=generador');
+			            }
+		    	    });		    	    
+		    	
+	    	  }
+	       },
 	     events: [
 	    	 <c:forEach var="dato" items="${listaProgramacionC1}" >
 	    	 		<c:forEach var="decla" items="${dato.getProg_dec().getDeclaracion_res()}" varStatus="stat">
@@ -122,7 +159,7 @@
 				{
 					title: '${dato.getProg_dec().getDec_id()} - ${tit}',
 					time:'',
-					id: 'dato.getProg_dec().getDec_id()',
+					id: '${dato.getProg_dec().getDec_id()}',
 					start: '<fmt:formatDate value="${dato.getPro_fecha_inicial()}" pattern="yyyy-MM-dd" />',
 					color: 'green',   // an option!
 			         textColor: 'white', // an option!
@@ -150,6 +187,11 @@
                             </ul>
             			</div>
 
+			<div class="row justify-content-md-center">
+			<div class="alert alert-success alert-updt" id="alert-updt" role="alert">
+ 			 Fecha de declaracion actualizada correctmente!
+			</div>
+				</div>
 
 		<div class="row justify-content-md-center">
 				<a href="controlGenerador?action=programaCreaGenera" id="btnfloat" class="float">
@@ -172,12 +214,11 @@
 
 				</div>
 				</div>
-
+			
 			<div class='col-9 ml-5' id='calendar-container'>
 			<p>Calendar</p>				
 				<div id='CalendarioResi'></div>
 			</div>
-
 		</div>
 
 		

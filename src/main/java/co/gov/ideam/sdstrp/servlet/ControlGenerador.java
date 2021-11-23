@@ -536,15 +536,20 @@ public class ControlGenerador extends HttpServlet {
 			
 		}
 		
-		private void updateProgDecDecRes(HttpServletRequest request, HttpServletResponse response, String ruta) throws ServletException, IOException, ParseException {
+		private void updateProgDecDecRes(HttpServletRequest request, HttpServletResponse response, String ruta) throws Exception {
+			PrintWriter out = response.getWriter();
+					StringBuilder sb = new StringBuilder();
 			int id = Integer.parseInt(String.valueOf(request.getParameter("id")));
 			Declaracion de = em.find(Declaracion.class, id);
-			Programacion pr = de.getProg_dec();
+			
+			Programacion pr = em.find(Programacion.class, de.getDec_prog_id());
 			SimpleDateFormat formato = new SimpleDateFormat("dd-mm-yy");
 			String fechaI = request.getParameter("fechai");
 			Date fecha = formato.parse(fechaI);
 			pr.setPro_fecha_inicial(fecha);
 			progDao.updateProg(pr);
+			sb.append("true");
+			out.write(sb.toString());
 			
 		}
 		
