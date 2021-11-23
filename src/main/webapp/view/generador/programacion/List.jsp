@@ -109,7 +109,10 @@
 	       eventDrop: function(info) {
 
 	    	   $('#carga').show();
-	    	    alert(info.event.id + " se modificara la fecha de esta programacion para el dia " + info.event.start.dateStrinfo.event.start.dateStr);
+	    	   console.log(info);
+	    	   console.log('////////////////////////////////////////');
+	    	   console.log(info.event);
+	    	    alert(info.event.id + " se modificara la fecha de esta programacion para el dia " + info.event.start.toISOString());
 
 	    	    if (!confirm("Esta seguro que desea cambiar la fecha?")) {
 	    	      info.revert();
@@ -119,7 +122,7 @@
 	    	    	$.ajax({
 			            type: 'GET',
 			            url: 'controlGenerador?action=programaRActualizaGenera',
-			            data: {'id':info.event.id,'fechai':info.event.start.dateStr},
+			            data: {'id':info.event.id,'fechai':info.event.start.toISOString()},
 			            statusCode: {
 			                404: function () {
 			                    alert('pagina no encontrada');
