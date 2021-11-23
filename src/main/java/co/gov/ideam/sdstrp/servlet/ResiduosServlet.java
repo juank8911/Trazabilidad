@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.Tuple;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +39,9 @@ import co.gov.ideam.sdstrp.model.Residuos;
 public class ResiduosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	 @Inject
+	    private EntityManager em;
+	 
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -79,12 +83,51 @@ public class ResiduosServlet extends HttpServlet {
 		case "dashAut":
 			this.dashAut(request, response,sesion);
 			break;
+		case "validate":
+			this.valideResiduoDelete(request, response,sesion);
+			break;
+		case "residuoDel":
+			this.ResiduoDelete(request, response,sesion);
+			break;
+			
 		}
 	}
     
     
     
-    private void dashAut(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) throws IOException {
+    private void ResiduoDelete(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) throws Exception {
+		// TODO Auto-generated method stub
+    	int id = Integer.parseInt(String.valueOf(request.getParameter("id")));
+    	Residuos res = em.find(Residuos.class,id);
+    	resDAO.deleteRes(res);
+		
+	}
+
+
+
+	private void valideResiduoDelete(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) throws IOException {
+		// TODO Auto-generated method stub
+    	int val = Integer.parseInt(String.valueOf(request.getParameter("id")));
+    	PrintWriter out = response.getWriter();
+    	StringBuilder rs = new StringBuilder();
+    	log.info(val+"");
+    	boolean vale;
+		try {
+			vale = resDAO.valideDecla(val);
+			rs.append(vale);
+			out.print(rs.toString());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+		
+	}
+
+
+
+	private void dashAut(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) throws IOException {
 		// TODO Auto-generated method stub
     	JsonArray jsArr = new JsonArray();
     	int idSede = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));

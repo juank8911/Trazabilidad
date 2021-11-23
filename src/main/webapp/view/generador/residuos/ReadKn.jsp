@@ -5,6 +5,11 @@
 <%@taglib prefix="kendo" uri="http://www.kendoui.com/jsp/tags"%>
 <%@taglib prefix="demo" tagdir="/WEB-INF/tags"%>
 <demo:header />
+<style>
+    #example {
+        min-height: 350px;
+    }
+</style>
 
 	 <style>
     #grid .k-grid-toolbar
@@ -39,7 +44,35 @@
 	<%@include file="../sidebarNavbar2.jsp"%>
 	<div class="col-9 ml-5">
 	<!-- main content area start -->
+	<kendo:dialog name="dialog" visible="false" title="Eliminar Residuo" closable="false" modal="false" close="onClose"
+              content="<p>Esta seguro que desea <strong>Eliminar</strong> este residuo, una vez eliminado no podra ser recuperado <p>"
+             >
+    <kendo:dialog-actions>
+        <kendo:dialog-action text="Eliminar" primary="true" />
+        <kendo:dialog-action text="cancelar" />
+    </kendo:dialog-actions>
+</kendo:dialog>
 
+<div class="modal fade" id="aceptDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ELIMINAR!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Esta Seguro que desa eliminar este residuo, debe tener en cuante que una
+        vez eliminado no sera posible recuoerarlo.
+        Para eliminar el residio de click en eliminar,,,
+        de lo contrario de click en cancelar...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="btndel" class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
 	<!-- page title area start -->
 	
 	<div class="row justify-content-md-center">
@@ -152,7 +185,63 @@
 
 					<kendo:grid-column title="Opciones">
 						<kendo:grid-column-command>
-							 
+							 								<kendo:grid-column-commandItem name="eliminar" text="eliminar" >
+								 	 <kendo:grid-column-commandItem-click>
+								 	 		<script type="text/javascript">
+            											function eliminar(e)
+            											{
+            												var dialog = $('#dialog');
+            												var table = $('#Residuos');
+            												var modAc = $('#aceptDel');
+            												table.fadeOut();
+                											window.alert('rueba eliminar');
+            												e.preventDefault();
+            												var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+            												console.log(dataItem);
+            												 $.ajax({
+            											            type: 'POST',
+            											            url: 'residuosServlet?action=validate',
+            											            data: {'id':dataItem.res_id},
+            											            statusCode: {
+            											                404: function () {
+            											                    alert('pagina no encontrada');
+            											                },
+            											                500: function () {
+            											                    alert('Error servidor');
+            											                }
+            											            },
+            											            success: function (datos) {
+																		window.alert(datos);
+            											            	if(datos==true || datos=='true'){
+                											            	window.alert('true dentro del if')
+                											            	modAc.modal();                											            	 
+//                 											            	dialog.data("kendoDialog").open();
+//                 											            	$('#')
+												
+                											            	table.fadeIn();
+                											            }
+            											            	else{
+            											            		
+                											            	window.alert('false dentro del else');
+//                 											            	dialog.data("kendoDialog").open();
+																			var btndel =  document.getElementById("btndel");
+																			btndel.setAttribute("data-id",dataItem.res_id);
+// 																			moAc.Atrr('data-id',dataItem.res_id);
+																			modAc.modal();
+																			table.fadeIn()
+//                 											            	eliminar.click(function () {
+//                 											                   	window.alert('click en el boton')
+//                 											                });
+                											            	}
+                    											            
+            											            }
+
+            											        });
+//             												
+                										}
+            									</script>
+								 	 </kendo:grid-column-commandItem-click>
+								</kendo:grid-column-commandItem>
 							<kendo:grid-column-commandItem name="edit" >
 								<kendo:grid-column-commandItem-click>
 									<script type="text/javascript">
@@ -166,19 +255,7 @@
             									</script>
 								</kendo:grid-column-commandItem-click>
 							</kendo:grid-column-commandItem>
-								<kendo:grid-column-commandItem name="destroy" >
-								 	 <kendo:grid-column-commandItem-click>
-								 	 		<script type="text/javascript">
-            											function destroy(e)
-            											{
-            												e.preventDefault();
-            												var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-            											    window.location.href = "/trazabilidad/controlGenerador?action=eliminarResiGenerador&id="+dataItem.res_id;
-//             												
-                										}
-            									</script>
-								 	 </kendo:grid-column-commandItem-click>
-								</kendo:grid-column-commandItem>
+
 						</kendo:grid-column-command>
 					</kendo:grid-column>
 				</kendo:grid-columns>
@@ -287,6 +364,73 @@
 	    
 	});
 </script>
+
+<div class="modal fade" id="invalodDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Imposible Eliminar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Este Residuo no se puede eliminar por que ya existen declaraciones con el...
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" data-bs-dismiss="modal" class="btn btn-danger">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+   <script>
+    $(document).ready(function () {
+        var dialog = $('#dialog'),
+                undo = $("#undo"),
+                btndel = $('#btndel');
+        
+
+        undo.click(function () {
+            dialog.data("kendoDialog").open();
+            undo.fadeOut();
+        });
+    });
+
+    
+    btndel.click(function(e){
+		e.preventDefault();
+        e.stopImmediatePropagation();
+		var button = $(this) // Button that triggered the modal
+  		var id = button.data('id')
+  		console.log(id);
+		 $.ajax({
+	            type: 'POST',
+	            url: 'residuosServlet?action=validate',
+	            data: {'id':dataItem.res_id},
+	            statusCode: {
+	                404: function () {
+	                    alert('pagina no encontrada');
+	                },
+	                500: function () {
+	                    alert('Error servidor');
+	                }
+	            },
+	            success: function (datos) {
+					window.alert(datos);
+	            	
+			            
+	            }
+
+	        });
+  		
+        })
+   
+				function onClose() {
+					$("#undo").fadeIn();
+					$('#Residuos').fadeIn();
+				}
+			</script>				
+<span id="undo" style="display:none" class="k-button hide-on-narrow">Click here to open the dialog</span>
+
 
 	</div>
 

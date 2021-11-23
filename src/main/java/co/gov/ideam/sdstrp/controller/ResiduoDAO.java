@@ -27,9 +27,7 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
-
-
-
+import co.gov.ideam.sdstrp.model.DeclaracionResiduo;
 import co.gov.ideam.sdstrp.model.Empresa;
 import co.gov.ideam.sdstrp.model.GestionUbicacion;
                            
@@ -456,6 +454,34 @@ public class ResiduoDAO {
 			log.info("Exception:" + t.getMessage());
             throw ((Exception) t);
 		}		
+	}
+
+
+
+	public boolean valideDecla(int val) throws Exception {
+		// TODO Auto-generated method stub
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		boolean validateDe = false;
+		try {
+			CriteriaQuery<DeclaracionResiduo> conDec = cb.createQuery(DeclaracionResiduo.class);
+			Root<DeclaracionResiduo> rootDec = conDec.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Residuos> joiRes = rootDec.join("residuosDecl");
+			conDec.where(cb.equal(joiRes.get("res_id"), val));
+			conDec.select(rootDec);
+			int decVal = em.createQuery(conDec).getFirstResult();
+			log.info(decVal+"");
+			if(decVal!=0)
+			{
+				validateDe = true;
+			}
+		} catch (Exception t) {
+			// TODO: handle exception
+			log.info("Exception:" + t.getMessage());
+			return false;
+            
+            
+		}
+		return validateDe;
 	}
 
 
