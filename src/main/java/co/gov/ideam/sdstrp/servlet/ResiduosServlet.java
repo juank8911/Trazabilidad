@@ -100,6 +100,7 @@ public class ResiduosServlet extends HttpServlet {
     	int id = Integer.parseInt(String.valueOf(request.getParameter("id")));
     	Residuos res = em.find(Residuos.class,id);
     	resDAO.deleteRes(res);
+    	
 		
 	}
 

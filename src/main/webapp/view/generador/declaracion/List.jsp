@@ -216,7 +216,7 @@
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
 						<button type="button" id="envioFin" class="btn btn-success" >
-						<span class="spinner-border spinner-border-sm" role="status"  aria-hidden="true"></span>
+						<span class="spinner-border spinner-border-sm" id="loader" role="status"  aria-hidden="true"></span>
 						<span class="sr-only">Loading...</span>
 						Enviar
 						</button>
