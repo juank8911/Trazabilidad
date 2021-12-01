@@ -58,13 +58,13 @@
 								<td></td>
 								<td>${listdato.dec_id}</td>
 <%-- 								<td>${listdato.declaracion_res}</td> --%>
-								<td><i class="ti-bar-chart-alt"></i> -
+								<td><i class="fas fa-file-import"></i> -
 									${listdato.decSedGen.empresaSed.emp_nombre_comercial}
 									::${listdato.decSedGen.sed_nombre} ::
 									${listdato.decSedGen.sed_direccion} ::
 									${listdato.decSedGen.departamento.dept_nombre} ::
 									${listdato.decSedGen.sedMunic.munic_nombre} <br> <i
-									class="ti-truck"> </i> -
+									class="fas fa-truck-moving"> </i> -
 									${listdato.decSedTran.empresaSed.emp_nombre_comercial} ::
 									${listdato.decSedTran.sed_nombre} ::
 									${listdato.decSedTran.sed_direccion} ::

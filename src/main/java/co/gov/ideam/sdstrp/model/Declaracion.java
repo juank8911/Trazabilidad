@@ -353,7 +353,7 @@ public class Declaracion implements Serializable {
 	}
 	
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "declaracion_res")
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "declaracion_res")
 	 private List<DeclaracionResiduo> declaracion_res;
 	
 	

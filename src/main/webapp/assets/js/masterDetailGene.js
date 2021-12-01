@@ -262,6 +262,11 @@ function dialog(e) {
         dialog.dialog('close');
         enviar1(bt);
     });
+$('#enviocrea').click(function() {
+        dialog.dialog('close');
+        crear1(bt);
+    });
+
     $('#btnNo').click(function() {
         dialog.dialog('close');
     });
@@ -410,6 +415,116 @@ $("input", trs).removeAttr("readonly");
 }
 
  
+$(document).ready(function(){
+$('#exampleModal1').on('show.bs.modal', function (event) {
+//		event.preventDefault();
+//        event.stopImmediatePropagation();
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('id') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+var envio = document.getElementById("enviocrea");
+envio.setAttribute("data-id", recipient);
+})
+
+var i =0;
+	$('#enviocrea').click(function(e) {
+$("#enviocrea").attr("disabled", 'disabled');
+window.alert('boton crea')
+		e.preventDefault();
+        e.stopImmediatePropagation();
+	var button = $(this) // Button that triggered the modal
+  	var id = button.data('id')
+//console.log("///////////////////id///////////////////////////////////////");
+//		console.log("#"+id);
+//console.log("///////////////////id///////////////////////////////////////");		
+//		var table1 = $("#"+id);
+//		var tableP = $("table").prop('outerHTML'); 
+//		console.log(tableP)
+		var table1 = document.getElementById("Item"+id);
+//		var trs = $(table1).getElementById("sale"+id)
+//		var  ebody = $("table").find("#Item"+id)
+//		var table = $(ebody).find("#"+id);
+//		console.log("///////////////////table1 - tbody table///////////////////////////////////////");
+//		console.log(table1);
+//		console.log("///////////////////ebody///////////////////////////////////////");
+//		console.log(trs);
+		
+
+		var idDeclaRes = new Array() 
+		var tipEmbalaje = new Array();
+		var txtCantEmb = new Array(); 
+		var txtCantEmpq = new Array();
+		var tipEmpaque  = new Array();
+		var txtCantEmpq = new Array();
+		var txtCantPeso = new Array();
+		
+
+
+//		console.log("///////////////////LENGTH///////////////////////////////////////");
+		var cont = $(table1).length;
+//		console.log("los rows son "+ cont);
+//		console.log("//////////////afuer del for///////////////////////////////////////");
+			
+				$(table1).find("tr").each(function() {
+//			console.log("//////////////////////EACH DE TR////////////////////////////////////");
+//			console.log(this);	
+					$(this).find("td").each(function(){
+//					console.log("//////////////////////EACH DE TD////////////////////////////////////");
+//			console.log(this);
+//			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
+//			console.log($(this).find('input'));	
+//			console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
+			namesValues = [].map.call($(this).find('#idDeclaRes'),function(dataImput){
+//				console.log("///////////////////////////vista del objeto///////////////////////////////");
+//				console.log("///////////////////////////AGREGANDO A ARRAY///////////////////////////////");
+//				console.log("encontrado id dela Res "+dataImput.value);					
+				idDeclaRes.push(dataImput.value);
+					});	
+				namesValues = [].map.call($(this).find('#tipEmbalaje'),function(dataImput){
+					tipEmbalaje.push(dataImput.value);
+					});
+					namesValues = [].map.call($(this).find('#txtCantEmb'),function(dataImput){
+					txtCantEmb.push(dataImput.value);
+					});
+					
+					namesValues = [].map.call($(this).find('#tipEmpaque'),function(dataImput){
+					tipEmpaque.push(dataImput.value);
+						});
+					namesValues = [].map.call($(this).find('#txtCantEmpq'),function(dataImput){
+					txtCantEmpq.push(dataImput.value);
+						});
+					namesValues = [].map.call($(this).find('#txtCantPeso'),function(dataImput){
+						txtCantPeso.push(dataImput.value);
+						});	
+					});
+	
+        });				
+				 $.ajax({
+            type: 'POST',
+            url: 'controlGenerador?action=CrearDeclaResiduo',
+            data: {idDeclaRes,'tipEmbalaje[]':tipEmbalaje,'txtCantEmb[]':txtCantEmb ,'tipEmpaque[]': tipEmpaque,'txtCantEmpq[]':txtCantEmpq,'txtCantPeso[]':txtCantPeso},
+            statusCode: {
+                404: function () {
+                    alert('pagina no encontrada');
+                },
+                500: function () {
+                    alert('Error servidor');
+                }
+            },
+            success: function (datos) {
+//				$("#exampleModal").find('.modal-body .alert').val("Declaracion enviada con exito")
+				$('.alert').show()
+//				$("#exampleModal").modal('hide');
+              location.reload('controlGenerador?action=generador');
+            }
+
+        });	
+ });		
+	
+});
+
+
  
    $(document).ready(function () {
    
@@ -562,7 +677,7 @@ $("#envioFin").attr("disabled", 'disabled');
 			
 				 $.ajax({
             type: 'POST',
-            url: 'controlGenerador?action=CrearDeclaResiduo',
+            url: 'controlGenerador?action=enviarDeclaResiduo',
             data: {idDeclaRes,'tipEmbalaje[]':tipEmbalaje,'txtCantEmb[]':txtCantEmb ,'tipEmpaque[]': tipEmpaque,'txtCantEmpq[]':txtCantEmpq,'txtCantPeso[]':txtCantPeso},
             statusCode: {
                 404: function () {
@@ -579,10 +694,13 @@ $("#envioFin").attr("disabled", 'disabled');
               location.reload('controlGenerador?action=generador');
             }
 
-        });			
-			
-			
-			
+        });		
+
+
+
+//------------------------------------------------------------------------------//
+
+					
 	})
 
 

@@ -399,7 +399,7 @@ public class DeclaracionDAO {
 			 Root<Declaracion> RootDecR = conRes.from(Declaracion.class);
 			 Join<Declaracion, Programacion> joinPrrPr = RootDecR.join("prog_dec",JoinType.INNER);
 //			 conRes.where(cb.notEqual(joinDeRe.get("dec_gen_aprobada"),"A"));
-			 conRes.where(cb.and(cb.equal(RootDecR.get("dec_generador"), idSed),cb.notEqual(RootDecR.get("dec_gen_aprobada"),"A"),
+			 conRes.where(cb.and(cb.equal(RootDecR.get("dec_generador"), idSed),cb.equal(RootDecR.get("dec_gen_aprobada"),"NC"),
 			 cb.between(joinPrrPr.<Date>get("pro_fecha_inicial"),cini.getTime() ,cinf.getTime())));
 			 conRes.select(RootDecR);
 			 conRes.orderBy(cb.asc(RootDecR.get("dec_id")));
@@ -454,7 +454,7 @@ public class DeclaracionDAO {
 			 Root<Declaracion> RootDecR = conRes.from(Declaracion.class);
 			 Join<Declaracion, Programacion> joinPrrPr = RootDecR.join("prog_dec",JoinType.INNER);
 //			 conRes.where(cb.notEqual(joinDeRe.get("dec_gen_aprobada"),"A"));
-			 conRes.where(cb.and(cb.equal(RootDecR.get("dec_generador"), idSed),cb.notEqual(RootDecR.get("dec_gen_aprobada"),"A"),cb.between(joinPrrPr.<Date>get("pro_fecha_inicial"),cini.getTime() ,cinf.getTime())));
+			 conRes.where(cb.and(cb.equal(RootDecR.get("dec_generador"), idSed),cb.equal(RootDecR.get("dec_gen_aprobada"),"NC"),cb.between(joinPrrPr.<Date>get("pro_fecha_inicial"),cini.getTime() ,cinf.getTime())));
 			 conRes.select(RootDecR);
 			 conRes.orderBy(cb.asc(RootDecR.get("dec_id")));
 			 listDeclaHoy = em.createQuery(conRes).getResultList();
@@ -856,7 +856,7 @@ public class DeclaracionDAO {
 			 Join<DeclaracionResiduo, Declaracion> joinDeRe = RootDecR.join("declaracion_res",JoinType.LEFT);
 			 Join<Declaracion, Programacion> joinPrrPr = joinDeRe.join("prog_dec",JoinType.INNER);
 //			 conRes.where(cb.notEqual(joinDeRe.get("dec_gen_aprobada"),"A"));
-			 conRes.where(cb.and(cb.notEqual(joinDeRe.get("dec_gen_aprobada"),"A"),cb.between(joinPrrPr.<Date>get("pro_fecha_inicial"),cini.getTime() ,cinf.getTime())));
+			 conRes.where(cb.and(cb.equal(joinDeRe.get("dec_gen_aprobada"),"NC"),cb.between(joinPrrPr.<Date>get("pro_fecha_inicial"),cini.getTime() ,cinf.getTime())));
 			 conRes.multiselect(RootDecR);
 			 listProgHoy = em.createQuery(conRes).getResultList();
 			 for (Tuple tuple : listDeclaAprueba) {
@@ -934,7 +934,7 @@ public class DeclaracionDAO {
 			
 			 Join<Residuos,Sede> joinTrSe = joinRes.join("sedeTrans", JoinType.INNER);
 			 Join<Residuos, Sede> joinGeSe = joinRes.join("sedeGest", JoinType.INNER);
-			conRes.where(cb.equal(joinPrDec.get("dec_prog_id"), idProg));
+			conRes.where(cb.and(cb.equal(joinPrDec.get("dec_prog_id"), idProg),cb.notEqual(joinPrDec.get("dec_gen_aprobada"), "NC")));
 			 conRes.multiselect(joinRes.get("res_id"),joinRes.get("res_nombre"),joinRes.get("res_tipo_residuo"),joinPrP.get("pro_id"),
 					 joinTrSe.get("sed_id"),joinTrSe.get("sed_direccion"),joinGeSe.get("sed_id"),joinGeSe.get("sed_nombre"),joinGeSe.get("sed_direccion"),joinGeSe.get("sed_nombre")
 					 ,rootDec.get("der_id"),JoinEmp.get("tep_id"),JoinEmp.get("tep_nombre"),JoinEmb.get("tem_id"),JoinEmb.get("tem_nombre"),joinDeSeGes.get("sed_nombre"),joinDeSeGes.get("sed_direccion"),joinDeSeT.get("sed_nombre"),joinDeSeT.get("sed_direccion"));
@@ -1080,7 +1080,7 @@ public List<Declaracion> listDeclaAuto(int idAu, int take, int skip) {
 		Join<Declaracion, Sede> joinGen = rootDec.join("decSedGen",JoinType.INNER);
 		Join<Declaracion, Sede> joinTrn = rootDec.join("decSedTran",JoinType.INNER);
 		Join<Declaracion, Sede> joinGes = rootDec.join("decSedGes",JoinType.INNER);
-		criDec.where(cb.or(cb.equal(joinGen.get("sed_autoridad"), idAu),cb.equal(joinTrn.get("sed_autoridad"), idAu),cb.equal(joinGes.get("sed_autoridad"), idAu)));
+		criDec.where(cb.and(cb.notEqual(rootDec.get("dec_gen_aprobada"), "NC"),cb.or(cb.equal(joinGen.get("sed_autoridad"), idAu),cb.equal(joinTrn.get("sed_autoridad"), idAu),cb.equal(joinGes.get("sed_autoridad"), idAu))));
 		criDec.orderBy(cb.asc(rootDec.get("dec_id")));
 		TypedQuery<Declaracion> typedQuery1 = em.createQuery(criDec);
 		listDeclaHisAut = typedQuery1.getResultList();

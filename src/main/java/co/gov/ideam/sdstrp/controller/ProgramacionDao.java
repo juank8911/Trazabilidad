@@ -126,10 +126,11 @@ public class ProgramacionDao {
 				log.info(prog.getProg_dec().getDec_prog_id()+" id progamacion EN DECLARACION");
 				log.info(prog.getProg_dec().getDec_id()+" id declaracion DECLARACION");
 				log.info(prog.getProg_dec().getDeclaracion_res().size()+" tamaño decla res");
+				log.info(prog.getProg_dec().getDeclaracion_res().toString()+"");
 				for (DeclaracionResiduo tuple : prog.getProg_dec().getDeclaracion_res()) {
 					log.info(tuple.toString());
 					log.info(tuple.getDer_id()+"");
-//					tuple.getDer_gen_nombre();
+					tuple.getDer_gen_nombre();
 					log.info(tuple.getDer_gen_nombre()+ " Nombre residuo");
 					log.info("/////////////////////////////fin////////////////////");
 					

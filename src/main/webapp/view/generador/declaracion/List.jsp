@@ -101,8 +101,8 @@
 							<tr class="saleRow" id="sale${listdato.dec_id}">
 								<td></td>
 								<td>${listdato.dec_id}</td>
-								<td> <i class="ti-truck">    </i> - ${listdato.decSedTran.empresaSed.emp_nombre_comercial} :: ${listdato.decSedTran.sed_nombre} :: ${listdato.decSedTran.sed_direccion} :: ${listdato.decSedTran.departamento.dept_nombre} :: ${listdato.decSedTran.sedMunic.munic_nombre} <br>  
-								 <i class="ti-bar-chart-alt"></i> - ${listdato.decSedGes.empresaSed.emp_nombre_comercial} ::${listdato.decSedGes.sed_nombre} :: ${listdato.decSedGes.sed_direccion} :: ${listdato.decSedGes.departamento.dept_nombre} :: ${listdato.decSedGes.sedMunic.munic_nombre}  
+								<td> <i class="fas fa-truck-moving">    </i> - ${listdato.decSedTran.empresaSed.emp_nombre_comercial} :: ${listdato.decSedTran.sed_nombre} :: ${listdato.decSedTran.sed_direccion} :: ${listdato.decSedTran.departamento.dept_nombre} :: ${listdato.decSedTran.sedMunic.munic_nombre} <br>  
+								 <i class="fa fa-industry"></i> - ${listdato.decSedGes.empresaSed.emp_nombre_comercial} ::${listdato.decSedGes.sed_nombre} :: ${listdato.decSedGes.sed_direccion} :: ${listdato.decSedGes.departamento.dept_nombre} :: ${listdato.decSedGes.sedMunic.munic_nombre}  
 									 </td>
 								<td><fmt:formatDate
 										value="${listdato.prog_dec.pro_fecha_inicial}"
@@ -169,11 +169,23 @@
 												<tr>
 													<td colspan="5"></td>
 										 			<td class="boton" id="boton">
-										
-										 				<button type="button" class="btn btn-success" 
+										 			<div>${listdato.dec_gen_aprobada}</div>
+															<c:choose>         
+												         <c:when test = "${listdato.dec_gen_aprobada == 'NC'}">
+												   <button type="button" class="btn btn-success" 
+													data-toggle="modal" data-target="#exampleModal1" data-id="${listdato.dec_id}" >
+														Crear Declaracion
+														</button>
+												         </c:when>
+												         
+												         <c:when test = "${listdato.dec_gen_aprobada == 'N'}">
+												     <button type="button" class="btn btn-success" 
 													data-toggle="modal" data-target="#exampleModal" data-id="${listdato.dec_id}" >
 														Enviar Declaracion
 														</button>
+												         </c:when>												        
+												      </c:choose>
+
 													</td>
 													</tr>
 											</tbody>
@@ -219,6 +231,40 @@
 						<span class="spinner-border spinner-border-sm" id="loader" role="status"  aria-hidden="true"></span>
 						<span class="sr-only">Loading...</span>
 						Enviar
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+				<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Crear
+							Declaracion</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+							<div class="alert alert-success alert-dismissable" role="alert">
+ 				 			Declaracion Creada correctamente
+							</div>
+						<p>Al crear la declaracion la informacion podra ser modificada antes de enviarla. para completar el proceso debe enviar la declaracion. 
+						Si esta seguro haga clic
+							en "Aceptar" de lo contrario clic en "Cancelar"</p>
+					</div>
+					<div class="modal-footer" id="foot">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" id="enviocrea" class="btn btn-success" >
+						<span class="spinner-border spinner-border-sm" hidden id="loader" role="status"  aria-hidden="true"></span>
+						<span class="sr-only">Loading...</span>
+						Crear
 						</button>
 					</div>
 				</div>

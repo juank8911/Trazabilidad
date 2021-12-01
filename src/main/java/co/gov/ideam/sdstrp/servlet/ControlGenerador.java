@@ -385,8 +385,16 @@ public class ControlGenerador extends HttpServlet {
 	    			} else {
 	    	        	ruta = "view/generador/declaracion/List.jsp";
 	                    this.crearDeclaResiduos(request, response, ruta);
-	    			}
-	                
+	    			} 
+	                break;
+	            case "enviarDeclaResiduo":	
+	                if (sesion.getAttribute("perfil") == null) {
+	    				ruta = "view/login.jsp";
+	                    this.dirigir(request, response, ruta);
+	    			} else {
+	    	        	ruta = "view/generador/declaracion/List.jsp";
+	                    this.enviarDeclaResiduos(request, response, ruta);
+	    			} 
 	                break;
 	            case "reporteMGenera":	
 	                if (sesion.getAttribute("perfil") == null) {
@@ -482,6 +490,62 @@ public class ControlGenerador extends HttpServlet {
 		}
 
 		private void crearDeclaResiduos(HttpServletRequest request, HttpServletResponse response, String ruta) throws Exception {
+			
+			// TODO Auto-generated method stub
+			HttpSession sesion = request.getSession();
+			try {
+				
+			
+			
+        	String[] tipoEmbalaje = request.getParameterValues("tipEmbalaje[]");
+        	String[] idsDeclaRes = request.getParameterValues("idDeclaRes[]");
+        	String[] cantEmb = request.getParameterValues("txtCantEmb[]"); 
+        	String[] tipEmpa = request.getParameterValues("tipEmpaque[]");
+        	String[] cantEmpq = request.getParameterValues("txtCantEmpq[]");
+        	String[] cantPeso = request.getParameterValues("txtCantPeso[]");
+        	
+        	
+        	
+        	log.info(tipoEmbalaje.length+" / "+idsDeclaRes.length);
+        	
+        	
+        	
+        	for (int i=0; i<idsDeclaRes.length;i++)
+        	{
+        		log.info(i+"");
+        		log.info(idsDeclaRes[i]);
+        		log.info(tipoEmbalaje[i]);
+        		log.info(cantEmb[i]);
+        		log.info(tipEmpa[i]);
+        		log.info(cantEmpq[i]);
+        		log.info(cantPeso[i]);
+        		DeclaracionResiduo decRes = em.find(DeclaracionResiduo.class, Integer.parseInt(idsDeclaRes[i].trim()));
+        		decRes.setDer_gen_tipo_embalaje(String.valueOf(tipoEmbalaje[i]));
+        		decRes.setDer_gen_numero_embalajes(Integer.parseInt(cantEmb[i]));
+        		decRes.setDer_gen_tipo_empaque(tipEmpa[i]);
+        		decRes.setDer_gen_numero_empaques(Integer.parseInt(cantEmpq[i]));
+        		decRes.setDer_gen_peso_residuo(Integer.parseInt(cantPeso[i]));
+        		log.info(decRes.getDer_declaracion()+"");
+        		Declaracion dcla = em.find(Declaracion.class, Integer.valueOf(decRes.getDer_declaracion()));
+        		dcla.setDec_gen_fecha_trn(new Date());
+        		dcla.setDec_gen_aprobada("N");
+        		decDao.updateDecla_DeclaRes(dcla,decRes);
+        		
+        	}
+			} catch (Exception e) {
+				// TODO: handle exception
+				 System.out.println("Fallo lista Declaraciones por: " + e.getMessage());
+		            e.fillInStackTrace();
+			}
+			ruta = "view/generador/generador.jsp";
+        	int idSed = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
+        	decDao.declaCercana(idSed);
+            this.dirigir(request, response, ruta);
+			
+		}
+		
+		
+private void enviarDeclaResiduos(HttpServletRequest request, HttpServletResponse response, String ruta) throws Exception {
 			
 			// TODO Auto-generated method stub
 			HttpSession sesion = request.getSession();
@@ -788,7 +852,7 @@ public class ControlGenerador extends HttpServlet {
                 	decl.setDec_trn_aprobada("N");
                 	decl.setDec_ges_aprobada("N");
 //                	decl.setDec_generador(idS);
-                	decl.setDec_gen_aprobada("N");
+                	decl.setDec_gen_aprobada("NC");
                 	log.info(decl.toString());
                 	decDao.registrarDeclaracion();
                 	

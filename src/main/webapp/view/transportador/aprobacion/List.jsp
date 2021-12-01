@@ -69,8 +69,8 @@
 									name="brand[]"></td>
 								<td></td>
 								<td>${listdato.dec_id}</td>
-								<td> <i class="fa-bar-chart-alt"></i> - ${listdato.decSedGen.empresaSed.emp_nombre_comercial}  :: ${listdato.decSedGes.sed_nombre} :: ${listdato.decSedGes.sed_direccion} :: ${listdato.decSedGes.departamento.dept_nombre} :: ${listdato.decSedGes.sedMunic.munic_nombre} <br> 
-									 <i class="fa-truck">        </i> - ${listdato.decSedGes.empresaSed.emp_nombre_comercial} :: ${listdato.decSedGen.sed_nombre} :: ${listdato.decSedGen.sed_direccion} :: ${listdato.decSedGen.departamento.dept_nombre} :: ${listdato.decSedGen.sedMunic.munic_nombre}
+								<td> <i class="fas fa-file-import"></i> - ${listdato.decSedGen.empresaSed.emp_nombre_comercial}  :: ${listdato.decSedGen.sed_nombre} :: ${listdato.decSedGen.sed_direccion} :: ${listdato.decSedGen.departamento.dept_nombre} :: ${listdato.decSedGen.sedMunic.munic_nombre} <br> 
+									 <i class="fa fa-industry">        </i> - ${listdato.decSedGes.empresaSed.emp_nombre_comercial} :: ${listdato.decSedGes.sed_nombre} :: ${listdato.decSedGes.sed_direccion} :: ${listdato.decSedGes.departamento.dept_nombre} :: ${listdato.decSedGes.sedMunic.munic_nombre}
 									 		<input type="hidden" name="declaracion[].delca" value="${listdato.dec_id}"/>	  
 							 </td>
 								<td><fmt:formatDate
