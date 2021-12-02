@@ -147,7 +147,7 @@
 															value="${deca.der_declaracion}" name="idDecla[]" id="idDecla "/>
 														</td>
 														<td id="td${listdato.dec_id}"><input type="number" name="txtCantEmb[]"
-														id="txtCantEmb" class="form-control" ></td>
+														id="txtCantEmb" class="form-control"  value="${deca.der_gen_numero_embalajes}"></td>
 															
 														<td id="td${listdato.dec_id}"><select id="tipEmpaque" name="tipEmpaque[]"
 															class="form-select sm-2" required id="tipEmpaque">
@@ -157,12 +157,12 @@
 																</c:forEach>
 														</select></td>
 														<td id="td${listdato.dec_id}"> <input type="number" name="txtCantEmpq[]"
-														id="txtCantEmpq" class="form-control" >
+														id="txtCantEmpq" class="form-control" value="${deca.der_gen_numero_empaques}">
 														
 							
 															
 														<td id="td${listdato.dec_id}"><input type="number" required name="txtCantPeso[]"
-															id="txtCantPeso" class="form-control sm-2" ></td>
+															id="txtCantPeso" class="form-control sm-2" value="${deca.der_gen_peso_residuo}"></td>
 													</tr>
 													
 												</c:forEach>

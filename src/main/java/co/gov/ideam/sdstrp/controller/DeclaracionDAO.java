@@ -202,15 +202,18 @@ public class DeclaracionDAO {
 				Root<Declaracion> rootDec = criDec.from(Declaracion.class);
 				if(idP==3)
 				{
-					criDec.where(cDe.equal(rootDec.get("dec_generador"), idS));
+					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_generador"), idS),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"NC"),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"N")));
 				}
 				else if(idP==4)
 				{
-					criDec.where(cDe.equal(rootDec.get("dec_transportador"), idS));
+					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_transportador"), idS),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"NC"),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"N")));
+					
 				}
 				else if(idP==5)
 				{
-					criDec.where(cDe.equal(rootDec.get("dec_gestor"), idS));
+				
+					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_gestor"), idS),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"NC"),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"N")));
+					
 				}
 				criDec.select(rootDec);
 				listDeclaSal =  em.createQuery(criDec).getResultList();
@@ -399,7 +402,7 @@ public class DeclaracionDAO {
 			 Root<Declaracion> RootDecR = conRes.from(Declaracion.class);
 			 Join<Declaracion, Programacion> joinPrrPr = RootDecR.join("prog_dec",JoinType.INNER);
 //			 conRes.where(cb.notEqual(joinDeRe.get("dec_gen_aprobada"),"A"));
-			 conRes.where(cb.and(cb.equal(RootDecR.get("dec_generador"), idSed),cb.equal(RootDecR.get("dec_gen_aprobada"),"NC"),
+			 conRes.where(cb.and(cb.equal(RootDecR.get("dec_generador"), idSed),cb.or(cb.equal(RootDecR.get("dec_gen_aprobada"),"NC"),cb.equal(RootDecR.get("dec_gen_aprobada"),"N")),
 			 cb.between(joinPrrPr.<Date>get("pro_fecha_inicial"),cini.getTime() ,cinf.getTime())));
 			 conRes.select(RootDecR);
 			 conRes.orderBy(cb.asc(RootDecR.get("dec_id")));
@@ -454,7 +457,7 @@ public class DeclaracionDAO {
 			 Root<Declaracion> RootDecR = conRes.from(Declaracion.class);
 			 Join<Declaracion, Programacion> joinPrrPr = RootDecR.join("prog_dec",JoinType.INNER);
 //			 conRes.where(cb.notEqual(joinDeRe.get("dec_gen_aprobada"),"A"));
-			 conRes.where(cb.and(cb.equal(RootDecR.get("dec_generador"), idSed),cb.equal(RootDecR.get("dec_gen_aprobada"),"NC"),cb.between(joinPrrPr.<Date>get("pro_fecha_inicial"),cini.getTime() ,cinf.getTime())));
+			 conRes.where(cb.and(cb.equal(RootDecR.get("dec_generador"), idSed),cb.or(cb.equal(RootDecR.get("dec_gen_aprobada"),"NC"),cb.equal(RootDecR.get("dec_gen_aprobada"),"N")),cb.between(joinPrrPr.<Date>get("pro_fecha_inicial"),cini.getTime() ,cinf.getTime())));
 			 conRes.select(RootDecR);
 			 conRes.orderBy(cb.asc(RootDecR.get("dec_id")));
 			 listDeclaHoy = em.createQuery(conRes).getResultList();
