@@ -202,7 +202,7 @@ public class DeclaracionDAO {
 				Root<Declaracion> rootDec = criDec.from(Declaracion.class);
 				if(idP==3)
 				{
-					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_generador"), idS),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"NC"),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"N")));
+					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_generador"), idS),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"NC")));
 				}
 				else if(idP==4)
 				{
