@@ -42,13 +42,69 @@
     				<kendo:grid-column title="Cantidad Total (kg)" field="pesoGen"></kendo:grid-column>
     				<kendo:grid-column title="Estado" field="estado"></kendo:grid-column>
     				<kendo:grid-column title="Ver">
-    				<kendo:grid-column-command>
-            				<kendo:grid-column-commandItem name="view" />            					
+    				    				<kendo:grid-column-command>
+            				<kendo:grid-column-commandItem name="ver" text="Ver" >
+            				<kendo:grid-column-commandItem-click>
+            					<script>
+                            function showDetails(e) {
+                                var detailsTemplate = kendo.template($("#template").html());
+
+                                e.preventDefault();
+
+                                var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+                                var wnd = $("#details").data("kendoWindow");
+
+                                wnd.content(detailsTemplate(dataItem));
+                                wnd.center().open();
+                            }
+                            </script>
+            				</kendo:grid-column-commandItem-click>
+            				</kendo:grid-column-commandItem>            					
             			</kendo:grid-column-command>
     				</kendo:grid-column>
     			</kendo:grid-columns>
 			</kendo:grid>
 		</div>
+				<script type="text/x-kendo-template" id="template">
+    <div id="details-container">
+		<h2>Numero de declaracion: #= dec_id #</h2>
+
+        <p>Fecha de Envio: #= dec_gen_fecha_trn #</p>
+
+		<p>Fecha de Aprobacion: #= dec_gen_fecha_trn #</p>
+
+		<p>Fecha de Finalizacion: #= dec_ges_fecha_ges #</p>
+
+		<h4>Observaciones</h4>
+        <em></em>
+        <dl>
+        </dl>
+    </div>
+    </script>
+
+    <kendo:window name="details" modal="true" draggable="true" visible="false" />
+<style type="text/css">
+     #details-container
+     {
+         padding: 10px;
+     }
+
+     #details-container h2
+     {
+         margin: 0;
+     }
+
+     #details-container em
+     {
+         color: #8c8c8c;
+     }
+
+     #details-container dt
+     {
+         margin:0;
+         display: inline;
+     }
+ </style>
 		</div>
 		<!-- page title area end -->
 		<!--div class="main-content-inner"-->

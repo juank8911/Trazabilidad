@@ -169,7 +169,7 @@
 												<tr>
 													<td colspan="5"></td>
 										 			<td class="boton" id="boton">
-										 			<div>${listdato.dec_gen_aprobada}</div>
+										 			
 															<c:choose>         
 												         <c:when test = "${listdato.dec_gen_aprobada == 'NC'}">
 												   <button type="button" class="btn btn-success" 
