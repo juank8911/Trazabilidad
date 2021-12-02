@@ -74,7 +74,7 @@
 
         <p>Fecha de Envio: #= dec_gen_fecha_trn #</p>
 
-		<p>Fecha de Aprovacion: #= dec_gen_fecha_trn #</p>
+		<p>Fecha de Aprobacion: #= dec_trn_fecha_trn #</p>
 
 		<p>Fecha de Finalizacion: #= dec_ges_fecha_ges #</p>
 
