@@ -72,11 +72,11 @@
     <div id="details-container">
 		<h2>Numero de declaracion: #= dec_id #</h2>
 
-        <p>Fecha de Envio: #= dec_gen_fecha_trn #</p>
+        <p>Fecha de Envio: #= kendo.toString((dec_gen_fecha_trn), "dd-MM-yyyy")  #</p>
 
-		<p>Fecha de Aprobacion: #= dec_trn_fecha_trn #</p>
+		<p>Fecha de Aprobacion: #= kendo.toString((dec_trn_fecha_trn), "dd-MM-yyyy" #</p>
 
-		<p>Fecha de Finalizacion: #= dec_ges_fecha_ges #</p>
+		<p>Fecha de Finalizacion: #= kendo.toString((dec_ges_fecha_ges), "dd-MM-yyyy") #</p>
 
 		<h4>Observaciones</h4>
         <em></em>

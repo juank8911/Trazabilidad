@@ -39,10 +39,26 @@
     			<kendo:dataSource-transport>
     			<kendo:dataSource-transport-read url="/trazabilidad/informesServlet?action=histLisGen"/>
     			</kendo:dataSource-transport>
+    			    			<kendo:dataSource-schema>
+                <kendo:dataSource-schema-model>
+                    <kendo:dataSource-schema-model-fields>
+                        <kendo:dataSource-schema-model-field name="dec_id" type="number" />
+                        <kendo:dataSource-schema-model-field name="dec_gen_fecha_trn" type="date" />
+                        <kendo:dataSource-schema-model-field name="sedTrn.sed_nombre" type="string" />
+                        <kendo:dataSource-schema-model-field name="sedGen.sed_nombre" type="string" />
+                        <kendo:dataSource-schema-model-field name="tRes" type="string" />
+                        <kendo:dataSource-schema-model-field name="pesoGen" type="number" />
+                        <kendo:dataSource-schema-model-field name="dec_ges_observacion" type="string" />
+                        <kendo:dataSource-schema-model-field name="dec_trn_fecha_trn" type="date" />
+                        
+                    </kendo:dataSource-schema-model-fields>
+                </kendo:dataSource-schema-model>
+            </kendo:dataSource-schema>
     			</kendo:dataSource>
     			<kendo:grid-columns>
     				<kendo:grid-column title="Numero de Declaracion" field="dec_id"></kendo:grid-column>
-    				<kendo:grid-column title="Fecha de Envio" field="dec_gen_fecha_trn" format="{0: yyyy-MM-dd}" template="#if(dec_gen_fecha_trn == 'null'){# N/A #}else{# #: dec_gen_fecha_trn #  #}#"></kendo:grid-column>
+    				<kendo:grid-column title="Fecha de Envio" field="dec_gen_fecha_trn" format="{0: yyyy-MM-dd}" template="#if(dec_gen_fecha_trn == 'null'){# N/A #}else{# 
+    				#:   dec_gen_fecha_trn #  #}#"></kendo:grid-column>
     				<kendo:grid-column title="Transporador" field="sedTrn.sed_nombre"></kendo:grid-column>
     				<kendo:grid-column title="Gestor" field="sedGes.sed_nombre"></kendo:grid-column>
     				<kendo:grid-column title="Corriente Residuos" field="tRes"></kendo:grid-column>
@@ -78,14 +94,12 @@
     <div id="details-container">
 		<h2>Numero de declaracion: #= dec_id #</h2>
 
-        <p>Fecha de Envio: #= dec_gen_fecha_trn #</p>
+        <p>Fecha de Envio: #= kendo.toString((dec_gen_fecha_trn), "dd-MM-yyyy")  #</p>
 
 		<p>Fecha de Aprobacion: #= dec_trn_fecha_trn #</p>
 
-		<p>Fecha de Finalizacion: #= dec_ges_fecha_ges #</p>
+		<p>Fecha de Finalizacion: #= kendo.toString((dec_ges_fecha_ges), "dd-MM-yyyy") #</p>
 
-		<h4>Observaciones</h4>
-        <em></em>
         <dl>
         </dl>
     </div>
