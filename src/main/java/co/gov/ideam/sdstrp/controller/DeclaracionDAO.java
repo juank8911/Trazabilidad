@@ -206,13 +206,13 @@ public class DeclaracionDAO {
 				}
 				else if(idP==4)
 				{
-					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_transportador"), idS),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"NC"),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"N")));
+					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_transportador"), idS),cDe.notEqual(rootDec.get("dec_trn_aprobada"),"N")));
 					
 				}
 				else if(idP==5)
 				{
 				
-					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_gestor"), idS),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"NC"),cDe.notEqual(rootDec.get("dec_gen_aprobada"),"N")));
+					criDec.where(cDe.and(cDe.equal(rootDec.get("dec_gestor"), idS),cDe.notEqual(rootDec.get("dec_ges_aprobada"),"N")));
 					
 				}
 				criDec.select(rootDec);

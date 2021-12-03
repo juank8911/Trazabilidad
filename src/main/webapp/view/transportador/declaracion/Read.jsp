@@ -36,7 +36,7 @@
     			</kendo:dataSource>
     			<kendo:grid-columns>
     				<kendo:grid-column title="Numero de Declaracion" field="dec_id"></kendo:grid-column>
-    				<kendo:grid-column title="Fecha de Envio" field="dec_gen_fecha_trn" format="{0: yyyy-MM-dd}" template="#if(dec_gen_fecha_trn == 'null'){# N/A #}else{# #: dec_gen_fecha_trn #  #}#"></kendo:grid-column>
+    				<kendo:grid-column title="Fecha de Envio" field="dec_gen_fecha_trn" format="{0: yyyy-MM-dd}"></kendo:grid-column>
     				<kendo:grid-column title="Generador" field="sedGen.sed_nombre"></kendo:grid-column>
     				<kendo:grid-column title="Gestor" field="sedGes.sed_nombre"></kendo:grid-column>
     				<kendo:grid-column title="Corriente Residuos" field="tRes"></kendo:grid-column>

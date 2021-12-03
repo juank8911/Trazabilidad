@@ -71,11 +71,9 @@ public class InformesServlet extends HttpServlet {
 		this.genRepMens(request, response, sesion);
 			break;
 		case "histLisGen":
-			
 			this.histListgen(request, response, sesion);
-				break;
+				break;	
 			case "salida":
-			
 			this.salidaGen(request, response, sesion);
 				break;
 		case "salidaDecRes":
@@ -90,6 +88,7 @@ public class InformesServlet extends HttpServlet {
 				break;
 		}
 	}
+
 
 	private void outExcel(HttpServletRequest request, HttpServletResponse response, HttpSession sesion) {
 		// TODO Auto-generated method stub
