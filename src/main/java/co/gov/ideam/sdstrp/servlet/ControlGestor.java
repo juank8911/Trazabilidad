@@ -483,6 +483,9 @@ public class ControlGestor extends HttpServlet {
     				ruta = "view/login.jsp";
     	               this.gestor(request, response, ruta);
     			} else {
+    				int idSe = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
+	                int idPe = Integer.parseInt(String.valueOf(sesion.getAttribute("perfil")));
+	                declaDAO.SelectDeclHistorial(idSe, idPe);
     	               this.gestor(request, response, ruta);
     			}
                 break;

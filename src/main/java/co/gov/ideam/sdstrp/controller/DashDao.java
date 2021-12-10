@@ -119,7 +119,7 @@ try {
 //	
 	Subquery<Long> sbq = conRes.subquery(Long.class);
 	Root<Declaracion> rootsqDe = sbq.from(Declaracion.class);
-	sbq.where(cbDb.and(cbDb.equal(rootsqDe.get("dec_"+perf),idSede),cbDb.or(cbDb.equal(rootsqDe.get("dec_gen_aprobada"),"R"),cbDb.equal(rootsqDe.get("dec_gen_aprobada"),"N"))));
+	sbq.where(cbDb.and(cbDb.equal(rootsqDe.get("dec_"+perf),idSede),cbDb.equal(rootsqDe.get("dec_gen_aprobada"),"N")));
 	sbq.groupBy(rootsqDe.get("dec_"+perf));
 	rootsqDe.alias("noEnv");
 	sbq.select(cbDb.count(rootsqDe.get("dec_"+perf))); 
