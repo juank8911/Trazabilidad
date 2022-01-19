@@ -291,7 +291,7 @@ public class ControlGenerador extends HttpServlet {
 	                List<Sede> tSede = combo.verListaSedeTrans(codEm);
 	                StringBuilder st = new StringBuilder("");	                
 	                for (Sede sedes : tSede) {
-	                	System.out.println(sedes);
+	                	System.out.println(sedes.getSed_id()+" / "+ sedes.getSed_nombre());
 	                	st.append(sedes.getSed_id()+"-"+sedes.getSed_nombre()+"|");
 					}
 	                out.write(st.toString());
@@ -408,6 +408,14 @@ public class ControlGenerador extends HttpServlet {
 	                break;
 	            case "historicoListaGenera":
 	                ruta = "view/generador/generacion/Read.jsp";
+	                resDAO.setTitulo("sdstrp - Declaracion");
+//	                int idS = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
+//	                int idP = Integer.parseInt(String.valueOf(sesion.getAttribute("perfil")));
+//	                decDao.prebaDeclaRes(idS, idP);
+	                this.dirigir(request, response, ruta);
+	                break;
+	            case "indiListaGenera":
+	                ruta = "view/generador/indicador/List.jsp";
 	                resDAO.setTitulo("sdstrp - Declaracion");
 //	                int idS = Integer.parseInt(String.valueOf(sesion.getAttribute("idSede")));
 //	                int idP = Integer.parseInt(String.valueOf(sesion.getAttribute("perfil")));

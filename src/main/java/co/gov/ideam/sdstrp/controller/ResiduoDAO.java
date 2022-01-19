@@ -2,6 +2,8 @@ package co.gov.ideam.sdstrp.controller;
 
 
 
+import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -27,6 +29,7 @@ import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
+import co.gov.ideam.sdstrp.model.Declaracion;
 import co.gov.ideam.sdstrp.model.DeclaracionResiduo;
 import co.gov.ideam.sdstrp.model.Empresa;
 import co.gov.ideam.sdstrp.model.GestionUbicacion;
@@ -54,6 +57,7 @@ public class ResiduoDAO {
     static List<Tuple> listaResiduosGenId;
     static List<Residuos> listaResiduos;
     static List<TipoResiduos> listaTresiduos;
+    static List<Tuple> charResAnio;
     static Residuos acResiduo;
     static String titulo;
 
@@ -97,6 +101,8 @@ public class ResiduoDAO {
     	 	this.verListaTResiduos();
 	    	return listaTresiduos;
 	    }
+     
+
 	    
 	    
 
@@ -134,7 +140,99 @@ public class ResiduoDAO {
 			return listaResiduos;
 		}
 	    
+	    
 	    @Produces
+	    @Named
+		public List<Tuple> getResiduosanio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+//			ListaSedesPr();
+			listarResiduoAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	    
+	    @Produces
+	    @Named
+		public List<Tuple> getGenAnio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+//			ListaSedesPr();
+	    	listaGeneradorAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	    
+	    @Produces
+	    @Named
+		public List<Tuple> getGenGestAnio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+//			ListaSedesPr();
+	    	listaGeneradorGestAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	    
+		@Produces
+	    @Named
+		public List<Tuple> getGestTrnAnio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+//			ListaSedesPr();
+	    	listaGestAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	    
+	    @Produces
+	    @Named
+	 	public List<Tuple> getGenResAnio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+	 		listaGenResAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	 	
+	    @Produces
+	    @Named
+	 	public List<Tuple> getGenSubManAnio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+	 		listaGenSubManAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	 	
+	    @Produces
+	    @Named
+		public List<Tuple> getGenGesAnio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+	    	listaGenGesAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	    
+	    @Produces
+	    @Named
+		public List<Tuple> getGenTrnAnio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+	    	listaGenTrnAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	    
+	    @Produces
+	    @Named
+		public List<Tuple> getGesTrnAnio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+	    	listaGesTrnAnio(idSede,desde,hasta);
+			return charResAnio;
+		}
+	    
+	    @Produces
+	    @Named
+		public List<Tuple> getResiduosGesanio(int idSede, int desde, int hasta) {
+			// TODO Auto-generated method stub
+	    	listGesResT(idSede,desde,hasta);
+			return charResAnio;
+		}
+	 	
+
+
+
+
+
+
+
+		@Produces
 	    @Named
 	    public List<Tuple> getListaResiduosGenId()
 	    {
@@ -282,6 +380,331 @@ public class ResiduoDAO {
 		}
 
 	}
+	
+	private void listGesResT(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+		charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_gestor"), idSede),cb.equal(joinDecl.get("dec_ges_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")),RootRes.get("der_gen_tipo_residuo"));
+			crRes.multiselect(RootRes.get("der_gen_tipo_residuo"),cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")),cb.sum(RootRes.<Number>get("der_ges_peso_residuo2")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo residuo anio: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+	}
+	
+    private void listaGeneradorGestAnio(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+    	charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			Join<Declaracion,Sede> joinGest = joinDecl.join("decSedGen",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_gestor"), idSede),cb.equal(joinDecl.get("dec_ges_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")),joinGest.get("sed_nombre"));
+			crRes.multiselect(joinGest.get("sed_nombre"),cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")),cb.sum(RootRes.<Number>get("der_ges_peso_residuo2")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo generador anio: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+	}
+    
+	
+	private void listaGesTrnAnio(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+		charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			Join<Declaracion,Sede> joinGest = joinDecl.join("decSedTran",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_gestor"), idSede),cb.equal(joinDecl.get("dec_ges_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")),joinGest.get("sed_nombre"));
+			crRes.multiselect(joinGest.get("sed_nombre"),cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")),cb.sum(RootRes.<Number>get("der_ges_peso_residuo2")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_ges_fecha_ges")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo gestor de generador: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+	}
+	
+    private void listarResiduoAnio(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+    	charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_transportador"), idSede),cb.equal(joinDecl.get("dec_trn_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")),RootRes.get("der_gen_tipo_residuo"));
+			crRes.multiselect(RootRes.get("der_gen_tipo_residuo"),cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")),cb.sum(RootRes.<Number>get("der_trn_peso_residuo2")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo residuo anio: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+	}
+    
+    private void listaGeneradorAnio(int idSede, int desde, int hasta)
+    {
+    	charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			Join<Declaracion,Sede> joinGest = joinDecl.join("decSedGen",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_transportador"), idSede),cb.equal(joinDecl.get("dec_trn_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")),joinGest.get("sed_nombre"));
+			crRes.multiselect(joinGest.get("sed_nombre"),cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")),cb.sum(RootRes.<Number>get("der_trn_peso_residuo2")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo generador anio: " + e.getMessage());
+            e.fillInStackTrace();
+		}	
+    }
+    
+
+	private void listaGestAnio(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+		charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			Join<Declaracion,Sede> joinGest = joinDecl.join("decSedGes",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_transportador"), idSede),cb.equal(joinDecl.get("dec_trn_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")),joinGest.get("sed_nombre"));
+			crRes.multiselect(joinGest.get("sed_nombre"),cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")),cb.sum(RootRes.<Number>get("der_trn_peso_residuo2")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo gestor: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+	}
+	
+	/**
+	 * lista de residuos por corriente residuo de generador
+	 * @param idSede
+	 * @param desde
+	 * @param hasta
+	 */
+
+	private void listaGenResAnio(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+		charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_generador"), idSede),cb.equal(joinDecl.get("dec_gen_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")),RootRes.get("der_gen_tipo_residuo"));
+			crRes.multiselect(RootRes.get("der_gen_tipo_residuo"),cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")),cb.sum(RootRes.<Number>get("der_gen_peso_residuo")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo residuo anio: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+		
+	}
+	
+	
+	/**
+	 * metodo que retorna la lista por sub tipo de manejo de generador
+	 * @param idSede
+	 * @param desde
+	 * @param hasta
+	 */
+	private void listaGenSubManAnio(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+		charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_generador"), idSede),cb.equal(joinDecl.get("dec_gen_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")),RootRes.get("der_ges_subti_gestion"));
+			crRes.multiselect(RootRes.get("der_ges_subti_gestion"),cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")),cb.sum(RootRes.<Number>get("der_gen_peso_residuo")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo residuo anio: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+		
+	}
+	
+	private void listaGenGesAnio(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+		charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			Join<Declaracion,Sede> joinGest = joinDecl.join("decSedGes",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_generador"), idSede),cb.equal(joinDecl.get("dec_gen_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")),joinGest.get("sed_nombre"));
+			crRes.multiselect(joinGest.get("sed_nombre"),cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")),cb.sum(RootRes.<Number>get("der_gen_peso_residuo")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo gestor de generador: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+	}
+	
+	private void listaGenTrnAnio(int idSede, int desde, int hasta) {
+		// TODO Auto-generated method stub
+		charResAnio = null;
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		try {
+			CriteriaQuery<Tuple> crRes= cb.createTupleQuery();
+			Root<DeclaracionResiduo> RootRes = crRes.from(DeclaracionResiduo.class);
+			Join<DeclaracionResiduo, Declaracion> joinDecl = RootRes.join("declaracion_res",JoinType.INNER);
+			Join<Declaracion,Sede> joinGest = joinDecl.join("decSedTran",JoinType.INNER);
+			crRes.where(cb.and(cb.equal(joinDecl.get("dec_generador"), idSede),cb.equal(joinDecl.get("dec_gen_aprobada"), "A")));
+			crRes.groupBy(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")),joinGest.get("sed_nombre"));
+			crRes.multiselect(joinGest.get("sed_nombre"),cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")),cb.sum(RootRes.<Number>get("der_gen_peso_residuo")));
+			crRes.having(cb.between(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_gen")), desde, hasta));
+//			cb.equal(cb.function("YEAR", Integer.class, joinDecl.get("dec_gen_fecha_trn")), Integer.parseInt("2021"))
+			charResAnio = em.createQuery(crRes).getResultList();
+			
+			for (Tuple tuple : charResAnio) {
+				log.info(tuple.toString());
+				log.info(""+tuple.get(0));
+				log.info(""+tuple.get(1));
+				log.info(""+tuple.get(2));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Fallo lista de tipo gestor de generador: " + e.getMessage());
+            e.fillInStackTrace();
+		}
+		
+	}
+
+	
+
 	
 	
 	
@@ -483,6 +906,22 @@ public class ResiduoDAO {
 		}
 		return validateDe;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	

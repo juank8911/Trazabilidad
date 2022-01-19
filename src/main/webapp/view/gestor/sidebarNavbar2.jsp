@@ -105,7 +105,7 @@
         <ul class="list-group">
             <!-- Separator with title -->
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <h6>Menu ${usuario}</h6>
+                <h6>Menu</h6>
             </li>
             <a href="ControlGestor?action=gestor" id="btnNav" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
@@ -120,7 +120,7 @@
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-info fa-fw mr-3"></span>
                     
-                    <span class="menu-collapsed">Informacion</span>
+                    <span class="menu-collapsed">Información</span>
                     <span class="submenu-icon ml-auto"></span>
                 </div>
             </a>
@@ -128,11 +128,11 @@
             <div id="submenu1" class="sidebar-submenu collapse show" style="">
                 <a href="ControlGestor?action=perfilLeerGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
-                    <span class="menu-collapsed">perfil</span>
+                    <span class="menu-collapsed">Perfil</span>
                 </a>
                 <a method="post" href="controlGenerador?action=passGenera" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-key fa-fw mr-3"></span>
-                    <span class="menu-collapsed">contraseña</span>
+                    <span class="menu-collapsed">Contraseña</span>
                 </a>
             </div>   
             <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
@@ -146,18 +146,16 @@
             <div id='submenu2' class="collapse sidebar-submenu">
                 <a href="ControlGestor?action=servicioListaGestor" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">Servicios
-											Prestados</span>
+                    <span class="menu-collapsed">Servicios prestados</span>
                 </a>
                 <a href="ControlGestor?action=autorizaListaGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
   
-                    <span class="menu-collapsed">Autorizaciones
-														Ambientales</span>
+                    <span class="menu-collapsed">Autorizaciónes Ambientales</span>
                 </a>
                 <a href="ControlGestor?action=finalizaListaGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-share-square fa-fw mr-3"></span>                 
-                    <span class="menu-collapsed">Finalizacion</span>
+                    <span class="menu-collapsed">Finalización</span>
                 </a>
             
                 
@@ -170,13 +168,13 @@
 <!--             </a> -->
             <!-- Separator with title -->
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <h6>Reportes</h6>
+                <h6></h6>
             </li>  
             
                         <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-industry fa-fw mr-3"></span>                     
-                    <span class="menu-collapsed">Consultas</span>
+                    <span class="menu-collapsed">Reportes</span>
                     <span class="submenu-icon ml-auto"></span>
                 </div>
             </a>
@@ -184,7 +182,7 @@
             <div id='submenu3' class="collapse sidebar-submenu">
                 <a href="ControlGestor?action=declaraListaGestor" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">Historico</span>
+                    <span class="menu-collapsed">Histórico</span>
                 </a>
                 <a href="ControlGestor?action=indiListaGestor" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
@@ -225,7 +223,7 @@
             <a href="control?action=cerrar" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span id="collapse-icon" class="fas fa-lock mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span>
+                    <span id="collapse-text" class="menu-collapsed">Cerrar sesión</span>
                 </div>
             </a>
             <!-- Logo -->

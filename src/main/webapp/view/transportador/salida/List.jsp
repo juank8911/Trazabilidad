@@ -24,13 +24,12 @@
 
 <div class="row justify-content-md-center">
 
-				<table id="grid">
+	<table id="grid">
     <colgroup>
         <col style="width:100px" />
         <col style="width:200px" />
-        <col />
     </colgroup>
-    <thead>
+    <thead id="verde">
         <tr>
            <th data-field="dec_id" >Numero de Declaracion </th>                    
 			<th data-field="dec_gen_fecha_trn" > Fecha de Envio</th>                          

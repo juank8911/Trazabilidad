@@ -17,10 +17,10 @@
 <!-- preloader area end -->
 <script src="assets/js/cambioPerfil.js"></script>
 <div class="logo1">
-	<img src="assets/images/logo_sdstrp.png" alt="logo1"></a> <img
-		src="assets/images/logo_siac.jpg" alt="logo1"></a> <img
-		src="assets/images/logo_mads.png" alt="logo1"></a> <img
-		src="assets/images/logo_ideam.png" alt="logo1"></a>
+	<img src="assets/images/logo_sdstrp.png" alt="logo_sdstrp"></a> <img
+		src="assets/images/logo_siac.jpg" alt="logo_siac"></a> <img
+		src="assets/images/logo_mads.png" alt="logo_mads"></a> <img
+		src="assets/images/logo_ideam.png" alt="logo_ideam"></a>
 </div>
  <!-- Bootstrap NavBar -->
  <div class="header-area">
@@ -105,7 +105,7 @@
         <ul class="list-group">
             <!-- Separator with title -->
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <h6>Menu ${usuario}</h6>
+                <h6>Menu</h6>
             </li>
             <a href="controlTrans?action=transportador" id="btnNav" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
@@ -120,7 +120,7 @@
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-info fa-fw mr-3"></span>
                     
-                    <span class="menu-collapsed">Informacion</span>
+                    <span class="menu-collapsed">Información</span>
                     <span class="submenu-icon ml-auto"></span>
                 </div>
             </a>
@@ -128,24 +128,24 @@
             <div id="submenu1" class="sidebar-submenu collapse show" style="">
                 <a href="controlTrans?action=perfilLeeTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-user fa-fw mr-3"></span>
-                    <span class="menu-collapsed">perfil</span>
+                    <span class="menu-collapsed">Perfil</span>
                 </a>
                 <a method="post" href="controlTrans?action=claveTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-key fa-fw mr-3"></span>
-                    <span class="menu-collapsed">contraseña</span>
+                    <span class="menu-collapsed">Contraseña</span>
                 </a>
             </div>   
             
             <a href="controlTrans?action=vehiculoTransp" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                  <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-truck fa-fw mr-3"></span>                     
-                    <span class="menu-collapsed">Vehiculos</span>  
+                    <span class="menu-collapsed">Vehículos</span>  
                 </div>
             </a>
  
             <!-- Separator with title -->
             <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <h6>Reportes</h6>
+                <h6></h6>
             </li>  
            <a href="#submenu5" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
@@ -163,13 +163,13 @@
                 <a href="controlTrans?action=apruebaTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fas fa-check-double fa-fw mr-3"></span> 
   
-                    <span class="menu-collapsed">Aprobacion</span>
+                    <span class="menu-collapsed">Aprobación</span>
                 </a>
             	</div>
                 <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-success list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span class="fas fa-industry fa-fw mr-3"></span>                     
-                    <span class="menu-collapsed">Consultas</span>
+                    <span class="menu-collapsed">Reportes</span>
                     <span class="submenu-icon ml-auto"></span>
                 </div>
             </a>
@@ -177,7 +177,7 @@
             <div id='submenu3' class="collapse sidebar-submenu">
                 <a href="controlTrans?action=declaraListaTransp" class="list-group-item list-group-item-action bg-white text-dark">                
                 <span style="color: black;" class="fas fa-trash-restore-alt fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">Historico</span>
+                    <span class="menu-collapsed">Histórico</span>
                 </a>
                 <a href="controlTrans?action=indiListaTransp" class="list-group-item list-group-item-action bg-white text-dark">
                 <span style="color: black;" class="fab fa-elementor fa-fw mr-3"></span> 
@@ -225,7 +225,7 @@
             <a href="control?action=cerrar" class="bg-success list-group-item list-group-item-action d-flex align-items-center">
                 <div class="d-flex w-100 justify-content-start align-items-center">
                     <span id="collapse-icon" class="fas fa-lock mr-3"></span>
-                    <span id="collapse-text" class="menu-collapsed">Cerrar sesion</span>
+                    <span id="collapse-text" class="menu-collapsed">Cerrar sesión</span>
                 </div>
             </a>
             <!-- Logo -->

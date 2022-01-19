@@ -1,10 +1,12 @@
 package co.gov.ideam.sdstrp.util;
 
 import java.lang.reflect.Type;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
+import javax.persistence.Tuple;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -96,6 +98,20 @@ public class ResiduosAdapter implements com.google.gson.JsonSerializer<Boolean>
 		}
 		return jsResArr;
 		
+	}
+	
+	public JsonArray resAnio(List<Tuple> resi)
+	{
+		JsonArray residAn = new JsonArray();
+			for (Tuple tuple : resi) {
+				log.info(tuple+"");
+				JsonObject jsOb = new JsonObject();
+				jsOb.addProperty("date", String.valueOf(tuple.get(0)));
+				jsOb.addProperty("competitorName", String.valueOf(tuple.get(1)));
+				jsOb.addProperty("price", Integer.parseInt(String.valueOf(tuple.get(2))));
+				residAn.add(jsOb);
+			}
+		return residAn;
 	}
 	
 }
